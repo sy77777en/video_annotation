@@ -1,8 +1,0 @@
-{
-    "video_id": "GVr8pZmSa-c.3.2.mp4",
-    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Keep it to three sentences max to say there's no subject motion.",
-    "pre_caption": "The video shows a sunken ship's hull resting on the seabed. The scene is dark, with a deep blue hue to the water and some small white particles floating around. There is no discernible motion of the ship's hull or the camera.",
-    "pre_caption_llm": "gemini-2.5-pro-preview-05-06",
-    "pre_caption_mode": "Video",
-    "timestamp": "2025-06-02T09:57:45.582064"
-}

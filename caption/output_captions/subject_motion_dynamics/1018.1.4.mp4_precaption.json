@@ -1,7 +1,0 @@
-{
-    "video_id": "1018.1.4.mp4",
-    "pre_caption_prompt": "describe the subjects' motion in this video in detail. generate one paragraph.",
-    "pre_caption": "Initially, both men are relatively stationary within the train car galley. The man on the right, wearing a conductor-style uniform, holds a black, crook-handled staff in front of him. He then swiftly raises this staff directly upwards above his head with both hands in a decisive, vertical motion. Concurrently, the man on the left, wearing a Santa hat and holding a tan bag, turns his body away from the camera and takes a step or two backward, moving towards the rear of the compartment as the other man completes the action of raising the staff.",
-    "pre_caption_llm": "gemini-2.5-pro-preview-03-25",
-    "pre_caption_mode": "Video"
-}

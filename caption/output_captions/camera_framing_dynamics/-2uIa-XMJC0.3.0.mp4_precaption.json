@@ -1,8 +1,0 @@
-{
-    "video_id": "-2uIa-XMJC0.3.0.mp4",
-    "pre_caption_prompt": "This is the pre-caption \"\"The camera is positioned at eye level and begins with a level angle, looking straight ahead. It then shifts to a low angle, looking up at the skateboarder. The camera uses deep focus, maintaining clarity across the scene. It slightly pans right to center the skateboarder and then moves forward to approach them. The movement is slightly unsteady, with some shaking.\"\n\nGiven the feedback \"As the camera advances toward the skateboarder, it subtly tilts upward while maintaining a level angle and continues to focus straight ahead.\"\n\nDoes the caption match the video? Only answer Yes or No.",
-    "pre_caption": "Yes",
-    "pre_caption_llm": "gemini-2.5-pro",
-    "pre_caption_mode": "Video",
-    "timestamp": "2025-07-07T16:58:30.054835"
-}

@@ -1,8 +1,0 @@
-{
-    "video_id": "RooDYxp5Fx8.15.6.mp4",
-    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. ",
-    "pre_caption": "The video presents a daytime street scene at an intersection in a Japanese town. The asphalt road is marked with white lines for lanes and pedestrian crossings, and several vehicles, including a dark blue van, a green bus, and smaller cars, are on the roadway.\n\nA sidewalk on the left, paved with rectangular tiles of varying colors (shades of grey, blue, and white), features a traditional stone lantern and a small tree.\n\nBuildings line both sides of the street. One notable structure on the right corner displays traditional Japanese architecture with a multi-tiered tiled roof, wooden accents, and signage in Japanese characters. Other buildings show a mix of modern and traditional styles.\n\nNumerous utility poles and overhead wires are visible against a clear blue sky. A traffic light is also present at the intersection. In the background, a green, tree-covered hill can be seen. A few pedestrians are also present on the sidewalks.",
-    "pre_caption_llm": "gemini-2.5-pro-preview-05-06",
-    "pre_caption_mode": "Video",
-    "timestamp": "2025-05-23T20:40:24.643331"
-}

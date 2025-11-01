@@ -1,8 +1,0 @@
-{
-    "video_id": "RGSN4S5jn4o.0.0.mp4",
-    "pre_caption_prompt": "As a professional captioner and cinematographer, describe how the subjects move throughout the video, beginning from the first frame. Write a single, concise, and fluent paragraph that emphasizes subject motion, visual detail, and natural progression over time. Your description should be visually grounded and coherent, as if narrating exactly what a viewer would observe. Do not mention the camera, editing techniques, or visual effects.",
-    "pre_caption": "Initially, a young man in a light green shirt and blue jeans strides from right to left across a black and white checkerboard crosswalk. In the background, a yellow taxi drives away from the viewer, and a cyclist pedals in the same direction as the man, further down the street. On the far sidewalk, another pedestrian in a yellow jacket walks from left to right, passing a vibrant flower stall. The crosswalk's surface then changes to an intricate white line pattern on a dark grey background. The young man continues his leftward journey over this new design. As he moves, a woman in a bright yellow outfit enters from the left, walking right towards the crosswalk. Concurrently, an animated woman with pink hair, a green outfit, and yellow pants, holding a small pink creature, also walks from left to right across the patterned ground, followed by a man in a suit, while the individual in the yellow jacket continues their rightward progress near the bustling flower stall.",
-    "pre_caption_llm": "gemini-2.5-pro-preview-05-06",
-    "pre_caption_mode": "Video",
-    "timestamp": "2025-05-12T02:14:27.224242"
-}

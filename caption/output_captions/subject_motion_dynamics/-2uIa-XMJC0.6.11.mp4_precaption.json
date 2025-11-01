@@ -1,7 +1,0 @@
-{
-    "video_id": "-2uIa-XMJC0.6.11.mp4",
-    "pre_caption_prompt": "Provide a concise yet informative description of the subject\u2019s motion in this video, ensuring actions are presented in **chronological order** if multiple movements occur (e.g., \"The bird first takes flight, then soars in a circle, and finally lands on a branch\"). Focus on the subject's motion rather than repeating details already included in the human-written subject descriptions. Avoid describing anything not visible or uncertain. Use simple, natural English to create a clear, concise, and coherent paragraph that highlights essential details. Avoid emotional or subjective adjectives. Avoid speculative statements like 'there might be,' 'it appears,' or ambiguous options like 'A or B.' Return only the description.\n\n",
-    "pre_caption": "A hand enters the frame from the bottom right and moves towards the base of the monitor, pressing a glowing pink button on the left side.",
-    "pre_caption_llm": "gemini-2.5-pro-preview-03-25",
-    "pre_caption_mode": "Video"
-}
