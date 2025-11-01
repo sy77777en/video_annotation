@@ -13,6 +13,11 @@ caption/test_temp.py
 caption/credentials.json
 caption/credentials_token.json
 temp_videos/
+caption/output_captions/
+caption/output_critiques/
+caption/output_onboarding/
+my_exports/
+my_exports_20250708/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
