@@ -313,6 +313,8 @@ def generate_html(export_file: Path, output_file: Path, adobe_excel_files: Optio
     
     # Hardcoded list of video filenames to include
     INCLUDED_VIDEOS = {
+        "4PcpGxihPac.3.0.mp4", "O6_XM2Mn0lg.1.mp4", "47f4df7877163fa635cf93fa75853a526b9f738b9c08d43f0126b81b721045d7.0.mp4", "OCBYMQzG44U.2.7.mp4", "uWCGK4nneeU.2.3.mp4", "upC8hjr2b4g.0.0.mp4", "xhrAGJviQJA.0.7.mp4", "IyTv_SR2uUo.2.7.mp4", "kjI2gyb2hR4.0.1.mp4", "1934.1.25.mp4", "h1PjJ9_Yd2c.2.15.mp4", "X-keHLL75tg.3.6.mp4", "3esyihbPQm8.0.3.mp4", "cff54db6382ec81eaef2351f5319978651cec439bf358c937295d87986ab89b6.0.mp4", "TktL3QR8Yg8.0.9.mp4", "d31dc92ece2e873871190ee256e08745b036fb7c5d3b491aa355106a54e23318.2.mp4", "hk3sjN_k3-g.0.5.mp4", "BNzc6hG3yN4.1.4.mp4", "TktL3QR8Yg8.0.10.mp4", "1470.0.7.mp4", "mixkit-beautiful-dusk-on-a-large-lake-from-above-5005.0.mp4",
+        "piQsdrDKzzM.2.3.mp4", "mIiPt1YVkP8.9.7.mp4", "e_ofen9SDeM.0.2.mp4", "bPZc7avrCT4.5.5.mp4", "nb69sgB5mG0.2.2.mp4", "cd248d6e8326130876d9f820943ac094463a938ba557ccff8171d483dbe01d14.0.mp4", "fSWFUFdV5TU.5.0.mp4", "kxcw0iSn0xw.1.2.mp4", "5qKYrajRNwo.3.3.mp4", "kxcw0iSn0xw.3.2.mp4", "LNHBMFCzznE.0.4.mp4", "iXzposKQzvs.2.8.mp4", "bX8GaZ3O4-Q.3.2.mp4", "pNGMY3xVkVE.0.1.mp4",
         "bX8GaZ3O4-Q.3.2.mp4", "iXzposKQzvs.2.8.mp4",
         "fSWFUFdV5TU.5.0.mp4", "fSWFUFdV5TU.5.0.mp4",
         "60.0.32.mp4", "IWv0EhEGmNI.3.3.mp4", "f4ZzHtww6Tc.5.0.mp4", "OCBYMQzG44U.2.10.mp4",

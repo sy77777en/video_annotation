@@ -305,10 +305,10 @@ class CaptionInterface:
         # Display current precaption
         st.write("##### Current pre-caption")
         st.write(pre_caption)
-        st.write("#### Rate the caption (Is it accurate? Does it miss anything important?)")
+        st.write("#### Critique and then rate the pre-caption (Is it accurate based on the caption instruction?)")
         
         # Exact text from original feedback_app.py
-        st.write("Please provide your feedback to improve this caption (if not score of 5):")
+        st.write("Please provide your feedback to improve this caption (if the score is not 5):")
         
         # Feedback collection
         user_feedback = st.text_area(
