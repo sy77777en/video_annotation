@@ -1,0 +1,8 @@
+{
+    "video_id": "pGtjz4v0EE8.0.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenic video of the waterfront in Venice, Italy, focusing on the Chiesa dei Gesuati (Church of the Jesuits). The camera, positioned on the water, moves to offer different perspectives of the cityscape. It transitions from a side view to a more direct, frontal shot of the church.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-27T02:05:42.850248"
+}

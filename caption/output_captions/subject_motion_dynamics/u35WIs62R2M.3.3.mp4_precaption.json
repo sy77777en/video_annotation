@@ -1,0 +1,8 @@
+{
+    "video_id": "u35WIs62R2M.3.3.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a scenic, tilted aerial view of a vast expanse of deep teal water under a partly cloudy sky. A bright light source illuminates the scene from above, creating a hazy glow. The shot focuses on the scenery, and there is no specific subject motion to describe.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-10T22:50:22.221958"
+}

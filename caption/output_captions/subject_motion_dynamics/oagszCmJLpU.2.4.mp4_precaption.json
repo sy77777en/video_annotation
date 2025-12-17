@@ -1,0 +1,8 @@
+{
+    "video_id": "oagszCmJLpU.2.4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot captures a powerful thunderstorm at night. Lightning flashes within a large, dark cloud, illuminating it with a purple glow against a starry sky. Faint city lights can be seen on the distant horizon below the storm.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-14T00:13:07.324517"
+}

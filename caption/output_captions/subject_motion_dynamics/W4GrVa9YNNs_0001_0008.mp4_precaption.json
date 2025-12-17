@@ -1,0 +1,8 @@
+{
+    "video_id": "W4GrVa9YNNs_0001_0008.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video showcases a rack focus camera technique in a scenic, static shot. The scene begins with yellow flowers in the foreground in sharp focus, while a brown barn and white fence in the background are blurred. The focus then smoothly shifts from the flowers to the barn, bringing the background into sharp view as the foreground becomes blurry.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-08T09:57:51.172092"
+}

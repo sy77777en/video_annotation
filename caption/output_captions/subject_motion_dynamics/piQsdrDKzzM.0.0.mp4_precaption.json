@@ -1,0 +1,8 @@
+{
+    "video_id": "piQsdrDKzzM.0.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, high-angle shot looking down a city street. The street is framed on both sides by tall, modern skyscrapers and residential buildings. The scene is captured during golden hour, with sunlight illuminating the sides of the buildings and casting long shadows.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-08T09:44:38.492012"
+}

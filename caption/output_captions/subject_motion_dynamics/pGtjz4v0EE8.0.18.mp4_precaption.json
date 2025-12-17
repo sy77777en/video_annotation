@@ -1,0 +1,8 @@
+{
+    "video_id": "pGtjz4v0EE8.0.18.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot. The video features a static, low-angle view of the Leaning Tower of Pisa. The only movement is the rapid passage of clouds across the sky in a timelapse effect.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-28T03:16:06.669542"
+}

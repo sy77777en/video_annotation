@@ -1,0 +1,8 @@
+{
+    "video_id": "oJDzh2mVBms.0.3.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, wide shot of a serene and cold landscape. There is no movement from the camera or any subjects within the frame. The scene remains completely still throughout the video.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-27T22:36:48.843165"
+}

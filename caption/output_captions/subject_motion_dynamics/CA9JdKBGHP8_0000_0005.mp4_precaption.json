@@ -1,0 +1,8 @@
+{
+    "video_id": "CA9JdKBGHP8_0000_0005.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot features a large, active water fountain in an urban park setting. The camera performs a slow upward tilt, beginning at the wet, grassy cobblestones and rising to reveal the fountain's full spray, with trees and a large brick building visible in the background.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-02T02:09:29.732681"
+}

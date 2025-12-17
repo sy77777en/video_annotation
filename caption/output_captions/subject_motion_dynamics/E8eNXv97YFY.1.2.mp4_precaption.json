@@ -1,0 +1,8 @@
+{
+    "video_id": "E8eNXv97YFY.1.2.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, scenic shot of a river at sunrise or sunset. The sun's bright reflection shimmers on the water, where several small boats are slowly moving. In the distance, a city skyline is silhouetted against the hazy, golden sky, while a few birds fly overhead.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-27T03:23:54.477102"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "t2_J-RVP7EM.2.3.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static shot of a detailed architectural cross-section model of a large, multi-level building. The scene is dimly lit, with strategic spotlights illuminating various interior rooms, which appear to be auditoriums or assembly halls with different seating arrangements. The overall design is stark and modern, rendered primarily in shades of grey.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-03T00:47:17.023881"
+}

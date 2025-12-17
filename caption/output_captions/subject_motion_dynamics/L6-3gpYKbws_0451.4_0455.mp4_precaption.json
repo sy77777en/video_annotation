@@ -1,0 +1,8 @@
+{
+    "video_id": "L6-3gpYKbws_0451.4_0455.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery video captures a transition from an above-water to an underwater perspective. The video begins with a water-level view of a tropical beach with palm trees and buildings at the base of a green hill. The camera then dips below the surface, revealing a clear, turquoise underwater world with a sandy bottom and a school of fish swimming by.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-15T02:56:56.732984"
+}

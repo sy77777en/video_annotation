@@ -1,0 +1,8 @@
+{
+    "video_id": "4jdZkC33NXw.0.2.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "These images depict a quiet residential street on a rainy day. The road is wet, and the sky is overcast, creating a calm and serene atmosphere. The scene is still, with no visible movement or activity.",
+    "pre_caption_llm": "gpt-4.1-2025-04-14",
+    "pre_caption_mode": "Image (First-and-Last-Frame)",
+    "timestamp": "2025-11-29T07:36:13.804903"
+}

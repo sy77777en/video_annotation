@@ -1,0 +1,8 @@
+{
+    "video_id": "wrW0enIo2u8.0.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a static shot looking through a dark, rectangular opening into a dimly lit, reddish-brown room. A ball of fire floats in the center of the space, with small embers drifting around it. The overall scene is dark and has a mysterious, fiery atmosphere.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-24T01:51:37.903627"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "ffc0b611-9f9d-4a3d-8d6f-13e7457176f4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot from a worm's-eye view, looking directly up through the center of a multi-story, rectangular staircase. The warm, orange-colored walls contrast with the dark, ornate metal railings, creating a spiraling, geometric pattern that recedes into the distance. The shot includes a slow, rotating camera movement that enhances the vertiginous perspective.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-22T21:42:08.167144"
+}

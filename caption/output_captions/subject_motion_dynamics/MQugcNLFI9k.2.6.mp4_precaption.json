@@ -1,0 +1,8 @@
+{
+    "video_id": "MQugcNLFI9k.2.6.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a wide, establishing shot of a vast, dark, and densely packed futuristic city, reminiscent of a cyberpunk setting. The scene is characterized by complex, multi-layered architecture illuminated by a profusion of colorful neon signs and holographic displays, some of which show faces and alien-like characters. The camera executes a slow, steady forward movement, offering a gradual tour through the neon-lit canyons of the metropolis.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-03T22:05:30.178567"
+}

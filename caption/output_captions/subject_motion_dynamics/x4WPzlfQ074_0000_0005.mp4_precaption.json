@@ -1,0 +1,8 @@
+{
+    "video_id": "x4WPzlfQ074_0000_0005.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery video captures a beautiful tropical location from the water. The shot begins at the surface, showing a lush, mountainous island under a blue sky with white clouds. The camera then dips underwater, revealing a clear, turquoise world with a rocky and sandy seabed.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-16T20:15:50.295900"
+}

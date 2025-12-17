@@ -1,0 +1,8 @@
+{
+    "video_id": "oagszCmJLpU.3.2.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a time-lapse video of a massive, ominous storm system moving over a rural landscape. The dark, turbulent clouds of what appears to be a supercell thunderstorm are seen progressing across the fields. The dramatic scene is illuminated by a sliver of light on the horizon beneath the dark storm front.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-27T00:56:59.075887"
+}

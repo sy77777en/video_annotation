@@ -1,0 +1,8 @@
+{
+    "video_id": "00ZNvOMUe0o_0246_0243.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenic, high-angle shot overlooking a vast, dense green jungle. In the distance, a sandy coastline meets the blue ocean under a clear sky with a few scattered clouds. The camera makes a slow, subtle pan or drift across the scene.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-27T02:56:16.923032"
+}

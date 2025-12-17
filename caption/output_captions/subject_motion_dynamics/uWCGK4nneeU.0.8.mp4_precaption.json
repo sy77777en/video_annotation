@@ -1,0 +1,8 @@
+{
+    "video_id": "uWCGK4nneeU.0.8.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video is a scenery shot of a dry, mountainous landscape, framed as if viewed through binoculars. The arid terrain features rugged hills and winding dirt paths. The overall impression is of a remote and desolate location.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-16T22:42:43.721704"
+}

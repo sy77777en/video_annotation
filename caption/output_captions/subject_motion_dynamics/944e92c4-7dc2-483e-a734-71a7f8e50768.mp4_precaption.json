@@ -1,0 +1,8 @@
+{
+    "video_id": "944e92c4-7dc2-483e-a734-71a7f8e50768.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot filmed from a low-angle perspective, looking up towards the sky. The frame is dominated by a deep blue sky with scattered white clouds, contrasted by the underside of a concrete bridge or overpass that cuts diagonally across the view. The camera glides forward, tracking along the length of the structure, creating a sense of steady movement beneath it.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-16T09:17:32.472013"
+}

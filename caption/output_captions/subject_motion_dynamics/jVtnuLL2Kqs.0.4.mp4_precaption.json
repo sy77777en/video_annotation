@@ -1,0 +1,8 @@
+{
+    "video_id": "jVtnuLL2Kqs.0.4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a scenic, wide-angle view of Buckingham Palace and the Victoria Memorial in London. The shot is largely static, capturing the grandeur of the architecture, the surrounding gardens, and the partly cloudy sky. There is no significant subject motion, creating a peaceful, picturesque scene.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-13T09:52:36.308577"
+}

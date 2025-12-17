@@ -1,0 +1,8 @@
+{
+    "video_id": "GjEImPidK4g.0.4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a static, atmospheric shot with text overlays. The scene is a blurry, black-and-white view of a rainy city street at night, possibly seen through a window, with a \"MOTEL\" sign visible on the left. The video opens with the title \"DREAMSCAPE\" in stylized lettering, which then fades out as the year \"2032\" appears in the corner. The only motion is the appearance and fading of the text elements.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-25T21:27:27.632570"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "sJsu7Tv-fRY.5.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, wide shot of the ground floor of a residential building. The area in front of the building is unkempt and overgrown with grass and weeds. A small rat is visible on the pavement in the foreground.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-24T22:23:48.628171"
+}

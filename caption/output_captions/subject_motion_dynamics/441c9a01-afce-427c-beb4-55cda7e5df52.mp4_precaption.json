@@ -1,0 +1,8 @@
+{
+    "video_id": "441c9a01-afce-427c-beb4-55cda7e5df52.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot shows a view looking up at a blue sky filled with small, white clouds. The perspective is framed by the edges of a square opening, like a skylight or an open roof. The clouds are in motion, drifting across the sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-11-28T04:03:59.368226"
+}
