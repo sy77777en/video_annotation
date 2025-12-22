@@ -1,0 +1,8 @@
+{
+    "video_id": "wqn8akChql4.1.11.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video shows an apocalyptic, aerial scene of a football stadium being destroyed. A massive, dark, swirling force engulfs and tears apart the structure. The camera pulls back as the stadium is completely obliterated.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-22T04:05:25.090695"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "1a1cecb8-2476-4966-9786-3fe0dce1ec0f.27.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a wide-angle, point-of-view shot of a street intersection in what appears to be a city or university campus setting. The scene features roads with crosswalks, traffic lights, lush green trees, and large brick buildings in the background under an overcast sky. The camera pans and moves forward, offering a dynamic perspective of the surroundings.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-17T20:42:14.882962"
+}

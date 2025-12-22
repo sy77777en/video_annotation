@@ -13,7 +13,7 @@ def encode_image(image_path):
 
 class ChatGPT(LLM):
     def __init__(self, model="gpt-4o-2024-08-06", api_key=None):
-        assert model in ["gpt-4.1-2025-04-14", "gpt-4o-2024-08-06", "gpt-4o-mini-2024-07-18", "o1-2024-12-17"]
+        assert model in ["gpt-5-mini", "gpt-5.1", "gpt-5.2", "gpt-4.1-2025-04-14", "gpt-4o-2024-08-06", "gpt-4o-mini-2024-07-18", "o1-2024-12-17"]
         self.api_key = api_key
         os.environ["OPENAI_API_KEY"] = self.api_key
         self.client = OpenAI()

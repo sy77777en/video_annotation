@@ -1,0 +1,8 @@
+{
+    "video_id": "0CGA_2HFWnU_0009_0005.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video features a scenic, high-angle shot of a city skyline against a backdrop of mountains. The camera performs a slow, downward tilt throughout the clip. This movement gradually reveals a residential street and an apartment building nestled amongst the lush green trees in the foreground.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-20T23:40:13.682539"
+}

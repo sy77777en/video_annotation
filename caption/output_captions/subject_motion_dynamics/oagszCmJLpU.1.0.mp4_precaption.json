@@ -1,0 +1,8 @@
+{
+    "video_id": "oagszCmJLpU.1.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a dramatic scenery shot of a storm. Heavy, dark storm clouds hang low over a flat, arid landscape. The scene is ominous, with the massive cloud formation dominating the sky above the thin strip of land at the horizon.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-18T09:42:46.081593"
+}

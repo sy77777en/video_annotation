@@ -1,0 +1,8 @@
+{
+    "video_id": "pGtjz4v0EE8.0.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenic video presents a daytime view of the Doge's Palace and St. Mark's Campanile in Venice, Italy, as seen from the water. The camera pans across the bustling waterfront. Boats can be seen moving on the canal.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-18T04:09:25.708728"
+}

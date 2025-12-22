@@ -1,0 +1,8 @@
+{
+    "video_id": "ky5uvjPVhk8.3.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "The video captures a peaceful garden scene with a traditional wooden building and a stone pathway surrounded by lush greenery and colorful trees. A person with a stroller is seen walking along the path, adding a sense of calm movement to the tranquil setting.",
+    "pre_caption_llm": "gpt-4.1-2025-04-14",
+    "pre_caption_mode": "Image (First-and-Last-Frame)",
+    "timestamp": "2025-12-19T11:38:05.349256"
+}
