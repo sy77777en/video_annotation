@@ -55,5 +55,5 @@ if __name__ == "__main__":
         json_path="./video_labels/cam_motion-cam_setup-20251227_ground_and_setup_folder/all_labels.json",      # 你的 JSON 文件路径
         source_video_dir="./videos",     # 视频源文件夹
         base_output_dir="./rare_label_videos",# 输出的根目录
-        threshold=30                    # 阈值
+        threshold=50                    # 阈值
     )
