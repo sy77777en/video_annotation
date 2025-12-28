@@ -43,6 +43,6 @@ def copy_selected_videos(video_folder, json_path, number, output_folder='selecte
 copy_selected_videos(
     video_folder = '/data2/siyuanc4/flimai_sft',  # 你的视频来源文件夹
     json_path    = './exclude.json',  # exclude.json 的路径
-    number       = 100,                 # 你想要 copy 的数量
-    output_folder = './selected_results' # 结果存放的文件夹
+    number       = 20,                 # 你想要 copy 的数量
+    output_folder = './selected_results_2' # 结果存放的文件夹
 )
