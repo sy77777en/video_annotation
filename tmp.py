@@ -2,47 +2,37 @@ import os
 import json
 import random
 
-def select_videos(folder_path, json_path):
-    # 1. 读取 JSON 配置文件
+def get_selected_videos(folder_path, json_path, num_to_pick):
+    # 1. 直接读取 JSON，它本身就是一个文件名列表
     try:
         with open(json_path, 'r', encoding='utf-8') as f:
-            config = json.load(f)
-            # 根据你描述的格式，这里假设 json 是一个 dict
-            # 里面包含一个列表 (exclude_list) 和一个数字 (number)
-            exclude_list = config.get('list', [])  
-            count_to_pick = config.get('number', 0)
-    except FileNotFoundError:
-        print(f"错误：找不到配置文件 {json_path}")
+            exclude_list = json.load(f) 
+            if not isinstance(exclude_list, list):
+                print("错误：JSON 文件内容不是一个列表格式")
+                return []
+    except Exception as e:
+        print(f"读取 JSON 出错: {e}")
         return []
 
     # 2. 获取文件夹内所有 .mp4 文件
     all_videos = [f for f in os.listdir(folder_path) if f.lower().endswith('.mp4')]
     
-    # 3. 过滤掉在排除列表中的视频
+    # 3. 排除掉 list 里的文件
     exclude_set = set(exclude_list)
     available_videos = [v for v in all_videos if v not in exclude_set]
     
-    print(f"总视频数: {len(all_videos)}")
-    print(f"排除视频数: {len(exclude_set)}")
-    print(f"剩余可选数: {len(available_videos)}")
+    # 4. 随机抽取指定的 number 数量
+    if len(available_videos) < num_to_pick:
+        print(f"警告：过滤后剩余 {len(available_videos)} 个视频，不足要求的 {num_to_pick} 个。将全部返回。")
+        num_to_pick = len(available_videos)
 
-    # 4. 随机抽取
-    if len(available_videos) == 0:
-        print("没有可抽取的视频。")
-        return []
-    
-    # 如果要求的数量超过剩余数量，取最大可用数
-    actual_pick_count = min(count_to_pick, len(available_videos))
-    selected_videos = random.sample(available_videos, actual_pick_count)
-    
-    return selected_videos
+    selected = random.sample(available_videos, num_to_pick)
+    return selected
 
-# --- 使用示例 ---
-video_dir = '/data2/siyuanc4/flimai_sft'   # 你的视频文件夹
-config_file = './exclude.json'   # JSON 文件的实际路径
+# --- 你的输入参数 ---
+v_folder = '/data2/siyuanc4/flimai_sft'      # 视频文件夹
+j_file = './exclude.json'  # JSON 文件路径
+n = 110                      # 你想要的 number
 
-result = select_videos(video_dir, config_file)
-
-print("\n最终选中的视频列表：")
-for i, name in enumerate(result, 1):
-    print(f"{i}. {name}")
+result = get_selected_videos(v_folder, j_file, n)
+print(result)
