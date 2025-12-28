@@ -8,7 +8,7 @@ import random
 label_path = '/compute/trinity-2-25/siyuanc4/video_annotation/video_labels/cam_motion-cam_setup-20251227_ground_and_setup_folder/all_labels.json'
 target_folder = '/data2/siyuanc4/camerabench_pro/videos'
 # IMPORTANT: Where the original camerabench mp4 files are stored
-source_video_dir = '/path/to/your/original/videos' 
+source_video_dir = './videos' 
 filmai_dir = '/data2/siyuanc4/filmai/videos'
 
 video_types = {"camerabench_cut": 15, "camerabench_no_cut": 15, "flim": 30}
