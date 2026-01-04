@@ -1,0 +1,22 @@
+{
+    "label": "cam_setup.height_wrt_subject.height_wrt_subject_change_from_high_to_low",
+    "label_name": "Height Wrt Subject Change From High To Low",
+    "definition": "Does the subject start above and end at or below the camera\u2019s height, or start level and end below?",
+    "pos": [
+        "g9-26Fn0cao_03_29_03_31.mp4",
+        "InXSW569ElA_01_05_01_09.mp4",
+        "0qL8-7SKCCE_00_24_00_26.mp4",
+        "FdUHm-XThnk_00_09_00_11.mp4",
+        "8OQZoR34hzg_04_24_04_27.mp4",
+        "cRienev1J3Q_03_38_03_43.mp4",
+        "uWCGK4nneeU.1.2.mp4",
+        "-2uIa-XMJC0.5.10.mp4"
+    ],
+    "neg": [
+        "upC8hjr2b4g.11.2.mp4",
+        "T5IgH__lL7I_00_55_00_56.mp4",
+        "InXSW569ElA_01_03_01_05.mp4",
+        "T5IgH__lL7I_04_01_04_03.mp4",
+        "mIiPt1YVkP8.2.0.mp4"
+    ]
+}

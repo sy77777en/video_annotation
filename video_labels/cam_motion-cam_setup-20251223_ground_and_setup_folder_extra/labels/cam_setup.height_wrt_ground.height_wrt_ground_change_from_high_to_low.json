@@ -1,0 +1,26 @@
+{
+    "label": "cam_setup.height_wrt_ground.height_wrt_ground_change_from_high_to_low",
+    "label_name": "Height Wrt Ground Change From High To Low",
+    "definition": "Does the camera height decrease noticeably in relation to the ground, shifting between levels like aerial, overhead, eye, hip, or ground?",
+    "pos": [
+        "WNIHx2t0OeI_14_28_14_31.mp4",
+        "InXSW569ElA_01_05_01_09.mp4",
+        "T5IgH__lL7I_01_43_01_45.mp4",
+        "16IIxFUhcZ4_05_21_05_24.mp4",
+        "LZkl0_9xFOU.16.2.mp4",
+        "Kzy3n-8A-vA.0.1.mp4",
+        "LtXUoaZcp70.6.1.mp4"
+    ],
+    "neg": [
+        "7DfYUNE_yhk_01_04_01_05.mp4",
+        "0qL8-7SKCCE_01_49_01_56.mp4",
+        "OFJQ9NU1JRs_03_27_03_28.mp4",
+        "cjHILOqPnOQ_04_14_04_15.mp4",
+        "vwwM3MixzMQ_03_52_03_55.mp4",
+        "InXSW569ElA_01_03_01_05.mp4",
+        "KUoufHzFHVs_08_40_08_44.mp4",
+        "WNIHx2t0OeI_08_04_08_05.mp4",
+        "ltNFN12n6Us_09_46_09_49.mp4",
+        "T5IgH__lL7I_04_01_04_03.mp4"
+    ]
+}
