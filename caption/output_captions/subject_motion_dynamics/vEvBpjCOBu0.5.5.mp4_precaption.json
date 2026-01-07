@@ -1,0 +1,8 @@
+{
+    "video_id": "vEvBpjCOBu0.5.5.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static shot of a burnt and rocky landscape. The ground is covered in ash, small rocks, and several large, charred logs, suggesting the aftermath of a fire. The scene remains completely still throughout the clip.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-04T07:41:39.257396"
+}

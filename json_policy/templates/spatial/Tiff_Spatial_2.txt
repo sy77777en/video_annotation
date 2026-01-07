@@ -1,0 +1,38 @@
+Please convert the following caption into the JSON format below:
+
+{
+“shot_size”: “Indicate how much of the subject or scenery is visible in the frame, such as close-up, medium shot, wide shot, or an equivalent description.”,
+“frame_position”: “Describe the approximate 2D position of each subject or key element within the frame (for example: center, left, right, top-left).”,
+“scene_position”: “Describe each subject or element’s physical location within the environment (for example: near a window, beside a tree, at the end of a hallway).If there is more than one subject, clearly describe their spatial relationship to each other.”,
+“spatial_depth”: “Describe the 3D depth placement of each subject or element in the scene (foreground, midground, or background).”,
+“height_relative_to_camera”: “Describe the vertical position of each subject relative to the camera (for example: eye level, hip level, ground level, overhead, or aerial view).”,
+“spatial_motion”: “Describe any changes in shot size, frame position, depth, or height over time, clearly specifying both the initial and final states.”
+}
+
+Caption Instruction:
+
+Analyze the subjects and elements in the video and describe how they are spatially framed within the scene. Focus on shot size, frame position, scene position, spatial depth, height relative to the camera, and any changes over time. Describe only what is clearly visible. Use simple, natural English. Avoid emotional or subjective language. Avoid speculation or ambiguous phrasing. If transitions occur, explicitly describe what changes and how. Return only the spatial description content.
+
+First, specify the shot size based on how much of the main subject is visible. If no clear subject exists, describe the shot size relative to the scenery. If the shot size changes, clearly describe the transition, including both the initial and final states.
+
+Next, describe the spatial positions of all visible subjects or key elements. For each element mentioned, provide both its approximate 2D position within the frame (such as left, center, or top-right) and its 3D position within the scene (foreground, midground, or background). If positions change, clearly describe the transition, including both the initial and final states. If there is more than one subject, explicitly describe their spatial relationship.
+
+Then, describe the camera’s height relative to each subject mentioned in the caption. If this information is explicitly provided, use it. Otherwise, infer it from visible cues. If the camera height changes, clearly describe the transition, including both the initial and final states.
+
+If the video contains shot transitions, describe each segment separately. Identify the transition type when possible (for example: hard cut or soft transition) and explain how shot size, framing, depth, and camera height change between segments.
+
+If the video is a scenery-only shot, describe the shot size and any spatial movement within the scene.
+
+If the video includes one or more salient subjects, focus primarily on their spatial framing and movement. When a clear main subject exists, describe it in detail and mention secondary subjects briefly. If multiple subjects share equal focus, describe their spatial arrangement and movement collectively.
+
+If subjects appear, disappear, or switch, describe the transition clearly, including how spatial framing and positioning change.
+
+Caption: {caption}
+
+Instructions:
+	1.	Use exactly the same JSON keys as shown above
+	2.	Preserve all important information from the caption
+	3.	Organize the information under the appropriate keys
+	4.	Infer missing information only when explicitly required by the instructions
+	5.	Leave fields empty (””) if the information cannot be determined
+	6.	Return only valid JSON, with no additional text

@@ -1,0 +1,8 @@
+{
+    "video_id": "3HYfPz8lvDI.4.4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, low-angle scenery shot of a modern, curved skyscraper. The tall building towers over the rooftops of older, traditional architecture. The scene is still, highlighting the contrast in architectural styles against a bright sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-25T03:37:35.672375"
+}

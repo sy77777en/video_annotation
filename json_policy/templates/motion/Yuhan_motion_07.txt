@@ -1,0 +1,56 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "subject_motion": "Describe the actions and dynamic changes of each individual subject, specifying how they move or change over time or if they do not move or change.",
+  "group_motion": "Summarize collective or coordinated actions of groups of subjects, specifying the type of group and the nature of the activity.",
+  "subject_object_interaction": "Describe interactions between subjects and objects if there are any, specifying the type of interaction, the object involved, and any resulting effect.",
+  "subject_subject_interaction": "Describe interactions between different subjects if there are any, specifying the nature of interaction and their relative movements. Do not "
+}
+
+Caption Instruction:
+Provide a concise yet informative description of the subject's motion in this video, ensuring actions are presented in chronological order if multiple movements occur (e.g., "The bird first takes flight, then soars in a circle, and finally lands on a branch"). Focus on the subject's motion rather than repeating details already included in the human-written subject descriptions. Avoid describing anything not visible or uncertain. Use simple, natural English to create a clear, concise, and coherent paragraph that highlights essential details. Avoid emotional or subjective adjectives. Avoid speculative statements like 'there might be,' 'it appears,' or ambiguous options like 'A or B.' Return only the one-paragraph video description without Markdown formatting or introductory text.
+
+If the subject in the video has no movement, please briefly mention that without going into too much detail.
+
+Please only describe the content of the video. Don't mention the details of the subject's appearance unless you need to differentiate between multiple subjects by their appearance. Clearly describe the subject's motion.
+
+Avoid abstract descriptions, such as "The car maintains a low, sleek profile as it maneuvers the bend, emphasizing its speed and agility" and "emphasizing its speed and agility as it maneuvers through the turn."
+
+Below are detailed instructions:
+
+Describe individual subject actions with clarity, specifying how they move rather than using generic descriptions. For example, instead of "a person is running," say "a runner sprints across the finish line."
+
+If the subject interacts with an object, specify the type of interaction and its effect. Instead of "a person is working," say "a construction worker operates a jackhammer, breaking up the pavement."
+
+If there are interactions between subjects, describe the nature of their relationship and movements relative to each other. Instead of "people are fighting," say "two boxers exchange blows in the ring, circling each other cautiously."
+
+If there are collective behaviors for a group of subjects, describe group activities with specificity. Instead of "birds are flying," say "a flock of geese flies in a V-formation across the horizon." Instead of "people are walking," say "a crowd of protesters marches down the street, carrying signs and banners." Clearly convey the type of group, their coordinated actions, and any notable patterns in their movement.
+
+When shot transitions occur, describe the motion of subjects in each segment separately, noting the type of transition (e.g., hard cut, soft transition) and explaining how the subject's motion changes between segments.
+
+If the video is a scenery shot without salient subjects, you do not need to describe subject motion. Instead, briefly note this in one to three sentences.
+
+If the video features salient human or non-human subjects, focus your description on their motion. When there are multiple subjects with a clear focus, describe the main subject's motion in detail and briefly mention the motion of secondary subjects. If there are multiple subjects without a clear main focus, describe their motion collectively and concisely without going into excessive detail.
+
+If the video features subjects revealing, disappearing, or switching, describe the transition in detail along with the description of their motion.
+
+Only describe visible subject motion, do not include environment, weather, lighting, or speculative adjectives.
+Chronological order for multiple movements.
+Do not repeat the same motion across fields.
+For groups, always summarize coordinated actions in group_action.
+Object interactions go only in object_interaction.
+Subject interactions go only in subject_interaction.
+
+Caption: {caption}
+
+Instructions:
+1. Use the exact same JSON keys as shown above
+2. Preserve all important information from the caption with all the keywords and details
+3. Organize the information appropriately under each key
+4. If the caption doesn't contain some information, please review the caption instruction above to determine what should be the input
+5. It is okay to leave fields blank as "" if nothing is mentioned in the caption
+6. Return only valid JSON without any additional text
+7. No period after each caption
+8. Mention only the subject action in "subject_action". Avoid mentioning camera-related details
+9. Scenery, buildings, and walls are not subjects. Leave Subject Action, Object Interaction, Subject Interaction, and Group Action empty if the caption only mentions scenery rather than the subject. Do not add scene-related content to these sections.
+10. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.

@@ -1,0 +1,58 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "type": "Summarize the main subjects with their characteristics in the video in a complete sentence. Do not include environment objects or background props (e.g., furniture, skateboards, trees).",
+  "appearance": "Summarize key visual traits of each subject, such as hairstyle, facial hair, age, gender, ethnicity (if clear), or for objects, color, material, shape, and any distinctive marks.",
+  "wardrobe": "For subjects with clothing, describe clothing colors, styles, and notable accessories or details.",
+  "facial_expression": "If visible and relevant, describe each subject's facial expression clearly (e.g., smiling, frowning, neutral).",
+  "pose": "Describe each subject's posture, stance, and orientation within the frame (e.g., standing, sitting, walking, facing camera).",
+  "relationship": "Explain spatial and action-based relationships between subjects (e.g., standing next to, chasing, handing an object to another).",
+  "transition": "If a subject reveals, disappears, or changes prominence during the video, describe the change and how it occurs (through subject or camera movement)."
+}
+
+Caption Instruction:
+Provide a concise yet informative description of the subjects in this video. Keep the description concise and clear, focusing on subject types and visual attributes. You should describe the video by combining details from the frames without referring to any specific one (e.g., don’t mention things like "first frame" or "last frame"), and avoid using terms like "image" or "frame." Don't mention the background or motion unless it's necessary to distinguish subjects by location, action, or relationships. You must avoid describing what is not visible or what you are unsure about. You must use simple, natural English and ensure the description is a clear, concise, and coherent paragraph that highlights the most essential details. You must avoid subjective adjectives that convey emotions. Whenever you mention a subject, please describe its key visual attributes in detail. Return only the one-paragraph video description without Markdown formatting or introductory text.
+
+Clearly identify each subject’s type, using precise terms such as “man,” “woman,” “dog,” “car,” or “tree,” rather than vague words like “thing” or “item.” If the subject type is ambiguous, use your best judgment and briefly explain your reasoning.
+
+Describe key visual attributes with specific and descriptive language. For people, include details such as clothing color and style, skin tone, hairstyle, facial hair, age (if discernible), gender, ethnicity (if relevant and clear), and facial expression. For objects, describe their color, material, shape, and distinguishing features like texture or markings. Additionally, note the subject’s pose and orientation within the frame, such as standing, sitting, walking, or facing a certain direction. Pay attention to any objects that are not in their usual state, like a tilted lamp or an open book lying face down.
+
+If there are multiple subjects to describe, ensure clarity in referring to each. The simplest way is by type, such as “the man,” “the dog,” or “the tree.” If multiple subjects belong to the same category, distinguish them using unique appearance traits (e.g., “the woman in the red dress,” “the man with the beard”), location within the scene (e.g., “the man on the left,” “the car in the midground”), actions (e.g., “the child playing with a ball,” “the bird flying”), or relationships to each other (e.g., “the man next to the woman,” “the first man that enters the frame”). Also, when describing multiple subjects, the order in which they are mentioned matters. Prioritize based on relevance, starting with the largest or most centered subject. If the scene unfolds over time, describe subjects in the order they appear. If temporal order isn’t relevant, begin with the most visually striking or important subject before moving to less prominent ones. The goal is to provide enough detail so that anyone reading the description can easily identify each subject.
+
+When shot transitions occur, describe the subject in each segment separately, noting the type of transition (e.g., hard cut, soft transition) and explaining how the subjects change from one segment to the next.
+
+If the video is a scenery shot without salient subjects, you do not need to describe a specific subject. Instead, concisely specify the type of scenery shot (e.g., landscape, cityscape) in a single fluent paragraph. Briefly explain why there is no main subject, for example by noting that the focus is on the environment, atmosphere, or scale rather than on a particular object, using one to three sentences.
+
+If the video features salient human or non-human subjects, focus your description on them. If the video features multiple subjects with a clear focus, you may describe the main subject in detail and briefly mention the secondary subjects. If the video features multiple subjects without a clear main focus, describe the types of subjects without going into too much detail. You may also describe the subjects collectively as a group.
+
+If the video features subjects revealing, disappearing, or switching, describe the transition in detail.
+All values must be concise descriptive phrases, not full sentences.
+Use natural English with minimal grammar, no periods.
+Include subject/type in every field, even for single subjects
+For multiple subjects, distinguish each by type, key traits, location, or unique identifiers.
+type only lists subject names/types; do not include appearance or wardrobe details.
+appearance lists visible traits only (e.g., hair, skin tone, prosthetics, object features), no clothing.
+wardrobe describes clothing color, style, accessories only.
+pose describes posture, stance, orientation.
+relationship describes spatial or action-based relations between subjects.
+facial_expression describes visible expression, if any.
+transition describes changes in visibility or prominence.
+Include only what is clearly visible.
+
+Caption: {caption}
+
+Instructions:
+1. Use the exact same JSON keys as shown above
+2. Preserve all important information from the caption with all the keywords and details
+3. Organize the information appropriately under each key
+4. If the caption doesn't contain some information, please review the caption instruction above to determine what should be the input
+5. It is okay to leave fields blank as "" if nothing is mentioned in the caption
+6. Return only valid JSON without any additional text
+7. No period after each caption
+8. Don't mention any details of "wardrobe" and "appearance" in "type". Only mention each subject in short.
+9. In the Appearance section, do not describe any information related to wardrobe, facial expression, or pose.
+10. In the "Relationship" section, strictly avoid inferring or speculating about relationships between elements. Only describe relationships that are explicitly mentioned in the caption. Do not add any assumed or imagined relationships. If there is no direct relationship between them, do not mention one.
+11. In the Pose section, describe only the pose of human subjects. Exclude all information related to objects.
+12. Only describe subject reveals, disappearances, or changes in prominence in the Transition section. If none occur, leave it empty.
+13. Scenery and architectural elements (including buildings and walls) should not be treated as subjects. Do not include scenery-related information in the Type, Appearance, Wardrobe, Facial Expression, Pose, or Relationship sections.
+14. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.

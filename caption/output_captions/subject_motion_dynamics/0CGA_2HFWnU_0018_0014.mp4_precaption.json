@@ -1,0 +1,8 @@
+{
+    "video_id": "0CGA_2HFWnU_0018_0014.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, scenic shot with no camera movement. The video presents a wide, elevated view of a major city skyline set against a backdrop of a large mountain range. In the foreground, there are lower-rise residential buildings and abundant green trees, which give way to the dense cluster of skyscrapers that make up the downtown core in the midground and background.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-25T10:18:41.232882"
+}

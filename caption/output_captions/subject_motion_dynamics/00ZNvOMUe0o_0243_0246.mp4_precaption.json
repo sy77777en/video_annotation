@@ -1,0 +1,8 @@
+{
+    "video_id": "00ZNvOMUe0o_0243_0246.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a scenic aerial shot. The camera slowly ascends over a lush, green forest canopy. This movement gradually reveals a stunning view of a tropical coastline, the blue ocean, and a clear sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-31T01:22:57.926148"
+}

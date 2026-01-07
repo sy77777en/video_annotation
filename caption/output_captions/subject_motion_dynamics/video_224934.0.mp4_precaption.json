@@ -1,0 +1,8 @@
+{
+    "video_id": "video_224934.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a time-lapse video showing the movement of clouds during a sunset. The scene features a dramatic sky filled with dark, heavy clouds. Patches of vibrant pink and red light from the setting sun illuminate the underside of the clouds, which gradually fade as the sun disappears below the silhouetted mountain range on the horizon.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-28T09:12:49.771106"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "f17f39ef-008c-404f-9f39-024fabc5cebe.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static scenery shot that uses a time-lapse effect to show the transition from day to night. The camera looks up from below at the silhouettes of bare, gnarled tree branches against the sky. The scene transitions from a pale blue dusk sky to a dark night sky, revealing a multitude of twinkling stars.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-25T10:47:24.023155"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "edEdphtu6eY_0007_0011.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a scenic, wide shot of a large marina on a calm, overcast day. The camera slowly pans and zooms out, revealing a modern building on the water, rows of covered boat slips, and a distant city skyline across the bay. There is no significant subject motion within the tranquil scene.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-22T05:30:04.510833"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "L6-3gpYKbws_0840_0845.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot captures a vibrant underwater ecosystem. The camera explores a shallow area with a sandy bottom, patches of green seagrass, and large, algae-covered rocks. A school of small fish swims among the rocks before the camera rises above the water's surface to show the rocky shoreline.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-31T01:20:31.981807"
+}

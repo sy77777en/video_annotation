@@ -1,0 +1,8 @@
+{
+    "video_id": "rz8KzLbdS7g.3.7.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, unmoving shot of a residential scene. The camera is focused on a two-story house with a traditional Japanese blue-tiled roof. In front of the house is a meticulously maintained garden with a variety of green and red-leafed trees and shrubs, enclosed by a brown fence. The weather is sunny, with a bright blue sky and a few white clouds overhead.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-28T20:17:14.739580"
+}

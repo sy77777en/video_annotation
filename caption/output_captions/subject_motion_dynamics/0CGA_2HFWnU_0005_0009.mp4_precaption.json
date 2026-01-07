@@ -1,0 +1,8 @@
+{
+    "video_id": "0CGA_2HFWnU_0005_0009.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot where the camera slowly pans upward.\n\nThe video opens on a residential street with parked cars and a low-rise apartment building, all seen through a canopy of lush green trees. As the camera tilts up, it reveals a sprawling city skyline in the distance, featuring numerous high-rise buildings and a construction crane. In the far background, a majestic mountain range with snow-dusted peaks stands against a blue sky with scattered white clouds.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-25T18:42:28.488253"
+}

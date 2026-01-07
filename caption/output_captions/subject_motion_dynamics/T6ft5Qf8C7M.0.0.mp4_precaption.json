@@ -1,0 +1,8 @@
+{
+    "video_id": "T6ft5Qf8C7M.0.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot of a dark road at night. The scene is illuminated by streetlights and the headlights of an oncoming car, with a white fence on the right. The perspective is from a vehicle moving forward.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-22T11:51:29.125431"
+}

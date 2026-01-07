@@ -1,0 +1,54 @@
+Please convert the following caption into the JSON format below:
+
+{
+“shot_size”: “Indicate how much of the subject or scenery is visible in the frame (for example: close-up, medium shot, wide shot, or equivalent).”,
+“frame_position”: “List the approximate 2D position of each subject or key element within the frame (for example: center, left, right, top-left).”,
+“scene_position”: “Describe each subject or element’s physical location within the environment (for example: near a window, beside a tree, at the end of a hallway). If more than one subject exists, describe their spatial relationship using minimal terms.”,
+“spatial_depth”: “List the 3D depth placement of each subject or element in the scene (foreground, midground, background).”,
+“height_relative_to_camera”: “List the vertical position of each subject relative to the camera (for example: eye level, hip level, ground level, overhead, aerial view).”,
+“spatial_motion”: “Describe any spatial changes over time, including shot size, frame position, depth, or height, specifying both initial and final states. Do NOT mention anything that doesn't change spatially, even there is motion.”
+}
+
+Constraints:
+	1.	Use minimal terms to describe subjects and elements. Do not use descriptive adjectives or action verbs. Refer to subjects only by simple identifiers (for example: man, woman, car, tree).
+	2.	Use only spatial keywords relevant to each field. Do not include interpretation, explanation, or narrative detail.
+	3.	Do not repeat the same information across fields when only one subject exists, except where required to distinguish different spatial attributes.
+	4.	Use concise, precise, and natural phrasing in each field.
+	5.	Do not describe meaning, intent, emphasis, or visual impact.
+
+Example:
+
+{
+“shot_size”: “Medium shot”,
+“frame_position”: “man centered; telephone left; door center after man exits”,
+“scene_position”: “man in hallway beside door frame; telephone left side of hallway; room beyond doorway”,
+“spatial_depth”: “man midground; telephone midground; hallway edges foreground; room background; door midground”,
+“height_relative_to_camera”: “eye level”,
+“spatial_motion”: “man center midground to off-frame while door closes”
+}
+
+Caption Instruction:
+
+Analyze the visible subjects and elements in the video and describe their spatial framing only. Focus strictly on shot size, frame position, scene position, spatial depth, camera height, and spatial changes over time. Describe only what is clearly visible. Use simple, literal English. Avoid emotional, subjective, speculative, or ambiguous language. If transitions occur, explicitly state what changes and how. Output only spatial descriptions.
+
+First, specify the shot size based on the visible scale of the main subject. If no clear subject exists, describe the shot size relative to the scenery. If shot size changes, specify both the initial and final states.
+
+Next, list the spatial positions of all visible subjects or key elements. For each element, provide both its 2D frame position and 3D scene depth. If multiple subjects exist, explicitly describe their spatial relationship using minimal terms. If positions change, describe the transition with initial and final states.
+
+Then, describe the camera height relative to each subject mentioned. Use provided information when available. Otherwise, infer only from clear visual cues. If camera height changes, specify initial and final states.
+
+If the video contains multiple shots or transitions, describe each segment separately. Identify the transition type when possible and describe how framing, depth, shot size, and camera height change between segments.
+
+If the video is scenery-only, describe the shot size and any spatial movement within the scene.
+
+If subjects appear, disappear, or switch, describe the spatial transition clearly and directly.
+
+Caption: {caption}
+
+Instructions:
+	1.	Use exactly the same JSON keys as shown above
+	2.	Preserve all spatial information from the caption
+	3.	Place information only under the most appropriate key
+	4.	Infer missing information only when explicitly required
+	5.	Leave fields empty (””) if information cannot be determined
+	6.	Return only valid JSON with no additional text

@@ -1,0 +1,8 @@
+{
+    "video_id": "jVtnuLL2Kqs.1.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, wide-angle shot of the River Thames in London. The camera remains still, capturing a scenic view of the cityscape, including landmarks like the Shard and the \"Walkie Talkie\" building. The only movement comes from the gentle flow of the river and a few boats.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-24T02:32:05.051624"
+}

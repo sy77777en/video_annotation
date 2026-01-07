@@ -44,7 +44,7 @@ ANNOTATORS = load_annotators_from_files()
 APPROVED_REVIEWERS = [
     "Zhiqiu Lin", "Siyuan Cen", "Yuhan Huang", "Hewei Wang", 
     "Tiffany Ling", "Isaac Li", "Shihang Zhu", "Caption Pizza",
-    "Irene Pi"
+    "Irene Pi", "Zhenye Luo"
 ]
 META_REVIEWERS = [
     "Zhiqiu Lin", "Siyuan Cen", "Yuhan Huang", "Hewei Wang", 

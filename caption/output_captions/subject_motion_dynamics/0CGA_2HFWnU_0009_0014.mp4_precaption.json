@@ -1,0 +1,8 @@
+{
+    "video_id": "0CGA_2HFWnU_0009_0014.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video features a scenic, slow-moving aerial shot of a city. The camera gradually ascends, revealing more of the urban landscape.\n\nThe shot captures a sprawling cityscape set against a backdrop of large mountains under a partly cloudy blue sky. In the foreground, lush green treetops and the roofs of residential buildings are visible. The mid-ground and background are filled with a dense collection of high-rise buildings and skyscrapers that make up the city's downtown core.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-24T11:38:12.905654"
+}

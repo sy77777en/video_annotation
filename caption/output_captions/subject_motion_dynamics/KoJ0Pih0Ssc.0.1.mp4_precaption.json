@@ -1,0 +1,8 @@
+{
+    "video_id": "KoJ0Pih0Ssc.0.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a static or very slowly moving aerial scenery shot of London. The view looks down on the River Thames and Tower Bridge, with the words \"EAST - WEST\" superimposed over the water. The scene is captured during what appears to be sunrise or sunset, casting a warm, hazy light over the city.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-24T00:53:29.106815"
+}

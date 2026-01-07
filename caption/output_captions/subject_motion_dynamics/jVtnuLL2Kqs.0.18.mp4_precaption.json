@@ -1,0 +1,8 @@
+{
+    "video_id": "jVtnuLL2Kqs.0.18.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenic, wide shot of the London skyline from across the River Thames. The view captures a mix of architecture, with a portion of Tower Bridge on the left and a collection of modern buildings and a park on the opposite bank. The scene is set on a bright, sunny day, with light reflecting off the water.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-04T22:52:54.108894"
+}

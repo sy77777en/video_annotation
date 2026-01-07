@@ -1,0 +1,8 @@
+{
+    "video_id": "ZADlkbr7Avg.1.2.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video consists of a single, static aerial shot, resembling a satellite image. It displays Tokyo Bay, surrounded by the dense urban sprawl of the city on one side and green, forested land on the other. A large, dark, cross-shaped structure is superimposed over the bay, illustrating a proposed plan.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2025-12-23T22:32:11.234678"
+}

@@ -546,7 +546,7 @@ class LLMTestApp:
         else:
             json_prompt_str = "Please use an appropriate JSON structure for this type of caption."
         
-        base_template = f"""Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+        base_template = f"""Please convert the following caption into the JSON format shown below:
 
 {json_prompt_str}
 
@@ -625,6 +625,17 @@ Instructions:
     def load_template(self, name: str, task: str, json_policy: Dict[str, Any], caption_instruction: str) -> str:
         """Load a template by name for a specific task"""
         if name == "default":
+            # First check if there's a custom default reference file
+            default_ref_file = self.get_templates_dir(task) / "default.txt"
+            if default_ref_file.exists():
+                with open(default_ref_file, 'r') as f:
+                    ref_name = f.read().strip()
+                # Load the referenced template
+                template_path = self.get_templates_dir(task) / f"{ref_name}.txt"
+                if template_path.exists():
+                    with open(template_path, 'r') as f:
+                        return f.read()
+            # Otherwise use code-generated default
             return self.get_prompt_template_for_task(task, json_policy, caption_instruction)
         
         template_path = self.get_templates_dir(task) / f"{name}.txt"
@@ -632,6 +643,31 @@ Instructions:
             with open(template_path, 'r') as f:
                 return f.read()
         return self.get_prompt_template_for_task(task, json_policy, caption_instruction)
+    
+    def set_as_default(self, template_name: str, task: str) -> None:
+        """Set a template as the default for this task (saves reference only)"""
+        default_ref_file = self.get_templates_dir(task) / "default.txt"
+        with open(default_ref_file, 'w') as f:
+            f.write(template_name)
+    
+    def get_default_template_name(self, task: str) -> Optional[str]:
+        """Get the name of the template set as default, or None if using code default"""
+        default_ref_file = self.get_templates_dir(task) / "default.txt"
+        if default_ref_file.exists():
+            with open(default_ref_file, 'r') as f:
+                return f.read().strip()
+        return None
+    
+    def has_custom_default(self, task: str) -> bool:
+        """Check if a custom default template exists for this task"""
+        default_ref_file = self.get_templates_dir(task) / "default.txt"
+        return default_ref_file.exists()
+    
+    def reset_default(self, task: str) -> None:
+        """Remove custom default and revert to code-generated default"""
+        default_ref_file = self.get_templates_dir(task) / "default.txt"
+        if default_ref_file.exists():
+            default_ref_file.unlink()
     
     def save_template(self, name: str, content: str, task: str) -> bool:
         """Save a template for a specific task. Returns False if name already exists."""
@@ -703,16 +739,37 @@ Instructions:
         task_short = task_folder_map.get(task, task)
         
         st.write("### ✏️ Prompt Template")
-        st.caption(f"📁 Templates for task: **{task_short}**")
+        
+        # Check if custom default exists
+        has_custom_default = self.has_custom_default(task)
+        default_template_name = self.get_default_template_name(task)
+        
+        if has_custom_default:
+            st.caption(f"📁 Templates for task: **{task_short}** (⭐ default → {default_template_name})")
+        else:
+            st.caption(f"📁 Templates for task: **{task_short}**")
         
         # Template selection - task-specific
         available_templates = self.get_available_templates(task)
         
-        selected_template = st.selectbox(
+        # Add indicator to default option if custom, and show which template is the default
+        display_templates = []
+        for t in available_templates:
+            if t == "default" and has_custom_default:
+                display_templates.append(f"default ⭐ (→ {default_template_name})")
+            elif t == default_template_name:
+                display_templates.append(f"{t} ⭐")
+            else:
+                display_templates.append(t)
+        
+        selected_display = st.selectbox(
             f"Select Template ({len(available_templates)} available):",
-            available_templates,
+            display_templates,
             key="template_selector"
         )
+        
+        # Map back to actual template name
+        selected_template = selected_display.split(" ⭐")[0].split(" (")[0] if selected_display else "default"
         
         # Load selected template
         # Track template changes to reload content
@@ -746,7 +803,7 @@ Instructions:
                 if not new_template_name:
                     st.error("Please enter a template name.")
                 elif new_template_name == "default":
-                    st.error("Cannot use 'default' as template name.")
+                    st.error("Cannot use 'default' as template name. Use 'Set as Default' button instead.")
                 elif "{caption}" not in prompt_template:
                     st.error("Template must contain {caption} placeholder!")
                 elif not new_template_name.replace("_", "").replace("-", "").isalnum():
@@ -757,6 +814,50 @@ Instructions:
                         st.rerun()
                     else:
                         st.error(f"❌ Template '{new_template_name}' already exists. Choose a different name.")
+        
+        # Set as default section
+        with st.expander("⭐ Set as Default Template", expanded=False):
+            has_custom = self.has_custom_default(task)
+            current_default_name = self.get_default_template_name(task)
+            
+            if has_custom:
+                st.info(f"📌 Default is set to: **{current_default_name}**")
+            else:
+                st.caption(f"No custom default set for {task_short} (using code-generated default)")
+            
+            # Get list of saved templates (excluding "default")
+            saved_templates = [t for t in available_templates if t != "default"]
+            
+            if saved_templates:
+                default_choice = st.selectbox(
+                    "Select template to use as default:",
+                    saved_templates,
+                    key="default_template_choice"
+                )
+                
+                col_set, col_reset = st.columns(2)
+                with col_set:
+                    set_default_clicked = st.button("⭐ Set as Default", use_container_width=True)
+                with col_reset:
+                    reset_default_clicked = st.button("🔄 Reset to Original", use_container_width=True, disabled=not has_custom)
+                
+                if set_default_clicked:
+                    self.set_as_default(default_choice, task)
+                    st.success(f"✅ '{default_choice}' set as default for {task_short}!")
+                    # Clear cache to reload
+                    if template_cache_key in st.session_state:
+                        del st.session_state[template_cache_key]
+                    st.rerun()
+                
+                if reset_default_clicked:
+                    self.reset_default(task)
+                    st.success(f"✅ Default reset to original for {task_short}!")
+                    # Clear cache to reload
+                    if template_cache_key in st.session_state:
+                        del st.session_state[template_cache_key]
+                    st.rerun()
+            else:
+                st.caption("No saved templates yet. Save a template first to set it as default.")
         
         # LLM selection and generate button
         st.write("### 🚀 Generate JSON")

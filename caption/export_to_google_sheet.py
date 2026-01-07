@@ -180,6 +180,45 @@ class GoogleSheetExporter:
         
         print("✅ Google Sheets client authorized with full permissions (Sheets + Drive)")
     
+    # def _api_call_with_retry(self, func, *args, max_retries=5, **kwargs):
+    #     """Execute API call with rate limiting and retry logic"""
+    #     operation_name = kwargs.pop('operation_name', func.__name__)
+        
+    #     for attempt in range(max_retries):
+    #         try:
+    #             # Add delay between API calls to avoid rate limits
+    #             if attempt > 0:
+    #                 # For rate limits, use much longer delays
+    #                 delay = min(2 ** attempt * 5, 60)  # Start at 10s, max 60s
+    #                 print(f"      ⏳ Waiting {delay}s before retry {attempt + 1}/{max_retries} for {operation_name}...")
+    #                 time.sleep(delay)
+    #             else:
+    #                 # Add small delay between all API calls to prevent rate limits
+    #                 time.sleep(1.5)
+                
+    #             result = func(*args, **kwargs)
+    #             if attempt > 0:
+    #                 print(f"      ✅ {operation_name} succeeded after {attempt + 1} attempts")
+    #             return result
+                
+    #         except Exception as e:
+    #             error_str = str(e).lower()
+    #             if 'quota' in error_str or 'rate' in error_str or 'limit' in error_str or '429' in error_str:
+    #                 if attempt == max_retries - 1:
+    #                     failure_msg = f"RATE LIMIT FAILURE: {operation_name} - Data may not be synced!"
+    #                     print(f"      ❌ {failure_msg}")
+    #                     self.export_failures.append(failure_msg)
+    #                     raise Exception(f"Rate limit failure for {operation_name} after {max_retries} attempts")
+    #                 print(f"      ⚠️  Rate limit detected in {operation_name}: {e}")
+    #                 continue
+    #             else:
+    #                 # Not a rate limit error, re-raise immediately
+    #                 failure_msg = f"UNEXPECTED ERROR: {operation_name} - {str(e)}"
+    #                 print(f"      ❌ {failure_msg}")
+    #                 self.export_failures.append(failure_msg)
+    #                 raise
+        
+    #     raise Exception(f"{operation_name} failed after {max_retries} attempts")
     def _api_call_with_retry(self, func, *args, max_retries=5, **kwargs):
         """Execute API call with rate limiting and retry logic"""
         operation_name = kwargs.pop('operation_name', func.__name__)
@@ -188,8 +227,8 @@ class GoogleSheetExporter:
             try:
                 # Add delay between API calls to avoid rate limits
                 if attempt > 0:
-                    # For rate limits, use much longer delays
-                    delay = min(2 ** attempt * 5, 60)  # Start at 10s, max 60s
+                    # For rate limits, use much longer delays: 5, 10, 20, 40, 80 seconds
+                    delay = min(5 * (2 ** attempt), 80)
                     print(f"      ⏳ Waiting {delay}s before retry {attempt + 1}/{max_retries} for {operation_name}...")
                     time.sleep(delay)
                 else:
@@ -1494,9 +1533,133 @@ class GoogleSheetExporter:
     #     except Exception as e:
     #         print(f"    ❌ Failed to update Reviewers tab links: {e}")
     
+    # def _update_master_sheet_links(self, master_sheet_id: str, annotator_stats: Dict, 
+    #                           reviewer_stats: Dict, user_sheet_ids: Dict, sheet_prefix: str):
+    #     """Update master sheet with correct hyperlinks to user sheets (as smart chips)"""
+    #     try:
+    #         sheet = self._api_call_with_retry(self.client.open_by_key, master_sheet_id, 
+    #                                         operation_name="opening master sheet for link updates")
+    #     except:
+    #         print(f"Error: Could not open master sheet for link updates")
+    #         return
+
+    #     # Update Annotators tab links - COLUMN C with SMART CHIPS
+    #     try:
+    #         worksheet = sheet.worksheet("Annotators")
+    #         row_num = 2  # Start from row 2 (after headers)
+            
+    #         for user_name, stats in annotator_stats.items():
+    #             if self._has_activity(stats):
+    #                 annotation_sheet_name = f"{sheet_prefix}-{user_name} Annotator"
+    #                 annotation_sheet_id = user_sheet_ids.get(annotation_sheet_name)
+                    
+    #                 if annotation_sheet_id:
+    #                     annotation_url = f"https://docs.google.com/spreadsheets/d/{annotation_sheet_id}/edit"
+                        
+    #                     # Create smart chip using Method 1 (simple smart chip)
+    #                     requests = [{
+    #                         "updateCells": {
+    #                             "rows": [{
+    #                                 "values": [{
+    #                                     "userEnteredValue": {
+    #                                         "stringValue": "@"  # Single @ placeholder
+    #                                     },
+    #                                     "chipRuns": [{
+    #                                         "startIndex": 0,  # @ is at position 0
+    #                                         "chip": {
+    #                                             "richLinkProperties": {
+    #                                                 "uri": annotation_url
+    #                                             }
+    #                                         }
+    #                                     }]
+    #                                 }]
+    #                             }],
+    #                             "fields": "userEnteredValue,chipRuns",
+    #                             "range": {
+    #                                 "sheetId": worksheet.id,
+    #                                 "startRowIndex": row_num - 1,  # Convert to 0-indexed
+    #                                 "startColumnIndex": 2,  # Column C (0-indexed)
+    #                                 "endRowIndex": row_num,
+    #                                 "endColumnIndex": 3
+    #                             }
+    #                         }
+    #                     }]
+                        
+    #                     self._api_call_with_retry(
+    #                         worksheet.spreadsheet.batch_update,
+    #                         {"requests": requests},
+    #                         operation_name=f"updating annotation smart chip for {user_name}"
+    #                     )
+    #                 else:
+    #                     # Fallback to text if no sheet ID
+    #                     self._api_call_with_retry(worksheet.update, f'C{row_num}', [["Sheet not found"]], 
+    #                                             operation_name=f"updating annotation text for {user_name}")
+    #                 row_num += 1
+            
+    #         print("    ✅ Updated Annotators tab links (smart chips)")
+    #     except Exception as e:
+    #         print(f"    ❌ Failed to update Annotators tab links: {e}")
+        
+    #     # Update Reviewers tab links - COLUMN C with SMART CHIPS
+    #     try:
+    #         worksheet = sheet.worksheet("Reviewers")
+    #         row_num = 2  # Start from row 2 (after headers)
+            
+    #         for user_name, stats in reviewer_stats.items():
+    #             if self._has_activity(stats):
+    #                 review_sheet_name = f"{sheet_prefix}-{user_name} Reviewer"
+    #                 review_sheet_id = user_sheet_ids.get(review_sheet_name)
+                    
+    #                 if review_sheet_id:
+    #                     review_url = f"https://docs.google.com/spreadsheets/d/{review_sheet_id}/edit"
+                        
+    #                     # Create smart chip using Method 1 (simple smart chip)
+    #                     requests = [{
+    #                         "updateCells": {
+    #                             "rows": [{
+    #                                 "values": [{
+    #                                     "userEnteredValue": {
+    #                                         "stringValue": "@"  # Single @ placeholder
+    #                                     },
+    #                                     "chipRuns": [{
+    #                                         "startIndex": 0,  # @ is at position 0
+    #                                         "chip": {
+    #                                             "richLinkProperties": {
+    #                                                 "uri": review_url
+    #                                             }
+    #                                         }
+    #                                     }]
+    #                                 }]
+    #                             }],
+    #                             "fields": "userEnteredValue,chipRuns",
+    #                             "range": {
+    #                                 "sheetId": worksheet.id,
+    #                                 "startRowIndex": row_num - 1,  # Convert to 0-indexed
+    #                                 "startColumnIndex": 2,  # Column C (0-indexed)
+    #                                 "endRowIndex": row_num,
+    #                                 "endColumnIndex": 3
+    #                             }
+    #                         }
+    #                     }]
+                        
+    #                     self._api_call_with_retry(
+    #                         worksheet.spreadsheet.batch_update,
+    #                         {"requests": requests},
+    #                         operation_name=f"updating review smart chip for {user_name}"
+    #                     )
+    #                 else:
+    #                     # Fallback to text if no sheet ID
+    #                     self._api_call_with_retry(worksheet.update, f'C{row_num}', [["Sheet not found"]], 
+    #                                             operation_name=f"updating review text for {user_name}")
+    #                 row_num += 1
+            
+    #         print("    ✅ Updated Reviewers tab links (smart chips)")
+    #     except Exception as e:
+    #         print(f"    ❌ Failed to update Reviewers tab links: {e}")
+
     def _update_master_sheet_links(self, master_sheet_id: str, annotator_stats: Dict, 
-                              reviewer_stats: Dict, user_sheet_ids: Dict, sheet_prefix: str):
-        """Update master sheet with correct hyperlinks to user sheets (as smart chips)"""
+                          reviewer_stats: Dict, user_sheet_ids: Dict, sheet_prefix: str):
+        """Update master sheet with correct hyperlinks to user sheets (as smart chips) - BATCHED VERSION"""
         try:
             sheet = self._api_call_with_retry(self.client.open_by_key, master_sheet_id, 
                                             operation_name="opening master sheet for link updates")
@@ -1504,9 +1667,12 @@ class GoogleSheetExporter:
             print(f"Error: Could not open master sheet for link updates")
             return
 
-        # Update Annotators tab links - COLUMN C with SMART CHIPS
+        # Update Annotators tab links - COLUMN C with SMART CHIPS (BATCHED)
         try:
             worksheet = sheet.worksheet("Annotators")
+            
+            # Collect all smart chip requests for annotators
+            smart_chip_requests = []
             row_num = 2  # Start from row 2 (after headers)
             
             for user_name, stats in annotator_stats.items():
@@ -1517,16 +1683,16 @@ class GoogleSheetExporter:
                     if annotation_sheet_id:
                         annotation_url = f"https://docs.google.com/spreadsheets/d/{annotation_sheet_id}/edit"
                         
-                        # Create smart chip using Method 1 (simple smart chip)
-                        requests = [{
+                        # Add to batch request
+                        smart_chip_requests.append({
                             "updateCells": {
                                 "rows": [{
                                     "values": [{
                                         "userEnteredValue": {
-                                            "stringValue": "@"  # Single @ placeholder
+                                            "stringValue": "@"
                                         },
                                         "chipRuns": [{
-                                            "startIndex": 0,  # @ is at position 0
+                                            "startIndex": 0,
                                             "chip": {
                                                 "richLinkProperties": {
                                                     "uri": annotation_url
@@ -1538,32 +1704,43 @@ class GoogleSheetExporter:
                                 "fields": "userEnteredValue,chipRuns",
                                 "range": {
                                     "sheetId": worksheet.id,
-                                    "startRowIndex": row_num - 1,  # Convert to 0-indexed
-                                    "startColumnIndex": 2,  # Column C (0-indexed)
+                                    "startRowIndex": row_num - 1,
+                                    "startColumnIndex": 2,  # Column C
                                     "endRowIndex": row_num,
                                     "endColumnIndex": 3
                                 }
                             }
-                        }]
-                        
-                        self._api_call_with_retry(
-                            worksheet.spreadsheet.batch_update,
-                            {"requests": requests},
-                            operation_name=f"updating annotation smart chip for {user_name}"
-                        )
-                    else:
-                        # Fallback to text if no sheet ID
-                        self._api_call_with_retry(worksheet.update, f'C{row_num}', [["Sheet not found"]], 
-                                                operation_name=f"updating annotation text for {user_name}")
+                        })
                     row_num += 1
             
-            print("    ✅ Updated Annotators tab links (smart chips)")
+            # Execute batch in chunks to avoid rate limits (max ~50 per batch)
+            BATCH_SIZE = 50
+            for i in range(0, len(smart_chip_requests), BATCH_SIZE):
+                batch_chunk = smart_chip_requests[i:i + BATCH_SIZE]
+                try:
+                    self._api_call_with_retry(
+                        worksheet.spreadsheet.batch_update,
+                        {"requests": batch_chunk},
+                        operation_name=f"batch updating {len(batch_chunk)} annotator smart chips"
+                    )
+                    print(f"        ✅ Updated {len(batch_chunk)} annotator links in batch")
+                except Exception as e:
+                    print(f"        ⚠️ Batch smart chip failed for annotators: {str(e)[:100]}")
+                
+                # Small delay between batches
+                if i + BATCH_SIZE < len(smart_chip_requests):
+                    time.sleep(2)
+            
+            print("    ✅ Updated Annotators tab links (smart chips - batched)")
         except Exception as e:
             print(f"    ❌ Failed to update Annotators tab links: {e}")
         
-        # Update Reviewers tab links - COLUMN C with SMART CHIPS
+        # Update Reviewers tab links - COLUMN C with SMART CHIPS (BATCHED)
         try:
             worksheet = sheet.worksheet("Reviewers")
+            
+            # Collect all smart chip requests for reviewers
+            smart_chip_requests = []
             row_num = 2  # Start from row 2 (after headers)
             
             for user_name, stats in reviewer_stats.items():
@@ -1574,16 +1751,16 @@ class GoogleSheetExporter:
                     if review_sheet_id:
                         review_url = f"https://docs.google.com/spreadsheets/d/{review_sheet_id}/edit"
                         
-                        # Create smart chip using Method 1 (simple smart chip)
-                        requests = [{
+                        # Add to batch request
+                        smart_chip_requests.append({
                             "updateCells": {
                                 "rows": [{
                                     "values": [{
                                         "userEnteredValue": {
-                                            "stringValue": "@"  # Single @ placeholder
+                                            "stringValue": "@"
                                         },
                                         "chipRuns": [{
-                                            "startIndex": 0,  # @ is at position 0
+                                            "startIndex": 0,
                                             "chip": {
                                                 "richLinkProperties": {
                                                     "uri": review_url
@@ -1595,43 +1772,96 @@ class GoogleSheetExporter:
                                 "fields": "userEnteredValue,chipRuns",
                                 "range": {
                                     "sheetId": worksheet.id,
-                                    "startRowIndex": row_num - 1,  # Convert to 0-indexed
-                                    "startColumnIndex": 2,  # Column C (0-indexed)
+                                    "startRowIndex": row_num - 1,
+                                    "startColumnIndex": 2,  # Column C
                                     "endRowIndex": row_num,
                                     "endColumnIndex": 3
                                 }
                             }
-                        }]
-                        
-                        self._api_call_with_retry(
-                            worksheet.spreadsheet.batch_update,
-                            {"requests": requests},
-                            operation_name=f"updating review smart chip for {user_name}"
-                        )
-                    else:
-                        # Fallback to text if no sheet ID
-                        self._api_call_with_retry(worksheet.update, f'C{row_num}', [["Sheet not found"]], 
-                                                operation_name=f"updating review text for {user_name}")
+                        })
                     row_num += 1
             
-            print("    ✅ Updated Reviewers tab links (smart chips)")
+            # Execute batch in chunks to avoid rate limits (max ~50 per batch)
+            BATCH_SIZE = 50
+            for i in range(0, len(smart_chip_requests), BATCH_SIZE):
+                batch_chunk = smart_chip_requests[i:i + BATCH_SIZE]
+                try:
+                    self._api_call_with_retry(
+                        worksheet.spreadsheet.batch_update,
+                        {"requests": batch_chunk},
+                        operation_name=f"batch updating {len(batch_chunk)} reviewer smart chips"
+                    )
+                    print(f"        ✅ Updated {len(batch_chunk)} reviewer links in batch")
+                except Exception as e:
+                    print(f"        ⚠️ Batch smart chip failed for reviewers: {str(e)[:100]}")
+                
+                # Small delay between batches
+                if i + BATCH_SIZE < len(smart_chip_requests):
+                    time.sleep(2)
+            
+            print("    ✅ Updated Reviewers tab links (smart chips - batched)")
         except Exception as e:
             print(f"    ❌ Failed to update Reviewers tab links: {e}")
+
+    # def _export_user_sheet(self, user_name: str, role: str, stats: Dict, task_names: List[str], master_sheet_id: str, sheet_prefix: str) -> str:
+    #     """Export individual user sheet and return sheet ID"""
+    #     sheet_name = f"{sheet_prefix}-{user_name} {role}"  # Add prefix
+    #     print(f"  Exporting {sheet_name} sheet...")
+        
+    #     try:
+    #         # Try to open existing sheet (don't use retry logic here since failure is expected)
+    #         sheet = self.client.open(sheet_name)
+    #         print(f"    Found existing sheet: {sheet_name}")
+    #     except (gspread.exceptions.SpreadsheetNotFound, Exception):
+    #         # Create new sheet
+    #         print(f"    Creating new sheet: {sheet_name}")
+    #         sheet = self._api_call_with_retry(self.client.create, sheet_name, 
+    #                                         operation_name=f"creating sheet '{sheet_name}'")
+        
+    #     # Export Payment tab
+    #     self._export_user_tab(sheet, "Payment", user_name, role, stats, task_names, include_payment=True)
+        
+    #     # Export Feedback tab
+    #     self._export_user_tab(sheet, "Feedback", user_name, role, stats, task_names, include_payment=False)
+        
+    #     return sheet.id
 
     def _export_user_sheet(self, user_name: str, role: str, stats: Dict, task_names: List[str], master_sheet_id: str, sheet_prefix: str) -> str:
         """Export individual user sheet and return sheet ID"""
         sheet_name = f"{sheet_prefix}-{user_name} {role}"  # Add prefix
         print(f"  Exporting {sheet_name} sheet...")
         
+        sheet = None
+        
         try:
-            # Try to open existing sheet (don't use retry logic here since failure is expected)
+            # First try direct open (fastest)
             sheet = self.client.open(sheet_name)
             print(f"    Found existing sheet: {sheet_name}")
-        except (gspread.exceptions.SpreadsheetNotFound, Exception):
-            # Create new sheet
+        except gspread.exceptions.SpreadsheetNotFound:
+            # Sheet genuinely doesn't exist
             print(f"    Creating new sheet: {sheet_name}")
             sheet = self._api_call_with_retry(self.client.create, sheet_name, 
                                             operation_name=f"creating sheet '{sheet_name}'")
+        except gspread.exceptions.APIError as e:
+            # Rate limit or other API error - don't create new sheet!
+            error_str = str(e).lower()
+            if "429" in str(e) or "quota" in error_str or "rate" in error_str:
+                print(f"    ⏳ Rate limit hit while searching for sheet, waiting 10s...")
+                time.sleep(10)
+                # Retry once
+                try:
+                    sheet = self.client.open(sheet_name)
+                    print(f"    Found existing sheet after retry: {sheet_name}")
+                except gspread.exceptions.SpreadsheetNotFound:
+                    print(f"    Creating new sheet: {sheet_name}")
+                    sheet = self._api_call_with_retry(self.client.create, sheet_name,
+                                                    operation_name=f"creating sheet '{sheet_name}'")
+            else:
+                raise
+        except Exception as e:
+            # Log unexpected errors but don't blindly create new sheet
+            print(f"    ⚠️ Unexpected error looking for sheet: {type(e).__name__}: {str(e)[:100]}")
+            raise
         
         # Export Payment tab
         self._export_user_tab(sheet, "Payment", user_name, role, stats, task_names, include_payment=True)

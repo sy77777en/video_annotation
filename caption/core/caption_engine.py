@@ -33,7 +33,7 @@ class CaptionEngine:
             st.error(f"Error generating pre-caption for video: {video_id}")
             st.error(f"Error: {e}")
             # If the selected_llm is gemini-2.5-pro, prompt user to try again or use gpt-4.1-2025-04-14
-            if selected_llm == "gemini-2.5-pro":
+            if selected_llm in ["gemini-2.5-pro", "gemini-3-pro-preview"]:
                 st.info("Please try again or use gpt-4.1-2025-04-14 as the LLM.")
             raise e
         

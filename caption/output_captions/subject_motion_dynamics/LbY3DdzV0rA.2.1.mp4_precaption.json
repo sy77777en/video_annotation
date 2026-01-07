@@ -1,0 +1,8 @@
+{
+    "video_id": "LbY3DdzV0rA.2.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video is a dramatic, wide-angle scenery shot of a cityscape under an immense storm system. The primary motion is the rapid, churning movement of massive storm clouds gathering and swirling over the buildings. The time-lapse effect emphasizes the powerful and turbulent nature of the weather as it moves across the sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-04T22:16:48.055056"
+}

@@ -1,0 +1,44 @@
+Please convert the following caption into the JSON format shown below:
+
+{
+  "point_of_view": "Indicate how the scene is captured, such as first-person, dashcam, screen recording, drone shot, objective view, etc., and note how the perspective shapes the viewer's perception.",
+  "location": "Describe whether the setting is indoors or outdoors and summarize its defining features or notable location if identifiable.",
+  "time_of_day": "Specify the time of day, such as day, night, sunrise, sunset, or other transitional periods.",
+  "architecture": "Describe notable man-made structures, buildings, roads, or other constructed elements present in the scene if relevant.",
+  "nature": "Describe natural elements such as vegetation, water bodies, mountains, sky, or other landscape features if relevant.",
+  "weather": "Describe weather conditions or atmospheric effects present in the scene if relevant.",
+  "props": "Describe significant objects or furnishings in the environment that contribute to the setting if relevant.",
+  "style": "Describe visual style if unusual or distinctive, such as color schemes, aesthetics, video editing style, etc.",
+  "overlay": "Specify any overlay elements (if any) in the video, such as text, titles, subtitles, captions, icons, watermarks, heads-up displays (HUD), or framing graphics. Describe their content, placement, and clarify that they are not part of the physical scene.",
+  "scene_dynamics": "Describe notable movement or activity within the scene if there are any, whether natural (e.g., wind, waves) or man-made (e.g., traffic, machinery, crowds).",
+  "transition": "Describe any change in the scene over time or through camera movement if there are any, specifying the type and sequence of transitions."
+}
+
+Caption Instruction:
+Provide a concise yet informative description of the overall scene, including the point of view, environment, setting, time of day, and notable visual elements like overlays. For notable visual elements within the scene, describe their color, material, shape, and distinguishing features like texture or markings. If subjects are present, ensure their placement and context complement the scene without excessive detail. You should describe the video by combining details from the frames without referring to any specific one (e.g., don’t mention things like "first frame" or "last frame"), and avoid using terms like "image" or "frame." Focus on the setting and scenery rather than detailed subject descriptions. Avoid describing anything not visible or uncertain. Use simple, natural English to create a clear, concise, and coherent paragraph that highlights essential details. Avoid emotional or subjective adjectives. Avoid speculative statements like 'there might be,' 'it appears,' or ambiguous options like 'A or B.' Do not infer the role of the scene setting. Do not explain what the scene emphasizes or highlights. Return only the one-paragraph video description without Markdown formatting or introductory text.
+
+If relevant, indicate the **point of view**, such as first-person, drone shot, or dashcam, and describe how it influences the viewer’s perception. Specify the **setting** by clearly identifying whether it is indoors or outdoors, using precise language. If the location is known, state it explicitly (e.g., "Times Square" or "Tokyo subway station"). Otherwise, describe defining features such as “a narrow alley with graffiti-covered walls” or “a vast desert with rolling dunes.” Mention the **time of day** and any notable **architectural or natural features**, such as buildings, roads, forests, or bodies of water. Include relevant **weather conditions** if applicable, like “a rainy street with wet pavement reflecting city lights” or “a snowy mountain pass covered in thick fog.” For indoor settings, describe key **furniture or props** that establish the environment, such as “a wooden desk cluttered with books and a vintage lamp.” If notable, mention the **style** of the scene, such as a monochromatic color scheme or a vibrant carnival with neon lights. If the video contains **overlay elements** such as text, titles, subtitles, captions, icons, watermarks, heads-up displays (HUD), or framing elements, specify that they are overlays and describe their content and placement. 
+
+If the scene involves **scene dynamics** as motions or changes, describe natural elements like wind blowing through trees or waves crashing against the shore, as well as human-made movements such as traffic flowing on a highway or pedestrians walking along a busy street. If **scene transitions** occur, explain how they happen, whether through changes in time (e.g., “The shot transitions from day to night”) or movement-based shifts (e.g., “The camera pans to reveal an alley behind the main street”). Use precise language to refer to different elements within the scene, prioritizing the most prominent details and organizing descriptions logically from the overall setting to more specific features.
+
+When shot transitions occur, describe the scene in each segment separately, noting the type of transition (e.g., hard cut, soft transition) and explaining how the scene changes from one segment to the next.
+
+
+
+Caption: {caption}
+
+Instructions:
+1. Use the exact same JSON keys as shown above
+2. Preserve all important information from the caption
+3. Organize the information appropriately under each key
+4. If the caption doesn't contain some information, please review the caption instruction above to determine what should be the input
+5. Leave fields blank as "" if nothing is mentioned in the caption
+6. Return only valid JSON without any additional text
+7. Avoid mentioning any camera movement or shot size information that is not present in the caption. Only extract and describe information explicitly contained in the caption.
+8. The Nature section should be limited to nature-related scenes only. Exclude all architectural elements, buildings, and city scenes.
+9. The Scene Dynamics section should exclude all subject motion and describe only scene-related dynamics, including changes in overlays.
+10. In the Weather section, provide only a brief description of the weather. Do not include detailed descriptions of the sky.
+11. Leave "transition" as "" if there is no scene transition mentioned.
+12.  Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+13. In "overlay",  do not include any screen/interface that is originally in the scene as overlays.
+14. Leave "scene dynamics" as "" if there is no motions or changes throughout the scene.

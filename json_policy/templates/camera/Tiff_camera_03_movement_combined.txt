@@ -1,0 +1,48 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "playback_speed": "State playback speed if altered, noting time-lapse / fast-motion / slow-motion / stop-motion / speed-ramp / time-reversed.",
+  "lens_distortion": "Describe lens distortion if present, noting fisheye / barrel distortion.",
+  "camera_height": "Specify camera height relative to the ground plane, such as aerial, overhead, eye, hip, ground, above water, or underwater. Note changes in height if there is any.",
+  "camera_angle": "Specify camera angle relative to the ground plane, such as bird's eye, high, level, low, or worm's eye, and note any Dutch angle. Specify changes in angle only if angle changes.",
+  "camera_focus": "Describe depth of field; if deep, note \"deep focus\" only; if shallow, specify the focus plane (foreground, midground, background), and any changes in focus (rack or pull, focus tracking).",
+  "camera_steadiness": "Describe how stable the camera is, noting static shot / minimal shake / handheld / severe shake if present.",
+  "camera_translation": "Describe translation direction and type, noting move forward or backward or down / dolly in / dolly out / truck left / truck right / pedestal up / pedestal down / crane up / crane down.",
+"camera_movement": "Describe only the camera movement that is mentioned in the caption, including translation direction and type; rotation direction and type; zoom in or out if present (if combined with dolly movement, note whether it is dolly-zoom-in or dolly-zoom-out); arc movements around a subject or the frame center, and whether combined with tracking. Do not mention steadiness or any movement that are not mentioned in the caption.",
+  "tracking_shot": "If the camera tracks a subject, noting the spatial relationship as tracking from the front / tracking from the back / tracking from the side / tracking from above. Also note whether the subject appears larger, smaller, or unchanged in the frame during tracking.",
+  "camera_movement_speed": "Only if notably slow or fast camera movement speed presents, note slow or fast.",
+  "camera_movement_purpose": "Describe the reason and purpose of camera movement, such as tracking a subject, revealing a scene, or creating emphasis."
+}
+
+Caption Instruction:
+Provide a concise yet informative description of the video's and camera's configuration, covering video speed, lens distortion, camera angle, camera height, movements (translation, rotation, zooming, steadiness, arcing, craning, tracking, speed, complexity, and purpose), and focus (depth, focus plane, focus changes).
+
+If video speed is altered, specify the type, such as time-lapse ("Clouds move rapidly across the sky"), slow-motion, fast-motion, or speed ramp (changing between fast and slow motion). If the video is time-reversed or stop-motion, note this as well.
+
+If lens distortion is present, describe the type and degree. For example, fisheye distortion creates extreme curvature, while barrel distortion causes mild outward bowing of straight lines near the edges.
+
+Describe the camera height in relation to the ground, such as eye-level, hip-level, ground-level, overhead-level, aerial-level, above water, or underwater. If height changes due to movement, mention how it transitions. Similarly, specify the camera angle, such as bird's eye, high angle, level angle, low angle, or worm's eye, noting any shifts within the video. If a Dutch angle (tilted horizon) is present, indicate whether it remains fixed or varies due to camera rolling.
+
+If discernible, describe the camera focus and depth of field. For example, deep focus that keeps all elements sharp, while shallow or ultra-shallow depth of field blurs the background or foreground. If focus changes dynamically, note whether it is a rack focus (shifting focus between subjects) or focus tracking (following a subject's depth movement), and state the focus plane at each stage (foreground, midground, background, or out-of-focus). If the video lacks realistic depth of field, describe whether it appears artificial (without a physical camera) or overly blurry.
+
+If the camera is static, simply state that the shot is static. If it moves, describe the type, direction, steadiness, and speed of movement. Specify movements such as tracking (camera moves to follow a subject as it travels through space), arcing clockwise or counterclockwise (circling around a subject or frame center horizontally), craning up or down (circling around a subject or frame center vertically), zooming (changing focal length), dollying (moving forward or backward), trucking (moving left or right), pedestaling (moving up or down), panning (rotating the camera horizontally), tilting (rotating the camera up or down), or rolling (rotating around the lens axis). If the camera is shaking or wobbling, indicate the degree (e.g., minimal, moderate, or severe). If different movements occur at different speeds, clearly distinguish them. If the camera performs multiple movements, describe them in temporal order (e.g., "The camera first pans right, then tilts upward to follow the subject"). If movement is fragmented or random, summarize it concisely instead of detailing every small change (e.g., "The first-person camera moves erratically, frequently changing direction without a clear pattern"). If relevant, describe the reason or purpose of the camera movement.
+
+Try to make the description as concise as possible. For example, if the video is at regular playback speed, has no lens distortion, and no Dutch angle, regular or subtle movement speed, there is no need to mention these.
+
+If the video is deep focus, just put in "Deep focus" in "camera_focus".
+If there is no camera tracking mentioned in caption, leave "tracking_shot" as "".
+
+When shot transitions occur, describe the camera framing and movement in each segment separately, note the type of transition (e.g., hard cut, soft transition), and explain how the framing and movement change between segments.
+
+Caption: {caption}
+
+Instructions:
+1. Use the exact same JSON keys as shown above
+2. Preserve all important information from the caption with all the keywords and details
+3. Organize the information appropriately under each key
+4. If the caption doesn't contain some information, please review the caption instruction above to determine what should be the input
+5. It is okay to leave fields blank as "" if nothing is mentioned in the caption
+6. Return only valid JSON without any additional text
+7. No period after each caption
+8. Do not include any information not mentioned in the original "Caption"
+9. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
