@@ -1,0 +1,40 @@
+Please convert the following caption into the JSON format shown below:
+
+{
+  "point_of_view": "Indicate how the scene is captured, such as first-person, dashcam, screen recording, drone shot, objective view, etc. Only include explicitly defined perspectives and exclude any camera angle-related information.",
+  "location": "Describe whether the setting is indoors or outdoors and summarize its defining features or notable location if identifiable.",
+  "time_of_day": "Specify the time of day, such as day, night, sunrise, sunset, or other transitional periods.",
+  "architecture": "Describe notable man-made structures, buildings, roads, or other constructed elements present in the scene if relevant.",
+  "nature": "Describe natural elements such as vegetation, water bodies, mountains, sky, or other landscape features if relevant.",
+  "weather": "Describe weather conditions or atmospheric effects present in the scene if relevant.",
+  "set_dressing": "Describe significant objects or furnishings in the environment that help establish the setting, if relevant.",
+  "style": "Describe visual style if unusual or distinctive, such as color schemes, aesthetics, video editing style, etc.",
+  "overlay": "Specify any overlay elements (if any) in the video, such as text, titles, subtitles, captions, icons, watermarks, heads-up displays (HUD), or framing graphics. Describe their content, placement, and clarify that they are not part of the physical scene.",
+  "scene_dynamics": "Describe notable movement or activity within the scene if there are any, whether natural (e.g., wind, waves) or man-made (e.g., traffic, machinery, crowds).",
+  "transition": "Describe any change in the scene over time or through camera movement if there are any, specifying the type and sequence of transitions."
+}
+Caption Instruction: Provide a concise yet informative description of the overall scene, including the point of view, environment, setting, time of day, and notable visual elements like overlays. For notable visual elements within the scene, describe their color, material, shape, and distinguishing features like texture or markings. If subjects are present, ensure their placement and context complement the scene without excessive detail. You should describe the video by combining details from the frames without referring to any specific one, and avoid using terms like "image" or "frame." Focus on the setting and scenery rather than detailed subject descriptions. Avoid describing anything not visible or uncertain. Use simple, natural English to create a clear, concise, and coherent paragraph. Avoid emotional or subjective adjectives. Return only the one-paragraph video description without Markdown formatting or introductory text.
+
+Instructions for JSON Conversion:
+
+Key Usage: Use the exact same JSON keys as shown above.
+
+Information Preservation: Preserve all important information from the caption and organize it appropriately.
+
+Missing Information: If the caption doesn't contain specific information, leave fields as "".
+
+POV Filter: In the "point_of_view" section, mention only explicitly defined points of view. Do not include any camera angle-related information (e.g., low angle, high angle).
+
+Scene Dynamics: This section must exclude all subject motion. If the caption does not explicitly mention any scene-level motion or dynamics, leave the field as "". Do not describe the scene as "static" and do not mention any scene elements in this field if they are not moving.
+
+Nature & Weather: The Nature section excludes architectural elements. In the Weather section, provide only a brief description; do not include detailed descriptions of the sky.
+
+Set Dressing: Mention only objects or furnishings present in the scene that establish the setting. Do not describe subject-related information, such as clothing or items held by the subject.
+
+Overlay Accuracy: Do not include any screen or interface that is originally part of the physical scene as an overlay.
+
+Sentence Structure: Ensure that each field consists of coherent, self-contained full sentences that can be understood on their own. However, do not end the sentences with a period (.).
+
+Output: Return only valid JSON without any additional text or Markdown code blocks.
+
+Caption: {caption}

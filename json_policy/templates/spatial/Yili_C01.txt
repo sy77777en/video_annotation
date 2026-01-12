@@ -1,0 +1,41 @@
+Please convert the following caption into the JSON format shown below:
+
+{
+  "shot_size": "Indicate how much of the subject or scenery is visible in the frame, such as close-up, medium shot, wide shot, full shot, etc.",
+  "frame_position": "Describe the approximate 2D position of each subject or key element within the frame (e.g., center, left, right, top-left).",
+  "scene_position": "Describe the subject or element's physical location within the environment (e.g., near a window, beside a tree, at the end of a hallway).",
+  "spatial_depth": "Describe the 3D depth placement of each subject or element in the scene (foreground, midground, or background).",
+  "height_relative_to_camera": "Describe the vertical positioning of each subject relative to the camera (e.g., at the subject, above the subject, or below the subject).",
+  "spatial_motion": "Describe any changes in shot size, frame position, depth, or height over time, specifying both the initial and final states."
+}
+Instruction for JSON Conversion:
+
+Key Usage: Use the exact same JSON keys as shown above.
+
+Missing Information: If the caption doesn't contain specific information, leave fields as "".
+
+Sentence Structure: Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own. However, do not end the sentences with a period (.).
+
+Dimension Separation: In frame_position, describe only 2D positioning; do not include depth.
+
+In spatial_depth, describe only 3D depth; do not include 2D frame positions.
+
+In scene_position, describe only the relative physical relationships between elements in the environment.
+
+Camera Height: Only determine the camera's height relative to the subject if explicitly stated (above, below, or at height). Do not infer camera height from angles or other descriptions.
+
+Spatial Motion Logic: Only describe motion changes explicitly mentioned in the caption.
+
+Do not include any details about camera motion (e.g., panning, tilting).
+
+If no motion is mentioned, leave the field as "". Do not state that elements are "static".
+
+Orientation: Clearly differentiate frame-based directions (left/right of the screen) from subject-based directions (to the person's left).
+
+Internal Consistency: Ensure there are no contradictions between different fields (e.g., an element cannot be in the foreground and background simultaneously).
+
+Output: Return only valid JSON without any additional text or Markdown code blocks.
+
+Caption Instruction: Analyze the subjects and elements and describe their spatial framing: shot size, 2D/3D positions, camera height relative to subjects, and spatial transitions. Focus on where things are and how they move spatially. Use simple, natural English. Avoid subjective adjectives or speculation. For scenery shots, focus on the scale and environmental layout. For shots with multiple subjects, describe their collective or individual spatial composition.
+
+Caption: {caption}

@@ -678,6 +678,217 @@ Instructions:
             f.write(content)
         return True
     
+    # def render_llm_testing_interface(self, selected_video: Dict[str, Any], selected_caption: Dict[str, Any]):
+    #     """Render the LLM testing interface in the left column"""
+    #     if not selected_video or not selected_caption:
+    #         st.info("Please select a video and task to begin testing LLM prompts.")
+    #         return
+            
+    #     st.subheader("🤖 LLM Caption Testing")
+        
+    #     with st.expander("📖 Instructions", expanded=False):
+    #         st.markdown("""
+    #         **How to use this interface:**
+    #         1. **Select a video and task** from the sidebar
+    #         2. **Review the final caption** that was approved by reviewers
+    #         3. **Select a prompt template** or use the default one
+    #         4. **Edit the prompt template** - the JSON structure and caption instruction are already included
+    #         5. **Save your template** if you want to reuse it (use a unique name)
+    #         6. **Choose an LLM model** and click "Generate JSON" to test the conversion
+            
+    #         **Note:** The template must contain `{caption}` placeholder which will be replaced with the actual caption.
+            
+    #         **Task-specific default templates:**
+    #         - **Camera**: Includes "No period after each caption"
+    #         - **Subject**: Includes specific wardrobe/appearance restrictions
+    #         - **Motion**: Includes subject action focus restrictions
+    #         - **Others**: Use default template
+    #         """)
+        
+    #     st.write("### 📋 Final Caption")
+    #     final_caption = selected_caption["final_caption"]
+    #     annotator = selected_caption["annotator"]
+    #     reviewer = selected_caption["reviewer"]
+    #     timestamp = self.data_manager.format_timestamp(selected_caption["timestamp"])
+    #     status = selected_caption.get("status", "unknown")
+    #     status_emoji = "✅" if status == "approved" else "🔄" if status == "rejected" else "❓"
+        
+    #     with st.container(border=True):
+    #         st.write(f"**Status:** {status} {status_emoji}")
+    #         st.write(f"**Annotator:** {annotator}")
+    #         st.write(f"**Reviewer:** {reviewer}")
+    #         st.write(f"**Completed:** {timestamp}")
+    #         st.write("**Caption:**")
+    #         st.write(final_caption)
+        
+    #     task = selected_caption["task"]
+    #     json_policy = self.get_json_policy_for_task(task)
+    #     caption_instruction = self.get_caption_instruction_for_task(task)
+        
+    #     # Get task short name for display
+    #     task_folder_map = {
+    #         "subject_description": "subject",
+    #         "scene_composition_dynamics": "scene",
+    #         "subject_motion_dynamics": "motion",
+    #         "spatial_framing_dynamics": "spatial",
+    #         "camera_framing_dynamics": "camera",
+    #         "color_composition_dynamics": "color",
+    #         "lighting_setup_dynamics": "lighting",
+    #         "lighting_effects_dynamics": "effects"
+    #     }
+    #     task_short = task_folder_map.get(task, task)
+        
+    #     st.write("### ✏️ Prompt Template")
+        
+    #     # Check if custom default exists
+    #     has_custom_default = self.has_custom_default(task)
+    #     default_template_name = self.get_default_template_name(task)
+        
+    #     if has_custom_default:
+    #         st.caption(f"📁 Templates for task: **{task_short}** (⭐ default → {default_template_name})")
+    #     else:
+    #         st.caption(f"📁 Templates for task: **{task_short}**")
+        
+    #     # Template selection - task-specific
+    #     available_templates = self.get_available_templates(task)
+        
+    #     # Add indicator to default option if custom, and show which template is the default
+    #     display_templates = []
+    #     for t in available_templates:
+    #         if t == "default" and has_custom_default:
+    #             display_templates.append(f"default ⭐ (→ {default_template_name})")
+    #         elif t == default_template_name:
+    #             display_templates.append(f"{t} ⭐")
+    #         else:
+    #             display_templates.append(t)
+        
+    #     selected_display = st.selectbox(
+    #         f"Select Template ({len(available_templates)} available):",
+    #         display_templates,
+    #         key="template_selector"
+    #     )
+        
+    #     # Map back to actual template name
+    #     selected_template = selected_display.split(" ⭐")[0].split(" (")[0] if selected_display else "default"
+        
+    #     # Load selected template
+    #     # Track template changes to reload content
+    #     template_cache_key = f"_template_content_{task}_{selected_template}"
+    #     if template_cache_key not in st.session_state or st.session_state.get("_last_template") != selected_template or st.session_state.get("_last_task_for_template") != task:
+    #         loaded_template = self.load_template(selected_template, task, json_policy, caption_instruction)
+    #         st.session_state[template_cache_key] = loaded_template
+    #         st.session_state["_last_template"] = selected_template
+    #         st.session_state["_last_task_for_template"] = task
+        
+    #     prompt_template = st.text_area(
+    #         "Edit the prompt template (must contain {caption} placeholder):",
+    #         value=st.session_state.get(template_cache_key, ""),
+    #         height=400,
+    #         key="prompt_template"
+    #     )
+        
+    #     # Update session state with current edits
+    #     st.session_state[template_cache_key] = prompt_template
+        
+    #     # Save template section
+    #     with st.expander("💾 Save as New Template", expanded=False):
+    #         new_template_name = st.text_input(
+    #             "Template name:",
+    #             placeholder="e.g., my_custom_template",
+    #             key="new_template_name"
+    #         )
+    #         save_clicked = st.button("💾 Save Template", type="secondary", use_container_width=True)
+            
+    #         if save_clicked:
+    #             if not new_template_name:
+    #                 st.error("Please enter a template name.")
+    #             elif new_template_name == "default":
+    #                 st.error("Cannot use 'default' as template name. Use 'Set as Default' button instead.")
+    #             elif "{caption}" not in prompt_template:
+    #                 st.error("Template must contain {caption} placeholder!")
+    #             elif not new_template_name.replace("_", "").replace("-", "").isalnum():
+    #                 st.error("Template name can only contain letters, numbers, underscores, and hyphens.")
+    #             else:
+    #                 if self.save_template(new_template_name, prompt_template, task):
+    #                     st.success(f"✅ Template '{new_template_name}' saved to {task_short}/!")
+    #                     st.rerun()
+    #                 else:
+    #                     st.error(f"❌ Template '{new_template_name}' already exists. Choose a different name.")
+        
+    #     # Set as default section
+    #     with st.expander("⭐ Set as Default Template", expanded=False):
+    #         has_custom = self.has_custom_default(task)
+    #         current_default_name = self.get_default_template_name(task)
+            
+    #         if has_custom:
+    #             st.info(f"📌 Default is set to: **{current_default_name}**")
+    #         else:
+    #             st.caption(f"No custom default set for {task_short} (using code-generated default)")
+            
+    #         # Get list of saved templates (excluding "default")
+    #         saved_templates = [t for t in available_templates if t != "default"]
+            
+    #         if saved_templates:
+    #             default_choice = st.selectbox(
+    #                 "Select template to use as default:",
+    #                 saved_templates,
+    #                 key="default_template_choice"
+    #             )
+                
+    #             col_set, col_reset = st.columns(2)
+    #             with col_set:
+    #                 set_default_clicked = st.button("⭐ Set as Default", use_container_width=True)
+    #             with col_reset:
+    #                 reset_default_clicked = st.button("🔄 Reset to Original", use_container_width=True, disabled=not has_custom)
+                
+    #             if set_default_clicked:
+    #                 self.set_as_default(default_choice, task)
+    #                 st.success(f"✅ '{default_choice}' set as default for {task_short}!")
+    #                 # Clear cache to reload
+    #                 if template_cache_key in st.session_state:
+    #                     del st.session_state[template_cache_key]
+    #                 st.rerun()
+                
+    #             if reset_default_clicked:
+    #                 self.reset_default(task)
+    #                 st.success(f"✅ Default reset to original for {task_short}!")
+    #                 # Clear cache to reload
+    #                 if template_cache_key in st.session_state:
+    #                     del st.session_state[template_cache_key]
+    #                 st.rerun()
+    #         else:
+    #             st.caption("No saved templates yet. Save a template first to set it as default.")
+        
+    #     # LLM selection and generate button
+    #     st.write("### 🚀 Generate JSON")
+        
+    #     available_llms = get_all_llms()
+    #     selected_llm = st.selectbox(
+    #         "Select LLM:",
+    #         available_llms,
+    #         index=available_llms.index("gpt-5.2") if "gpt-5.2" in available_llms else 0,
+    #         key="selected_llm"
+    #     )
+        
+    #     generate_clicked = st.button("🚀 Generate JSON", type="primary", use_container_width=True)
+        
+    #     # Handle generation
+    #     if generate_clicked:
+    #         if "{caption}" not in prompt_template:
+    #             st.error("Prompt template must contain {caption} placeholder!")
+    #         else:
+    #             self.generate_json_caption(prompt_template, final_caption, selected_llm)
+        
+    #     # Show previous results if available and matches current selection
+    #     elif "last_generated_json" in st.session_state:
+    #         last_result = st.session_state["last_generated_json"]
+    #         st.write("### 📄 Last Generated JSON")
+    #         st.code(last_result["formatted"], language="json")
+    #         if last_result["valid"]:
+    #             st.success(f"✅ Valid JSON generated with {last_result['llm']}")
+    #         else:
+    #             st.error(f"⚠️ Response is not valid JSON format")
+
     def render_llm_testing_interface(self, selected_video: Dict[str, Any], selected_caption: Dict[str, Any]):
         """Render the LLM testing interface in the left column"""
         if not selected_video or not selected_caption:
@@ -771,24 +982,34 @@ Instructions:
         # Map back to actual template name
         selected_template = selected_display.split(" ⭐")[0].split(" (")[0] if selected_display else "default"
         
-        # Load selected template
-        # Track template changes to reload content
-        template_cache_key = f"_template_content_{task}_{selected_template}"
-        if template_cache_key not in st.session_state or st.session_state.get("_last_template") != selected_template or st.session_state.get("_last_task_for_template") != task:
+        # Create a unique key for tracking template/task changes
+        current_template_key = f"{task}_{selected_template}"
+        
+        # Only reload template content when template or task actually changes
+        # Use a tracking key to detect real changes vs just re-runs
+        if st.session_state.get("_current_template_key") != current_template_key:
+            # Template or task changed - load fresh content
             loaded_template = self.load_template(selected_template, task, json_policy, caption_instruction)
-            st.session_state[template_cache_key] = loaded_template
-            st.session_state["_last_template"] = selected_template
-            st.session_state["_last_task_for_template"] = task
+            st.session_state["_loaded_template_content"] = loaded_template
+            st.session_state["_current_template_key"] = current_template_key
+            # Clear the widget state to force it to use the new default
+            if "prompt_template" in st.session_state:
+                del st.session_state["prompt_template"]
+        
+        # Get the initial value - either from widget state (user edits) or loaded content
+        if "prompt_template" in st.session_state:
+            # Widget has state from user edits - use that
+            initial_value = st.session_state["prompt_template"]
+        else:
+            # No widget state yet - use loaded template
+            initial_value = st.session_state.get("_loaded_template_content", "")
         
         prompt_template = st.text_area(
             "Edit the prompt template (must contain {caption} placeholder):",
-            value=st.session_state.get(template_cache_key, ""),
+            value=initial_value,
             height=400,
             key="prompt_template"
         )
-        
-        # Update session state with current edits
-        st.session_state[template_cache_key] = prompt_template
         
         # Save template section
         with st.expander("💾 Save as New Template", expanded=False):
@@ -844,17 +1065,19 @@ Instructions:
                 if set_default_clicked:
                     self.set_as_default(default_choice, task)
                     st.success(f"✅ '{default_choice}' set as default for {task_short}!")
-                    # Clear cache to reload
-                    if template_cache_key in st.session_state:
-                        del st.session_state[template_cache_key]
+                    # Force reload on next run
+                    st.session_state["_current_template_key"] = None
+                    if "prompt_template" in st.session_state:
+                        del st.session_state["prompt_template"]
                     st.rerun()
                 
                 if reset_default_clicked:
                     self.reset_default(task)
                     st.success(f"✅ Default reset to original for {task_short}!")
-                    # Clear cache to reload
-                    if template_cache_key in st.session_state:
-                        del st.session_state[template_cache_key]
+                    # Force reload on next run
+                    st.session_state["_current_template_key"] = None
+                    if "prompt_template" in st.session_state:
+                        del st.session_state["prompt_template"]
                     st.rerun()
             else:
                 st.caption("No saved templates yet. Save a template first to set it as default.")
@@ -888,7 +1111,7 @@ Instructions:
                 st.success(f"✅ Valid JSON generated with {last_result['llm']}")
             else:
                 st.error(f"⚠️ Response is not valid JSON format")
-    
+                
     def generate_json_caption(self, prompt_template: str, final_caption: str, selected_llm: str):
         """Generate JSON version of caption using LLM"""
         try:

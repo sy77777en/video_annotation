@@ -1,0 +1,8 @@
+{
+    "video_id": "LbY3DdzV0rA.3.3.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a dramatic time-lapse video of a powerful storm developing over a desert landscape. Massive, dark purple and gray clouds churn and swirl rapidly across the sky. A concentrated column of heavy rain descends in the distance, moving across the arid terrain dotted with saguaro cacti and sparse vegetation.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-11T08:55:13.457926"
+}

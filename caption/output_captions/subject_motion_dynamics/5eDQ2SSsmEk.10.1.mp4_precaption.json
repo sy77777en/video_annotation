@@ -1,0 +1,8 @@
+{
+    "video_id": "5eDQ2SSsmEk.10.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video features a rainy, neon-lit urban environment at night, with futuristic buildings and bright advertisements. The camera angle is low, looking up at the cityscape, and a vehicle is present in the foreground. The scene is atmospheric, emphasizing the moody lighting and cyberpunk aesthetic.",
+    "pre_caption_llm": "gpt-4.1-2025-04-14",
+    "pre_caption_mode": "Image (First-and-Last-Frame)",
+    "timestamp": "2026-01-08T23:59:23.798479"
+}

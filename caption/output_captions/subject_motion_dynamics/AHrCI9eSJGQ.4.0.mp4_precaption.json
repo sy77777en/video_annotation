@@ -1,0 +1,8 @@
+{
+    "video_id": "AHrCI9eSJGQ.4.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenic video. The shot is a wide-angle view from the bow of a massive container ship at sea. Colorful shipping containers are stacked high on the deck, leading the eye toward the horizon under a vast, cloud-streaked sky, with a few other distant vessels visible on the calm water.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-10T09:55:40.891709"
+}

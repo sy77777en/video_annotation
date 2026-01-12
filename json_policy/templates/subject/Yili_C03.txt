@@ -1,0 +1,78 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "type": "Briefly identify the shot type by summarizing the subject type mentioned in the caption (e.g., prominent human subject, non-human subject, subject appearance/disappearance, subject-type change, multiple subjects with or without a clear focus, or an atypical subject). Describe only what is explicitly indicated in the caption. List only the main subjects in the video (e.g., woman, man, dog, car). Do not include environment objects or background props (e.g., furniture, skateboards, trees). Do not include appearance or wardrobe details",
+  "appearance": "Summarize all the key visual traits and the clothing of each subject that are mentioned in the caption, such as hairstyle, facial hair, age, gender, ethnicity, clothing colors, styles, and notable accessories; or for objects, color, material, shape, or details. If a subject’s clothing is not visible, do not describe it.",
+  "pose": "Describe each subject's posture, stance, and orientation within the frame (e.g., standing, sitting, walking, facing camera).",
+"prop": "Describe specific objects that actors handle or interact with on screen as mentioned in the caption",
+  "subject_relationship": "Explain spatial and action-based relationships between subjects (e.g., standing next to, chasing, handing an object to another).",
+  "subject_transition": "If a subject reveals, disappears, or changes prominence during the video, describe the change and how it occurs (through subject or camera movement)."
+}
+
+Caption Instruction:
+Provide a concise yet informative description of the subjects in this video. Keep the description concise and clear, focusing on subject types and visual attributes. You should describe the video by combining details from the frames without referring to any specific one (e.g., don't mention things like "first frame" or "last frame"), and avoid using terms like "image" or "frame." Don't mention the background or motion unless it is necessary to distinguish subjects by location, action, or relationships. You must avoid describing what is not visible or what you are unsure about. You must use simple, natural English and ensure the description is a clear, concise, and coherent paragraph that highlights the most essential details. You must avoid subjective adjectives that convey emotions. Whenever you mention a subject, please describe its key visual attributes in detail. Return only the one-paragraph video description without Markdown formatting or introductory text.
+
+Clearly identify each subject's type, using precise terms such as "man," "woman," "dog," "car," or "tree," rather than vague words like "thing" or "item." If the subject type is ambiguous, use your best judgment and briefly explain your reasoning.
+
+Describe key visual attributes with specific and descriptive language. For people, include details such as clothing color and style, skin tone, hairstyle, facial hair, age (if discernible), gender, ethnicity (if relevant and clear), and facial expression. For objects, describe their color, material, shape, and distinguishing features like texture or markings. Additionally, note the subject's pose and orientation within the frame, such as standing, sitting, walking, or facing a certain direction. Pay attention to any objects that are not in their usual state, like a tilted lamp or an open book lying face down.
+
+If there are multiple subjects to describe, ensure clarity in referring to each. The simplest way is by type, such as "the man," "the dog," or "the tree." If multiple subjects belong to the same category, distinguish them using unique appearance traits (e.g., "the woman in the red dress," "the man with the beard"), location within the scene (e.g., "the man on the left," "the car in the midground"), actions (e.g., "the child playing with a ball," "the bird flying"), or relationships to each other (e.g., "the man next to the woman," "the first man that enters the frame"). Also, when describing multiple subjects, the order in which they are mentioned matters. Prioritize based on relevance, starting with the largest or most centered subject. If the scene unfolds over time, describe subjects in the order they appear. If temporal order is not relevant, begin with the most visually striking or important subject before moving to less prominent ones. The goal is to provide enough detail so that anyone reading the description can easily identify each subject.
+
+When shot transitions occur, describe the subject in each segment separately, noting the type of transition (e.g., hard cut, soft transition) and explaining how the subjects change from one segment to the next.
+
+If the video is a scenery shot without salient subjects, you do not need to describe a specific subject. Instead, concisely specify the type of scenery shot (e.g., landscape, cityscape) in a single fluent paragraph. Briefly explain why there is no main subject, for example by noting that the focus is on the environment, atmosphere, or scale rather than on a particular object, using one to three sentences.
+
+If the video features salient human or non-human subjects, focus your description on them. If the video features multiple subjects with a clear focus, you may describe the main subject in detail and briefly mention the secondary subjects. If the video features multiple subjects without a clear main focus, describe the types of subjects without going into too much detail. You may also describe the subjects collectively as a group.
+
+If the video features subjects revealing, disappearing, or switching, describe the transition in detail.
+Use natural English with minimal grammar, no periods.
+Include subject or type in every field, even for single subjects.
+For multiple subjects, distinguish each by type, key traits, location, or unique identifiers.
+type only lists subject names or types; do not include appearance or wardrobe details.
+pose describes posture, stance, orientation.
+relationship describes spatial or action-based relations between subjects.
+facial_expression describes visible expression, if any.
+transition describes changes in visibility or prominence.
+Include only what is clearly visible.
+
+Caption: {caption}
+
+Instructions:
+1. Use the exact same JSON keys as shown above
+2. Preserve all important information from the caption with all the keywords and details
+3. Organize the information appropriately under each key
+4. If the caption does not contain some information, please review the caption instruction above to determine what should be the input
+5. It is okay to leave fields blank as "" if nothing is mentioned in the caption
+6. Return only valid JSON without any additional text
+7. No period after each caption
+8. Don't mention any details of "wardrobe" and "appearance" in "type". Only mention each subject in short.
+9. In the Relationship section, strictly avoid inferring or speculating about relationships between elements. Only describe relationships that are explicitly mentioned in the caption. Do not add any assumed or imagined relationships. If there is no direct relationship between them, do not mention one.
+10. In the Pose section, describe only the pose of human subjects. Exclude all information related to objects.
+11. Only describe subject reveals, disappearances, or changes in prominence in the Transition section. If none occur, leave it empty.
+12. Landscape and environmental elements (such as mountains and clouds), as well as architectural elements (e.g., buildings), are not considered subjects. Do not include scenery-related or architectural information in the Type, Appearance, Wardrobe, Facial Expression, Pose, or Relationship sections. If the caption contains only landscape and environmental elements or architectural elements, keep the Type, Appearance, Wardrobe, Facial Expression, Pose, and Relationship sections empty.
+13. In the Type section, avoid repeating identical terms. For example, instead of listing “man, man, man,” use expressions such as a specific number followed by the plural form (e.g., “three men”). If the caption mentions more than one subject of the same type, do not use the singular form in the Type section. Whenever possible, specify the exact number based on the caption to avoid ambiguity. Clearly indicate the prominent subject rather than listing all subjects with equal emphasis. The description should be written as a complete sentence, not as a list of isolated words or phrases. If the caption does not explicitly indicate a prominent subject, it is not necessary to designate one.
+14. When counting the number of subjects in the Type section, first identify distinct individuals rather than counting how many times a subject is mentioned. If the caption explicitly specifies quantities (e.g., two men and two women), use those stated numbers as the final count and do not infer additional subjects. Multiple mentions or actions may refer to the same subject. Before finalizing, cross-check that the subject count strictly matches the quantities described in the caption. If the exact number cannot be determined with high confidence, do not provide a specific number.
+CRITICAL SUBJECT COUNT RULE:
+Before writing the Type section, explicitly identify and confirm the exact subject quantities stated in the caption.
+If the caption explicitly states numbers (e.g., two men and two women), these numbers MUST be used verbatim in the Type section.
+The Type section must not introduce any additional subjects or alter these quantities.
+If the generated Type subject count does not exactly match the caption-stated quantities, the output is considered invalid and must be corrected.
+Do not introduce additional subjects based on repeated mentions, actions, or sentence structure.
+Repeated references to "the man" or similar expressions refer to the same individual unless the caption explicitly introduces a new subject.
+In the Type section, start by explicitly stating the subject quantities as described in the caption (e.g., "The shot features two men and two women").
+Do not deviate from these quantities in the rest of the sentence.
+15. If the caption uses vague or non-specific quantity terms (e.g., some, several, a group of, many),
+do NOT convert them into specific numbers.
+Preserve the original level of quantity abstraction in the Type section.
+When a subject is described as a group (e.g., a group of players, two groups of players),
+treat each group as a single subject unit.
+Do not infer or enumerate the number of individuals within a group unless explicitly stated.
+Do not merge or reclassify subject categories when counting.
+For example, do not merge person into men or infer gender unless explicitly stated in the caption.
+Each subject category mentioned in the caption must be preserved as-is.
+If a subject is described as a "person"
+and the caption later assigns a gendered pronoun
+(e.g., her, she),
+the subject must be counted under that gender category.
+16. Game user interface elements, texts and overlays are not considered subjects. Do not mention them in any subject-related sections.
+17. 

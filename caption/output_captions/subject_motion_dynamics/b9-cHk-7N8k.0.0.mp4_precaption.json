@@ -1,0 +1,8 @@
+{
+    "video_id": "b9-cHk-7N8k.0.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, scenic shot of a prominent rock formation overlooking a vast canyon landscape under a clear sky. The warm, golden light of sunrise or sunset illuminates the scene. There is no movement in this still, picturesque view.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-11T08:03:20.633501"
+}

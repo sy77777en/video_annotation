@@ -1,0 +1,8 @@
+{
+    "video_id": "0cPttlrDnus_0004_0000.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static scenery shot featuring a modern, mirrored skyscraper. The building's facade reflects the surrounding urban landscape. In the background, a sprawling city with numerous buildings stretches out under a hazy sky, with mountains visible in the distance. A digital overlay of connected points is superimposed on the scene.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-10T21:47:18.834612"
+}

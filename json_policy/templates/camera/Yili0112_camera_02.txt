@@ -1,0 +1,37 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "playback_speed": "State playback speed if altered, noting time-lapse / fast-motion / slow-motion / stop-motion / speed-ramp / time-reversed.",
+  "lens_distortion": "Describe lens distortion only if present, noting fisheye / barrel distortion.",
+  "camera_height": "Specify camera height relative to the ground plane (e.g., aerial, overhead, eye, hip, ground, above water, underwater). Note changes in height if there is any.",
+  "camera_angle": "Specify camera angle relative to the ground plane (e.g., bird's eye, high, level, low, worm's eye), and note any Dutch angle. Specify changes in angle only if angle changes.",
+  "camera_focus": "Describe depth of field; if deep, note \"deep focus\" only; if shallow, specify the focus plane (foreground, midground, background), and any changes in focus (rack or pull, focus tracking).",
+  "camera_steadiness": "Describe how stable the camera is, noting static shot / minimal shake / handheld / severe shake if present.",
+  "camera_movement": "Describe only the camera movement that is mentioned in the caption in their temporal order, utilizing standard terms: translation (dolly, truck, pedestal), rotation (pan, tilt, roll), zoom, and arc. Note if combined with tracking. Do not mention steadiness or any movement that are not mentioned in the caption.",
+  "tracking_shot": "If the camera tracks a subject, noting the spatial relationship as tracking from the front / tracking from the back / tracking from the side / tracking from above. Also note whether the subject appears larger, smaller, or unchanged in the frame during tracking. Leave empty if no tracking is mentioned.",
+  "camera_movement_speed": "Only if notably slow or fast camera movement speed presents, note slow or fast.",
+  "camera_movement_purpose": "Describe the reason and purpose of camera movement, such as tracking a subject, revealing a scene, or creating emphasis."
+}
+
+Caption Instruction:
+Provide a concise description of the video's camera configuration based on the provided caption.
+Video Speed: If altered, specify the type (e.g., time-lapse for rapid motion, speed ramp for changing speeds).
+Lens Distortion: Describe only if explicitly present. Distinguish between fisheye (extreme curvature) and barrel distortion (mild outward bowing).
+Height & Angle: Describe the camera's position relative to the ground and the subject. Note any Dutch angle (tilted horizon) and whether it remains fixed or rolls.
+Focus: Describe depth of field. If focus changes dynamically, distinguish between rack focus (shifting between subjects) and focus tracking (following a moving subject). If the video lacks realistic depth of field, describe its artificial nature.
+Movement: If the camera is static, state it. If moving, describe the movements in strict temporal order (e.g., The camera first pans right, then tilts upward). Clearly distinguish between different types of movement (tracking, arcing, craning, zooming, dollying). If movement is fragmented or random, summarize the pattern concisely.
+Transitions: When shot transitions occur, describe the camera framing and movement for each segment separately, noting the type of transition (e.g., hard cut, soft transition).
+Keep the description concise. If attributes like playback speed, distortion, or Dutch angle are not present or are standard, do not mention them.
+
+Caption: {caption}
+
+Instructions:
+1. Output valid JSON only. All strings must use ASCII characters only. Do not use Unicode punctuation (e.g., \u2018, \u2019, \u201c, \u201d). Replace all smart quotes with straight quotes.
+2. Use the exact same JSON keys as shown above.
+3. Preserve all important information from the caption with all the keywords and details.
+4. Organize the information appropriately under each key.
+5. If the caption doesn't contain some information, leave the corresponding field as "".
+6. Return only valid JSON without any additional text.
+7. No period after each caption.
+8. Do not include any information not mentioned in the original "Caption".
+9. Lens Distortion Rule: Only describe lens distortion if it is explicitly mentioned in the caption. If the caption states that there is no lens distortion, or does not mention distortion at all, leave the lens_distortion field empty.
