@@ -1,0 +1,33 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "subject_motion": "Describe the actions and dynamic changes of each individual subject, specifying how they move or change over time or if they do not move or change.",
+  "group_motion": "Summarize collective or coordinated actions of groups of subjects, specifying the type of group and the nature of the activity.",
+  "subject_object_interaction": "Describe interactions between subjects and objects if there are any, specifying the type of interaction, the object involved, and any resulting effect.",
+  "subject_subject_interaction": "Describe interactions between different subjects if there are any, specifying the nature of interaction and their relative movements. Do not infer or speculate about relationships."
+}
+
+Caption Instruction:
+Provide a concise description of the subject's motion based on the caption.
+Chronology: Describe actions in strict chronological order if multiple movements occur.
+Action Clarity: Use specific verbs to describe movement rather than generic terms. Avoid emotional or speculative adjectives.
+Interactions: Clearly distinguish between interactions with objects (e.g., working with a tool) and interactions between subjects (e.g., fighting, conversing).
+Group Behavior: For groups, summarize collective or coordinated activities rather than listing individual actions.
+Transitions: When shot transitions occur, describe the motion of subjects in each segment separately.
+Subject Focus: Describe only the motion of the subjects. Do not describe camera movement or static background elements.
+
+Caption: {caption}
+
+Instructions:
+1. Output valid JSON only. All strings must use ASCII characters only. Do not use Unicode punctuation (e.g., \u2018, \u2019, \u201c, \u201d). Replace all smart quotes with straight quotes.
+2. Use the exact same JSON keys as shown above.
+3. Preserve all important information from the caption with all keywords and details.
+4. Organize the information appropriately under each key.
+5. If the caption does not contain some information, leave the corresponding field as "".
+6. Return only valid JSON without any additional text.
+7. No period after each caption.
+8. Do not include any information not mentioned in the original "Caption".
+9. Action Focus: Mention only subject actions in subject_motion. Strictly avoid mentioning camera movements (e.g., panning, zooming) in this section.
+10. Non-Subjects: Scenery, buildings, walls, and environmental elements are not subjects. Leave all motion fields empty if the caption only mentions static scenery or environmental motion (like wind) without subject agency.
+11. UI Exclusions: Game user interface elements, texts, and overlays are not considered subjects. Do not mention them in any subject-related sections.
+12. Describe group motion only when the caption explicitly mentions group-level movement. If no explicit group motion is stated, do not include or infer any group motion in this section.

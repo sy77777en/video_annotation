@@ -1,0 +1,35 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "shot_size": "Indicate how much of the subject or scenery is visible in the frame, such as close-up, medium shot, wide shot, full shot, etc.",
+  "frame_position": "Describe the approximate 2D position of each subject or key element within the frame (e.g., center, left, right, top-left).",
+  "scene_position": "Describe the subject or element's physical location within the environment (e.g., near a window, beside a tree, at the end of a hallway).",
+  "spatial_depth": "Describe the 3D depth placement of each subject or element in the scene (foreground, midground, or background).",
+  "height_relative_to_camera": "Describe the vertical positioning of each subject relative to the camera (e.g., at the subject, above the subject, or below the subject).",
+  "spatial_motion": "Describe any changes in shot size, frame position, depth, or height over time, specifying both the initial and final states."
+}
+
+Caption Instruction:
+Analyze the subjects and elements to describe their spatial configuration based on the caption.
+Framing: Describe the shot size (scale) and how much of the subject or scenery is visible.
+2D Position: In frame_position, describe where elements appear on the screen (e.g., center, top-left).
+3D Position: In spatial_depth and scene_position, describe physical depth (foreground/background) and location within the environment relative to other objects.
+Height: Determine camera height relative to the subject only if explicitly stated or clearly inferable (e.g., looking down on a subject).
+Spatial Motion: Describe changes in spatial properties (size, position, depth) over time. Do not describe camera movements (like panning) here, only the resulting change in the subject's spatial state.
+
+Caption: {caption}
+
+Instructions:
+1. Output valid JSON only. All strings must use ASCII characters only. Do not use Unicode punctuation (e.g., \u2018, \u2019, \u201c, \u201d). Replace all smart quotes with straight quotes.
+2. Use the exact same JSON keys as shown above.
+3. Preserve all important information from the caption with all the keywords and details.
+4. Organize the information appropriately under each key.
+5. If the caption doesn't contain some information, leave the corresponding field as "".
+6. Return only valid JSON without any additional text.
+7. No period after each caption.
+8. Do not include any information not mentioned in the original "Caption".
+9. Dimension Separation: In frame_position, describe only 2D positioning; do not include depth. In spatial_depth, describe only 3D depth; do not include 2D frame positions. In scene_position, describe only the relative physical relationships between elements in the environment.
+10. Camera Height: Only determine the camera's height relative to the subject if explicitly stated (above, below, or at height). Do not infer camera height from angles or other descriptions.
+11. Spatial Motion Logic: Only describe motion changes explicitly mentioned in the caption. Do not include any details about camera motion (e.g., panning, tilting). If no motion is mentioned, leave the field as "". Do not state that elements are static.
+12. Orientation: Clearly differentiate frame-based directions (left/right of the screen) from subject-based directions (to the person's left).
+13. Internal Consistency: Ensure there are no contradictions between different fields (e.g., an element cannot be in the foreground and background simultaneously).

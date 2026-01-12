@@ -1,0 +1,8 @@
+{
+    "video_id": "oagszCmJLpU.2.7.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a time-lapse scenery shot. The video captures the dramatic movement of massive, swirling storm clouds as they churn and evolve over a vast green field. A curtain of rain is visible in the distance as the turbulent, dark clouds move across the sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-12T11:40:55.310209"
+}

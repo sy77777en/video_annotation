@@ -1,0 +1,41 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "point_of_view": "Indicate how the scene is captured, such as first-person, dashcam, screen recording, drone shot, objective view, etc. Only include explicitly defined perspectives and exclude any camera angle-related information.",
+  "location": "Describe whether the setting is indoors or outdoors and summarize its defining features or notable location if identifiable.",
+  "time_of_day": "Specify the time of day, such as day, night, sunrise, sunset, or other transitional periods.",
+  "architecture": "Describe notable man-made structures, buildings, roads, or other constructed elements present in the scene if relevant.",
+  "nature": "Describe natural elements such as vegetation, water bodies, mountains, sky, or other landscape features if relevant.",
+  "weather": "Describe weather conditions or atmospheric effects present in the scene if relevant.",
+  "set_dressing": "Describe significant objects or furnishings in the environment that help establish the setting, if relevant.",
+  "style": "Describe visual style if unusual or distinctive, such as color schemes, aesthetics, video editing style, etc.",
+  "overlay": "Specify any overlay elements (if any) in the video, such as text, titles, subtitles, captions, icons, watermarks, heads-up displays (HUD), or framing graphics. Describe their content, placement, and clarify that they are not part of the physical scene.",
+  "scene_dynamics": "Describe notable movement or activity within the scene if there are any, whether natural (e.g., wind, waves) or man-made (e.g., traffic, machinery, crowds).",
+  "transition": "Describe any change in the scene over time or through camera movement if there are any, specifying the type and sequence of transitions."
+}
+
+Caption Instruction:
+Provide a concise description of the overall scene based on the caption.
+Point of View: Mention only explicitly defined points of view (e.g., drone shot, first-person). Do not infer POV from camera angles.
+Setting & Time: Summarize the location (indoor/outdoor), defining features, and time of day.
+Visual Elements: Describe the color, material, shape, and distinguishing features of notable scene elements (architecture, nature, set dressing).
+Scene Dynamics: Focus on general environmental motion (wind, waves) or large-scale man-made activity (traffic, crowds). Do not describe individual subject actions here.
+Overlays: Specify non-diegetic elements like text, subtitles, or HUDs.
+Transitions: Describe changes in the scene environment or location over time.
+
+Caption: {caption}
+
+Instructions:
+1. Output valid JSON only. All strings must use ASCII characters only. Do not use Unicode punctuation (e.g., \u2018, \u2019, \u201c, \u201d). Replace all smart quotes with straight quotes.
+2. Use the exact same JSON keys as shown above.
+3. Preserve all important information from the caption with all the keywords and details.
+4. Organize the information appropriately under each key.
+5. If the caption doesn't contain some information, leave the corresponding field as "".
+6. Return only valid JSON without any additional text.
+7. No period after each caption.
+8. Do not include any information not mentioned in the original "Caption".
+9. POV Filter: In point_of_view, mention only explicitly defined points of view. Do not include any camera angle-related information (e.g., low angle, high angle).
+10. Scene Dynamics: This section must exclude all individual subject motion. If the caption does not explicitly mention any scene-level motion or dynamics, leave the field as "". Do not describe the scene as static and do not mention any scene elements in this field if they are not moving.
+11. Nature & Weather: The Nature section excludes architectural elements. In the Weather section, provide only a brief description; do not include detailed descriptions of the sky.
+12. Set Dressing: Mention only objects or furnishings present in the scene that establish the setting. Do not describe subject-related information, such as clothing or items held by the subject.
+13. Overlay Accuracy: Do not include any screen or interface that is originally part of the physical scene as an overlay.
