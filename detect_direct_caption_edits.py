@@ -288,7 +288,15 @@ Sorted by timestamp (latest first).
 
 > {sample['final_feedback'] if sample['final_feedback'] else '(empty)'}
 
-**GPT Caption → Final Caption (Diff):**
+**GPT Caption (before edit):**
+
+> {sample['gpt_caption']}
+
+**Final Caption (after manual edit):**
+
+> {sample['final_caption']}
+
+**Diff:**
 
 ```diff
 {line_diff}
