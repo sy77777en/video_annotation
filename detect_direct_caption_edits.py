@@ -138,43 +138,54 @@ def compute_diff_summary(gpt_caption: str, final_caption: str) -> str:
     return "; ".join(summary_parts)
 
 
-def compute_word_diff_html(gpt_caption: str, final_caption: str) -> str:
+def compute_line_diff(gpt_caption: str, final_caption: str) -> str:
     """
-    Compute a word-level diff with HTML formatting.
-    - Deletions: red with strikethrough
-    - Additions: green with bold
-    - Unchanged: normal text
+    Compute a line-based diff using GitHub's diff code block format.
+    Lines starting with - are shown in red (deletions)
+    Lines starting with + are shown in green (additions)
     """
     import difflib
     
-    gpt_words = gpt_caption.split()
-    final_words = final_caption.split()
+    # Split into sentences for more readable diff
+    import re
     
-    # Use SequenceMatcher for word-level diff
-    matcher = difflib.SequenceMatcher(None, gpt_words, final_words)
+    def split_into_sentences(text: str) -> List[str]:
+        """Split text into sentences."""
+        # Split on period, exclamation, question mark followed by space or end
+        sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+        return [s.strip() for s in sentences if s.strip()]
     
-    result_parts = []
+    gpt_sentences = split_into_sentences(gpt_caption)
+    final_sentences = split_into_sentences(final_caption)
     
-    for opcode, i1, i2, j1, j2 in matcher.get_opcodes():
-        if opcode == 'equal':
-            # Unchanged words
-            result_parts.append(' '.join(gpt_words[i1:i2]))
-        elif opcode == 'delete':
-            # Deleted words (in gpt but not in final) - red strikethrough
-            deleted_text = ' '.join(gpt_words[i1:i2])
-            result_parts.append(f'<span style="color: red; text-decoration: line-through;">{deleted_text}</span>')
-        elif opcode == 'insert':
-            # Inserted words (in final but not in gpt) - green bold
-            inserted_text = ' '.join(final_words[j1:j2])
-            result_parts.append(f'<span style="color: green; font-weight: bold;">{inserted_text}</span>')
-        elif opcode == 'replace':
-            # Replaced words - show deletion then insertion
-            deleted_text = ' '.join(gpt_words[i1:i2])
-            inserted_text = ' '.join(final_words[j1:j2])
-            result_parts.append(f'<span style="color: red; text-decoration: line-through;">{deleted_text}</span>')
-            result_parts.append(f'<span style="color: green; font-weight: bold;">{inserted_text}</span>')
+    # If only one sentence each, split by clauses (commas) instead
+    if len(gpt_sentences) <= 1 and len(final_sentences) <= 1:
+        gpt_sentences = [s.strip() for s in gpt_caption.split(',') if s.strip()]
+        final_sentences = [s.strip() for s in final_caption.split(',') if s.strip()]
     
-    return ' '.join(result_parts)
+    # Generate unified diff
+    diff_lines = list(difflib.unified_diff(
+        gpt_sentences, 
+        final_sentences, 
+        lineterm='',
+        n=0  # No context lines
+    ))
+    
+    # Filter out header lines and format for GitHub diff block
+    result_lines = []
+    for line in diff_lines:
+        if line.startswith('---') or line.startswith('+++') or line.startswith('@@'):
+            continue
+        if line.startswith('-'):
+            result_lines.append(f"- {line[1:].strip()}")
+        elif line.startswith('+'):
+            result_lines.append(f"+ {line[1:].strip()}")
+    
+    if not result_lines:
+        # If no diff detected (maybe just whitespace), show simple comparison
+        return f"- {gpt_caption}\n+ {final_caption}"
+    
+    return '\n'.join(result_lines)
 
 
 def generate_report(results: Dict, target_user: str, timestamp: str, 
@@ -253,7 +264,7 @@ Sorted by timestamp (latest first).
 """
         for i, sample in enumerate(direct_edit_samples_sorted, 1):
             diff_summary = compute_diff_summary(sample['gpt_caption'], sample['final_caption'])
-            word_diff_html = compute_word_diff_html(sample['gpt_caption'], sample['final_caption'])
+            line_diff = compute_line_diff(sample['gpt_caption'], sample['final_caption'])
             
             report += f"""### Case {i}/{direct_count}
 
@@ -279,20 +290,9 @@ Sorted by timestamp (latest first).
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-{word_diff_html}
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> {sample['gpt_caption']}
-
-**Final Caption (after manual edit):**
-> {sample['final_caption']}
-
-</details>
+```diff
+{line_diff}
+```
 
 **Change Summary:** {diff_summary}
 

@@ -19,7 +19,7 @@ Direct edits may indicate:
 
 - **Source Export File**: `caption_export/export_20260112_1158/all_videos_with_captions_20260112_1158.json`
 - **Target User**: Jiaxi Li
-- **Analysis Timestamp**: 20260113_1058
+- **Analysis Timestamp**: 20260113_1102
 
 ## Detection Criteria
 
@@ -66,22 +66,12 @@ Sorted by timestamp (latest first).
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The scene is set outdoors in a vast, pastoral landscape during the day. A slow camera pullback begins on a couple in a green meadow, gradually revealing the expansive surroundings. The setting features rolling green hills, dense clusters of trees, and a wide body of water in the distance under a partly cloudy sky. As the view widens, <span style="color: red; text-decoration: line-through;">a large tree</span> <span style="color: green; font-weight: bold;">many trees</span> with gnarled branches becomes prominent on the left. A second couple dressed in similar period attire appears further back in the meadow, which is situated on a gentle slope. The continuous zoom-out transforms the composition from an intimate shot to a wide scenic vista.
-</blockquote>
+```diff
+- As the view widens, a large tree with gnarled branches becomes prominent on the left.
++ As the view widens, many trees with gnarled branches becomes prominent on the left.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The scene is set outdoors in a vast, pastoral landscape during the day. A slow camera pullback begins on a couple in a green meadow, gradually revealing the expansive surroundings. The setting features rolling green hills, dense clusters of trees, and a wide body of water in the distance under a partly cloudy sky. As the view widens, a large tree with gnarled branches becomes prominent on the left. A second couple dressed in similar period attire appears further back in the meadow, which is situated on a gentle slope. The continuous zoom-out transforms the composition from an intimate shot to a wide scenic vista.
-
-**Final Caption (after manual edit):**
-> The scene is set outdoors in a vast, pastoral landscape during the day. A slow camera pullback begins on a couple in a green meadow, gradually revealing the expansive surroundings. The setting features rolling green hills, dense clusters of trees, and a wide body of water in the distance under a partly cloudy sky. As the view widens, many trees with gnarled branches becomes prominent on the left. A second couple dressed in similar period attire appears further back in the meadow, which is situated on a gentle slope. The continuous zoom-out transforms the composition from an intimate shot to a wide scenic vista.
-
-</details>
-
-**Change Summary:** Added: many, trees; Removed: tree, large
+**Change Summary:** Added: many, trees; Removed: large, tree
 
 ---
 
@@ -109,20 +99,12 @@ The scene is set outdoors in a vast, pastoral landscape during the day. A slow c
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a full shot, a reddish-brown skullcap on a stand is positioned in the center of the frame and in the <span style="color: red; text-decoration: line-through;">middle ground.</span> <span style="color: green; font-weight: bold;">foreground.</span> A wooden structure occupies the left <span style="color: red; text-decoration: line-through;">foreground.</span> <span style="color: green; font-weight: bold;">foreground and middle ground.</span> The camera moves from left to right, revealing other bone-like artifacts in the out-of-focus background behind the central skullcap, and modern shelving with soft lights on the right side of the frame. The camera is positioned at the subject's level.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a full shot, a reddish-brown skullcap on a stand is positioned in the center of the frame and in the middle ground. A wooden structure occupies the left foreground. The camera moves from left to right, revealing other bone-like artifacts in the out-of-focus background behind the central skullcap, and modern shelving with soft lights on the right side of the frame. The camera is positioned at the subject's level.
-
-**Final Caption (after manual edit):**
-> In a full shot, a reddish-brown skullcap on a stand is positioned in the center of the frame and in the foreground. A wooden structure occupies the left foreground and middle ground. The camera moves from left to right, revealing other bone-like artifacts in the out-of-focus background behind the central skullcap, and modern shelving with soft lights on the right side of the frame. The camera is positioned at the subject's level.
-
-</details>
+```diff
+- In a full shot, a reddish-brown skullcap on a stand is positioned in the center of the frame and in the middle ground.
+- A wooden structure occupies the left foreground.
++ In a full shot, a reddish-brown skullcap on a stand is positioned in the center of the frame and in the foreground.
++ A wooden structure occupies the left foreground and middle ground.
+```
 
 **Change Summary:** Added: foreground
 
@@ -152,20 +134,10 @@ In a full shot, a reddish-brown skullcap on a stand is positioned in the center 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The video begins with a full shot from a <span style="color: red; text-decoration: line-through;">low-angle</span> <span style="color: green; font-weight: bold;">level-angle</span> perspective, capturing a person holding a large lobster in the center of the frame, submerged in the middle ground of the underwater scene. The camera then moves vertically upwards, breaking the surface of the water. The shot transitions to a medium shot from a low-angle perspective, where the person is now in the center-middle ground, partially above the water. They hold the lobster up, positioning it in the foreground so its underside fills the bottom of the frame. The surrounding sea occupies the middle ground, and a distant coastline stretches across the horizon in the background.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video begins with a full shot from a low-angle perspective, capturing a person holding a large lobster in the center of the frame, submerged in the middle ground of the underwater scene. The camera then moves vertically upwards, breaking the surface of the water. The shot transitions to a medium shot from a low-angle perspective, where the person is now in the center-middle ground, partially above the water. They hold the lobster up, positioning it in the foreground so its underside fills the bottom of the frame. The surrounding sea occupies the middle ground, and a distant coastline stretches across the horizon in the background.
-
-**Final Caption (after manual edit):**
-> The video begins with a full shot from a level-angle perspective, capturing a person holding a large lobster in the center of the frame, submerged in the middle ground of the underwater scene. The camera then moves vertically upwards, breaking the surface of the water. The shot transitions to a medium shot from a low-angle perspective, where the person is now in the center-middle ground, partially above the water. They hold the lobster up, positioning it in the foreground so its underside fills the bottom of the frame. The surrounding sea occupies the middle ground, and a distant coastline stretches across the horizon in the background.
-
-</details>
+```diff
+- The video begins with a full shot from a low-angle perspective, capturing a person holding a large lobster in the center of the frame, submerged in the middle ground of the underwater scene.
++ The video begins with a full shot from a level-angle perspective, capturing a person holding a large lobster in the center of the frame, submerged in the middle ground of the underwater scene.
+```
 
 **Change Summary:** Added: level-angle
 
@@ -195,22 +167,16 @@ The video begins with a full shot from a <span style="color: red; text-decoratio
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-<span style="color: red; text-decoration: line-through;">The video is shown from a high-angle, bird's-eye perspective, and being</span> <span style="color: green; font-weight: bold;">Being</span> in 2D, it <span style="color: red; text-decoration: line-through;">makes it</span> <span style="color: green; font-weight: bold;">is</span> challenging to accurately determine the camera's height and angle.
-</blockquote>
+```diff
+- The video is shown from a high-angle
+- bird's-eye perspective
+- and being in 2D
+- it makes it challenging to accurately determine the camera's height and angle.
++ Being in 2D
++ it is challenging to accurately determine the camera's height and angle.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video is shown from a high-angle, bird's-eye perspective, and being in 2D, it makes it challenging to accurately determine the camera's height and angle.
-
-**Final Caption (after manual edit):**
-> Being in 2D, it is challenging to accurately determine the camera's height and angle.
-
-</details>
-
-**Change Summary:** Removed: a, from, makes, video, bird's-eye, high-angle,, shown, perspective,
+**Change Summary:** Removed: video, bird's-eye, makes, from, high-angle,, shown, perspective,, a
 
 ---
 
@@ -239,20 +205,10 @@ The shot transitions to an upside-down level angle, not a low angle view.The gro
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The video starts with a medium shot from a level angle, looking at a group of people dispersed around the frame on a black and white checkered floor. A person with blonde hair is in the bottom left corner, while another person in blue is centrally positioned. Confetti is suspended in the air, filling the foreground, as the entire scene rotates 180 degrees, inverting the perspective. The shot transitions to an upside-down level view, with the subjects now at the top <span style="color: green; font-weight: bold;">and middle</span> of the frame against the checkered surface, which acts as the ceiling. The confetti remains static, and green tiled walls are visible in the background at the sides and bottom of the frame.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video starts with a medium shot from a level angle, looking at a group of people dispersed around the frame on a black and white checkered floor. A person with blonde hair is in the bottom left corner, while another person in blue is centrally positioned. Confetti is suspended in the air, filling the foreground, as the entire scene rotates 180 degrees, inverting the perspective. The shot transitions to an upside-down level view, with the subjects now at the top of the frame against the checkered surface, which acts as the ceiling. The confetti remains static, and green tiled walls are visible in the background at the sides and bottom of the frame.
-
-**Final Caption (after manual edit):**
-> The video starts with a medium shot from a level angle, looking at a group of people dispersed around the frame on a black and white checkered floor. A person with blonde hair is in the bottom left corner, while another person in blue is centrally positioned. Confetti is suspended in the air, filling the foreground, as the entire scene rotates 180 degrees, inverting the perspective. The shot transitions to an upside-down level view, with the subjects now at the top and middle of the frame against the checkered surface, which acts as the ceiling. The confetti remains static, and green tiled walls are visible in the background at the sides and bottom of the frame.
-
-</details>
+```diff
+- The shot transitions to an upside-down level view, with the subjects now at the top of the frame against the checkered surface, which acts as the ceiling.
++ The shot transitions to an upside-down level view, with the subjects now at the top and middle of the frame against the checkered surface, which acts as the ceiling.
+```
 
 **Change Summary:** Added: middle
 
@@ -283,22 +239,12 @@ A dummy is holding the man.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a bird's-eye view, the scene looks directly down into a vast, green valley during the daytime. The landscape below is a mix of green and brown vegetation covering rolling hills, with some exposed rocky ground. A narrow, winding path or dry riverbed meanders across the valley floor. A thick black rope descends through the center of the view, with a person in dark clothing, <span style="color: red; text-decoration: line-through;">supported</span> <span style="color: green; font-weight: bold;">holding</span> by a dummy, <span style="color: red; text-decoration: line-through;">suspended from it,</span> positioned high above the ground. The overall color palette is muted under what appears to be an overcast sky.
-</blockquote>
+```diff
+- A thick black rope descends through the center of the view, with a person in dark clothing, supported by a dummy, suspended from it, positioned high above the ground.
++ A thick black rope descends through the center of the view, with a person in dark clothing, holding by a dummy,  positioned high above the ground.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a bird's-eye view, the scene looks directly down into a vast, green valley during the daytime. The landscape below is a mix of green and brown vegetation covering rolling hills, with some exposed rocky ground. A narrow, winding path or dry riverbed meanders across the valley floor. A thick black rope descends through the center of the view, with a person in dark clothing, supported by a dummy, suspended from it, positioned high above the ground. The overall color palette is muted under what appears to be an overcast sky.
-
-**Final Caption (after manual edit):**
-> From a bird's-eye view, the scene looks directly down into a vast, green valley during the daytime. The landscape below is a mix of green and brown vegetation covering rolling hills, with some exposed rocky ground. A narrow, winding path or dry riverbed meanders across the valley floor. A thick black rope descends through the center of the view, with a person in dark clothing, holding by a dummy,  positioned high above the ground. The overall color palette is muted under what appears to be an overcast sky.
-
-</details>
-
-**Change Summary:** Added: holding; Removed: suspended, it,, supported
+**Change Summary:** Added: holding; Removed: supported, suspended, it,
 
 ---
 
@@ -326,22 +272,12 @@ From a bird's-eye view, the scene looks directly down into a vast, green valley 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a bird's-eye view, a person hangs from a rope, remaining mostly stationary in a curled-forward position while suspended over a green, hilly landscape. <span style="color: red; text-decoration: line-through;">They exhibit a very slight, subtle swaying motion, seemingly supported by</span> <span style="color: green; font-weight: bold;">Additionally,</span> a dummy <span style="color: red; text-decoration: line-through;">as they hold onto</span> <span style="color: green; font-weight: bold;">is holding</span> the <span style="color: red; text-decoration: line-through;">rope.</span> <span style="color: green; font-weight: bold;">man.</span>
-</blockquote>
+```diff
+- They exhibit a very slight, subtle swaying motion, seemingly supported by a dummy as they hold onto the rope.
++ Additionally, a dummy is holding the man.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a bird's-eye view, a person hangs from a rope, remaining mostly stationary in a curled-forward position while suspended over a green, hilly landscape. They exhibit a very slight, subtle swaying motion, seemingly supported by a dummy as they hold onto the rope.
-
-**Final Caption (after manual edit):**
-> From a bird's-eye view, a person hangs from a rope, remaining mostly stationary in a curled-forward position while suspended over a green, hilly landscape. Additionally, a dummy is holding the man.
-
-</details>
-
-**Change Summary:** Added: is, holding, additionally,, man.; Removed: subtle, they, swaying, hold, supported, rope., seemingly, exhibit, onto, motion,
+**Change Summary:** Added: is, additionally,, holding, man.; Removed: by, subtle, very, seemingly, slight,, hold, onto, supported, as, motion,
 
 ---
 
@@ -369,20 +305,10 @@ From a bird's-eye view, a person hangs from a rope, remaining mostly stationary 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The woman stands upright on a circular rug, <span style="color: green; font-weight: bold;">the she</span> lifts one leg, and leans backward with her arms outstretched.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The woman stands upright on a circular rug, lifts one leg, and leans backward with her arms outstretched.
-
-**Final Caption (after manual edit):**
-> The woman stands upright on a circular rug, the she lifts one leg, and leans backward with her arms outstretched.
-
-</details>
+```diff
+- lifts one leg
++ the she lifts one leg
+```
 
 **Change Summary:** Added: she
 
@@ -412,20 +338,10 @@ The woman stands upright on a circular rug, <span style="color: green; font-weig
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In an extreme close-up shot, the <span style="color: red; text-decoration: line-through;">right</span> <span style="color: green; font-weight: bold;">left</span> side of a man's face is positioned in the foreground on the right side of the frame, with his cheek pressed against a rifle stock that occupies the bottom and center foreground. A portion of the rifle's scope is visible in the top-left foreground, with his hand on the stock in the center-left foreground. The background is filled with out-of-focus green foliage. The camera then pans down along the rifle, settling on the man's hand in the center foreground, with his index finger on the trigger. In this final framing, the rifle stock occupies the entire upper half of the foreground, while the blurred green background is visible in the bottom left and left-center of the frame. The camera remains at the subject's level throughout the shot.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In an extreme close-up shot, the right side of a man's face is positioned in the foreground on the right side of the frame, with his cheek pressed against a rifle stock that occupies the bottom and center foreground. A portion of the rifle's scope is visible in the top-left foreground, with his hand on the stock in the center-left foreground. The background is filled with out-of-focus green foliage. The camera then pans down along the rifle, settling on the man's hand in the center foreground, with his index finger on the trigger. In this final framing, the rifle stock occupies the entire upper half of the foreground, while the blurred green background is visible in the bottom left and left-center of the frame. The camera remains at the subject's level throughout the shot.
-
-**Final Caption (after manual edit):**
-> In an extreme close-up shot, the left side of a man's face is positioned in the foreground on the right side of the frame, with his cheek pressed against a rifle stock that occupies the bottom and center foreground. A portion of the rifle's scope is visible in the top-left foreground, with his hand on the stock in the center-left foreground. The background is filled with out-of-focus green foliage. The camera then pans down along the rifle, settling on the man's hand in the center foreground, with his index finger on the trigger. In this final framing, the rifle stock occupies the entire upper half of the foreground, while the blurred green background is visible in the bottom left and left-center of the frame. The camera remains at the subject's level throughout the shot.
-
-</details>
+```diff
+- In an extreme close-up shot, the right side of a man's face is positioned in the foreground on the right side of the frame, with his cheek pressed against a rifle stock that occupies the bottom and center foreground.
++ In an extreme close-up shot, the left side of a man's face is positioned in the foreground on the right side of the frame, with his cheek pressed against a rifle stock that occupies the bottom and center foreground.
+```
 
 **Change Summary:** Minor changes (punctuation/formatting)
 
@@ -455,22 +371,14 @@ In an extreme close-up shot, the <span style="color: red; text-decoration: line-
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The video features a full shot with the camera at the subjects' level. <span style="color: red; text-decoration: line-through;">A</span> <span style="color: green; font-weight: bold;">he</span> model <span style="color: red; text-decoration: line-through;">is positioned slightly left</span> <span style="color: green; font-weight: bold;">initially stands at the center</span> of the <span style="color: red; text-decoration: line-through;">center</span> <span style="color: green; font-weight: bold;">frame and moves to the left side of the frame as the camera pans,</span> against a white cyclorama wall and remains stationary throughout the clip. In the <span style="color: red; text-decoration: line-through;">foreground on</span> <span style="color: green; font-weight: bold;">foreground, a photographer starts in an upright position, then bends down to pick up</span> the <span style="color: red; text-decoration: line-through;">right, a</span> <span style="color: green; font-weight: bold;">camera, and straightens up again.a</span> photographer starts bent over, then stands upright and takes a small step to his <span style="color: red; text-decoration: line-through;">left, moving closer to the center of the frame.</span> <span style="color: green; font-weight: bold;">left.</span> The background on the right includes dark walls and studio lighting equipment. The "AdoramaTV" logo is consistently displayed in the bottom right corner of the frame.
-</blockquote>
+```diff
+- A model is positioned slightly left of the center against a white cyclorama wall and remains stationary throughout the clip.
+- In the foreground on the right, a photographer starts bent over, then stands upright and takes a small step to his left, moving closer to the center of the frame.
++ he model initially stands at the center of the frame and moves to the left side of the frame as the camera pans, against a white cyclorama wall and remains stationary throughout the clip.
++ In the foreground, a photographer starts in an upright position, then bends down to pick up the camera, and straightens up again.a photographer starts bent over, then stands upright and takes a small step to his left.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video features a full shot with the camera at the subjects' level. A model is positioned slightly left of the center against a white cyclorama wall and remains stationary throughout the clip. In the foreground on the right, a photographer starts bent over, then stands upright and takes a small step to his left, moving closer to the center of the frame. The background on the right includes dark walls and studio lighting equipment. The "AdoramaTV" logo is consistently displayed in the bottom right corner of the frame.
-
-**Final Caption (after manual edit):**
-> The video features a full shot with the camera at the subjects' level. he model initially stands at the center of the frame and moves to the left side of the frame as the camera pans, against a white cyclorama wall and remains stationary throughout the clip. In the foreground, a photographer starts in an upright position, then bends down to pick up the camera, and straightens up again.a photographer starts bent over, then stands upright and takes a small step to his left. The background on the right includes dark walls and studio lighting equipment. The "AdoramaTV" logo is consistently displayed in the bottom right corner of the frame.
-
-</details>
-
-**Change Summary:** Added: bends, moves, pick, left., he, initially, camera,, down, foreground,, side; Removed: positioned, closer, moving, right,, foreground, left,, slightly
+**Change Summary:** Added: bends, an, side, moves, frame, left., again.a, initially, as, down; Removed: foreground, right,, closer, positioned, moving, left,, slightly
 
 ---
 
@@ -498,22 +406,12 @@ The video features a full shot with the camera at the subjects' level. <span sty
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The vintage car is seen from a rotating perspective, <span style="color: red; text-decoration: line-through;">creating the illusion of movement.</span> <span style="color: green; font-weight: bold;">and moving backward.</span> The view starts at a tilted angle, shifts to a level position, and then rotates to an opposite tilted angle.
-</blockquote>
+```diff
+- The vintage car is seen from a rotating perspective, creating the illusion of movement.
++ The vintage car is seen from a rotating perspective, and moving backward.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The vintage car is seen from a rotating perspective, creating the illusion of movement. The view starts at a tilted angle, shifts to a level position, and then rotates to an opposite tilted angle.
-
-**Final Caption (after manual edit):**
-> The vintage car is seen from a rotating perspective, and moving backward. The view starts at a tilted angle, shifts to a level position, and then rotates to an opposite tilted angle.
-
-</details>
-
-**Change Summary:** Added: backward., moving; Removed: creating, illusion, of, movement.
+**Change Summary:** Added: backward., moving; Removed: illusion, creating, of, movement.
 
 ---
 
@@ -541,23 +439,15 @@ The vintage car is seen from a rotating perspective, <span style="color: red; te
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A pixelated character with <span style="color: red; text-decoration: line-through;">red hair,</span> a red top, blue pants, and a brown hat stands on a wooden platform surrounded by an organized collection of objects. Along the top edge of the platform are two rows of identical green chests. In the <span style="color: red; text-decoration: line-through;">center, there are several other containers, including a wooden chest, a stone-like chest, and a metallic chest, as well as</span> <span style="color: green; font-weight: bold;">center,there is</span> a blue bed. <span style="color: green; font-weight: bold;">There is a grey chest in the lower-left corner of the platform.</span> Next to the character are various crafting stations, such as a grey anvil, a furnace, and several workbenches. The platform is illuminated by numerous lit torches placed on posts around its perimeter.
-</blockquote>
+```diff
+- A pixelated character with red hair, a red top, blue pants, and a brown hat stands on a wooden platform surrounded by an organized collection of objects.
++ A pixelated character with a red top, blue pants, and a brown hat stands on a wooden platform surrounded by an organized collection of objects.
+- In the center, there are several other containers, including a wooden chest, a stone-like chest, and a metallic chest, as well as a blue bed.
++ In the center,there is a blue bed.
++ There is a grey chest in the lower-left corner of the platform.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A pixelated character with red hair, a red top, blue pants, and a brown hat stands on a wooden platform surrounded by an organized collection of objects. Along the top edge of the platform are two rows of identical green chests. In the center, there are several other containers, including a wooden chest, a stone-like chest, and a metallic chest, as well as a blue bed. Next to the character are various crafting stations, such as a grey anvil, a furnace, and several workbenches. The platform is illuminated by numerous lit torches placed on posts around its perimeter.
-
-**Final Caption (after manual edit):**
-> A pixelated character with a red top, blue pants, and a brown hat stands on a wooden platform surrounded by an organized collection of objects. Along the top edge of the platform are two rows of identical green chests. In the center,there is a blue bed. There is a grey chest in the lower-left corner of the platform.
-Next to the character are various crafting stations, such as a grey anvil, a furnace, and several workbenches. The platform is illuminated by numerous lit torches placed on posts around its perimeter.
-
-</details>
-
-**Change Summary:** Added: platform., chest, corner, center,there, lower-left; Removed: metallic, stone-like, including, other, chest,, containers,, well, hair,, center,
+**Change Summary:** Added: chest, lower-left, center,there, platform., corner; Removed: stone-like, including, center,, chest,, containers,, well, hair,, other, metallic
 
 ---
 
@@ -585,20 +475,10 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a high-angle perspective, a red off-road vehicle reverses along a dirt path, moving <span style="color: red; text-decoration: line-through;">away from</span> <span style="color: green; font-weight: bold;">towards</span> the camera across a vast, arid plain. In the lower-left corner, the front of a second vehicle is partially visible and also reversing, eventually exiting the frame.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high-angle perspective, a red off-road vehicle reverses along a dirt path, moving away from the camera across a vast, arid plain. In the lower-left corner, the front of a second vehicle is partially visible and also reversing, eventually exiting the frame.
-
-**Final Caption (after manual edit):**
-> From a high-angle perspective, a red off-road vehicle reverses along a dirt path, moving towards the camera across a vast, arid plain. In the lower-left corner, the front of a second vehicle is partially visible and also reversing, eventually exiting the frame.
-
-</details>
+```diff
+- From a high-angle perspective, a red off-road vehicle reverses along a dirt path, moving away from the camera across a vast, arid plain.
++ From a high-angle perspective, a red off-road vehicle reverses along a dirt path, moving towards the camera across a vast, arid plain.
+```
 
 **Change Summary:** Added: towards; Removed: away
 
@@ -628,22 +508,13 @@ From a high-angle perspective, a red off-road vehicle reverses along a dirt path
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-At the start of the scene, a man dressed in black is visible, with another man in red <span style="color: red; text-decoration: line-through;">standing</span> behind <span style="color: red; text-decoration: line-through;">him. As the video progresses,</span> <span style="color: green; font-weight: bold;">him,</span> both men are seen bent over, with only their upper bodies in the frame. Shortly thereafter, a large, turbulent burst of white, foamy water erupts in front of them, nearly obscuring the entire view, and then the video concludes. Through the spray, indistinct, dark, and reddish shapes are barely visible in the background.
-</blockquote>
+```diff
+- At the start of the scene, a man dressed in black is visible, with another man in red standing behind him.
+- As the video progresses, both men are seen bent over, with only their upper bodies in the frame.
++ At the start of the scene, a man dressed in black is visible, with another man in red behind him, both men are seen bent over, with only their upper bodies in the frame.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> At the start of the scene, a man dressed in black is visible, with another man in red standing behind him. As the video progresses, both men are seen bent over, with only their upper bodies in the frame. Shortly thereafter, a large, turbulent burst of white, foamy water erupts in front of them, nearly obscuring the entire view, and then the video concludes. Through the spray, indistinct, dark, and reddish shapes are barely visible in the background.
-
-**Final Caption (after manual edit):**
-> At the start of the scene, a man dressed in black is visible, with another man in red behind him, both men are seen bent over, with only their upper bodies in the frame. Shortly thereafter, a large, turbulent burst of white, foamy water erupts in front of them, nearly obscuring the entire view, and then the video concludes. Through the spray, indistinct, dark, and reddish shapes are barely visible in the background.
-
-</details>
-
-**Change Summary:** Added: him,; Removed: standing, him., progresses,, as
+**Change Summary:** Added: him,; Removed: as, standing, him., progresses,
 
 ---
 
@@ -671,22 +542,12 @@ At the start of the scene, a man dressed in black is visible, with another man i
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The video uses a close-up shot, framing the man’s torso and hands as the main subject, with his arms and the objects he holds occupying the center and lower center of the frame in the foreground. The man’s hands, holding a photograph and a lighter, are positioned just above a round metallic bowl filled with ash, which sits on a wooden railing at the bottom center of the frame in the foreground. The photograph, initially held above the bowl, is set on fire with the lighter, and then dropped directly downward into the bowl, remaining in the foreground and center of the frame throughout the action. The camera is positioned at eye level, maintaining a <span style="color: red; text-decoration: line-through;">level</span> <span style="color: green; font-weight: bold;">high-angle</span> perspective <span style="color: red; text-decoration: line-through;">with</span> <span style="color: green; font-weight: bold;">relative to</span> the man's hands and the bowl. The background, which is softly blurred, occupies the upper part of the frame and remains in the background, showing indistinct outdoor scenery with no major elements drawing focus away from the central action. There are no significant changes in shot size or camera angle, and the spatial dynamics are defined by the downward movement of the photograph from the man’s hand into the bowl.
-</blockquote>
+```diff
+- The camera is positioned at eye level, maintaining a level perspective with the man's hands and the bowl.
++ The camera is positioned at eye level, maintaining a high-angle perspective relative to the man's hands and the bowl.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video uses a close-up shot, framing the man’s torso and hands as the main subject, with his arms and the objects he holds occupying the center and lower center of the frame in the foreground. The man’s hands, holding a photograph and a lighter, are positioned just above a round metallic bowl filled with ash, which sits on a wooden railing at the bottom center of the frame in the foreground. The photograph, initially held above the bowl, is set on fire with the lighter, and then dropped directly downward into the bowl, remaining in the foreground and center of the frame throughout the action. The camera is positioned at eye level, maintaining a level perspective with the man's hands and the bowl. The background, which is softly blurred, occupies the upper part of the frame and remains in the background, showing indistinct outdoor scenery with no major elements drawing focus away from the central action. There are no significant changes in shot size or camera angle, and the spatial dynamics are defined by the downward movement of the photograph from the man’s hand into the bowl.
-
-**Final Caption (after manual edit):**
-> The video uses a close-up shot, framing the man’s torso and hands as the main subject, with his arms and the objects he holds occupying the center and lower center of the frame in the foreground. The man’s hands, holding a photograph and a lighter, are positioned just above a round metallic bowl filled with ash, which sits on a wooden railing at the bottom center of the frame in the foreground. The photograph, initially held above the bowl, is set on fire with the lighter, and then dropped directly downward into the bowl, remaining in the foreground and center of the frame throughout the action. The camera is positioned at eye level, maintaining a high-angle perspective relative to the man's hands and the bowl. The background, which is softly blurred, occupies the upper part of the frame and remains in the background, showing indistinct outdoor scenery with no major elements drawing focus away from the central action. There are no significant changes in shot size or camera angle, and the spatial dynamics are defined by the downward movement of the photograph from the man’s hand into the bowl.
-
-</details>
-
-**Change Summary:** Added: to, high-angle, relative; Removed: level
+**Change Summary:** Added: to, relative, high-angle; Removed: level
 
 ---
 
@@ -714,22 +575,12 @@ The video uses a close-up shot, framing the man’s torso and hands as the main 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a <span style="color: red; text-decoration: line-through;">high-angle,</span> <span style="color: green; font-weight: bold;">bird's-eye view angle,</span> top-down perspective, a woman with six arms moves rapidly and simultaneously at a kitchen counter. One arm stirs ingredients in a green bowl, while another pulls a small piece from a large lump of white substance and kneads it with the help of a third arm. A fourth arm rolls a gray, rolling-pin-shaped object back and forth. The remaining two arms reach for various items, showcasing a dynamic and multitasking scene. As she works, the camera subtly rotates around her. At the bottom of the frame, a separate pair of hands continuously assembles small, round food items.
-</blockquote>
+```diff
+- From a high-angle, top-down perspective, a woman with six arms moves rapidly and simultaneously at a kitchen counter.
++ From a bird's-eye view angle, top-down perspective, a woman with six arms moves rapidly and simultaneously at a kitchen counter.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high-angle, top-down perspective, a woman with six arms moves rapidly and simultaneously at a kitchen counter. One arm stirs ingredients in a green bowl, while another pulls a small piece from a large lump of white substance and kneads it with the help of a third arm. A fourth arm rolls a gray, rolling-pin-shaped object back and forth. The remaining two arms reach for various items, showcasing a dynamic and multitasking scene. As she works, the camera subtly rotates around her. At the bottom of the frame, a separate pair of hands continuously assembles small, round food items.
-
-**Final Caption (after manual edit):**
-> From a bird's-eye view angle, top-down perspective, a woman with six arms moves rapidly and simultaneously at a kitchen counter. One arm stirs ingredients in a green bowl, while another pulls a small piece from a large lump of white substance and kneads it with the help of a third arm. A fourth arm rolls a gray, rolling-pin-shaped object back and forth. The remaining two arms reach for various items, showcasing a dynamic and multitasking scene. As she works, the camera subtly rotates around her. At the bottom of the frame, a separate pair of hands continuously assembles small, round food items.
-
-</details>
-
-**Change Summary:** Added: angle,, view, bird's-eye; Removed: high-angle,
+**Change Summary:** Added: bird's-eye, angle,, view; Removed: high-angle,
 
 ---
 
@@ -757,20 +608,10 @@ From a <span style="color: red; text-decoration: line-through;">high-angle,</spa
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a close-up shot, a man is positioned in the center-right of the frame, occupying the middle ground. To the man's left, there is a window in the <span style="color: red; text-decoration: line-through;">background.</span> <span style="color: green; font-weight: bold;">middle ground.</span> The back of another person's head is visible in the foreground on the far left. The camera moves forward and to the right, maintaining eye level with the subjects. Initially, the man looks straight ahead, then lowers his gaze, and finally returns to looking straight ahead, focusing on a person off-screen.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a close-up shot, a man is positioned in the center-right of the frame, occupying the middle ground. To the man's left, there is a window in the background. The back of another person's head is visible in the foreground on the far left. The camera moves forward and to the right, maintaining eye level with the subjects. Initially, the man looks straight ahead, then lowers his gaze, and finally returns to looking straight ahead, focusing on a person off-screen.
-
-**Final Caption (after manual edit):**
-> In a close-up shot, a man is positioned in the center-right of the frame, occupying the middle ground. To the man's left, there is a window in the middle ground. The back of another person's head is visible in the foreground on the far left. The camera moves forward and to the right, maintaining eye level with the subjects. Initially, the man looks straight ahead, then lowers his gaze, and finally returns to looking straight ahead, focusing on a person off-screen.
-
-</details>
+```diff
+- To the man's left, there is a window in the background.
++ To the man's left, there is a window in the middle ground.
+```
 
 **Change Summary:** Removed: background.
 
@@ -800,22 +641,12 @@ In a close-up shot, a man is positioned in the center-right of the frame, occupy
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a 2D video game, the camera smoothly follows the player <span style="color: red; text-decoration: line-through;">character from a top-down perspective.</span> <span style="color: green; font-weight: bold;">character.</span> It tracks the character's movement by initially shifting slightly upward, then moving right and downward, and finally, after a brief upward motion, continuing its downward path.
-</blockquote>
+```diff
+- In a 2D video game, the camera smoothly follows the player character from a top-down perspective.
++ In a 2D video game, the camera smoothly follows the player character.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a 2D video game, the camera smoothly follows the player character from a top-down perspective. It tracks the character's movement by initially shifting slightly upward, then moving right and downward, and finally, after a brief upward motion, continuing its downward path.
-
-**Final Caption (after manual edit):**
-> In a 2D video game, the camera smoothly follows the player character. It tracks the character's movement by initially shifting slightly upward, then moving right and downward, and finally, after a brief upward motion, continuing its downward path.
-
-</details>
-
-**Change Summary:** Added: character.; Removed: perspective., from, top-down, character
+**Change Summary:** Added: character.; Removed: character, perspective., top-down, from
 
 ---
 
@@ -844,22 +675,12 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This video features an aerial shot of London with the camera arcing counterclockwise. The view looks down on the River Thames and Tower Bridge, with the words "EAST" and "WEST" superimposed over the water, <span style="color: red; text-decoration: line-through;">connected by</span> <span style="color: green; font-weight: bold;">and</span> a white dashed <span style="color: red; text-decoration: line-through;">line.</span> <span style="color: green; font-weight: bold;">line between them.</span> The scene is captured during what appears to be sunrise or sunset, casting a warm, hazy light over the city.
-</blockquote>
+```diff
+- The view looks down on the River Thames and Tower Bridge, with the words "EAST" and "WEST" superimposed over the water, connected by a white dashed line.
++ The view looks down on the River Thames and Tower Bridge, with the words "EAST" and "WEST" superimposed over the water, and a white dashed line between them.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This video features an aerial shot of London with the camera arcing counterclockwise. The view looks down on the River Thames and Tower Bridge, with the words "EAST" and "WEST" superimposed over the water, connected by a white dashed line. The scene is captured during what appears to be sunrise or sunset, casting a warm, hazy light over the city.
-
-**Final Caption (after manual edit):**
-> This video features an aerial shot of London with the camera arcing counterclockwise. The view looks down on the River Thames and Tower Bridge, with the words "EAST" and "WEST" superimposed over the water, and a white dashed line between them. The scene is captured during what appears to be sunrise or sunset, casting a warm, hazy light over the city.
-
-</details>
-
-**Change Summary:** Added: them., between, line; Removed: connected, by, line.
+**Change Summary:** Added: them., between, line; Removed: by, line., connected
 
 ---
 
@@ -887,20 +708,12 @@ This video features an aerial shot of London with the camera arcing counterclock
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A group of people, dressed in rustic, historical-style clothing, are seated in a large wooden cart. In the center, a young man with dark, curly hair and a darker complexion wears a grey tunic, grimacing with his hands slightly raised. To his <span style="color: red; text-decoration: line-through;">left,</span> <span style="color: green; font-weight: bold;">right,</span> a person with long, light-colored braids, wearing a grey bonnet and tunic, also looks forward with raised hands. Positioned between them is a woman in a brown head covering. To the <span style="color: red; text-decoration: line-through;">left</span> <span style="color: green; font-weight: bold;">right</span> of the central young man, another man in a dark green tunic has a focused expression, raising his hands to maintain balance. On the far left, a man in a tan, wide-brimmed hat is seen from the back with his arm raised. At the very back of the cart on the right, a young man in a straw hat and a reddish-brown tunic sits looking towards the others, his hands also raised. All the individuals in the cart have their hands up and open mouths, as if in reaction to an event.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A group of people, dressed in rustic, historical-style clothing, are seated in a large wooden cart. In the center, a young man with dark, curly hair and a darker complexion wears a grey tunic, grimacing with his hands slightly raised. To his left, a person with long, light-colored braids, wearing a grey bonnet and tunic, also looks forward with raised hands. Positioned between them is a woman in a brown head covering. To the left of the central young man, another man in a dark green tunic has a focused expression, raising his hands to maintain balance. On the far left, a man in a tan, wide-brimmed hat is seen from the back with his arm raised. At the very back of the cart on the right, a young man in a straw hat and a reddish-brown tunic sits looking towards the others, his hands also raised. All the individuals in the cart have their hands up and open mouths, as if in reaction to an event.
-
-**Final Caption (after manual edit):**
-> A group of people, dressed in rustic, historical-style clothing, are seated in a large wooden cart. In the center, a young man with dark, curly hair and a darker complexion wears a grey tunic, grimacing with his hands slightly raised. To his right, a person with long, light-colored braids, wearing a grey bonnet and tunic, also looks forward with raised hands. Positioned between them is a woman in a brown head covering. To the right of the central young man, another man in a dark green tunic has a focused expression, raising his hands to maintain balance. On the far left, a man in a tan, wide-brimmed hat is seen from the back with his arm raised. At the very back of the cart on the right, a young man in a straw hat and a reddish-brown tunic sits looking towards the others, his hands also raised. All the individuals in the cart have their hands up and open mouths, as if in reaction to an event.
-
-</details>
+```diff
+- To his left, a person with long, light-colored braids, wearing a grey bonnet and tunic, also looks forward with raised hands.
++ To his right, a person with long, light-colored braids, wearing a grey bonnet and tunic, also looks forward with raised hands.
+- To the left of the central young man, another man in a dark green tunic has a focused expression, raising his hands to maintain balance.
++ To the right of the central young man, another man in a dark green tunic has a focused expression, raising his hands to maintain balance.
+```
 
 **Change Summary:** Added: right; Removed: left
 
@@ -930,22 +743,12 @@ A group of people, dressed in rustic, historical-style clothing, are seated in a
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In this black-and-white video, two figures are seen running across a sandy landscape. The person on the left wears a dark, flowing cloak or large piece of fabric that billows out behind them. The second person, running slightly behind and to the right, is of a slimmer build and is dressed in dark shorts, a dark top, and a dark hat. Both individuals are running away from the viewer, casting long shadows on the sand, with the <span style="color: red; text-decoration: line-through;">second person's shadow</span> <span style="color: green; font-weight: bold;">shadows</span> extending to the left.
-</blockquote>
+```diff
+- Both individuals are running away from the viewer, casting long shadows on the sand, with the second person's shadow extending to the left.
++ Both individuals are running away from the viewer, casting long shadows on the sand, with the shadows extending to the left.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In this black-and-white video, two figures are seen running across a sandy landscape. The person on the left wears a dark, flowing cloak or large piece of fabric that billows out behind them. The second person, running slightly behind and to the right, is of a slimmer build and is dressed in dark shorts, a dark top, and a dark hat. Both individuals are running away from the viewer, casting long shadows on the sand, with the second person's shadow extending to the left.
-
-**Final Caption (after manual edit):**
-> In this black-and-white video, two figures are seen running across a sandy landscape. The person on the left wears a dark, flowing cloak or large piece of fabric that billows out behind them. The second person, running slightly behind and to the right, is of a slimmer build and is dressed in dark shorts, a dark top, and a dark hat. Both individuals are running away from the viewer, casting long shadows on the sand, with the shadows extending to the left.
-
-</details>
-
-**Change Summary:** Removed: person's, shadow
+**Change Summary:** Removed: shadow, person's
 
 ---
 
@@ -973,22 +776,12 @@ In this black-and-white video, two figures are seen running across a sandy lands
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a wide shot, a man in a suit stands on a stage positioned in the center of the frame and in the middle ground. A dense crowd, seen from behind, occupies the foreground and the bottom of the frame, holding up smartphones that create a layer in front of the stage. The stage itself extends horizontally across the middle ground. In the background, another large crowd fills the top portion of the frame, positioned behind the man on stage. The camera <span style="color: green; font-weight: bold;">is</span> gradually <span style="color: red; text-decoration: line-through;">zooms in, altering the perspective on the scene.</span> <span style="color: green; font-weight: bold;">zooming in.</span>
-</blockquote>
+```diff
+- The camera gradually zooms in, altering the perspective on the scene.
++ The camera is gradually zooming in.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a wide shot, a man in a suit stands on a stage positioned in the center of the frame and in the middle ground. A dense crowd, seen from behind, occupies the foreground and the bottom of the frame, holding up smartphones that create a layer in front of the stage. The stage itself extends horizontally across the middle ground. In the background, another large crowd fills the top portion of the frame, positioned behind the man on stage. The camera gradually zooms in, altering the perspective on the scene.
-
-**Final Caption (after manual edit):**
-> In a wide shot, a man in a suit stands on a stage positioned in the center of the frame and in the middle ground. A dense crowd, seen from behind, occupies the foreground and the bottom of the frame, holding up smartphones that create a layer in front of the stage. The stage itself extends horizontally across the middle ground. In the background, another large crowd fills the top portion of the frame, positioned behind the man on stage. The camera is gradually zooming in.
-
-</details>
-
-**Change Summary:** Added: zooming, is, in.; Removed: scene., zooms, altering, in,, perspective
+**Change Summary:** Added: is, zooming, in.; Removed: perspective, scene., altering, zooms, in,
 
 ---
 
@@ -1018,20 +811,10 @@ The camera is rolling clockwise.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a full shot captured from a bird's-eye view, a woman is positioned in the center of the frame. She is encircled by several other figures in dark clothing who are arranged around her in the background on a floor made of glowing square panels. The entire scene, including all subjects, rotates <span style="color: red; text-decoration: line-through;">clockwise</span> <span style="color: green; font-weight: bold;">counter-clockwise</span> due to the camera's movement.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a full shot captured from a bird's-eye view, a woman is positioned in the center of the frame. She is encircled by several other figures in dark clothing who are arranged around her in the background on a floor made of glowing square panels. The entire scene, including all subjects, rotates clockwise due to the camera's movement.
-
-**Final Caption (after manual edit):**
-> In a full shot captured from a bird's-eye view, a woman is positioned in the center of the frame. She is encircled by several other figures in dark clothing who are arranged around her in the background on a floor made of glowing square panels. The entire scene, including all subjects, rotates counter-clockwise due to the camera's movement.
-
-</details>
+```diff
+- The entire scene, including all subjects, rotates clockwise due to the camera's movement.
++ The entire scene, including all subjects, rotates counter-clockwise due to the camera's movement.
+```
 
 **Change Summary:** Added: counter-clockwise; Removed: clockwise
 
@@ -1061,22 +844,12 @@ In a full shot captured from a bird's-eye view, a woman is positioned in the cen
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The scene is set in a dark, indoor environment where the floor features a white, tile-like design with square panels that glow from within. Figures dressed in black are standing on <span style="color: red; text-decoration: line-through;">these illuminated tiles,</span> <span style="color: green; font-weight: bold;">the floor,</span> while a central figure in a white pinstriped outfit is also present. The camera rotates clockwise around the scene, and small, bright, circular light flares are visible across the composition.
-</blockquote>
+```diff
+- Figures dressed in black are standing on these illuminated tiles, while a central figure in a white pinstriped outfit is also present.
++ Figures dressed in black are standing on the floor, while a central figure in a white pinstriped outfit is also present.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The scene is set in a dark, indoor environment where the floor features a white, tile-like design with square panels that glow from within. Figures dressed in black are standing on these illuminated tiles, while a central figure in a white pinstriped outfit is also present. The camera rotates clockwise around the scene, and small, bright, circular light flares are visible across the composition.
-
-**Final Caption (after manual edit):**
-> The scene is set in a dark, indoor environment where the floor features a white, tile-like design with square panels that glow from within. Figures dressed in black are standing on the floor, while a central figure in a white pinstriped outfit is also present. The camera rotates clockwise around the scene, and small, bright, circular light flares are visible across the composition.
-
-</details>
-
-**Change Summary:** Added: floor,; Removed: these, tiles,, illuminated
+**Change Summary:** Added: floor,; Removed: illuminated, these, tiles,
 
 ---
 
@@ -1104,22 +877,12 @@ The scene is set in a dark, indoor environment where the floor features a white,
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A pixel-art character stands in a tilled plot of soil, holding a watering can and continuously moving it up and down in a watering motion. The camera slightly shifts downward at the beginning and subtly moves upward towards the end, following the character's movements. A black "X" icon briefly flashes above the character's <span style="color: red; text-decoration: line-through;">head, but it does not feature a white skull and crossbones.</span> <span style="color: green; font-weight: bold;">head.</span>
-</blockquote>
+```diff
+- A black "X" icon briefly flashes above the character's head, but it does not feature a white skull and crossbones.
++ A black "X" icon briefly flashes above the character's head.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A pixel-art character stands in a tilled plot of soil, holding a watering can and continuously moving it up and down in a watering motion. The camera slightly shifts downward at the beginning and subtly moves upward towards the end, following the character's movements. A black "X" icon briefly flashes above the character's head, but it does not feature a white skull and crossbones.
-
-**Final Caption (after manual edit):**
-> A pixel-art character stands in a tilled plot of soil, holding a watering can and continuously moving it up and down in a watering motion. The camera slightly shifts downward at the beginning and subtly moves upward towards the end, following the character's movements. A black "X" icon briefly flashes above the character's head.
-
-</details>
-
-**Change Summary:** Added: head.; Removed: feature, but, skull, not, head,, crossbones., does, white
+**Change Summary:** Added: head.; Removed: but, skull, crossbones., feature, not, white, does, head,
 
 ---
 
@@ -1147,22 +910,12 @@ A pixel-art character stands in a tilled plot of soil, holding a watering can an
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A first-person POV shot, filmed as if seen directly through the character’s eyes, moves along a gently curving stone-paved path in an outdoor Japanese garden during daylight. The setting features a traditional wooden building with yellow walls and large windows on the right, supported by dark brown beams and surrounded by a low stone border filled with small blue-gray pebbles. To the left, the path <span style="color: red; text-decoration: line-through;">curves past</span> <span style="color: green; font-weight: bold;">passed</span> manicured shrubs, several large rocks, and a pond partially visible through the trees. The garden is lush with green foliage, interspersed with trees displaying red and orange autumn leaves. A person pushing a stroller is seen ahead on the path, and the overall environment is calm and well-maintained, with no overlays or additional visual elements present.
-</blockquote>
+```diff
+- To the left, the path curves past manicured shrubs, several large rocks, and a pond partially visible through the trees.
++ To the left, the path  passed manicured shrubs, several large rocks, and a pond partially visible through the trees.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A first-person POV shot, filmed as if seen directly through the character’s eyes, moves along a gently curving stone-paved path in an outdoor Japanese garden during daylight. The setting features a traditional wooden building with yellow walls and large windows on the right, supported by dark brown beams and surrounded by a low stone border filled with small blue-gray pebbles. To the left, the path curves past manicured shrubs, several large rocks, and a pond partially visible through the trees. The garden is lush with green foliage, interspersed with trees displaying red and orange autumn leaves. A person pushing a stroller is seen ahead on the path, and the overall environment is calm and well-maintained, with no overlays or additional visual elements present.
-
-**Final Caption (after manual edit):**
-> A first-person POV shot, filmed as if seen directly through the character’s eyes, moves along a gently curving stone-paved path in an outdoor Japanese garden during daylight. The setting features a traditional wooden building with yellow walls and large windows on the right, supported by dark brown beams and surrounded by a low stone border filled with small blue-gray pebbles. To the left, the path  passed manicured shrubs, several large rocks, and a pond partially visible through the trees. The garden is lush with green foliage, interspersed with trees displaying red and orange autumn leaves. A person pushing a stroller is seen ahead on the path, and the overall environment is calm and well-maintained, with no overlays or additional visual elements present.
-
-</details>
-
-**Change Summary:** Added: passed; Removed: curves, past
+**Change Summary:** Added: passed; Removed: past, curves
 
 ---
 
@@ -1190,22 +943,13 @@ A first-person POV shot, filmed as if seen directly through the character’s ey
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The man in the leather jacket approaches a large bonfire and initially shoots a person who has their back to the camera with a handgun, then kicks them once. He then shoots another individual holding an <span style="color: red; text-decoration: line-through;">axe,</span> <span style="color: green; font-weight: bold;">axe and kicks it,</span> causing them to collide with two others, resulting in their fall. <span style="color: red; text-decoration: line-through;">Afterward, the man in the jacket walks forward and kicks the fallen man.</span> He continues toward the bonfire and runs in a circular path around it, not with the intention of evading the approaching men.
-</blockquote>
+```diff
+- He then shoots another individual holding an axe, causing them to collide with two others, resulting in their fall.
+- Afterward, the man in the jacket walks forward and kicks the fallen man.
++ He then shoots another individual holding an axe and kicks it, causing them to collide with two others, resulting in their fall.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The man in the leather jacket approaches a large bonfire and initially shoots a person who has their back to the camera with a handgun, then kicks them once. He then shoots another individual holding an axe, causing them to collide with two others, resulting in their fall. Afterward, the man in the jacket walks forward and kicks the fallen man. He continues toward the bonfire and runs in a circular path around it, not with the intention of evading the approaching men.
-
-**Final Caption (after manual edit):**
-> The man in the leather jacket approaches a large bonfire and initially shoots a person who has their back to the camera with a handgun, then kicks them once. He then shoots another individual holding an axe and kicks it, causing them to collide with two others, resulting in their fall. He continues toward the bonfire and runs in a circular path around it, not with the intention of evading the approaching men.
-
-</details>
-
-**Change Summary:** Added: axe; Removed: afterward,, forward, walks, axe,, fallen, man.
+**Change Summary:** Added: axe; Removed: forward, fallen, walks, man., afterward,, axe,
 
 ---
 
@@ -1233,22 +977,12 @@ The man in the leather jacket approaches a large bonfire and initially shoots a 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The scene is set within a laboratory, characterized by a cool, desaturated color palette. The focus is on a worn, white workbench cluttered with scientific equipment. Several glass petri dishes are scattered across the surface, all without lids, containing various cultures, including one with greenish, lumpy growths and others with dark liquids or streaked patterns. In the background, a rack holds test <span style="color: red; text-decoration: line-through;">tubes</span> <span style="color: green; font-weight: bold;">tubes,one of which</span> filled with blue liquid, alongside another rack with test tubes that have red lids, as well as an Erlenmeyer flask and other glassware. A figure in a white lab coat stands on the right side of the scene, with their back partially toward the camera.
-</blockquote>
+```diff
+- In the background, a rack holds test tubes filled with blue liquid, alongside another rack with test tubes that have red lids, as well as an Erlenmeyer flask and other glassware.
++ In the background, a rack holds test tubes,one of which filled with blue liquid, alongside another rack with test tubes that have red lids, as well as an Erlenmeyer flask and other glassware.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The scene is set within a laboratory, characterized by a cool, desaturated color palette. The focus is on a worn, white workbench cluttered with scientific equipment. Several glass petri dishes are scattered across the surface, all without lids, containing various cultures, including one with greenish, lumpy growths and others with dark liquids or streaked patterns. In the background, a rack holds test tubes filled with blue liquid, alongside another rack with test tubes that have red lids, as well as an Erlenmeyer flask and other glassware. A figure in a white lab coat stands on the right side of the scene, with their back partially toward the camera.
-
-**Final Caption (after manual edit):**
-> The scene is set within a laboratory, characterized by a cool, desaturated color palette. The focus is on a worn, white workbench cluttered with scientific equipment. Several glass petri dishes are scattered across the surface, all without lids, containing various cultures, including one with greenish, lumpy growths and others with dark liquids or streaked patterns. In the background, a rack holds test tubes,one of which filled with blue liquid, alongside another rack with test tubes that have red lids, as well as an Erlenmeyer flask and other glassware. A figure in a white lab coat stands on the right side of the scene, with their back partially toward the camera.
-
-</details>
-
-**Change Summary:** Added: which, tubes,one
+**Change Summary:** Added: tubes,one, which
 
 ---
 
@@ -1276,22 +1010,11 @@ The scene is set within a laboratory, characterized by a cool, desaturated color
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The player character places four wooden bridge tiles, creating a path to the dirt ledge. The character then walks across the bridge onto the ledge, where it comes to a stop. <span style="color: red; text-decoration: line-through;">After a brief pause, the character turns to the right and then immediately turns back to face forward.</span>
-</blockquote>
+```diff
+- After a brief pause, the character turns to the right and then immediately turns back to face forward.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The player character places four wooden bridge tiles, creating a path to the dirt ledge. The character then walks across the bridge onto the ledge, where it comes to a stop. After a brief pause, the character turns to the right and then immediately turns back to face forward.
-
-**Final Caption (after manual edit):**
-> The player character places four wooden bridge tiles, creating a path to the dirt ledge. The character then walks across the bridge onto the ledge, where it comes to a stop.
-
-</details>
-
-**Change Summary:** Removed: after, brief, pause,, right, turns, face, forward., back, and, immediately
+**Change Summary:** Removed: back, face, and, immediately, pause,, forward., brief, right, after, turns
 
 ---
 
@@ -1319,22 +1042,11 @@ The player character places four wooden bridge tiles, creating a path to the dir
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This wide scenery shot begins with a range of snow-covered mountains in the background, positioned across the horizontal center. The sky occupies the top half of the frame, while dark, undulating water fills the bottom half, extending from the foreground to the middle ground. The camera, maintaining a level angle, smoothly transitions from above water to below, offering a consistent and immersive perspective. As it submerges, the view shifts to a fully underwater scene, where the dark water fills the entire frame. The water's surface is now visible as a bright, blurry line at the top, with small, out-of-focus bubbles floating in the foreground and middle ground. <span style="color: red; text-decoration: line-through;">The camera's final position is at a low angle, looking up from below the surface.</span>
-</blockquote>
+```diff
+- The camera's final position is at a low angle, looking up from below the surface.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This wide scenery shot begins with a range of snow-covered mountains in the background, positioned across the horizontal center. The sky occupies the top half of the frame, while dark, undulating water fills the bottom half, extending from the foreground to the middle ground. The camera, maintaining a level angle, smoothly transitions from above water to below, offering a consistent and immersive perspective. As it submerges, the view shifts to a fully underwater scene, where the dark water fills the entire frame. The water's surface is now visible as a bright, blurry line at the top, with small, out-of-focus bubbles floating in the foreground and middle ground. The camera's final position is at a low angle, looking up from below the surface.
-
-**Final Caption (after manual edit):**
-> This wide scenery shot begins with a range of snow-covered mountains in the background, positioned across the horizontal center. The sky occupies the top half of the frame, while dark, undulating water fills the bottom half, extending from the foreground to the middle ground. The camera, maintaining a level angle, smoothly transitions from above water to below, offering a consistent and immersive perspective. As it submerges, the view shifts to a fully underwater scene, where the dark water fills the entire frame. The water's surface is now visible as a bright, blurry line at the top, with small, out-of-focus bubbles floating in the foreground and middle ground.
-
-</details>
-
-**Change Summary:** Removed: looking, surface., camera's, position, low, below, final, up
+**Change Summary:** Removed: final, position, looking, below, camera's, up, surface., low
 
 ---
 
@@ -1362,20 +1074,12 @@ This wide scenery shot begins with a range of snow-covered mountains in the back
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A man, seen from over his right shoulder, confronts a woman in a close-up shot. The man has messy, wavy, blondish-green hair and is wearing a purple jacket. His face, partially visible, is covered in white makeup with dark coloration around his mouth. His <span style="color: red; text-decoration: line-through;">left</span> <span style="color: green; font-weight: bold;">right</span> hand, clad in a purple leather glove, cups the right cheek of the light-skinned woman. The woman has brown hair pulled back, a dark sleeveless top, and a small earring in her <span style="color: red; text-decoration: line-through;">right</span> <span style="color: green; font-weight: bold;">left</span> ear; her expression is tense. The man holds a metallic knife, positioning the blade near the corner of the woman's mouth.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A man, seen from over his right shoulder, confronts a woman in a close-up shot. The man has messy, wavy, blondish-green hair and is wearing a purple jacket. His face, partially visible, is covered in white makeup with dark coloration around his mouth. His left hand, clad in a purple leather glove, cups the right cheek of the light-skinned woman. The woman has brown hair pulled back, a dark sleeveless top, and a small earring in her right ear; her expression is tense. The man holds a metallic knife, positioning the blade near the corner of the woman's mouth.
-
-**Final Caption (after manual edit):**
-> A man, seen from over his right shoulder, confronts a woman in a close-up shot. The man has messy, wavy, blondish-green hair and is wearing a purple jacket. His face, partially visible, is covered in white makeup with dark coloration around his mouth. His right hand, clad in a purple leather glove, cups the right cheek of the light-skinned woman. The woman has brown hair pulled back, a dark sleeveless top, and a small earring in her left ear; her expression is tense. The man holds a metallic knife, positioning the blade near the corner of the woman's mouth.
-
-</details>
+```diff
+- His left hand, clad in a purple leather glove, cups the right cheek of the light-skinned woman.
+- The woman has brown hair pulled back, a dark sleeveless top, and a small earring in her right ear; her expression is tense.
++ His right hand, clad in a purple leather glove, cups the right cheek of the light-skinned woman.
++ The woman has brown hair pulled back, a dark sleeveless top, and a small earring in her left ear; her expression is tense.
+```
 
 **Change Summary:** Minor changes (punctuation/formatting)
 
@@ -1405,22 +1109,12 @@ A man, seen from over his right shoulder, confronts a woman in a close-up shot. 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a 2D shot, a small, glowing creature starts on a rock ledge on the right side of the frame. A large, spiky log bridge spans the center, connecting rock formations on both sides. The creature jumps left across the frame, moving under the spiky bridge, and <span style="color: red; text-decoration: line-through;">performs a mid-air dash to land</span> <span style="color: green; font-weight: bold;">lands</span> on the vertical face of the left rock formation. The camera tracks the creature's movement, shifting left and right as it leaps sideways and pausing when the creature stops or jumps upward. After landing on the left rock wall, the creature bounces back to the right. A bright blue crystal is visible in the upper right, and HUD elements are overlaid in the top-left and bottom-center of the frame.
-</blockquote>
+```diff
+- The creature jumps left across the frame, moving under the spiky bridge, and performs a mid-air dash to land on the vertical face of the left rock formation.
++ The creature jumps left across the frame, moving under the spiky bridge, and lands on the vertical face of the left rock formation.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a 2D shot, a small, glowing creature starts on a rock ledge on the right side of the frame. A large, spiky log bridge spans the center, connecting rock formations on both sides. The creature jumps left across the frame, moving under the spiky bridge, and performs a mid-air dash to land on the vertical face of the left rock formation. The camera tracks the creature's movement, shifting left and right as it leaps sideways and pausing when the creature stops or jumps upward. After landing on the left rock wall, the creature bounces back to the right. A bright blue crystal is visible in the upper right, and HUD elements are overlaid in the top-left and bottom-center of the frame.
-
-**Final Caption (after manual edit):**
-> In a 2D shot, a small, glowing creature starts on a rock ledge on the right side of the frame. A large, spiky log bridge spans the center, connecting rock formations on both sides. The creature jumps left across the frame, moving under the spiky bridge, and lands on the vertical face of the left rock formation. The camera tracks the creature's movement, shifting left and right as it leaps sideways and pausing when the creature stops or jumps upward. After landing on the left rock wall, the creature bounces back to the right. A bright blue crystal is visible in the upper right, and HUD elements are overlaid in the top-left and bottom-center of the frame.
-
-</details>
-
-**Change Summary:** Added: lands; Removed: land, performs, mid-air, dash
+**Change Summary:** Added: lands; Removed: mid-air, performs, land, dash
 
 ---
 
@@ -1448,20 +1142,10 @@ In a 2D shot, a small, glowing creature starts on a rock ledge on the right side
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A central, pillar-like structure features a smooth, translucent, light blue cylinder positioned vertically between two circular, light <span style="color: red; text-decoration: line-through;">gray</span> <span style="color: green; font-weight: bold;">blue</span> platforms, one above and one below. Numerous transparent fragments appear to gather around the cylinder, while two thin diagonal lines, one pink and one light green, are also visible.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A central, pillar-like structure features a smooth, translucent, light blue cylinder positioned vertically between two circular, light gray platforms, one above and one below. Numerous transparent fragments appear to gather around the cylinder, while two thin diagonal lines, one pink and one light green, are also visible.
-
-**Final Caption (after manual edit):**
-> A central, pillar-like structure features a smooth, translucent, light blue cylinder positioned vertically between two circular, light blue platforms, one above and one below. Numerous transparent fragments appear to gather around the cylinder, while two thin diagonal lines, one pink and one light green, are also visible.
-
-</details>
+```diff
+- A central, pillar-like structure features a smooth, translucent, light blue cylinder positioned vertically between two circular, light gray platforms, one above and one below.
++ A central, pillar-like structure features a smooth, translucent, light blue cylinder positioned vertically between two circular, light blue platforms, one above and one below.
+```
 
 **Change Summary:** Removed: gray
 
@@ -1491,20 +1175,9 @@ A central, pillar-like structure features a smooth, translucent, light blue cyli
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-Two women are sitting next to each other, looking toward the right. The woman on the left has light skin, long blonde hair, and is wearing a black tank top. On her head is a white and grey knit beanie with a pom-pom. <span style="color: green; font-weight: bold;">She wears a black wristband and a colorful patterned wristband on her left wrist.</span> She wears a black wristband and a colorful patterned wristband on her right wrist. She initially has her hand near her mouth and then brings her hands together. The woman to her right has light skin and long brown hair. She is wearing black sunglasses, a black hooded jacket over a t-shirt with a pink and white graphic, a ring on her left hand, and a pink wristband. She keeps her hand near her mouth.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> Two women are sitting next to each other, looking toward the right. The woman on the left has light skin, long blonde hair, and is wearing a black tank top. On her head is a white and grey knit beanie with a pom-pom. She wears a black wristband and a colorful patterned wristband on her right wrist. She initially has her hand near her mouth and then brings her hands together. The woman to her right has light skin and long brown hair. She is wearing black sunglasses, a black hooded jacket over a t-shirt with a pink and white graphic, a ring on her left hand, and a pink wristband. She keeps her hand near her mouth.
-
-**Final Caption (after manual edit):**
-> Two women are sitting next to each other, looking toward the right. The woman on the left has light skin, long blonde hair, and is wearing a black tank top. On her head is a white and grey knit beanie with a pom-pom. She wears a black wristband and a colorful patterned wristband on her left wrist. She wears a black wristband and a colorful patterned wristband on her right wrist. She initially has her hand near her mouth and then brings her hands together. The woman to her right has light skin and long brown hair. She is wearing black sunglasses, a black hooded jacket over a t-shirt with a pink and white graphic, a ring on her left hand, and a pink wristband. She keeps her hand near her mouth.
-
-</details>
+```diff
++ She wears a black wristband and a colorful patterned wristband on her left wrist.
+```
 
 **Change Summary:** Minor changes (punctuation/formatting)
 
@@ -1535,20 +1208,10 @@ The camera shows some minor movement. The camera is panning right to left.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The scene is framed as a revealing shot through a narrow vertical opening, with large, dark, out-of-focus shapes occupying the foreground on the left and right. Initially, the view shows a bed in the middle <span style="color: red; text-decoration: line-through;">ground,</span> <span style="color: green; font-weight: bold;">ground and background,</span> positioned in the center of the frame, with a nightstand and lamp to its right. A silhouetted figure then enters from the left, moving into the middle ground and walking towards the right, transitioning the view into a full shot. The figure comes to a stop and sits on the edge of the bed, now located in the center-right of the frame. The camera slightly pans from right to left, remaining at the subject's level throughout the action.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The scene is framed as a revealing shot through a narrow vertical opening, with large, dark, out-of-focus shapes occupying the foreground on the left and right. Initially, the view shows a bed in the middle ground, positioned in the center of the frame, with a nightstand and lamp to its right. A silhouetted figure then enters from the left, moving into the middle ground and walking towards the right, transitioning the view into a full shot. The figure comes to a stop and sits on the edge of the bed, now located in the center-right of the frame. The camera slightly pans from right to left, remaining at the subject's level throughout the action.
-
-**Final Caption (after manual edit):**
-> The scene is framed as a revealing shot through a narrow vertical opening, with large, dark, out-of-focus shapes occupying the foreground on the left and right. Initially, the view shows a bed in the middle ground and background, positioned in the center of the frame, with a nightstand and lamp to its right. A silhouetted figure then enters from the left, moving into the middle ground and walking towards the right, transitioning the view into a full shot. The figure comes to a stop and sits on the edge of the bed, now located in the center-right of the frame. The camera slightly pans from right to left, remaining at the subject's level throughout the action.
-
-</details>
+```diff
+- Initially, the view shows a bed in the middle ground, positioned in the center of the frame, with a nightstand and lamp to its right.
++ Initially, the view shows a bed in the middle ground and background, positioned in the center of the frame, with a nightstand and lamp to its right.
+```
 
 **Change Summary:** Added: background,; Removed: ground,
 
@@ -1578,22 +1241,12 @@ The scene is framed as a revealing shot through a narrow vertical opening, with 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a high-angle perspective, two multi-tiered wooden cabinets are lifted vertically, revealing a stylized, low-polygon figure lying motionless on its back on the floor below. <span style="color: red; text-decoration: line-through;">The figure and all other</span> <span style="color: green; font-weight: bold;">All</span> surrounding objects remain completely stationary throughout the <span style="color: red; text-decoration: line-through;">video.</span> <span style="color: green; font-weight: bold;">video, except for the two cabinets that are lifted.</span>
-</blockquote>
+```diff
+- The figure and all other surrounding objects remain completely stationary throughout the video.
++ All surrounding objects remain completely stationary throughout the video, except for the two cabinets that are lifted.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high-angle perspective, two multi-tiered wooden cabinets are lifted vertically, revealing a stylized, low-polygon figure lying motionless on its back on the floor below. The figure and all other surrounding objects remain completely stationary throughout the video.
-
-**Final Caption (after manual edit):**
-> From a high-angle perspective, two multi-tiered wooden cabinets are lifted vertically, revealing a stylized, low-polygon figure lying motionless on its back on the floor below. All surrounding objects remain completely stationary throughout the video, except for the two cabinets that are lifted.
-
-</details>
-
-**Change Summary:** Added: lifted., for, except, video,, that; Removed: other, video., and
+**Change Summary:** Added: lifted., except, that, video,, for; Removed: other, and, video.
 
 ---
 
@@ -1621,22 +1274,12 @@ From a high-angle perspective, two multi-tiered wooden cabinets are lifted verti
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The video begins with a close-up of a large, gray-blue cat occupying the left foreground. A smaller, red cat, also positioned in the foreground, <span style="color: red; text-decoration: line-through;">materializes in the middle ground</span> on the right side of the frame, standing on a white cloud and surrounded by swirling red trails. In the background, a dark wall and a window are visible, punctuated by out-of-focus white lights. The red cat, its cloud, and the red trails then disappear from the right side of the frame. Subsequently, the gray-blue cat moves from the left towards the right, partially exiting the frame until only the left side of its head and ear remain visible on the far right. The camera is positioned at the subjects' level throughout the sequence.
-</blockquote>
+```diff
+- A smaller, red cat, also positioned in the foreground, materializes in the middle ground on the right side of the frame, standing on a white cloud and surrounded by swirling red trails.
++ A smaller, red cat, also positioned in the foreground, on the right side of the frame, standing on a white cloud and surrounded by swirling red trails.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video begins with a close-up of a large, gray-blue cat occupying the left foreground. A smaller, red cat, also positioned in the foreground, materializes in the middle ground on the right side of the frame, standing on a white cloud and surrounded by swirling red trails. In the background, a dark wall and a window are visible, punctuated by out-of-focus white lights. The red cat, its cloud, and the red trails then disappear from the right side of the frame. Subsequently, the gray-blue cat moves from the left towards the right, partially exiting the frame until only the left side of its head and ear remain visible on the far right. The camera is positioned at the subjects' level throughout the sequence.
-
-**Final Caption (after manual edit):**
-> The video begins with a close-up of a large, gray-blue cat occupying the left foreground. A smaller, red cat, also positioned in the foreground, on the right side of the frame, standing on a white cloud and surrounded by swirling red trails. In the background, a dark wall and a window are visible, punctuated by out-of-focus white lights. The red cat, its cloud, and the red trails then disappear from the right side of the frame. Subsequently, the gray-blue cat moves from the left towards the right, partially exiting the frame until only the left side of its head and ear remain visible on the far right. The camera is positioned at the subjects' level throughout the sequence.
-
-</details>
-
-**Change Summary:** Removed: materializes, ground, middle
+**Change Summary:** Removed: middle, materializes, ground
 
 ---
 
@@ -1665,20 +1308,10 @@ The word is not "Island", but "Islands".
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The camera tilts <span style="color: red; text-decoration: line-through;">downwards and to the right,</span> <span style="color: green; font-weight: bold;">downwards,</span> moving across the surface of a static, creased poster. The view begins focused on the upper portion of the artwork and the word "Islands," then moves to reveal the text "TICKETS STARTING FROM 100.000€" at the bottom.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The camera tilts downwards and to the right, moving across the surface of a static, creased poster. The view begins focused on the upper portion of the artwork and the word "Islands," then moves to reveal the text "TICKETS STARTING FROM 100.000€" at the bottom.
-
-**Final Caption (after manual edit):**
-> The camera tilts downwards, moving across the surface of a static, creased poster. The view begins focused on the upper portion of the artwork and the word "Islands," then moves to reveal the text "TICKETS STARTING FROM 100.000€" at the bottom.
-
-</details>
+```diff
+- The camera tilts downwards and to the right, moving across the surface of a static, creased poster.
++ The camera tilts downwards, moving across the surface of a static, creased poster.
+```
 
 **Change Summary:** Added: downwards,; Removed: downwards, right,
 
@@ -1708,20 +1341,10 @@ The camera tilts <span style="color: red; text-decoration: line-through;">downwa
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a first-person perspective, the scene moves forward through a dense underwater environment. A pair of gloved hands intermittently appears and disappears at the bottom of the frame. The view is populated by tall, stalk-like structures that occupy the foreground, middle ground, and background, extending from the bottom to the top of the frame. The camera is positioned below the large, flat caps of these structures. Initially, a school of small, glowing creatures is positioned in the left-center middle ground. As the camera glides forward <span style="color: red; text-decoration: line-through;">and</span> <span style="color: green; font-weight: bold;">andpans</span> slightly to the right, the school of creatures transitions to the foreground on the left before disappearing from view. A single, thin, glowing creature is located in the right middle ground and swims away from the camera, passing behind a large stalk in the center. The forward movement causes the foreground stalks to move past the viewer, revealing more of the middle and background elements.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a first-person perspective, the scene moves forward through a dense underwater environment. A pair of gloved hands intermittently appears and disappears at the bottom of the frame. The view is populated by tall, stalk-like structures that occupy the foreground, middle ground, and background, extending from the bottom to the top of the frame. The camera is positioned below the large, flat caps of these structures. Initially, a school of small, glowing creatures is positioned in the left-center middle ground. As the camera glides forward and slightly to the right, the school of creatures transitions to the foreground on the left before disappearing from view. A single, thin, glowing creature is located in the right middle ground and swims away from the camera, passing behind a large stalk in the center. The forward movement causes the foreground stalks to move past the viewer, revealing more of the middle and background elements.
-
-**Final Caption (after manual edit):**
-> From a first-person perspective, the scene moves forward through a dense underwater environment. A pair of gloved hands intermittently appears and disappears at the bottom of the frame. The view is populated by tall, stalk-like structures that occupy the foreground, middle ground, and background, extending from the bottom to the top of the frame. The camera is positioned below the large, flat caps of these structures. Initially, a school of small, glowing creatures is positioned in the left-center middle ground. As the camera glides forward andpans slightly to the right, the school of creatures transitions to the foreground on the left before disappearing from view. A single, thin, glowing creature is located in the right middle ground and swims away from the camera, passing behind a large stalk in the center. The forward movement causes the foreground stalks to move past the viewer, revealing more of the middle and background elements.
-
-</details>
+```diff
+- As the camera glides forward and slightly to the right, the school of creatures transitions to the foreground on the left before disappearing from view.
++ As the camera glides forward andpans slightly to the right, the school of creatures transitions to the foreground on the left before disappearing from view.
+```
 
 **Change Summary:** Added: andpans
 
@@ -1751,22 +1374,11 @@ From a first-person perspective, the scene moves forward through a dense underwa
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a black-and-white video, a man with dark hair, wearing a dark suit jacket and trousers, is seen running alongside an old-fashioned trolley. He grips the back of the trolley with his right hand while holding a bag in his left hand. As he runs, his body becomes suspended horizontally in mid-air, parallel to the ground, with his legs bent at the knees and kicked up behind him. <span style="color: red; text-decoration: line-through;">Contrary to initial impressions, he does not jump from the moving vehicle.</span>
-</blockquote>
+```diff
+- Contrary to initial impressions, he does not jump from the moving vehicle.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a black-and-white video, a man with dark hair, wearing a dark suit jacket and trousers, is seen running alongside an old-fashioned trolley. He grips the back of the trolley with his right hand while holding a bag in his left hand. As he runs, his body becomes suspended horizontally in mid-air, parallel to the ground, with his legs bent at the knees and kicked up behind him. Contrary to initial impressions, he does not jump from the moving vehicle.
-
-**Final Caption (after manual edit):**
-> In a black-and-white video, a man with dark hair, wearing a dark suit jacket and trousers, is seen running alongside an old-fashioned trolley. He grips the back of the trolley with his right hand while holding a bag in his left hand. As he runs, his body becomes suspended horizontally in mid-air, parallel to the ground, with his legs bent at the knees and kicked up behind him.
-
-</details>
-
-**Change Summary:** Removed: jump, from, contrary, initial, not, moving, vehicle., impressions,, does
+**Change Summary:** Removed: from, moving, not, jump, contrary, does, initial, impressions,, vehicle.
 
 ---
 
@@ -1794,22 +1406,14 @@ In a black-and-white video, a man with dark hair, wearing a dark suit jacket and
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In an indoor setting at Barksdale Air Force Base, a man in a dark suit and red tie stands behind a wooden podium. The room has light gray walls, and behind the man, <span style="color: red; text-decoration: line-through;">four</span> <span style="color: green; font-weight: bold;">eight</span> framed portraits are arranged in a grid. An American flag is positioned to his <span style="color: red; text-decoration: line-through;">right.</span> <span style="color: green; font-weight: bold;">back.</span> An overlay in the bottom left corner displays white text reading "10:22 am" and "Barksdale Air Force Base."
-</blockquote>
+```diff
+- The room has light gray walls, and behind the man, four framed portraits are arranged in a grid.
+- An American flag is positioned to his right.
++ The room has light gray walls, and behind the man, eight framed portraits are arranged in a grid.
++ An American flag is positioned to his back.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In an indoor setting at Barksdale Air Force Base, a man in a dark suit and red tie stands behind a wooden podium. The room has light gray walls, and behind the man, four framed portraits are arranged in a grid. An American flag is positioned to his right. An overlay in the bottom left corner displays white text reading "10:22 am" and "Barksdale Air Force Base."
-
-**Final Caption (after manual edit):**
-> In an indoor setting at Barksdale Air Force Base, a man in a dark suit and red tie stands behind a wooden podium. The room has light gray walls, and behind the man, eight framed portraits are arranged in a grid. An American flag is positioned to his back. An overlay in the bottom left corner displays white text reading "10:22 am" and "Barksdale Air Force Base."
-
-</details>
-
-**Change Summary:** Added: back., eight; Removed: four, right.
+**Change Summary:** Added: eight, back.; Removed: four, right.
 
 ---
 
@@ -1837,20 +1441,10 @@ In an indoor setting at Barksdale Air Force Base, a man in a dark suit and red t
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-An indoor scene features a light gray, cylindrical planter designed to look like a face with closed eyes and a nose. A pair of black, round-framed glasses sits on the planter's face, and vibrant green, grass-like artificial foliage sprouts from the top. The planter is placed on a glossy surface with a gray and black swirled pattern. In the blurred background, a white curtain and a red object are visible. The camera slowly <span style="color: red; text-decoration: line-through;">pulls back</span> <span style="color: green; font-weight: bold;">moves backward</span> while zooming in on the planter.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> An indoor scene features a light gray, cylindrical planter designed to look like a face with closed eyes and a nose. A pair of black, round-framed glasses sits on the planter's face, and vibrant green, grass-like artificial foliage sprouts from the top. The planter is placed on a glossy surface with a gray and black swirled pattern. In the blurred background, a white curtain and a red object are visible. The camera slowly pulls back while zooming in on the planter.
-
-**Final Caption (after manual edit):**
-> An indoor scene features a light gray, cylindrical planter designed to look like a face with closed eyes and a nose. A pair of black, round-framed glasses sits on the planter's face, and vibrant green, grass-like artificial foliage sprouts from the top. The planter is placed on a glossy surface with a gray and black swirled pattern. In the blurred background, a white curtain and a red object are visible. The camera slowly moves backward while zooming in on the planter.
-
-</details>
+```diff
+- The camera slowly pulls back while zooming in on the planter.
++ The camera slowly moves backward while zooming in on the planter.
+```
 
 **Change Summary:** Added: backward, moves; Removed: back, pulls
 
@@ -1880,22 +1474,12 @@ An indoor scene features a light gray, cylindrical planter designed to look like
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This scene takes place in a dimly lit, sterile-looking room with plain, light-gray walls. An elderly person is lying in a bed with white sheets, positioned on the left side of the scene. A white, articulated desk lamp is <span style="color: red; text-decoration: line-through;">attached to</span> <span style="color: green; font-weight: bold;">on</span> the <span style="color: red; text-decoration: line-through;">wall,</span> <span style="color: green; font-weight: bold;">table,</span> but it is turned off. To the right, a young man in a blue sweatshirt is seated, holding an open blue folder. In the background, a door is visible, and a green sign is located on the wall. Next to the bed, a small table holds an orange sharps container. The overall color palette is cool and desaturated, consisting mainly of grays and blues.
-</blockquote>
+```diff
+- A white, articulated desk lamp is attached to the wall, but it is turned off.
++ A white, articulated desk lamp is on the table, but it is turned off.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This scene takes place in a dimly lit, sterile-looking room with plain, light-gray walls. An elderly person is lying in a bed with white sheets, positioned on the left side of the scene. A white, articulated desk lamp is attached to the wall, but it is turned off. To the right, a young man in a blue sweatshirt is seated, holding an open blue folder. In the background, a door is visible, and a green sign is located on the wall. Next to the bed, a small table holds an orange sharps container. The overall color palette is cool and desaturated, consisting mainly of grays and blues.
-
-**Final Caption (after manual edit):**
-> This scene takes place in a dimly lit, sterile-looking room with plain, light-gray walls. An elderly person is lying in a bed with white sheets, positioned on the left side of the scene. A white, articulated desk lamp is on the table, but it is turned off. To the right, a young man in a blue sweatshirt is seated, holding an open blue folder. In the background, a door is visible, and a green sign is located on the wall. Next to the bed, a small table holds an orange sharps container. The overall color palette is cool and desaturated, consisting mainly of grays and blues.
-
-</details>
-
-**Change Summary:** Added: table,; Removed: attached, wall,
+**Change Summary:** Added: table,; Removed: wall,, attached
 
 ---
 
@@ -1924,20 +1508,10 @@ The man lying on the ground is not still; his hands and face are in motion. The 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a high, top-down perspective, the camera moves upward in an arc. A man lies on his back on the pavement, with slight movements in his hands and face. Another person, a Black man, sits still on a bicycle, while <span style="color: red; text-decoration: line-through;">two other</span> <span style="color: green; font-weight: bold;">another</span> bicycles remain stationary on the ground.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high, top-down perspective, the camera moves upward in an arc. A man lies on his back on the pavement, with slight movements in his hands and face. Another person, a Black man, sits still on a bicycle, while two other bicycles remain stationary on the ground.
-
-**Final Caption (after manual edit):**
-> From a high, top-down perspective, the camera moves upward in an arc. A man lies on his back on the pavement, with slight movements in his hands and face. Another person, a Black man, sits still on a bicycle, while another bicycles remain stationary on the ground.
-
-</details>
+```diff
+- Another person, a Black man, sits still on a bicycle, while two other bicycles remain stationary on the ground.
++ Another person, a Black man, sits still on a bicycle, while another bicycles remain stationary on the ground.
+```
 
 **Change Summary:** Removed: other, two
 
@@ -1967,22 +1541,13 @@ From a high, top-down perspective, the camera moves upward in an arc. A man lies
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a high, top-down perspective, a Black man with short hair lies on his back on a paved surface. He is wearing a black jacket over a blue and white patterned shirt, dark pants, and white sneakers with green accents. To his left, another Black man is seated on a black-and-red bicycle, with a black tire next to him. <span style="color: red; text-decoration: line-through;">Near</span> <span style="color: green; font-weight: bold;">To</span> the first man's <span style="color: red; text-decoration: line-through;">head, a dark-colored bicycle with a black bag attached to the back lies on its side. To his</span> right, a blue-and-white bicycle is positioned upside down on the ground, accompanied by an orange-and-white traffic barrier. Near his feet, a BMX-style bike with a white frame and blue accents on the rims and handlebars also lies on its side on the pavement.
-</blockquote>
+```diff
+- Near the first man's head, a dark-colored bicycle with a black bag attached to the back lies on its side.
+- To his right, a blue-and-white bicycle is positioned upside down on the ground, accompanied by an orange-and-white traffic barrier.
++ To the first man's right, a blue-and-white bicycle is positioned upside down on the ground, accompanied by an orange-and-white traffic barrier.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high, top-down perspective, a Black man with short hair lies on his back on a paved surface. He is wearing a black jacket over a blue and white patterned shirt, dark pants, and white sneakers with green accents. To his left, another Black man is seated on a black-and-red bicycle, with a black tire next to him. Near the first man's head, a dark-colored bicycle with a black bag attached to the back lies on its side. To his right, a blue-and-white bicycle is positioned upside down on the ground, accompanied by an orange-and-white traffic barrier. Near his feet, a BMX-style bike with a white frame and blue accents on the rims and handlebars also lies on its side on the pavement.
-
-**Final Caption (after manual edit):**
-> From a high, top-down perspective, a Black man with short hair lies on his back on a paved surface. He is wearing a black jacket over a blue and white patterned shirt, dark pants, and white sneakers with green accents. To his left, another Black man is seated on a black-and-red bicycle, with a black tire next to him. To the first man's right, a blue-and-white bicycle is positioned upside down on the ground, accompanied by an orange-and-white traffic barrier. Near his feet, a BMX-style bike with a white frame and blue accents on the rims and handlebars also lies on its side on the pavement.
-
-</details>
-
-**Change Summary:** Removed: dark-colored, head,, side., attached, bag
+**Change Summary:** Removed: head,, bag, attached, dark-colored, side.
 
 ---
 
@@ -2011,22 +1576,12 @@ There are several people walking in the scene, not just one person.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The camera is zooming out from a top-down view of an outdoor restaurant patio at night. Multiple people walk past <span style="color: red; text-decoration: line-through;">on the left side of</span> the frame. The diners remain seated at their tables, with subtle movements as they eat, drink, and converse.
-</blockquote>
+```diff
+- Multiple people walk past on the left side of the frame.
++ Multiple people walk past the frame.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The camera is zooming out from a top-down view of an outdoor restaurant patio at night. Multiple people walk past on the left side of the frame. The diners remain seated at their tables, with subtle movements as they eat, drink, and converse.
-
-**Final Caption (after manual edit):**
-> The camera is zooming out from a top-down view of an outdoor restaurant patio at night. Multiple people walk past the frame. The diners remain seated at their tables, with subtle movements as they eat, drink, and converse.
-
-</details>
-
-**Change Summary:** Removed: side, on, left
+**Change Summary:** Removed: left, side, on
 
 ---
 
@@ -2054,22 +1609,12 @@ The camera is zooming out from a top-down view of an outdoor restaurant patio at
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A silver sports car emerges from behind on the right of a moving blue sports car, <span style="color: red; text-decoration: line-through;">accelerates, and</span> <span style="color: green; font-weight: bold;">the blue car then</span> overtakes <span style="color: red; text-decoration: line-through;">it,</span> <span style="color: green; font-weight: bold;">the silver car,</span> continuing to pull ahead as both vehicles drive forward on a paved surface. The two helmeted occupants inside the blue car remain seated throughout.
-</blockquote>
+```diff
+- A silver sports car emerges from behind on the right of a moving blue sports car, accelerates, and overtakes it, continuing to pull ahead as both vehicles drive forward on a paved surface.
++ A silver sports car emerges from behind on the right of a moving blue sports car, the blue car then overtakes the silver car, continuing to pull ahead as both vehicles drive forward on a paved surface.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A silver sports car emerges from behind on the right of a moving blue sports car, accelerates, and overtakes it, continuing to pull ahead as both vehicles drive forward on a paved surface. The two helmeted occupants inside the blue car remain seated throughout.
-
-**Final Caption (after manual edit):**
-> A silver sports car emerges from behind on the right of a moving blue sports car, the blue car then overtakes the silver car, continuing to pull ahead as both vehicles drive forward on a paved surface. The two helmeted occupants inside the blue car remain seated throughout.
-
-</details>
-
-**Change Summary:** Added: then; Removed: it,, and, accelerates,
+**Change Summary:** Added: then; Removed: accelerates,, it,, and
 
 ---
 
@@ -2099,22 +1644,11 @@ In the background, several small fishes are swimming.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This is a point-of-view shot from a camera mounted on a hammerhead shark, creating a wide shot of the underwater scene with a close-up of the shark's head. The dark, T-shaped head of the hammerhead is fixed in the foreground at the bottom center of the frame. The camera glides forward smoothly, showing the sandy ocean floor moving backward in the middle ground and background. In the middle ground at the top right, two additional sharks swim from left to right across the frame. In the background, several small fish are swimming. <span style="color: red; text-decoration: line-through;">A small, light-colored fish is also visible in the middle ground, swimming forward just above the hammerhead's head.</span>
-</blockquote>
+```diff
+- A small, light-colored fish is also visible in the middle ground, swimming forward just above the hammerhead's head.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This is a point-of-view shot from a camera mounted on a hammerhead shark, creating a wide shot of the underwater scene with a close-up of the shark's head. The dark, T-shaped head of the hammerhead is fixed in the foreground at the bottom center of the frame. The camera glides forward smoothly, showing the sandy ocean floor moving backward in the middle ground and background. In the middle ground at the top right, two additional sharks swim from left to right across the frame. In the background, several small fish are swimming. A small, light-colored fish is also visible in the middle ground, swimming forward just above the hammerhead's head.
-
-**Final Caption (after manual edit):**
-> This is a point-of-view shot from a camera mounted on a hammerhead shark, creating a wide shot of the underwater scene with a close-up of the shark's head. The dark, T-shaped head of the hammerhead is fixed in the foreground at the bottom center of the frame. The camera glides forward smoothly, showing the sandy ocean floor moving backward in the middle ground and background. In the middle ground at the top right, two additional sharks swim from left to right across the frame. In the background, several small fish are swimming.
-
-</details>
-
-**Change Summary:** Removed: hammerhead's, also, just, small,, above, visible, ground,, swimming, light-colored
+**Change Summary:** Removed: also, just, visible, swimming, light-colored, above, small,, hammerhead's, ground,
 
 ---
 
@@ -2142,20 +1676,10 @@ This is a point-of-view shot from a camera mounted on a hammerhead shark, creati
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a perspective just behind its head, a hammerhead shark swims steadily forward over a sandy ocean floor. In the middle ground, two additional sharks swim from the right side of the frame to the <span style="color: red; text-decoration: line-through;">left.</span> <span style="color: green; font-weight: bold;">right.</span> In the background, several fish can be seen swimming.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a perspective just behind its head, a hammerhead shark swims steadily forward over a sandy ocean floor. In the middle ground, two additional sharks swim from the right side of the frame to the left. In the background, several fish can be seen swimming.
-
-**Final Caption (after manual edit):**
-> From a perspective just behind its head, a hammerhead shark swims steadily forward over a sandy ocean floor. In the middle ground, two additional sharks swim from the right side of the frame to the right. In the background, several fish can be seen swimming.
-
-</details>
+```diff
+- In the middle ground, two additional sharks swim from the right side of the frame to the left.
++ In the middle ground, two additional sharks swim from the right side of the frame to the right.
+```
 
 **Change Summary:** Added: right.; Removed: left.
 
@@ -2185,22 +1709,18 @@ From a perspective just behind its head, a hammerhead shark swims steadily forwa
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The canal's water occupies the lower <span style="color: red; text-decoration: line-through;">two-thirds</span> <span style="color: green; font-weight: bold;">half</span> of the frame, with several wooden posts <span style="color: green; font-weight: bold;">visible</span> in the middle ground. A yellow water taxi moves from the bottom left towards the <span style="color: red; text-decoration: line-through;">right in</span> <span style="color: green; font-weight: bold;">left within</span> this area. In the <span style="color: red; text-decoration: line-through;">background at</span> <span style="color: green; font-weight: bold;">middle ground, occupying</span> the top <span style="color: green; font-weight: bold;">one-fourth</span> of the <span style="color: red; text-decoration: line-through;">frame,</span> <span style="color: green; font-weight: bold;">frame above the water,</span> a waterfront walkway and buildings are visible. The camera then zooms out <span style="color: green; font-weight: bold;">and slightly zoom in</span> to an extreme wide shot, making the elements appear smaller and revealing more of the surrounding buildings and another section of the canal in the background.
-</blockquote>
+```diff
+- The canal's water occupies the lower two-thirds of the frame, with several wooden posts in the middle ground.
+- A yellow water taxi moves from the bottom left towards the right in this area.
+- In the background at the top of the frame, a waterfront walkway and buildings are visible.
+- The camera then zooms out to an extreme wide shot, making the elements appear smaller and revealing more of the surrounding buildings and another section of the canal in the background.
++ The canal's water occupies the lower half of the frame, with several wooden posts visible in the middle ground.
++ A yellow water taxi moves from the bottom left towards the left within this area.
++ In the middle ground, occupying the top one-fourth of the frame above the water, a waterfront walkway and buildings are visible.
++ The camera then zooms out and slightly zoom in to an extreme wide shot, making the elements appear smaller and revealing more of the surrounding buildings and another section of the canal in the background.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The canal's water occupies the lower two-thirds of the frame, with several wooden posts in the middle ground. A yellow water taxi moves from the bottom left towards the right in this area. In the background at the top of the frame, a waterfront walkway and buildings are visible. The camera then zooms out to an extreme wide shot, making the elements appear smaller and revealing more of the surrounding buildings and another section of the canal in the background.
-
-**Final Caption (after manual edit):**
-> The canal's water occupies the lower half of the frame, with several wooden posts visible in the middle ground. A yellow water taxi moves from the bottom left towards the left within this area. In the middle ground, occupying the top one-fourth of the frame above the water, a waterfront walkway and buildings are visible. The camera then zooms out and slightly zoom in to an extreme wide shot, making the elements appear smaller and revealing more of the surrounding buildings and another section of the canal in the background.
-
-</details>
-
-**Change Summary:** Added: occupying, water,, one-fourth, half, zoom, ground,, above, visible, frame, slightly; Removed: right, two-thirds, at, background
+**Change Summary:** Added: visible, one-fourth, frame, zoom, above, within, ground,, occupying, water,, half; Removed: at, two-thirds, right, background
 
 ---
 
@@ -2229,22 +1749,14 @@ The canal's water occupies the lower <span style="color: red; text-decoration: l
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a high-angle, observational perspective, a yellow and white water taxi travels across a wide canal of blue-green water, creating a small wake. Several clusters of weathered wooden posts stand in the water. As the camera zooms out, a diverse array of buildings densely lines the riverbank in the middle ground, <span style="color: red; text-decoration: line-through;">contrary to</span> <span style="color: green; font-weight: bold;">with a few people visible walking along</span> the <span style="color: red; text-decoration: line-through;">initial description of a single light-colored building.</span> <span style="color: green; font-weight: bold;">waterfront during the daytime.</span> In the background, another section of the river and more buildings are <span style="color: red; text-decoration: line-through;">revealed, with a few people visible walking along the waterfront during the daytime.</span> <span style="color: green; font-weight: bold;">revealed.</span>
-</blockquote>
+```diff
+- As the camera zooms out, a diverse array of buildings densely lines the riverbank in the middle ground, contrary to the initial description of a single light-colored building.
+- In the background, another section of the river and more buildings are revealed, with a few people visible walking along the waterfront during the daytime.
++ As the camera zooms out, a diverse array of buildings densely lines the riverbank in the middle ground, with a few people visible walking along the waterfront during the daytime.
++ In the background, another section of the river and more buildings are revealed.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high-angle, observational perspective, a yellow and white water taxi travels across a wide canal of blue-green water, creating a small wake. Several clusters of weathered wooden posts stand in the water. As the camera zooms out, a diverse array of buildings densely lines the riverbank in the middle ground, contrary to the initial description of a single light-colored building. In the background, another section of the river and more buildings are revealed, with a few people visible walking along the waterfront during the daytime.
-
-**Final Caption (after manual edit):**
-> From a high-angle, observational perspective, a yellow and white water taxi travels across a wide canal of blue-green water, creating a small wake. Several clusters of weathered wooden posts stand in the water. As the camera zooms out, a diverse array of buildings densely lines the riverbank in the middle ground, with a few people visible walking along the waterfront during the daytime. In the background, another section of the river and more buildings are revealed.
-
-</details>
-
-**Change Summary:** Added: revealed.; Removed: building., to, single, contrary, initial, revealed,, light-colored, description
+**Change Summary:** Added: revealed.; Removed: single, revealed,, light-colored, description, building., to, contrary, initial
 
 ---
 
@@ -2272,20 +1784,10 @@ From a high-angle, observational perspective, a yellow and white water taxi trav
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The camera starts at a <span style="color: red; text-decoration: line-through;">low</span> <span style="color: green; font-weight: bold;">level</span> angle, smoothly moving upward in a vertical arc around a group of men standing in a paved lot. It ascends to an overhead, bird's-eye view before descending back to their level, capturing an inverted high angle.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The camera starts at a low angle, smoothly moving upward in a vertical arc around a group of men standing in a paved lot. It ascends to an overhead, bird's-eye view before descending back to their level, capturing an inverted high angle.
-
-**Final Caption (after manual edit):**
-> The camera starts at a level angle, smoothly moving upward in a vertical arc around a group of men standing in a paved lot. It ascends to an overhead, bird's-eye view before descending back to their level, capturing an inverted high angle.
-
-</details>
+```diff
+- The camera starts at a low angle, smoothly moving upward in a vertical arc around a group of men standing in a paved lot.
++ The camera starts at a level angle, smoothly moving upward in a vertical arc around a group of men standing in a paved lot.
+```
 
 **Change Summary:** Added: level; Removed: low
 
@@ -2327,22 +1829,12 @@ The stone steps are situated in the middle ground, while the fence occupies the 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This video showcases a classical-style building. The scene begins with a level-angle wide shot of a large stone column, positioned in the foreground and center of the frame. The building's curved wall is in the middle ground, with a city street visible in the background on the right. The camera transitions into a wide shot of the building's entrance. In the final composition, a fence occupies the foreground, while a broad set of stone steps leads up to the columns and building <span style="color: red; text-decoration: line-through;">facade</span> <span style="color: green; font-weight: bold;">facade,they are all</span> in the middle ground. A white logo is consistently positioned in the bottom right corner.
-</blockquote>
+```diff
+- In the final composition, a fence occupies the foreground, while a broad set of stone steps leads up to the columns and building facade in the middle ground.
++ In the final composition, a fence occupies the foreground, while a broad set of stone steps leads up to the columns and building facade,they are all in the middle ground.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This video showcases a classical-style building. The scene begins with a level-angle wide shot of a large stone column, positioned in the foreground and center of the frame. The building's curved wall is in the middle ground, with a city street visible in the background on the right. The camera transitions into a wide shot of the building's entrance. In the final composition, a fence occupies the foreground, while a broad set of stone steps leads up to the columns and building facade in the middle ground. A white logo is consistently positioned in the bottom right corner.
-
-**Final Caption (after manual edit):**
-> This video showcases a classical-style building. The scene begins with a level-angle wide shot of a large stone column, positioned in the foreground and center of the frame. The building's curved wall is in the middle ground, with a city street visible in the background on the right. The camera transitions into a wide shot of the building's entrance. In the final composition, a fence occupies the foreground, while a broad set of stone steps leads up to the columns and building facade,they are all in the middle ground. A white logo is consistently positioned in the bottom right corner.
-
-</details>
-
-**Change Summary:** Added: facade,they, all, are; Removed: facade
+**Change Summary:** Added: are, facade,they, all; Removed: facade
 
 ---
 
@@ -2370,22 +1862,12 @@ This video showcases a classical-style building. The scene begins with a level-a
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a camera mounted above the blue race car, the vehicle occupies the foreground and lower half of the frame, with the focus on the car itself rather than the driver. Initially, a green race car is positioned in the middle ground on the right. The asphalt track extends from the foreground into the background, where green, rolling hills are visible across the scene. A small white building is situated in the background on the left. As the blue car moves forward, it maneuvers past two sets of obstacles on the left side, each consisting of three orange cones, <span style="color: red; text-decoration: line-through;">before overtaking</span> <span style="color: green; font-weight: bold;">during which it overtakes</span> the green car, which shifts from the middle ground right to the <span style="color: red; text-decoration: line-through;">background</span> <span style="color: green; font-weight: bold;">foreground</span> right before exiting the frame.
-</blockquote>
+```diff
+- As the blue car moves forward, it maneuvers past two sets of obstacles on the left side, each consisting of three orange cones, before overtaking the green car, which shifts from the middle ground right to the background right before exiting the frame.
++ As the blue car moves forward, it maneuvers past two sets of obstacles on the left side, each consisting of three orange cones, during which it overtakes the green car, which shifts from the middle ground right to the foreground right before exiting the frame.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a camera mounted above the blue race car, the vehicle occupies the foreground and lower half of the frame, with the focus on the car itself rather than the driver. Initially, a green race car is positioned in the middle ground on the right. The asphalt track extends from the foreground into the background, where green, rolling hills are visible across the scene. A small white building is situated in the background on the left. As the blue car moves forward, it maneuvers past two sets of obstacles on the left side, each consisting of three orange cones, before overtaking the green car, which shifts from the middle ground right to the background right before exiting the frame.
-
-**Final Caption (after manual edit):**
-> From a camera mounted above the blue race car, the vehicle occupies the foreground and lower half of the frame, with the focus on the car itself rather than the driver. Initially, a green race car is positioned in the middle ground on the right. The asphalt track extends from the foreground into the background, where green, rolling hills are visible across the scene. A small white building is situated in the background on the left. As the blue car moves forward, it maneuvers past two sets of obstacles on the left side, each consisting of three orange cones, during which it overtakes the green car, which shifts from the middle ground right to the foreground right before exiting the frame.
-
-</details>
-
-**Change Summary:** Added: overtakes, during; Removed: overtaking
+**Change Summary:** Added: during, overtakes; Removed: overtaking
 
 ---
 
@@ -2414,20 +1896,10 @@ There is not a turn,the blue car overtakes the green car on a straight.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a <span style="color: red; text-decoration: line-through;">fixed</span> <span style="color: green; font-weight: bold;">locked-on</span> perspective, a blue open-wheel race car accelerates on a racetrack, following a green sports prototype car through a left-hand turn. As the track straightens, the blue car pulls up on the left side of the green car and successfully overtakes it on the straight section. The blue car then continues to drive straight down the track, leaving the green car behind.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a fixed perspective, a blue open-wheel race car accelerates on a racetrack, following a green sports prototype car through a left-hand turn. As the track straightens, the blue car pulls up on the left side of the green car and successfully overtakes it on the straight section. The blue car then continues to drive straight down the track, leaving the green car behind.
-
-**Final Caption (after manual edit):**
-> From a locked-on perspective, a blue open-wheel race car accelerates on a racetrack, following a green sports prototype car through a left-hand turn. As the track straightens, the blue car pulls up on the left side of the green car and successfully overtakes it on the straight section. The blue car then continues to drive straight down the track, leaving the green car behind.
-
-</details>
+```diff
+- From a fixed perspective, a blue open-wheel race car accelerates on a racetrack, following a green sports prototype car through a left-hand turn.
++ From a locked-on perspective, a blue open-wheel race car accelerates on a racetrack, following a green sports prototype car through a left-hand turn.
+```
 
 **Change Summary:** Added: locked-on; Removed: fixed
 
@@ -2457,20 +1929,10 @@ From a <span style="color: red; text-decoration: line-through;">fixed</span> <sp
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The video shows a <span style="color: red; text-decoration: line-through;">fixed</span> <span style="color: green; font-weight: bold;">locked-on</span> perspective from a camera mounted on a bright blue, open-wheel formula-style race car, which occupies the lower portion of the view. The car features a white "GoPro" logo on its nose cone. Inside the cockpit, a driver is visible, wearing a white racing suit with red accents, black gloves, and a black helmet, with their hands on the steering wheel. A second race car, a lime green and black sports prototype with a large rear wing and the number "98" on its side, is seen on the right. The blue car overtakes the green car on a straight section of the track, and the green car subsequently moves out of view.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The video shows a fixed perspective from a camera mounted on a bright blue, open-wheel formula-style race car, which occupies the lower portion of the view. The car features a white "GoPro" logo on its nose cone. Inside the cockpit, a driver is visible, wearing a white racing suit with red accents, black gloves, and a black helmet, with their hands on the steering wheel. A second race car, a lime green and black sports prototype with a large rear wing and the number "98" on its side, is seen on the right. The blue car overtakes the green car on a straight section of the track, and the green car subsequently moves out of view.
-
-**Final Caption (after manual edit):**
-> The video shows a locked-on perspective from a camera mounted on a bright blue, open-wheel formula-style race car, which occupies the lower portion of the view. The car features a white "GoPro" logo on its nose cone. Inside the cockpit, a driver is visible, wearing a white racing suit with red accents, black gloves, and a black helmet, with their hands on the steering wheel. A second race car, a lime green and black sports prototype with a large rear wing and the number "98" on its side, is seen on the right. The blue car overtakes the green car on a straight section of the track, and the green car subsequently moves out of view.
-
-</details>
+```diff
+- The video shows a fixed perspective from a camera mounted on a bright blue, open-wheel formula-style race car, which occupies the lower portion of the view.
++ The video shows a locked-on perspective from a camera mounted on a bright blue, open-wheel formula-style race car, which occupies the lower portion of the view.
+```
 
 **Change Summary:** Added: locked-on; Removed: fixed
 
@@ -2500,20 +1962,10 @@ The video shows a <span style="color: red; text-decoration: line-through;">fixed
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A first-person POV shot captures a perspective looking straight down from high in the sky during a daytime scene. The vast, arid landscape below is a patchwork of brown and tan rolling hills and valleys, with a winding dirt path or dry riverbed visible. From the bottom of the view, the camera-wearer's <span style="color: green; font-weight: bold;">black</span> helmet and legs in light-colored pants are visible. Farther below, another person in a colorful jumpsuit is seen against the expansive terrain.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A first-person POV shot captures a perspective looking straight down from high in the sky during a daytime scene. The vast, arid landscape below is a patchwork of brown and tan rolling hills and valleys, with a winding dirt path or dry riverbed visible. From the bottom of the view, the camera-wearer's helmet and legs in light-colored pants are visible. Farther below, another person in a colorful jumpsuit is seen against the expansive terrain.
-
-**Final Caption (after manual edit):**
-> A first-person POV shot captures a perspective looking straight down from high in the sky during a daytime scene. The vast, arid landscape below is a patchwork of brown and tan rolling hills and valleys, with a winding dirt path or dry riverbed visible. From the bottom of the view, the camera-wearer's black helmet and legs in light-colored pants are visible. Farther below, another person in a colorful jumpsuit is seen against the expansive terrain.
-
-</details>
+```diff
+- From the bottom of the view, the camera-wearer's helmet and legs in light-colored pants are visible.
++ From the bottom of the view, the camera-wearer's black helmet and legs in light-colored pants are visible.
+```
 
 **Change Summary:** Added: black
 
@@ -2543,22 +1995,12 @@ A first-person POV shot captures a perspective looking straight down from high i
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a first-person perspective, a skydiver falls through the air while looking down at another skydiver below. The lower skydiver, initially facing the camera, raises both middle fingers before turning away. As the lower skydiver continues their descent, the filming skydiver maintains their altitude, extending their legs <span style="color: red; text-decoration: line-through;">outward as they both move toward the hilly terrain.</span> <span style="color: green; font-weight: bold;">outward.</span>
-</blockquote>
+```diff
+- As the lower skydiver continues their descent, the filming skydiver maintains their altitude, extending their legs outward as they both move toward the hilly terrain.
++ As the lower skydiver continues their descent, the filming skydiver maintains their altitude, extending their legs outward.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a first-person perspective, a skydiver falls through the air while looking down at another skydiver below. The lower skydiver, initially facing the camera, raises both middle fingers before turning away. As the lower skydiver continues their descent, the filming skydiver maintains their altitude, extending their legs outward as they both move toward the hilly terrain.
-
-**Final Caption (after manual edit):**
-> From a first-person perspective, a skydiver falls through the air while looking down at another skydiver below. The lower skydiver, initially facing the camera, raises both middle fingers before turning away. As the lower skydiver continues their descent, the filming skydiver maintains their altitude, extending their legs outward.
-
-</details>
-
-**Change Summary:** Added: outward.; Removed: terrain., they, hilly, toward, outward, move
+**Change Summary:** Added: outward.; Removed: move, hilly, terrain., outward, toward, they
 
 ---
 
@@ -2586,22 +2028,12 @@ From a first-person perspective, a skydiver falls through the air while looking 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-An East Asian man with short, dark hair and a broad smile wears a white t-shirt. He is carrying a young East Asian girl on his shoulders. The girl, who has dark, shoulder-length hair with bangs and is dressed in a light-colored sleeveless <span style="color: red; text-decoration: line-through;">top,</span> <span style="color: green; font-weight: bold;">top and black trousers,</span> also smiles joyfully with her arms outstretched as she looks up.
-</blockquote>
+```diff
+- The girl, who has dark, shoulder-length hair with bangs and is dressed in a light-colored sleeveless top, also smiles joyfully with her arms outstretched as she looks up.
++ The girl, who has dark, shoulder-length hair with bangs and is dressed in a light-colored sleeveless top and black trousers, also smiles joyfully with her arms outstretched as she looks up.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> An East Asian man with short, dark hair and a broad smile wears a white t-shirt. He is carrying a young East Asian girl on his shoulders. The girl, who has dark, shoulder-length hair with bangs and is dressed in a light-colored sleeveless top, also smiles joyfully with her arms outstretched as she looks up.
-
-**Final Caption (after manual edit):**
-> An East Asian man with short, dark hair and a broad smile wears a white t-shirt. He is carrying a young East Asian girl on his shoulders. The girl, who has dark, shoulder-length hair with bangs and is dressed in a light-colored sleeveless top and black trousers, also smiles joyfully with her arms outstretched as she looks up.
-
-</details>
-
-**Change Summary:** Added: black, top, trousers,; Removed: top,
+**Change Summary:** Added: black, trousers,, top; Removed: top,
 
 ---
 
@@ -2629,20 +2061,10 @@ An East Asian man with short, dark hair and a broad smile wears a white t-shirt.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a high-angle, point-of-view perspective, the front half of a blue race car and its driver occupy the foreground <span style="color: green; font-weight: bold;">and middle ground</span> in the bottom half of the frame. The driver's helmet is in the bottom center, with their hands on the steering wheel, and the car's nose cone extends towards the center. The front wheels are positioned in the middle left and middle right. The asphalt racetrack fills the middle of the frame, extending from the foreground into the middle ground as it curves to the right. In the background, a grassy landscape and rolling hills span the upper portion of the frame, with a cloudy sky positioned at the top. The entire scene moves as the car speeds forward, causing the track and scenery to rush towards the fixed camera.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a high-angle, point-of-view perspective, the front half of a blue race car and its driver occupy the foreground in the bottom half of the frame. The driver's helmet is in the bottom center, with their hands on the steering wheel, and the car's nose cone extends towards the center. The front wheels are positioned in the middle left and middle right. The asphalt racetrack fills the middle of the frame, extending from the foreground into the middle ground as it curves to the right. In the background, a grassy landscape and rolling hills span the upper portion of the frame, with a cloudy sky positioned at the top. The entire scene moves as the car speeds forward, causing the track and scenery to rush towards the fixed camera.
-
-**Final Caption (after manual edit):**
-> From a high-angle, point-of-view perspective, the front half of a blue race car and its driver occupy the foreground and middle ground in the bottom half of the frame. The driver's helmet is in the bottom center, with their hands on the steering wheel, and the car's nose cone extends towards the center. The front wheels are positioned in the middle left and middle right. The asphalt racetrack fills the middle of the frame, extending from the foreground into the middle ground as it curves to the right. In the background, a grassy landscape and rolling hills span the upper portion of the frame, with a cloudy sky positioned at the top. The entire scene moves as the car speeds forward, causing the track and scenery to rush towards the fixed camera.
-
-</details>
+```diff
+- From a high-angle, point-of-view perspective, the front half of a blue race car and its driver occupy the foreground in the bottom half of the frame.
++ From a high-angle, point-of-view perspective, the front half of a blue race car and its driver occupy the foreground and middle ground in the bottom half of the frame.
+```
 
 **Change Summary:** Minor changes (punctuation/formatting)
 
@@ -2672,22 +2094,12 @@ From a high-angle, point-of-view perspective, the front half of a blue race car 
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-From a slightly elevated perspective above the driver's head, a driver is seated in the open cockpit of a blue race car. The car, an open-wheel model, features the words "GoPro" and "Be a HERO." in white text on its nose cone, with its front wheels and suspension visible on either side. The <span style="color: red; text-decoration: line-through;">driver, fully visible,</span> <span style="color: green; font-weight: bold;">driver</span> wears a black helmet that covers their head. Their legs and arms are clad in a white and black patterned racing suit, and their hands are covered by black racing gloves with white and red details, including the "SPARCO" brand name.
-</blockquote>
+```diff
+- The driver, fully visible, wears a black helmet that covers their head.
++ The driver wears a black helmet that covers their head.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> From a slightly elevated perspective above the driver's head, a driver is seated in the open cockpit of a blue race car. The car, an open-wheel model, features the words "GoPro" and "Be a HERO." in white text on its nose cone, with its front wheels and suspension visible on either side. The driver, fully visible, wears a black helmet that covers their head. Their legs and arms are clad in a white and black patterned racing suit, and their hands are covered by black racing gloves with white and red details, including the "SPARCO" brand name.
-
-**Final Caption (after manual edit):**
-> From a slightly elevated perspective above the driver's head, a driver is seated in the open cockpit of a blue race car. The car, an open-wheel model, features the words "GoPro" and "Be a HERO." in white text on its nose cone, with its front wheels and suspension visible on either side. The driver wears a black helmet that covers their head. Their legs and arms are clad in a white and black patterned racing suit, and their hands are covered by black racing gloves with white and red details, including the "SPARCO" brand name.
-
-</details>
-
-**Change Summary:** Removed: driver,, visible,, fully
+**Change Summary:** Removed: fully, driver,, visible,
 
 ---
 
@@ -2717,20 +2129,10 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a full shot, a surfer is positioned in the center of the frame and in the middle ground, standing on a surfboard that extends from the bottom of the frame into the foreground. The wave and its white spray are in the middle ground, flanking the surfer on the left and right. In the background, a shoreline is visible on the right side of the frame, with the sunset sky occupying the upper portion. The camera, mounted on the surfboard, captures the surfer's ride as it moves backward, simultaneously trucking right and panning left. During this motion, the camera also rolls slightly clockwise before rolling counterclockwise, causing the background shoreline to move from <span style="color: green; font-weight: bold;">left to</span> right <span style="color: red; text-decoration: line-through;">to left</span> as the surfer rides the wave.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a full shot, a surfer is positioned in the center of the frame and in the middle ground, standing on a surfboard that extends from the bottom of the frame into the foreground. The wave and its white spray are in the middle ground, flanking the surfer on the left and right. In the background, a shoreline is visible on the right side of the frame, with the sunset sky occupying the upper portion. The camera, mounted on the surfboard, captures the surfer's ride as it moves backward, simultaneously trucking right and panning left. During this motion, the camera also rolls slightly clockwise before rolling counterclockwise, causing the background shoreline to move from right to left as the surfer rides the wave.
-
-**Final Caption (after manual edit):**
-> In a full shot, a surfer is positioned in the center of the frame and in the middle ground, standing on a surfboard that extends from the bottom of the frame into the foreground. The wave and its white spray are in the middle ground, flanking the surfer on the left and right. In the background, a shoreline is visible on the right side of the frame, with the sunset sky occupying the upper portion. The camera, mounted on the surfboard, captures the surfer's ride as it moves backward, simultaneously trucking right and panning left. During this motion, the camera also rolls slightly clockwise before rolling counterclockwise, causing the background shoreline to move from left to right as the surfer rides the wave.
-
-</details>
+```diff
+- During this motion, the camera also rolls slightly clockwise before rolling counterclockwise, causing the background shoreline to move from right to left as the surfer rides the wave.
++ During this motion, the camera also rolls slightly clockwise before rolling counterclockwise, causing the background shoreline to move from left to right as the surfer rides the wave.
+```
 
 **Change Summary:** Minor changes (punctuation/formatting)
 
@@ -2760,22 +2162,12 @@ In a full shot, a surfer is positioned in the center of the frame and in the mid
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A locked-on POV shot <span style="color: red; text-decoration: line-through;">from outside a car</span> captures the <span style="color: green; font-weight: bold;">static</span> vehicle <span style="color: red; text-decoration: line-through;">backing out of a garage</span> at night. The camera, mounted on the door, focuses on the black side mirror, reflecting the dimly lit surroundings. The footage shows the white, paneled garage door and a brick wall moving past with motion blur. The car's tan interior, including the dashboard and door, is visible, and the video clearly shows the door being closed, offering a detailed view of both the car's interior and its surroundings.
-</blockquote>
+```diff
+- A locked-on POV shot from outside a car captures the vehicle backing out of a garage at night.
++ A locked-on POV shot captures the static vehicle at night.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A locked-on POV shot from outside a car captures the vehicle backing out of a garage at night. The camera, mounted on the door, focuses on the black side mirror, reflecting the dimly lit surroundings. The footage shows the white, paneled garage door and a brick wall moving past with motion blur. The car's tan interior, including the dashboard and door, is visible, and the video clearly shows the door being closed, offering a detailed view of both the car's interior and its surroundings.
-
-**Final Caption (after manual edit):**
-> A locked-on POV shot captures the static vehicle at night. The camera, mounted on the door, focuses on the black side mirror, reflecting the dimly lit surroundings. The footage shows the white, paneled garage door and a brick wall moving past with motion blur. The car's tan interior, including the dashboard and door, is visible, and the video clearly shows the door being closed, offering a detailed view of both the car's interior and its surroundings.
-
-</details>
-
-**Change Summary:** Added: static; Removed: from, backing, car, outside, out
+**Change Summary:** Added: static; Removed: backing, from, car, out, outside
 
 ---
 
@@ -2803,22 +2195,12 @@ A locked-on POV shot <span style="color: red; text-decoration: line-through;">fr
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A woman holds a camera <span style="color: red; text-decoration: line-through;">and moves</span> <span style="color: green; font-weight: bold;">which is moving</span> backward, capturing a man holding a young girl as they walk forward together through a field of tall grass.
-</blockquote>
+```diff
+- A woman holds a camera and moves backward
++ A woman holds a camera which is moving backward
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A woman holds a camera and moves backward, capturing a man holding a young girl as they walk forward together through a field of tall grass.
-
-**Final Caption (after manual edit):**
-> A woman holds a camera which is moving backward, capturing a man holding a young girl as they walk forward together through a field of tall grass.
-
-</details>
-
-**Change Summary:** Added: moving, which, is; Removed: moves, and
+**Change Summary:** Added: is, which, moving; Removed: and, moves
 
 ---
 
@@ -2846,22 +2228,12 @@ A woman holds a camera <span style="color: red; text-decoration: line-through;">
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This extreme wide shot captures a dynamic and vast scenery without a single main subject. A massive, dark storm cloud formation dominates the top, center, and right portions of the frame, while a smaller patch of white clouds and blue sky is visible in the top left. The foreground and middle ground consist of a flat plain occupying the bottom third of the frame. Along the horizon at the bottom, a band of golden light is visible, with shafts of light or rain descending from the cloud base in the bottom center. In this time-lapse, the dark clouds swirl unpredictably and expand, <span style="color: red; text-decoration: line-through;">moving erratically from</span> the <span style="color: red; text-decoration: line-through;">top left towards the center</span> <span style="color: green; font-weight: bold;">movement is irregular</span> and <span style="color: red; text-decoration: line-through;">right, gradually obscuring the blue sky and appearing</span> <span style="color: green; font-weight: bold;">difficult</span> to <span style="color: red; text-decoration: line-through;">advance towards the low-angle camera.</span> <span style="color: green; font-weight: bold;">describe.</span>
-</blockquote>
+```diff
+- In this time-lapse, the dark clouds swirl unpredictably and expand, moving erratically from the top left towards the center and right, gradually obscuring the blue sky and appearing to advance towards the low-angle camera.
++ In this time-lapse, the dark clouds swirl unpredictably and expand, the movement is irregular and difficult to describe.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This extreme wide shot captures a dynamic and vast scenery without a single main subject. A massive, dark storm cloud formation dominates the top, center, and right portions of the frame, while a smaller patch of white clouds and blue sky is visible in the top left. The foreground and middle ground consist of a flat plain occupying the bottom third of the frame. Along the horizon at the bottom, a band of golden light is visible, with shafts of light or rain descending from the cloud base in the bottom center. In this time-lapse, the dark clouds swirl unpredictably and expand, moving erratically from the top left towards the center and right, gradually obscuring the blue sky and appearing to advance towards the low-angle camera.
-
-**Final Caption (after manual edit):**
-> This extreme wide shot captures a dynamic and vast scenery without a single main subject. A massive, dark storm cloud formation dominates the top, center, and right portions of the frame, while a smaller patch of white clouds and blue sky is visible in the top left. The foreground and middle ground consist of a flat plain occupying the bottom third of the frame. Along the horizon at the bottom, a band of golden light is visible, with shafts of light or rain descending from the cloud base in the bottom center. In this time-lapse, the dark clouds swirl unpredictably and expand, the movement is irregular and difficult to describe.
-
-</details>
-
-**Change Summary:** Added: difficult, movement, irregular, describe.; Removed: low-angle, center, advance, towards, moving, right,, appearing, camera., left, erratically
+**Change Summary:** Added: irregular, describe., difficult, movement; Removed: erratically, towards, low-angle, gradually, right,, center, camera., obscuring, moving, appearing
 
 ---
 
@@ -2889,20 +2261,10 @@ This extreme wide shot captures a dynamic and vast scenery without a single main
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-The right half of the frame is dominated by a close-up of a car in the foreground, with its front passenger wheel spinning rapidly in the center-right. The vehicle's body extends to the top and right edges of the frame. On the left, a flat, dark ground surface stretches across the foreground, middle ground, and background, leading to a distant mountain range at the horizon. The clear sky fills the top left portion of the frame. The camera is positioned at a level angle, moving in unison with the vehicle to keep the car static in the frame while the <span style="color: red; text-decoration: line-through;">background</span> scenery rushes past from left to right.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> The right half of the frame is dominated by a close-up of a car in the foreground, with its front passenger wheel spinning rapidly in the center-right. The vehicle's body extends to the top and right edges of the frame. On the left, a flat, dark ground surface stretches across the foreground, middle ground, and background, leading to a distant mountain range at the horizon. The clear sky fills the top left portion of the frame. The camera is positioned at a level angle, moving in unison with the vehicle to keep the car static in the frame while the background scenery rushes past from left to right.
-
-**Final Caption (after manual edit):**
-> The right half of the frame is dominated by a close-up of a car in the foreground, with its front passenger wheel spinning rapidly in the center-right. The vehicle's body extends to the top and right edges of the frame. On the left, a flat, dark ground surface stretches across the foreground, middle ground, and background, leading to a distant mountain range at the horizon. The clear sky fills the top left portion of the frame. The camera is positioned at a level angle, moving in unison with the vehicle to keep the car static in the frame while the scenery rushes past from left to right.
-
-</details>
+```diff
+- The camera is positioned at a level angle, moving in unison with the vehicle to keep the car static in the frame while the background scenery rushes past from left to right.
++ The camera is positioned at a level angle, moving in unison with the vehicle to keep the car static in the frame while the scenery rushes past from left to right.
+```
 
 **Change Summary:** Removed: background
 
@@ -2934,22 +2296,12 @@ The camera is not positioned at a high angle,but a level angle.
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-This is a wide scenery shot with minor camera movement, including zooming in and a slight clockwise roll. A large, golden-bronze statue occupies the foreground, positioned across the bottom half of the frame from the left towards the center. In the middle ground, the Seine River flows horizontally across the scene, with other bridges and city lights visible along its banks. The illuminated Eiffel Tower is centered in the background, rising above the cityscape. The camera is positioned at a level angle relative to the <span style="color: red; text-decoration: line-through;">river and the foreground statue.</span> <span style="color: green; font-weight: bold;">scene.</span> A text overlay is fixed in the bottom right corner of the frame.
-</blockquote>
+```diff
+- The camera is positioned at a level angle relative to the river and the foreground statue.
++ The camera is positioned at a level angle relative to the scene.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> This is a wide scenery shot with minor camera movement, including zooming in and a slight clockwise roll. A large, golden-bronze statue occupies the foreground, positioned across the bottom half of the frame from the left towards the center. In the middle ground, the Seine River flows horizontally across the scene, with other bridges and city lights visible along its banks. The illuminated Eiffel Tower is centered in the background, rising above the cityscape. The camera is positioned at a level angle relative to the river and the foreground statue. A text overlay is fixed in the bottom right corner of the frame.
-
-**Final Caption (after manual edit):**
-> This is a wide scenery shot with minor camera movement, including zooming in and a slight clockwise roll. A large, golden-bronze statue occupies the foreground, positioned across the bottom half of the frame from the left towards the center. In the middle ground, the Seine River flows horizontally across the scene, with other bridges and city lights visible along its banks. The illuminated Eiffel Tower is centered in the background, rising above the cityscape. The camera is positioned at a level angle relative to the scene. A text overlay is fixed in the bottom right corner of the frame.
-
-</details>
-
-**Change Summary:** Added: scene.; Removed: statue., foreground
+**Change Summary:** Added: scene.; Removed: foreground, statue.
 
 ---
 
@@ -2981,20 +2333,10 @@ Additionally, the man is not stationary. He turns his head to look at the dark r
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-A hand reaches into the frame from the right and presses a blue button on a smart lock before retracting out of view. In response, a light at the top of the device illuminates, and a semi-transparent, holographic projection of a man materializes on the door. The projected man turns his head to look at the dark rectangular object in <span style="color: red; text-decoration: line-through;">my</span> <span style="color: green; font-weight: bold;">his</span> right hand and speaks as he does so.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> A hand reaches into the frame from the right and presses a blue button on a smart lock before retracting out of view. In response, a light at the top of the device illuminates, and a semi-transparent, holographic projection of a man materializes on the door. The projected man turns his head to look at the dark rectangular object in my right hand and speaks as he does so.
-
-**Final Caption (after manual edit):**
-> A hand reaches into the frame from the right and presses a blue button on a smart lock before retracting out of view. In response, a light at the top of the device illuminates, and a semi-transparent, holographic projection of a man materializes on the door. The projected man turns his head to look at the dark rectangular object in his right hand and speaks as he does so.
-
-</details>
+```diff
+- The projected man turns his head to look at the dark rectangular object in my right hand and speaks as he does so.
++ The projected man turns his head to look at the dark rectangular object in his right hand and speaks as he does so.
+```
 
 **Change Summary:** Removed: my
 
@@ -3032,22 +2374,12 @@ In the foreground, the front of a white sedan is visible, with its headlights il
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-In a parking lot, a solid red, featureless human figure with a male build stands next to a row of older-model sedans. The figure is entirely monochromatic red, obscuring any clothing or facial details. It is positioned with its body slightly turned, holding its right arm with its left hand in a self-hugging gesture. To the figure's left, in the foreground, is the front of a white sedan with its headlights illuminated and shining brightly. Behind the white car is a dark black vehicle, and behind that is the pale green <span style="color: red; text-decoration: line-through;">sedan.</span> <span style="color: green; font-weight: bold;">sedan.and two other dark-colored sedans are visible parked further down the row.</span>
-</blockquote>
+```diff
+- Behind the white car is a dark black vehicle, and behind that is the pale green sedan.
++ Behind the white car is a dark black vehicle, and behind that is the pale green sedan.and two other dark-colored sedans are visible parked further down the row.
+```
 
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> In a parking lot, a solid red, featureless human figure with a male build stands next to a row of older-model sedans. The figure is entirely monochromatic red, obscuring any clothing or facial details. It is positioned with its body slightly turned, holding its right arm with its left hand in a self-hugging gesture. To the figure's left, in the foreground, is the front of a white sedan with its headlights illuminated and shining brightly. Behind the white car is a dark black vehicle, and behind that is the pale green sedan.
-
-**Final Caption (after manual edit):**
-> In a parking lot, a solid red, featureless human figure with a male build stands next to a row of older-model sedans. The figure is entirely monochromatic red, obscuring any clothing or facial details. It is positioned with its body slightly turned, holding its right arm with its left hand in a self-hugging gesture. To the figure's left, in the foreground, is the front of a white sedan with its headlights illuminated and shining brightly. Behind the white car is a dark black vehicle, and behind that is the pale green sedan.and two other dark-colored sedans are visible parked further down the row.
-
-</details>
-
-**Change Summary:** Added: sedans, sedan.and, other, parked, down, dark-colored, further, visible, two, are; Removed: sedan.
+**Change Summary:** Added: row., visible, two, parked, are, further, sedans, sedan.and, down, dark-colored; Removed: sedan.
 
 ---
 
@@ -3079,20 +2411,10 @@ Additionally, the description "and the man in red is at the top-right middle gro
 
 **GPT Caption → Final Caption (Diff):**
 
-<blockquote>
-Initially, a medium shot frames the scene at the subjects' level, with a person in a white robe occupying the left-foreground, seen from behind. This person holds a child, who is positioned in the center-middle ground, while a man in a red shirt stands to the right in the middle ground. The camera then cranes upward, transitioning to a bird's eye view. In this final composition, the person in the white robe is at the bottom of the frame in the foreground, the child is in the <span style="color: red; text-decoration: line-through;">center-middle</span> <span style="color: green; font-weight: bold;">foreground and middle</span> ground, and the man in red spans both the foreground and middle ground. This movement makes the black and white checkered floor a dominant element in the background, also revealing a small, clear table in the center-bottom middle ground.
-</blockquote>
-
-<details>
-<summary>📋 View original texts separately</summary>
-
-**GPT Caption (before edit):**
-> Initially, a medium shot frames the scene at the subjects' level, with a person in a white robe occupying the left-foreground, seen from behind. This person holds a child, who is positioned in the center-middle ground, while a man in a red shirt stands to the right in the middle ground. The camera then cranes upward, transitioning to a bird's eye view. In this final composition, the person in the white robe is at the bottom of the frame in the foreground, the child is in the center-middle ground, and the man in red spans both the foreground and middle ground. This movement makes the black and white checkered floor a dominant element in the background, also revealing a small, clear table in the center-bottom middle ground.
-
-**Final Caption (after manual edit):**
-> Initially, a medium shot frames the scene at the subjects' level, with a person in a white robe occupying the left-foreground, seen from behind. This person holds a child, who is positioned in the center-middle ground, while a man in a red shirt stands to the right in the middle ground. The camera then cranes upward, transitioning to a bird's eye view. In this final composition, the person in the white robe is at the bottom of the frame in the foreground, the child is in the foreground and middle ground, and the man in red spans both the foreground and middle ground. This movement makes the black and white checkered floor a dominant element in the background, also revealing a small, clear table in the center-bottom middle ground.
-
-</details>
+```diff
+- In this final composition, the person in the white robe is at the bottom of the frame in the foreground, the child is in the center-middle ground, and the man in red spans both the foreground and middle ground.
++ In this final composition, the person in the white robe is at the bottom of the frame in the foreground, the child is in the foreground and middle ground, and the man in red spans both the foreground and middle ground.
+```
 
 **Change Summary:** Minor changes (punctuation/formatting)
 
