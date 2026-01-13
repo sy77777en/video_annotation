@@ -319,7 +319,7 @@ def main():
     parser.add_argument(
         '--export-file',
         type=str,
-        default='caption_export/export_20260112_0154/all_videos_with_captions_20260112_0154.json',
+        default='caption_export/export_20260112_1158/all_videos_with_captions_20260112_1158.json',
         help='Path to caption export JSON file'
     )
     parser.add_argument(
