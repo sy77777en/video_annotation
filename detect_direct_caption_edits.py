@@ -197,14 +197,22 @@ A caption is flagged as "Direct Edit" if:
 
 """
 
+    # Sort direct edit samples by timestamp (latest first)
+    direct_edit_samples_sorted = sorted(
+        direct_edit_samples, 
+        key=lambda x: x.get('timestamp', ''), 
+        reverse=True
+    )
+    
     # Add direct edit examples
-    if direct_edit_samples:
+    if direct_edit_samples_sorted:
         report += f"""## ⚠️ Direct Edit Cases ({direct_count} total)
 
 These are cases where the user manually edited the GPT-generated caption.
+Sorted by timestamp (latest first).
 
 """
-        for i, sample in enumerate(direct_edit_samples, 1):
+        for i, sample in enumerate(direct_edit_samples_sorted, 1):
             diff_summary = compute_diff_summary(sample['gpt_caption'], sample['final_caption'])
             
             report += f"""### Case {i}/{direct_count}
@@ -218,29 +226,24 @@ These are cases where the user manually edited the GPT-generated caption.
 | Timestamp | {sample['timestamp']} |
 
 **Pre-Caption:**
-```
-{sample['pre_caption']}
-```
+
+> {sample['pre_caption']}
 
 **Initial Feedback:**
-```
-{sample['initial_feedback']}
-```
+
+> {sample['initial_feedback'] if sample['initial_feedback'] else '(empty)'}
 
 **Final Feedback:**
-```
-{sample['final_feedback']}
-```
+
+> {sample['final_feedback'] if sample['final_feedback'] else '(empty)'}
 
 **GPT Caption (before edit):**
-```
-{sample['gpt_caption']}
-```
+
+> {sample['gpt_caption']}
 
 **Final Caption (after manual edit):**
-```
-{sample['final_caption']}
-```
+
+> {sample['final_caption']}
 
 **Diff Summary:** {diff_summary}
 
