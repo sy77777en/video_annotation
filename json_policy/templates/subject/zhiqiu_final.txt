@@ -1,0 +1,36 @@
+Please convert the following caption into the JSON format shown below. Ensure that each field consists of coherent, self-contained full sentences that can be clearly understood on their own, without relying on context from other fields.
+
+{
+  "type": "Briefly identify the shot type by summarizing the subject type mentioned in the caption (e.g., prominent human subject, non-human subject, subject appearance/disappearance, subject-type change, multiple subjects with or without a clear focus, or an atypical subject). Describe only what is explicitly indicated in the caption. List only the main subjects in the video (e.g., woman, man, dog, car). Do not include environment objects or background props (e.g., furniture, skateboards, trees). Do not include appearance or wardrobe details",
+  "appearance": "Summarize all the key visual traits and the clothing of each subject that are mentioned in the caption, such as hairstyle, facial hair, age, gender, ethnicity, clothing colors, styles, and notable accessories; or for objects, color, material, shape, or details. If a subject's clothing is not visible, do not describe it.",
+  "pose": "Describe each subject's posture, stance, and orientation within the frame (e.g., standing, sitting, walking, facing camera).",
+  "prop": "Describe specific objects that actors handle or interact with on screen as mentioned in the caption",
+  "subject_relationship": "Explain spatial and action-based relationships between subjects (e.g., standing next to, chasing, handing an object to another).",
+  "subject_transition": "If a subject reveals, disappears, or changes prominence during the video, describe the change and how it occurs (through subject or camera movement)."
+}
+
+Caption Instruction:
+Provide a concise description of the subjects based on the caption.
+Identification: Identify each subject using precise terms (e.g., man, dog, car). If the caption describes a scenery shot without salient subjects, specify the type of scenery (e.g., landscape, cityscape) in type and explain the lack of main subject.
+Visual Attributes: Describe visible details such as clothing, skin tone, hairstyle, age, gender, and ethnicity for humans; or color, material, and shape for objects.
+Multiple Subjects: Distinguish subjects by unique traits (e.g., the woman in red), location (the man on the left), or actions. Prioritize the most prominent or centered subjects.
+Context: Only describe visible props subjects interact with (prop) and their posture/orientation (pose).
+Transitions: If subjects reveal, disappear, or switch prominence, describe these transitions explicitly.
+
+Caption: {caption}
+
+Instructions:
+1. Output valid JSON only. All strings must use ASCII characters only. Do not use Unicode punctuation (e.g., \u2018, \u2019, \u201c, \u201d). Replace all smart quotes with straight quotes.
+2. Use the exact same JSON keys as shown above.
+3. Preserve all important information from the caption with all the keywords and details.
+4. Organize the information appropriately under each key.
+5. If the caption doesn't contain some information, leave the corresponding field as "".
+6. Return only valid JSON without any additional text.
+7. Do not include any information not mentioned in the original "Caption".
+8. Type: In the Type section, list subject names or subject types only, without including appearance details, wardrobe information, or descriptive adjectives. Scenery and environmental elements are not considered subjects, so if the caption describes a scenery shot with no explicit subject, do not include any content in the Type section.
+9. Relationships: Strictly avoid inferring relationships. Only describe relationships explicitly mentioned in the caption.
+10. Pose Scope: In pose, describe only the posture of human subjects. Exclude object orientation unless critical.
+11. Non-Subjects: Landscape and environmental elements (such as mountains and clouds), architectural elements (such as buildings), and UI elements are not considered subjects. Do not include them in any field.
+12. CRITICAL SUBJECT COUNT RULE: Explicitly identify the exact subject quantities stated in the caption (e.g., two men). If numbers are stated, use them verbatim in type. Do not infer additional subjects from repeated mentions or sentence structure. If the caption uses vague terms (some, several, a group), preserve the abstraction (e.g., a group of players). Treat groups as a single unit unless individuals are enumerated.
+13. Gender Consistency: If a subject is initially generic (person) but later referred to with gendered pronouns (she), classify them under the specific gender.
+14. If the caption explicitly states that there is no clear subject in the video, do not mention any subjects in the relevant fields, and do not state that there is no clear subject.
