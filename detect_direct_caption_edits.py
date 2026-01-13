@@ -18,7 +18,7 @@ import json
 import argparse
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple
+from typing import Dict, List, Tuple, Optional
 
 
 def load_caption_export(export_path: Path):
@@ -27,9 +27,105 @@ def load_caption_export(export_path: Path):
         return json.load(f)
 
 
-def analyze_user_captions(export_data, target_user: str) -> Dict:
+def load_json_file(file_path: str) -> List[str]:
+    """Load a JSON file containing a list of video URLs."""
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except Exception as e:
+        return []
+
+
+def build_batch_mapping(batch_files: List[str] = None) -> Dict[str, Tuple[str, int]]:
+    """
+    Build a mapping from video_url to (batch file name, index within batch).
+    
+    If batch_files is None or empty, tries to auto-load from main_config.py.
+    
+    Args:
+        batch_files: Optional list of paths to batch JSON files
+    
+    Returns:
+        Dict mapping video_url -> (batch_name, index) 
+        e.g., "http://..." -> ("overlap_100_to_110.json", 3)
+    """
+    url_to_batch = {}
+    
+    # If no batch files provided, try to load from main_config.py
+    if not batch_files:
+        config_path = 'caption/config/main_config.py'
+        print(f"No batch files provided, trying to load from {config_path}...")
+        
+        try:
+            # Try to import directly
+            import sys
+            if 'caption/config' not in sys.path:
+                sys.path.insert(0, 'caption/config')
+            
+            # Clear cached import if exists
+            if 'main_config' in sys.modules:
+                del sys.modules['main_config']
+            
+            from main_config import DEFAULT_VIDEO_URLS_FILES
+            batch_files = DEFAULT_VIDEO_URLS_FILES
+            print(f"Loaded {len(batch_files)} batch file paths from main_config.py")
+        except ImportError as e:
+            print(f"Warning: Could not import main_config.py: {e}")
+            
+            # Fallback: try to parse the file directly
+            try:
+                import re
+                with open(config_path, 'r') as f:
+                    content = f.read()
+                
+                # Extract the list using regex
+                match = re.search(r'DEFAULT_VIDEO_URLS_FILES\s*=\s*\[(.*?)\]', content, re.DOTALL)
+                if match:
+                    list_content = match.group(1)
+                    # Extract quoted strings
+                    found_files = re.findall(r"'([^']+)'|\"([^\"]+)\"", list_content)
+                    batch_files = [f[0] or f[1] for f in found_files]
+                    print(f"Parsed {len(batch_files)} batch file paths from main_config.py")
+                else:
+                    print("Warning: Could not parse DEFAULT_VIDEO_URLS_FILES")
+                    return {}
+            except Exception as e2:
+                print(f"Warning: Could not read config file: {e2}")
+                return {}
+    
+    # Load each batch file
+    for file_path in batch_files:
+        # Add caption/ prefix if not present
+        if not file_path.startswith('caption/'):
+            full_path = f"caption/{file_path}"
+        else:
+            full_path = file_path
+        
+        batch_path = Path(full_path)
+        if not batch_path.exists():
+            continue
+        
+        # Get just the filename for display
+        batch_name = batch_path.name
+        
+        # Load videos from this batch file
+        video_urls = load_json_file(str(batch_path))
+        
+        for idx, url in enumerate(video_urls):
+            url_to_batch[url] = (batch_name, idx)
+    
+    print(f"Built mapping for {len(url_to_batch)} video URLs across {len(batch_files)} batch files")
+    return url_to_batch
+
+
+def analyze_user_captions(export_data, target_user: str, url_to_batch: Optional[Dict[str, Tuple[str, int]]] = None) -> Dict:
     """
     Analyze export data to find captions by target user with direct edits.
+    
+    Args:
+        export_data: Export JSON data
+        target_user: Username to filter by
+        url_to_batch: Optional mapping from video_url to (batch_name, index)
     
     Returns dict with:
     - total_by_user: Total captions by the target user
@@ -37,6 +133,9 @@ def analyze_user_captions(export_data, target_user: str) -> Dict:
     - no_edit_samples: Samples where final_caption == gpt_caption
     - perfect_precaption_samples: Samples with rating 5 (no gpt_caption generated)
     """
+    if url_to_batch is None:
+        url_to_batch = {}
+    
     # Handle both list and dict formats
     if isinstance(export_data, list):
         video_list = export_data
@@ -50,6 +149,12 @@ def analyze_user_captions(export_data, target_user: str) -> Dict:
     for video_data in video_list:
         video_id = video_data.get('video_id', '')
         video_url = video_data.get('video_url', '')
+        
+        # Get batch info (name and index)
+        batch_info = url_to_batch.get(video_url, ('unknown', -1))
+        batch_file = batch_info[0]
+        batch_index = batch_info[1]
+        
         captions = video_data.get('captions', {})
         
         for caption_type, caption_data in captions.items():
@@ -77,6 +182,8 @@ def analyze_user_captions(export_data, target_user: str) -> Dict:
             sample = {
                 'video_id': video_id,
                 'video_url': video_url,
+                'batch_file': batch_file,
+                'batch_index': batch_index,
                 'caption_type': caption_type,
                 'status': status,
                 'user': user,
@@ -271,6 +378,8 @@ Sorted by timestamp (latest first).
 | Field | Value |
 |-------|-------|
 | Video ID | `{sample['video_id']}` |
+| Batch File | `{sample['batch_file']}` |
+| Batch Index | {sample['batch_index']} |
 | Caption Type | {sample['caption_type']} |
 | Status | {sample['status']} |
 | Rating Score | {sample['initial_caption_rating_score']} |
@@ -333,6 +442,13 @@ def main():
         default='Jiaxi Li',
         help='Target user to analyze (default: "Jiaxi Li")'
     )
+    parser.add_argument(
+        '--batch-files',
+        type=str,
+        nargs='*',
+        default=[],
+        help='Paths to batch JSON files (each contains a list of video URLs) to map videos to batches'
+    )
     
     args = parser.parse_args()
     
@@ -344,6 +460,10 @@ def main():
     if not export_path.exists():
         print(f"Error: Export file not found: {export_path}")
         return
+    
+    # Build batch mapping (auto-loads from main_config.py if no batch files provided)
+    print(f"\nLoading batch file mappings...")
+    url_to_batch = build_batch_mapping(args.batch_files if args.batch_files else None)
     
     # Generate output directory
     safe_user = args.user.replace(' ', '_').lower()
@@ -364,7 +484,7 @@ def main():
     
     # Analyze user captions
     print(f"Analyzing captions by {args.user}...")
-    results = analyze_user_captions(export_data, args.user)
+    results = analyze_user_captions(export_data, args.user, url_to_batch)
     
     # Print summary
     print(f"\n{'='*80}")

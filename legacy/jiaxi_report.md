@@ -19,7 +19,7 @@ Direct edits may indicate:
 
 - **Source Export File**: `caption_export/export_20260112_1158/all_videos_with_captions_20260112_1158.json`
 - **Target User**: Jiaxi Li
-- **Analysis Timestamp**: 20260113_1104
+- **Analysis Timestamp**: 20260113_1222
 
 ## Detection Criteria
 
@@ -47,6 +47,8 @@ Sorted by timestamp (latest first).
 | Field | Value |
 |-------|-------|
 | Video ID | `Q94h0nVnPR0.0.0.mp4` |
+| Batch File | `2100_to_2110.json` |
+| Batch Index | 6 |
 | Caption Type | scene |
 | Status | completed_not_reviewed |
 | Rating Score | 4 |
@@ -79,7 +81,7 @@ Sorted by timestamp (latest first).
 + As the view widens, many trees with gnarled branches becomes prominent on the left.
 ```
 
-**Change Summary:** Added: many, trees; Removed: large, tree
+**Change Summary:** Added: many, trees; Removed: tree, large
 
 ---
 
@@ -88,6 +90,8 @@ Sorted by timestamp (latest first).
 | Field | Value |
 |-------|-------|
 | Video ID | `NJm86fzxG8s.6.3.mp4` |
+| Batch File | `2100_to_2110.json` |
+| Batch Index | 4 |
 | Caption Type | spatial |
 | Status | completed_not_reviewed |
 | Rating Score | 4 |
@@ -131,6 +135,8 @@ Sorted by timestamp (latest first).
 | Field | Value |
 |-------|-------|
 | Video ID | `8T1ZTYtfhI0_0643_0649.mp4` |
+| Batch File | `2100_to_2110.json` |
+| Batch Index | 3 |
 | Caption Type | spatial |
 | Status | completed_not_reviewed |
 | Rating Score | 4 |
@@ -172,6 +178,8 @@ Sorted by timestamp (latest first).
 | Field | Value |
 |-------|-------|
 | Video ID | `uZudawXgnZ8_3018_3028.mp4` |
+| Batch File | `2100_to_2110.json` |
+| Batch Index | 1 |
 | Caption Type | camera |
 | Status | completed_not_reviewed |
 | Rating Score | 4 |
@@ -208,7 +216,7 @@ Sorted by timestamp (latest first).
 + it is challenging to accurately determine the camera's height and angle.
 ```
 
-**Change Summary:** Removed: a, shown, high-angle,, bird's-eye, perspective,, from, makes, video
+**Change Summary:** Removed: makes, a, from, bird's-eye, perspective,, high-angle,, video, shown
 
 ---
 
@@ -217,6 +225,8 @@ Sorted by timestamp (latest first).
 | Field | Value |
 |-------|-------|
 | Video ID | `ocLJWCnMhTo.1.8.mp4` |
+| Batch File | `2100_to_2110.json` |
+| Batch Index | 0 |
 | Caption Type | spatial |
 | Status | completed_not_reviewed |
 | Rating Score | 2 |
@@ -259,6 +269,8 @@ The shot transitions to an upside-down level angle, not a low angle view.The gro
 | Field | Value |
 |-------|-------|
 | Video ID | `SsbNOKn2cOs.3.2.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 9 |
 | Caption Type | scene |
 | Status | completed_not_reviewed |
 | Rating Score | 3 |
@@ -301,6 +313,8 @@ A dummy is holding the man.
 | Field | Value |
 |-------|-------|
 | Video ID | `SsbNOKn2cOs.3.2.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 9 |
 | Caption Type | motion |
 | Status | completed_not_reviewed |
 | Rating Score | 3 |
@@ -333,7 +347,7 @@ A dummy is holding the man.
 + Additionally, a dummy is holding the man.
 ```
 
-**Change Summary:** Added: is, additionally,, man., holding; Removed: supported, motion,, they, by, slight,, as, seemingly, swaying, very, onto
+**Change Summary:** Added: man., is, holding, additionally,; Removed: seemingly, very, motion,, they, hold, by, rope., swaying, supported, slight,
 
 ---
 
@@ -342,6 +356,8 @@ A dummy is holding the man.
 | Field | Value |
 |-------|-------|
 | Video ID | `32883a58-f203-40e6-8f7e-e162d631cd9d.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 7 |
 | Caption Type | motion |
 | Status | completed_not_reviewed |
 | Rating Score | 4 |
@@ -383,6 +399,8 @@ A dummy is holding the man.
 | Field | Value |
 |-------|-------|
 | Video ID | `i82xURPkLWo.0.8.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 5 |
 | Caption Type | spatial |
 | Status | completed_not_reviewed |
 | Rating Score | 3 |
@@ -424,6 +442,8 @@ A dummy is holding the man.
 | Field | Value |
 |-------|-------|
 | Video ID | `0sMUF4ULb14_20250_20490.0.0.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 4 |
 | Caption Type | spatial |
 | Status | completed_not_reviewed |
 | Rating Score | 2 |
@@ -458,7 +478,7 @@ A dummy is holding the man.
 + In the foreground, a photographer starts in an upright position, then bends down to pick up the camera, and straightens up again.a photographer starts bent over, then stands upright and takes a small step to his left.
 ```
 
-**Change Summary:** Added: pans,, side, camera,, left., initially, position,, an, frame, straightens, up; Removed: closer, foreground, slightly, positioned, right,, left,, moving
+**Change Summary:** Added: position,, bends, camera,, frame, moves, left., foreground,, he, up, pans,; Removed: foreground, moving, closer, left,, right,, positioned, slightly
 
 ---
 
@@ -467,6 +487,8 @@ A dummy is holding the man.
 | Field | Value |
 |-------|-------|
 | Video ID | `dd28a5c8-e891-4647-8f2f-03bb4a2dab6a.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 3 |
 | Caption Type | motion |
 | Status | completed_not_reviewed |
 | Rating Score | 4 |
@@ -499,7 +521,7 @@ A dummy is holding the man.
 + The vintage car is seen from a rotating perspective, and moving backward.
 ```
 
-**Change Summary:** Added: backward., moving; Removed: creating, illusion, of, movement.
+**Change Summary:** Added: moving, backward.; Removed: of, illusion, movement., creating
 
 ---
 
@@ -508,6 +530,8 @@ A dummy is holding the man.
 | Field | Value |
 |-------|-------|
 | Video ID | `XPPcA1hAfp4_4112_4122.mp4` |
+| Batch File | `1990_to_2000.json` |
+| Batch Index | 0 |
 | Caption Type | subject |
 | Status | completed_not_reviewed |
 | Rating Score | 3 |
@@ -544,7 +568,7 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 + There is a grey chest in the lower-left corner of the platform.
 ```
 
-**Change Summary:** Added: center,there, platform., corner, lower-left, chest; Removed: center,, other, chest,, containers,, stone-like, hair,, metallic, well, including
+**Change Summary:** Added: center,there, platform., lower-left, corner, chest; Removed: metallic, well, including, stone-like, center,, other, chest,, containers,, hair,
 
 ---
 
@@ -553,6 +577,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `00ZNvOMUe0o_0243_0240.mp4` |
+| Batch File | `1970_to_1980.json` |
+| Batch Index | 6 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 4 |
@@ -594,6 +620,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `1497.1.17.mp4` |
+| Batch File | `1970_to_1980.json` |
+| Batch Index | 7 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 3 |
@@ -627,7 +655,7 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 + At the start of the scene, a man dressed in black is visible, with another man in red behind him, both men are seen bent over, with only their upper bodies in the frame.
 ```
 
-**Change Summary:** Added: him,; Removed: progresses,, as, standing, him.
+**Change Summary:** Added: him,; Removed: standing, progresses,, as, him.
 
 ---
 
@@ -636,6 +664,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `i82xURPkLWo.2.4.mp4` |
+| Batch File | `1970_to_1980.json` |
+| Batch Index | 0 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 4 |
@@ -668,7 +698,7 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 + The camera is positioned at eye level, maintaining a high-angle perspective relative to the man's hands and the bowl.
 ```
 
-**Change Summary:** Added: to, relative, high-angle; Removed: level
+**Change Summary:** Added: relative, high-angle, to; Removed: level
 
 ---
 
@@ -677,6 +707,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `6dc8cef6-e02f-4b5b-9487-6850402e806e.mp4` |
+| Batch File | `1950_to_1960.json` |
+| Batch Index | 7 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -709,7 +741,7 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 + From a bird's-eye view angle, top-down perspective, a woman with six arms moves rapidly and simultaneously at a kitchen counter.
 ```
 
-**Change Summary:** Added: bird's-eye, angle,, view; Removed: high-angle,
+**Change Summary:** Added: bird's-eye, view, angle,; Removed: high-angle,
 
 ---
 
@@ -718,6 +750,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `hCr1JvdvBqs.0.6.mp4` |
+| Batch File | `1930_to_1940.json` |
+| Batch Index | 8 |
 | Caption Type | spatial |
 | Status | completed_not_reviewed |
 | Rating Score | 3 |
@@ -759,6 +793,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `uZudawXgnZ8_2605_2615.mp4` |
+| Batch File | `1930_to_1940.json` |
+| Batch Index | 2 |
 | Caption Type | camera |
 | Status | approved |
 | Rating Score | 4 |
@@ -791,7 +827,7 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 + In a 2D video game, the camera smoothly follows the player character.
 ```
 
-**Change Summary:** Added: character.; Removed: perspective., character, from, top-down
+**Change Summary:** Added: character.; Removed: character, perspective., from, top-down
 
 ---
 
@@ -800,6 +836,8 @@ Next to the character are various crafting stations, such as a grey anvil, a fur
 | Field | Value |
 |-------|-------|
 | Video ID | `KoJ0Pih0Ssc.0.1.mp4` |
+| Batch File | `1900_to_1910.json` |
+| Batch Index | 9 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -833,7 +871,7 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 + The view looks down on the River Thames and Tower Bridge, with the words "EAST" and "WEST" superimposed over the water, and a white dashed line between them.
 ```
 
-**Change Summary:** Added: them., line, between; Removed: connected, line., by
+**Change Summary:** Added: them., line, between; Removed: line., connected, by
 
 ---
 
@@ -842,6 +880,8 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 | Field | Value |
 |-------|-------|
 | Video ID | `5ZMi2aq_TR8_4410_4710.0.mp4` |
+| Batch File | `1900_to_1910.json` |
+| Batch Index | 7 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 2 |
@@ -885,6 +925,8 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 | Field | Value |
 |-------|-------|
 | Video ID | `VaSlqE0Nx2Q.5.1.mp4` |
+| Batch File | `1900_to_1910.json` |
+| Batch Index | 4 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 4 |
@@ -917,7 +959,7 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 + Both individuals are running away from the viewer, casting long shadows on the sand, with the shadows extending to the left.
 ```
 
-**Change Summary:** Removed: shadow, person's
+**Change Summary:** Removed: person's, shadow
 
 ---
 
@@ -926,6 +968,8 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 | Field | Value |
 |-------|-------|
 | Video ID | `aVA7aXOH1pk.0.1.mp4` |
+| Batch File | `1870_to_1880.json` |
+| Batch Index | 8 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 4 |
@@ -958,7 +1002,7 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 + The camera is gradually zooming in.
 ```
 
-**Change Summary:** Added: is, in., zooming; Removed: in,, scene., perspective, zooms, altering
+**Change Summary:** Added: is, in., zooming; Removed: scene., altering, zooms, in,, perspective
 
 ---
 
@@ -967,6 +1011,8 @@ The words "EAST" and "WEST" are superimposed over the water, with a white dashed
 | Field | Value |
 |-------|-------|
 | Video ID | `8cd277fe-7907-4159-bc44-7988cfb7ecf7.mp4` |
+| Batch File | `1870_to_1880.json` |
+| Batch Index | 1 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 2 |
@@ -1010,6 +1056,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `8cd277fe-7907-4159-bc44-7988cfb7ecf7.mp4` |
+| Batch File | `1870_to_1880.json` |
+| Batch Index | 1 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 3 |
@@ -1042,7 +1090,7 @@ The camera is rolling clockwise.
 + Figures dressed in black are standing on the floor, while a central figure in a white pinstriped outfit is also present.
 ```
 
-**Change Summary:** Added: floor,; Removed: illuminated, tiles,, these
+**Change Summary:** Added: floor,; Removed: tiles,, illuminated, these
 
 ---
 
@@ -1051,6 +1099,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `uZudawXgnZ8_2337_2347.mp4` |
+| Batch File | `1790_to_1800.json` |
+| Batch Index | 8 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -1083,7 +1133,7 @@ The camera is rolling clockwise.
 + A black "X" icon briefly flashes above the character's head.
 ```
 
-**Change Summary:** Added: head.; Removed: skull, crossbones., head,, white, not, but, does, feature
+**Change Summary:** Added: head.; Removed: skull, feature, head,, not, but, crossbones., does, white
 
 ---
 
@@ -1092,6 +1142,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `ky5uvjPVhk8.3.0.mp4` |
+| Batch File | `1790_to_1800.json` |
+| Batch Index | 4 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 3 |
@@ -1133,6 +1185,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `cdBmwv8-ZBM_1713_1723.mp4` |
+| Batch File | `1790_to_1800.json` |
+| Batch Index | 3 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -1166,7 +1220,7 @@ The camera is rolling clockwise.
 + He then shoots another individual holding an axe and kicks it, causing them to collide with two others, resulting in their fall.
 ```
 
-**Change Summary:** Added: axe; Removed: axe,, forward, man., fallen, walks, afterward,
+**Change Summary:** Added: axe; Removed: afterward,, forward, axe,, walks, man., fallen
 
 ---
 
@@ -1175,6 +1229,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `0Pzq0URbL2M.7.3.mp4` |
+| Batch File | `1790_to_1800.json` |
+| Batch Index | 0 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 3 |
@@ -1207,7 +1263,7 @@ The camera is rolling clockwise.
 + In the background, a rack holds test tubes,one of which filled with blue liquid, alongside another rack with test tubes that have red lids, as well as an Erlenmeyer flask and other glassware.
 ```
 
-**Change Summary:** Added: tubes,one, which
+**Change Summary:** Added: which, tubes,one
 
 ---
 
@@ -1216,6 +1272,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `XPPcA1hAfp4_3302_3312.mp4` |
+| Batch File | `1750_to_1760.json` |
+| Batch Index | 9 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 4 |
@@ -1247,7 +1305,7 @@ The camera is rolling clockwise.
 - After a brief pause, the character turns to the right and then immediately turns back to face forward.
 ```
 
-**Change Summary:** Removed: turns, face, back, forward., brief, after, right, pause,, immediately, and
+**Change Summary:** Removed: face, right, turns, brief, after, forward., immediately, and, back, pause,
 
 ---
 
@@ -1256,6 +1314,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `Tb03_fw4VmI_1408_1413.mp4` |
+| Batch File | `1750_to_1760.json` |
+| Batch Index | 7 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 4 |
@@ -1287,7 +1347,7 @@ The camera is rolling clockwise.
 - The camera's final position is at a low angle, looking up from below the surface.
 ```
 
-**Change Summary:** Removed: below, camera's, surface., position, up, looking, low, final
+**Change Summary:** Removed: camera's, low, looking, up, final, surface., position, below
 
 ---
 
@@ -1296,6 +1356,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `urgDBUXShos.0.8.mp4` |
+| Batch File | `1530_to_1540.json` |
+| Batch Index | 1 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 3 |
@@ -1339,6 +1401,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `JpEfHcVrtXI.5.4.mp4` |
+| Batch File | `overlap_1300_to_1310.json` |
+| Batch Index | 9 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -1371,7 +1435,7 @@ The camera is rolling clockwise.
 + The creature jumps left across the frame, moving under the spiky bridge, and lands on the vertical face of the left rock formation.
 ```
 
-**Change Summary:** Added: lands; Removed: performs, land, mid-air, dash
+**Change Summary:** Added: lands; Removed: land, mid-air, dash, performs
 
 ---
 
@@ -1380,6 +1444,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `0OFBj7EjZ-g.1.1.mp4` |
+| Batch File | `overlap_1300_to_1310.json` |
+| Batch Index | 2 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 3 |
@@ -1421,6 +1487,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `Hv_DRJZZ2qI.2.0.mp4` |
+| Batch File | `overlap_1220_to_1230.json` |
+| Batch Index | 7 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 3 |
@@ -1461,6 +1529,8 @@ The camera is rolling clockwise.
 | Field | Value |
 |-------|-------|
 | Video ID | `y0aS2n1WmMg.1.0.mp4` |
+| Batch File | `overlap_1220_to_1230.json` |
+| Batch Index | 4 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -1503,6 +1573,8 @@ The camera shows some minor movement. The camera is panning right to left.
 | Field | Value |
 |-------|-------|
 | Video ID | `0OFBj7EjZ-g.3.2.mp4` |
+| Batch File | `overlap_1220_to_1230.json` |
+| Batch Index | 0 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -1535,7 +1607,7 @@ The camera shows some minor movement. The camera is panning right to left.
 + All surrounding objects remain completely stationary throughout the video, except for the two cabinets that are lifted.
 ```
 
-**Change Summary:** Added: except, for, that, video,, lifted.; Removed: other, video., and
+**Change Summary:** Added: video,, for, that, lifted., except; Removed: video., other, and
 
 ---
 
@@ -1544,6 +1616,8 @@ The camera shows some minor movement. The camera is panning right to left.
 | Field | Value |
 |-------|-------|
 | Video ID | `H4AZhS5WqKk.0.15.mp4` |
+| Batch File | `overlap_1180_to_1190.json` |
+| Batch Index | 2 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 2 |
@@ -1576,7 +1650,7 @@ The camera shows some minor movement. The camera is panning right to left.
 + A smaller, red cat, also positioned in the foreground, on the right side of the frame, standing on a white cloud and surrounded by swirling red trails.
 ```
 
-**Change Summary:** Removed: materializes, middle, ground
+**Change Summary:** Removed: middle, materializes, ground
 
 ---
 
@@ -1585,6 +1659,8 @@ The camera shows some minor movement. The camera is panning right to left.
 | Field | Value |
 |-------|-------|
 | Video ID | `5eDQ2SSsmEk.3.0.mp4` |
+| Batch File | `overlap_1120_to_1130.json` |
+| Batch Index | 6 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -1627,6 +1703,8 @@ The word is not "Island", but "Islands".
 | Field | Value |
 |-------|-------|
 | Video ID | `ORHIVufNfRM.13.6.mp4` |
+| Batch File | `overlap_1090_to_1100.json` |
+| Batch Index | 9 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 2 |
@@ -1668,6 +1746,8 @@ The word is not "Island", but "Islands".
 | Field | Value |
 |-------|-------|
 | Video ID | `KF5p8VIbt0Y.3.2.mp4` |
+| Batch File | `overlap_1080_to_1090.json` |
+| Batch Index | 8 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 3 |
@@ -1699,7 +1779,7 @@ The word is not "Island", but "Islands".
 - Contrary to initial impressions, he does not jump from the moving vehicle.
 ```
 
-**Change Summary:** Removed: jump, initial, contrary, from, moving, not, does, vehicle., impressions,
+**Change Summary:** Removed: from, impressions,, jump, moving, initial, not, contrary, does, vehicle.
 
 ---
 
@@ -1708,6 +1788,8 @@ The word is not "Island", but "Islands".
 | Field | Value |
 |-------|-------|
 | Video ID | `3epU697sU9E.7.5.mp4` |
+| Batch File | `overlap_1070_to_1080.json` |
+| Batch Index | 3 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 3 |
@@ -1742,7 +1824,7 @@ The word is not "Island", but "Islands".
 + An American flag is positioned to his back.
 ```
 
-**Change Summary:** Added: eight, back.; Removed: right., four
+**Change Summary:** Added: eight, back.; Removed: four, right.
 
 ---
 
@@ -1751,6 +1833,8 @@ The word is not "Island", but "Islands".
 | Field | Value |
 |-------|-------|
 | Video ID | `pY50Mu04Fjs_0000_0005.mp4` |
+| Batch File | `1510_to_1520.json` |
+| Batch Index | 6 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 3 |
@@ -1783,7 +1867,7 @@ The word is not "Island", but "Islands".
 + The camera slowly moves backward while zooming in on the planter.
 ```
 
-**Change Summary:** Added: backward, moves; Removed: back, pulls
+**Change Summary:** Added: moves, backward; Removed: pulls, back
 
 ---
 
@@ -1792,6 +1876,8 @@ The word is not "Island", but "Islands".
 | Field | Value |
 |-------|-------|
 | Video ID | `ti231UvSvfQ.7.2.mp4` |
+| Batch File | `1490_to_1500.json` |
+| Batch Index | 9 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 2 |
@@ -1824,7 +1910,7 @@ The word is not "Island", but "Islands".
 + A white, articulated desk lamp is on the table, but it is turned off.
 ```
 
-**Change Summary:** Added: table,; Removed: attached, wall,
+**Change Summary:** Added: table,; Removed: wall,, attached
 
 ---
 
@@ -1833,6 +1919,8 @@ The word is not "Island", but "Islands".
 | Field | Value |
 |-------|-------|
 | Video ID | `BNzc6hG3yN4.0.3.mp4` |
+| Batch File | `1490_to_1500.json` |
+| Batch Index | 8 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -1875,6 +1963,8 @@ The man lying on the ground is not still; his hands and face are in motion. The 
 | Field | Value |
 |-------|-------|
 | Video ID | `BNzc6hG3yN4.0.3.mp4` |
+| Batch File | `1490_to_1500.json` |
+| Batch Index | 8 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 2 |
@@ -1908,7 +1998,7 @@ The man lying on the ground is not still; his hands and face are in motion. The 
 + To the first man's right, a blue-and-white bicycle is positioned upside down on the ground, accompanied by an orange-and-white traffic barrier.
 ```
 
-**Change Summary:** Removed: bag, head,, attached, side., dark-colored
+**Change Summary:** Removed: side., dark-colored, bag, attached, head,
 
 ---
 
@@ -1917,6 +2007,8 @@ The man lying on the ground is not still; his hands and face are in motion. The 
 | Field | Value |
 |-------|-------|
 | Video ID | `pGtjz4v0EE8.0.19.mp4` |
+| Batch File | `1490_to_1500.json` |
+| Batch Index | 6 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -1950,7 +2042,7 @@ There are several people walking in the scene, not just one person.
 + Multiple people walk past the frame.
 ```
 
-**Change Summary:** Removed: left, on, side
+**Change Summary:** Removed: side, left, on
 
 ---
 
@@ -1959,6 +2051,8 @@ There are several people walking in the scene, not just one person.
 | Field | Value |
 |-------|-------|
 | Video ID | `HM5J6qAytJY.1.2.mp4` |
+| Batch File | `1450_to_1460.json` |
+| Batch Index | 7 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 4 |
@@ -1991,7 +2085,7 @@ There are several people walking in the scene, not just one person.
 + A silver sports car emerges from behind on the right of a moving blue sports car, the blue car then overtakes the silver car, continuing to pull ahead as both vehicles drive forward on a paved surface.
 ```
 
-**Change Summary:** Added: then; Removed: it,, accelerates,, and
+**Change Summary:** Added: then; Removed: accelerates,, it,, and
 
 ---
 
@@ -2000,6 +2094,8 @@ There are several people walking in the scene, not just one person.
 | Field | Value |
 |-------|-------|
 | Video ID | `IyTv_SR2uUo.2.0.mp4` |
+| Batch File | `1430_to_1440.json` |
+| Batch Index | 8 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -2033,7 +2129,7 @@ In the background, several small fishes are swimming.
 - A small, light-colored fish is also visible in the middle ground, swimming forward just above the hammerhead's head.
 ```
 
-**Change Summary:** Removed: above, light-colored, just, small,, swimming, ground,, also, hammerhead's, visible
+**Change Summary:** Removed: just, also, small,, hammerhead's, visible, above, swimming, ground,, light-colored
 
 ---
 
@@ -2042,6 +2138,8 @@ In the background, several small fishes are swimming.
 | Field | Value |
 |-------|-------|
 | Video ID | `IyTv_SR2uUo.2.0.mp4` |
+| Batch File | `1430_to_1440.json` |
+| Batch Index | 8 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -2083,6 +2181,8 @@ In the background, several small fishes are swimming.
 | Field | Value |
 |-------|-------|
 | Video ID | `pGtjz4v0EE8.0.11.mp4` |
+| Batch File | `1430_to_1440.json` |
+| Batch Index | 2 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -2121,7 +2221,7 @@ In the background, several small fishes are swimming.
 + The camera then zooms out and slightly zoom in to an extreme wide shot, making the elements appear smaller and revealing more of the surrounding buildings and another section of the canal in the background.
 ```
 
-**Change Summary:** Added: occupying, one-fourth, above, slightly, frame, within, zoom, half, water,, ground,; Removed: right, at, background, two-thirds
+**Change Summary:** Added: frame, half, one-fourth, visible, above, ground,, zoom, occupying, water,, slightly; Removed: two-thirds, at, right, background
 
 ---
 
@@ -2130,6 +2230,8 @@ In the background, several small fishes are swimming.
 | Field | Value |
 |-------|-------|
 | Video ID | `pGtjz4v0EE8.0.11.mp4` |
+| Batch File | `1430_to_1440.json` |
+| Batch Index | 2 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 4 |
@@ -2165,7 +2267,7 @@ In the background, several small fishes are swimming.
 + In the background, another section of the river and more buildings are revealed.
 ```
 
-**Change Summary:** Added: revealed.; Removed: initial, revealed,, contrary, light-colored, single, building., description, to
+**Change Summary:** Added: revealed.; Removed: single, light-colored, description, revealed,, building., initial, contrary, to
 
 ---
 
@@ -2174,6 +2276,8 @@ In the background, several small fishes are swimming.
 | Field | Value |
 |-------|-------|
 | Video ID | `BNzc6hG3yN4.0.4.mp4` |
+| Batch File | `1410_to_1420.json` |
+| Batch Index | 5 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 4 |
@@ -2215,6 +2319,8 @@ In the background, several small fishes are swimming.
 | Field | Value |
 |-------|-------|
 | Video ID | `jVtnuLL2Kqs.0.16.mp4` |
+| Batch File | `1370_to_1380.json` |
+| Batch Index | 0 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 2 |
@@ -2259,7 +2365,7 @@ The stone steps are situated in the middle ground, while the fence occupies the 
 + In the final composition, a fence occupies the foreground, while a broad set of stone steps leads up to the columns and building facade,they are all in the middle ground.
 ```
 
-**Change Summary:** Added: all, are, facade,they; Removed: facade
+**Change Summary:** Added: all, facade,they, are; Removed: facade
 
 ---
 
@@ -2268,6 +2374,8 @@ The stone steps are situated in the middle ground, while the fence occupies the 
 | Field | Value |
 |-------|-------|
 | Video ID | `2WL4mIV48FA.0.3.mp4` |
+| Batch File | `1340_to_1350.json` |
+| Batch Index | 1 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -2309,6 +2417,8 @@ The stone steps are situated in the middle ground, while the fence occupies the 
 | Field | Value |
 |-------|-------|
 | Video ID | `2WL4mIV48FA.0.3.mp4` |
+| Batch File | `1340_to_1350.json` |
+| Batch Index | 1 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -2351,6 +2461,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `2WL4mIV48FA.0.3.mp4` |
+| Batch File | `1340_to_1350.json` |
+| Batch Index | 1 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 3 |
@@ -2392,6 +2504,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `IyTv_SR2uUo.1.11.mp4` |
+| Batch File | `1330_to_1340.json` |
+| Batch Index | 5 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 2 |
@@ -2433,6 +2547,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `IyTv_SR2uUo.1.11.mp4` |
+| Batch File | `1330_to_1340.json` |
+| Batch Index | 5 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -2465,7 +2581,7 @@ There is not a turn,the blue car overtakes the green car on a straight.
 + As the lower skydiver continues their descent, the filming skydiver maintains their altitude, extending their legs outward.
 ```
 
-**Change Summary:** Added: outward.; Removed: hilly, they, toward, move, outward, terrain.
+**Change Summary:** Added: outward.; Removed: hilly, they, toward, outward, move, terrain.
 
 ---
 
@@ -2474,6 +2590,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `xhrAGJviQJA.1.7.mp4` |
+| Batch File | `1320_to_1330.json` |
+| Batch Index | 9 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 4 |
@@ -2506,7 +2624,7 @@ There is not a turn,the blue car overtakes the green car on a straight.
 + The girl, who has dark, shoulder-length hair with bangs and is dressed in a light-colored sleeveless top and black trousers, also smiles joyfully with her arms outstretched as she looks up.
 ```
 
-**Change Summary:** Added: black, top, trousers,; Removed: top,
+**Change Summary:** Added: trousers,, black, top; Removed: top,
 
 ---
 
@@ -2515,6 +2633,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `2WL4mIV48FA.0.1.mp4` |
+| Batch File | `1320_to_1330.json` |
+| Batch Index | 5 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -2556,6 +2676,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `2WL4mIV48FA.0.1.mp4` |
+| Batch File | `1320_to_1330.json` |
+| Batch Index | 5 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 2 |
@@ -2588,7 +2710,7 @@ There is not a turn,the blue car overtakes the green car on a straight.
 + The driver wears a black helmet that covers their head.
 ```
 
-**Change Summary:** Removed: fully, driver,, visible,
+**Change Summary:** Removed: driver,, visible,, fully
 
 ---
 
@@ -2597,6 +2719,8 @@ There is not a turn,the blue car overtakes the green car on a straight.
 | Field | Value |
 |-------|-------|
 | Video ID | `b9-cHk-7N8k.0.3.mp4` |
+| Batch File | `1320_to_1330.json` |
+| Batch Index | 3 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -2640,6 +2764,8 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 | Field | Value |
 |-------|-------|
 | Video ID | `W7S2LT1xay0.0.3.mp4` |
+| Batch File | `1320_to_1330.json` |
+| Batch Index | 2 |
 | Caption Type | scene |
 | Status | approved |
 | Rating Score | 3 |
@@ -2672,7 +2798,7 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 + A locked-on POV shot captures the static vehicle at night.
 ```
 
-**Change Summary:** Added: static; Removed: car, outside, backing, from, out
+**Change Summary:** Added: static; Removed: out, outside, from, car, backing
 
 ---
 
@@ -2681,6 +2807,8 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 | Field | Value |
 |-------|-------|
 | Video ID | `vlDzYIIOYmM.0.0.mp4` |
+| Batch File | `1320_to_1330.json` |
+| Batch Index | 1 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -2713,7 +2841,7 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 + A woman holds a camera which is moving backward
 ```
 
-**Change Summary:** Added: is, which, moving; Removed: moves, and
+**Change Summary:** Added: is, moving, which; Removed: moves, and
 
 ---
 
@@ -2722,6 +2850,8 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 | Field | Value |
 |-------|-------|
 | Video ID | `oagszCmJLpU.3.8.mp4` |
+| Batch File | `1290_to_1300.json` |
+| Batch Index | 6 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 4 |
@@ -2754,7 +2884,7 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 + In this time-lapse, the dark clouds swirl unpredictably and expand, the movement is irregular and difficult to describe.
 ```
 
-**Change Summary:** Added: irregular, describe., movement, difficult; Removed: camera., right,, gradually, left, center, appearing, erratically, towards, obscuring, moving
+**Change Summary:** Added: difficult, irregular, describe., movement; Removed: advance, camera., center, moving, towards, appearing, right,, left, erratically, low-angle
 
 ---
 
@@ -2763,6 +2893,8 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 | Field | Value |
 |-------|-------|
 | Video ID | `HM5J6qAytJY.0.0.mp4` |
+| Batch File | `1260_to_1270.json` |
+| Batch Index | 3 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 2 |
@@ -2804,6 +2936,8 @@ The camera is not static,The camera is mounted on a surfboard, filming the surfe
 | Field | Value |
 |-------|-------|
 | Video ID | `yIxnb1SaT14.0.3.mp4` |
+| Batch File | `1260_to_1270.json` |
+| Batch Index | 1 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
@@ -2847,6 +2981,8 @@ The camera is not positioned at a high angle,but a level angle.
 | Field | Value |
 |-------|-------|
 | Video ID | `-2uIa-XMJC0.2.2.mp4` |
+| Batch File | `1260_to_1270.json` |
+| Batch Index | 2 |
 | Caption Type | motion |
 | Status | approved |
 | Rating Score | 3 |
@@ -2892,6 +3028,8 @@ Additionally, the man is not stationary. He turns his head to look at the dark r
 | Field | Value |
 |-------|-------|
 | Video ID | `hHG1wva1B0w.9.2.mp4` |
+| Batch File | `1250_to_1260.json` |
+| Batch Index | 8 |
 | Caption Type | subject |
 | Status | approved |
 | Rating Score | 2 |
@@ -2932,7 +3070,7 @@ In the foreground, the front of a white sedan is visible, with its headlights il
 + Behind the white car is a dark black vehicle, and behind that is the pale green sedan.and two other dark-colored sedans are visible parked further down the row.
 ```
 
-**Change Summary:** Added: other, row., two, are, sedans, parked, further, dark-colored, down, sedan.and; Removed: sedan.
+**Change Summary:** Added: parked, dark-colored, visible, row., two, are, down, further, sedans, other; Removed: sedan.
 
 ---
 
@@ -2941,6 +3079,8 @@ In the foreground, the front of a white sedan is visible, with its headlights il
 | Field | Value |
 |-------|-------|
 | Video ID | `ocLJWCnMhTo.2.3.mp4` |
+| Batch File | `1250_to_1260.json` |
+| Batch Index | 3 |
 | Caption Type | spatial |
 | Status | approved |
 | Rating Score | 3 |
