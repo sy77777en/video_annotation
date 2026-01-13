@@ -138,6 +138,45 @@ def compute_diff_summary(gpt_caption: str, final_caption: str) -> str:
     return "; ".join(summary_parts)
 
 
+def compute_word_diff_html(gpt_caption: str, final_caption: str) -> str:
+    """
+    Compute a word-level diff with HTML formatting.
+    - Deletions: red with strikethrough
+    - Additions: green with bold
+    - Unchanged: normal text
+    """
+    import difflib
+    
+    gpt_words = gpt_caption.split()
+    final_words = final_caption.split()
+    
+    # Use SequenceMatcher for word-level diff
+    matcher = difflib.SequenceMatcher(None, gpt_words, final_words)
+    
+    result_parts = []
+    
+    for opcode, i1, i2, j1, j2 in matcher.get_opcodes():
+        if opcode == 'equal':
+            # Unchanged words
+            result_parts.append(' '.join(gpt_words[i1:i2]))
+        elif opcode == 'delete':
+            # Deleted words (in gpt but not in final) - red strikethrough
+            deleted_text = ' '.join(gpt_words[i1:i2])
+            result_parts.append(f'<span style="color: red; text-decoration: line-through;">{deleted_text}</span>')
+        elif opcode == 'insert':
+            # Inserted words (in final but not in gpt) - green bold
+            inserted_text = ' '.join(final_words[j1:j2])
+            result_parts.append(f'<span style="color: green; font-weight: bold;">{inserted_text}</span>')
+        elif opcode == 'replace':
+            # Replaced words - show deletion then insertion
+            deleted_text = ' '.join(gpt_words[i1:i2])
+            inserted_text = ' '.join(final_words[j1:j2])
+            result_parts.append(f'<span style="color: red; text-decoration: line-through;">{deleted_text}</span>')
+            result_parts.append(f'<span style="color: green; font-weight: bold;">{inserted_text}</span>')
+    
+    return ' '.join(result_parts)
+
+
 def generate_report(results: Dict, target_user: str, timestamp: str, 
                    output_path: Path, export_file: str):
     """Generate markdown report with statistics and all examples."""
@@ -214,6 +253,7 @@ Sorted by timestamp (latest first).
 """
         for i, sample in enumerate(direct_edit_samples_sorted, 1):
             diff_summary = compute_diff_summary(sample['gpt_caption'], sample['final_caption'])
+            word_diff_html = compute_word_diff_html(sample['gpt_caption'], sample['final_caption'])
             
             report += f"""### Case {i}/{direct_count}
 
@@ -237,15 +277,24 @@ Sorted by timestamp (latest first).
 
 > {sample['final_feedback'] if sample['final_feedback'] else '(empty)'}
 
-**GPT Caption (before edit):**
+**GPT Caption → Final Caption (Diff):**
 
+<blockquote>
+{word_diff_html}
+</blockquote>
+
+<details>
+<summary>📋 View original texts separately</summary>
+
+**GPT Caption (before edit):**
 > {sample['gpt_caption']}
 
 **Final Caption (after manual edit):**
-
 > {sample['final_caption']}
 
-**Diff Summary:** {diff_summary}
+</details>
+
+**Change Summary:** {diff_summary}
 
 ---
 
