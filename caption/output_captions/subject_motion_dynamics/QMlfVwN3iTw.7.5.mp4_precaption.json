@@ -1,0 +1,8 @@
+{
+    "video_id": "QMlfVwN3iTw.7.5.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, wide shot of modern, multi-story residential buildings lining a canal on a sunny day. A pedestrian bridge crosses the water in the foreground. The scene is still, with no camera movement or significant action taking place.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-16T10:04:07.500475"
+}

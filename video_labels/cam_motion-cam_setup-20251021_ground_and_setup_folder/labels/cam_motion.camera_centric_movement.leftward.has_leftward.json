@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.camera_centric_movement.leftward.has_leftward",
     "label_name": "Has Leftward Movement",
-    "definition": "Does the camera move physically leftward (or trucks left)?",
+    "definition": "Does the camera move physically leftward (or truck left)?",
     "pos": [
         "9JBMpzW_B58.3.0.mp4",
         "pGtjz4v0EE8.0.14.mp4",

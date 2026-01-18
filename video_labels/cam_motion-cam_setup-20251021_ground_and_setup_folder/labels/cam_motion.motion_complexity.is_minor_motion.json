@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.motion_complexity.is_minor_motion",
     "label_name": "Has Minor Motion",
-    "definition": "Is the camera motion minimal, hard to discern, or very subtle?",
+    "definition": "Is the camera motion minimal, subtle, or difficult to perceive?",
     "pos": [
         "LbY3DdzV0rA.2.10.mp4",
         "LbY3DdzV0rA.2.12.mp4",

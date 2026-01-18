@@ -1,5 +1,5 @@
 {
-    "label": "With Lens Distortion",
+    "label": "Barrel Distortion",
     "label_name": "barrel_distortion",
     "def_question": [
         "Does this shot contain noticeable yet slight barrel distortion?",

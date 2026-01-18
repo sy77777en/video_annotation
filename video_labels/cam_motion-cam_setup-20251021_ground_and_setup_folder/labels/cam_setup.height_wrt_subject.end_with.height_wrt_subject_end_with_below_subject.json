@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.end_with.height_wrt_subject_end_with_below_subject",
-    "label_name": "Height Wrt Subject End With Below Subject",
+    "label_name": "Height Ends With Below Subject",
     "definition": "Does the video end with the camera positioned below the subject?",
     "pos": [
         "tpKEmBQieVo.1.2.mp4",

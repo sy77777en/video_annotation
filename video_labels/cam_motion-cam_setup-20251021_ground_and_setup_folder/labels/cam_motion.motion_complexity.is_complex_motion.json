@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.motion_complexity.is_complex_motion",
     "label_name": "Is Complex Motion",
-    "definition": "Does the camera show complex motion, such as moving in conflicting directions, or showing different motions at different times, or having multiple movements at different speeds, or is its motion unclear?",
+    "definition": "Does the camera execute a complex movement that is hard to classify, such as moving in conflicting directions, or showing different motions at different times, or having multiple movements at different speeds, or is its motion unclear?",
     "pos": [
         "2WL4mIV48FA.0.3.mp4",
         "2XfRQe1Ngak.0.2.mp4",

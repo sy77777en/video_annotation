@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.camera_centric_movement.rightward.has_rightward",
     "label_name": "Has Rightward Movement",
-    "definition": "Does the camera move physically rightward (or trucks right)?",
+    "definition": "Does the camera move physically rightward (or truck right)?",
     "pos": [
         "pGtjz4v0EE8.0.15.mp4",
         "vlDzYIIOYmM.0.0.mp4",

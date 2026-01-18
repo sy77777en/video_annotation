@@ -1,6 +1,6 @@
 {
     "label": "cam_motion.object_centric_movement.tail_tracking_shot",
-    "label_name": "Tail Tracking Shot",
+    "label_name": "Follow Tracking Shot",
     "definition": "Is it a follow tracking shot where the camera moves behind the subject, traveling in the same direction as they move away from the camera?",
     "pos": [
         "2WL4mIV48FA.0.3.mp4",

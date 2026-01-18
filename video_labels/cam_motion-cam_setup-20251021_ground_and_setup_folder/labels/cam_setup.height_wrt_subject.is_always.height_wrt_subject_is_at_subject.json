@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.is_always.height_wrt_subject_is_at_subject",
-    "label_name": "Height Wrt Subject Is At Subject",
+    "label_name": "Height Is Always At Subject",
     "definition": "Is the camera positioned at about the same height as the subject throughout the video?",
     "pos": [
         "2XfRQe1Ngak.0.2.mp4",

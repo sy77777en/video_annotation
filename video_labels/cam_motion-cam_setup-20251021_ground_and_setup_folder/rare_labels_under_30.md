@@ -42,7 +42,7 @@ Labels with less than 30 positive examples
 | Is this a third-person isometric (2.5D) gaming video with a tilted overhead angle showing both the top and side planes of the environment in a three-quarters perspective, with minimal perspective distortion? | 15 | 3674 | cam_setup.point_of_view.third_person_isometric_game_pov |
 | Does the video start with the camera focused on the middle ground and then shift the focus to the foreground? | 14 | 1045 | cam_setup.focus.from_to.focus_from_middle_ground_to_foreground |
 | Does the video start with the camera focused on the foreground and then shift the focus to the background? | 14 | 1074 | cam_setup.focus.from_to.focus_from_foreground_to_background |
-| Does the video contain a frame freeze effect at any point? | 12 | 3858 | cam_motion.has_frame_freezing |
+| Does the video contain a frame freezing effect at any point? | 12 | 3858 | cam_motion.has_frame_freezing |
 | Does the camera’s height relative to the subject start at the subject’s height and end below? | 12 | 2405 | cam_setup.height_wrt_subject.from_to.height_wrt_subject_from_at_subject_to_below_subject |
 | Is the camera craning downward in an arc relative to its own frame? | 11 | 3454 | cam_motion.arc_crane_movement.crane_down.has_crane_down |
 | Does the camera’s height relative to the subject start above and end below? | 9 | 2408 | cam_setup.height_wrt_subject.from_to.height_wrt_subject_from_above_subject_to_below_subject |

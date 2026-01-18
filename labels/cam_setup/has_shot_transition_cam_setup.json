@@ -1,5 +1,5 @@
 {
-    "label": "Shot transition",
+    "label": "Shot transition in camera setup",
     "label_name": "has_shot_transition_cam_setup",
     "def_question": [
       "Does the video include a shot transition?",

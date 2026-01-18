@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.steadiness_and_movement.moving_camera",
     "label_name": "Moving Camera",
-    "definition": "Is there any camera movement?",
+    "definition": "Is there any camera movement (including shaking or wobbling)?",
     "pos": [
         "2WL4mIV48FA.0.3.mp4",
         "2XfRQe1Ngak.0.2.mp4",

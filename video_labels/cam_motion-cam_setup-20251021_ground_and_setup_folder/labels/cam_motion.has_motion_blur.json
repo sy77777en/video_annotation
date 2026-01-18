@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.has_motion_blur",
     "label_name": "Has Motion Blur Effect",
-    "definition": "Does the video contain noticeable motion blur?",
+    "definition": "Does the video show a noticeable motion blur effect?",
     "pos": [
         "2WL4mIV48FA.0.3.mp4",
         "hmVHumNMEGw.1.0.mp4",

@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.is_always.height_wrt_subject_is_above_subject",
-    "label_name": "Height Wrt Subject Is Above Subject",
+    "label_name": "Height Is Always Above Subject",
     "definition": "Is the camera positioned above the subject throughout the video?",
     "pos": [
         "2WL4mIV48FA.0.3.mp4",

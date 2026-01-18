@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.end_with.height_wrt_subject_end_with_at_subject",
-    "label_name": "Height Wrt Subject End With At Subject",
+    "label_name": "Height Ends With At Subject",
     "definition": "Does the video end with the camera positioned at about the same height as the subject?",
     "pos": [
         "2XfRQe1Ngak.0.2.mp4",

@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.is_always.height_wrt_subject_is_below_subject",
-    "label_name": "Height Wrt Subject Is Below Subject",
+    "label_name": "Height Is Always Below Subject",
     "definition": "Is the camera positioned below the subject throughout the video?",
     "pos": [
         "tpKEmBQieVo.1.2.mp4",

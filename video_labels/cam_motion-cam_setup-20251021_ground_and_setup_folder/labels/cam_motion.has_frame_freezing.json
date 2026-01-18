@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.has_frame_freezing",
     "label_name": "Has Frame Freezing Effect",
-    "definition": "Does the video contain a frame freeze effect at any point?",
+    "definition": "Does the video contain a frame freezing effect at any point?",
     "pos": [
         "P9Z0XP6mkCg.1.0.mp4",
         "KF5p8VIbt0Y.1.0.mp4",

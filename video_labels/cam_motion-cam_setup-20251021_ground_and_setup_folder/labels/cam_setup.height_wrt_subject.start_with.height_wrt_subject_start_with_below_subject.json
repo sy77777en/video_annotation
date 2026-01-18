@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.start_with.height_wrt_subject_start_with_below_subject",
-    "label_name": "Height Wrt Subject Start With Below Subject",
+    "label_name": "Height Starts With Below Subject",
     "definition": "Does the video start with the camera positioned below the subject?",
     "pos": [
         "h5U50ZsFUaY.1.0.mp4",

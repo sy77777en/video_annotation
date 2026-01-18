@@ -1,7 +1,7 @@
 {
     "label": "cam_motion.steadiness_and_movement.fast_moving_camera",
     "label_name": "Fast Moving Camera",
-    "definition": "Does the camera have noticeable motion at a fast speed?",
+    "definition": "Does the camera have noticeable motion at a fast motion speed?",
     "pos": [
         "2WL4mIV48FA.0.3.mp4",
         "39d6dWSdpLY.0.0.mp4",

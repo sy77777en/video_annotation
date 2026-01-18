@@ -1,5 +1,5 @@
 {
-    "label": "Fast-Motion",
+    "label": "Fast-Motion Without Time-Lapse",
     "label_name": "fast_motion_without_time_lapse",
     "def_question": [
         "Is it a fast-motion video with forward playback speed slightly faster than real-time (about 1.5×–3×), but not a time-lapse where the speed is greatly accelerated over a long duration?"

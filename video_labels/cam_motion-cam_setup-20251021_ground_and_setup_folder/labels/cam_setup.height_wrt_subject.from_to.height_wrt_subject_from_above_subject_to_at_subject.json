@@ -1,6 +1,6 @@
 {
     "label": "cam_setup.height_wrt_subject.from_to.height_wrt_subject_from_above_subject_to_at_subject",
-    "label_name": "Height Wrt Subject From Above Subject To At Subject",
+    "label_name": "Height Starts Above Subject And Ends At Subject's Height",
     "definition": "Does the camera\u2019s height relative to the subject start above and end at the subject\u2019s height?",
     "pos": [
         "IyTv_SR2uUo.1.7.mp4",

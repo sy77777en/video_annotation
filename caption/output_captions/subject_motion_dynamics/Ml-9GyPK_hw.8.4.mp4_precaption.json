@@ -1,0 +1,8 @@
+{
+    "video_id": "Ml-9GyPK_hw.8.4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a tranquil scenery shot capturing the surface of a body of water. The deep purple water is covered in small, uniform ripples. These ripples flow gently and continuously, creating a mesmerizing and calming pattern.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-16T07:05:19.293032"
+}
