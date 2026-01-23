@@ -1,0 +1,8 @@
+{
+    "video_id": "rz8KzLbdS7g.8.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot features a slow pan from right to left. The video begins with a view of a traditional Japanese house with a tiled roof and a manicured pine tree in the yard. As the camera moves, it reveals a quiet residential street lined with similar houses under a bright, partly cloudy sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-22T05:30:44.009749"
+}

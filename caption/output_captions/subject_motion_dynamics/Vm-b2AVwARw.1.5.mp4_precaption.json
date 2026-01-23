@@ -1,0 +1,8 @@
+{
+    "video_id": "Vm-b2AVwARw.1.5.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video showcases an animated rendering of a futuristic skyscraper. The camera begins with a close-up, high-angle view of the building's top, which features a pool and lounge area. It then pulls back and tilts up to reveal the full, unique arched design of the skyscraper against a sprawling city and desert landscape at sunset.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-20T02:12:59.252460"
+}

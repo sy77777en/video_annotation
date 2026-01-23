@@ -1,0 +1,8 @@
+{
+    "video_id": "oagszCmJLpU.1.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a time-lapse video of a massive storm cloud forming and moving over a vast, flat prairie. The scene captures the dramatic contrast between the deep blue sky, the bright white of the cloud, and the golden-brown landscape below. The video showcases the powerful and dynamic nature of weather systems in an open environment.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-21T15:24:45.468987"
+}

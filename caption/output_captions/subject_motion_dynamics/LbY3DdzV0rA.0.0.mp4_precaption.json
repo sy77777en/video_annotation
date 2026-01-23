@@ -1,0 +1,8 @@
+{
+    "video_id": "LbY3DdzV0rA.0.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a dramatic scenery shot of a massive dust storm, or haboob, over a desert landscape. The scene is split between the enormous wall of orange dust, dark storm clouds, and a patch of blue sky. In the foreground, the desert floor is dotted with cacti and sparse vegetation.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-18T10:26:24.272504"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "sMs1Eald9o8_0013_0016.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot featuring a camera focus pull. The primary motion is the change in focus, which brings the background into sharp view. The water in the small waterfall is also flowing.\n\n```json\n{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"VideoObject\",\n  \"name\": \"Focus Pull Shot of a Garden Waterfall\",\n  \"description\": \"This is a scenery shot demonstrating a manual focus pull. The video starts with a blurry background and a silhouetted object in the foreground. The focus then shifts to reveal a clear view of a small, man-made waterfall constructed from rocks, with green grass in the foreground. A text overlay in the bottom-left corner states that the shot was taken on a $300 camera, mostly handheld, with focus pulled by hand.\",\n  \"thumbnailUrl\": \"https://i.imgur.com/12345.jpg\",\n  \"uploadDate\": \"2024-05-24\",\n  \"duration\": \"PT3S\",\n  \"contentUrl\": \"https://i.imgur.com/12345.mp4\",\n  \"keywords\": \"waterfall, garden, scenery, focus pull, handheld, manual focus, rocks, water, nature, landscaping\"\n}\n```",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-22T01:01:19.911319"
+}

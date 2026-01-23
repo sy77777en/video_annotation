@@ -1,0 +1,8 @@
+{
+    "video_id": "hgtcGDkaisY_2910_3480.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a dramatic scenery shot from space, showing the curvature of the Earth as multiple explosions detonate across its surface. The explosions create bright, expanding shockwaves that ripple through the clouds. Numerous missile-like trails can also be seen arcing down through the atmosphere toward the planet.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-18T22:27:56.794821"
+}

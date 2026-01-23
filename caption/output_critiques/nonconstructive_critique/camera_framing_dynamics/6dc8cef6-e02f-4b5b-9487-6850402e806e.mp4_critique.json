@@ -4,7 +4,7 @@
   "critique_type": "nonconstructive_critique",
   "status": "skipped",
   "skip_reason": "Perfect score (5/5) - this critique type skips perfect scores",
-  "generation_timestamp": "2026-01-12T13:40:43.503206",
+  "generation_timestamp": "2026-01-17T23:55:54.866337",
   "prompt_name": "NONCONSTRUCTIVE_CRITIQUE_PROMPT",
   "model": "gemini-2.5-pro",
   "mode": "Text Only",
@@ -29,9 +29,9 @@
     "gpt_caption_llm": null,
     "caption_rating_score": null,
     "final_caption": "From an overhead, bird's-eye view, the camera looks directly down at a woman preparing food in a kitchen. The camera performs a smooth, clockwise roll, creating a spinning effect around the central subject. While the focus appears to be deep, the rotation introduces significant motion blur.",
-    "reviewer": "Shihang Zhu",
-    "review_timestamp": "2026-01-12T04:50:05.691444",
+    "reviewer": "Yuhan Huang",
+    "review_timestamp": "2026-01-13T10:59:40.617266",
     "reviewer_double_check": true
   },
-  "source_export_folder": "caption_export/export_20260112_1158"
+  "source_export_folder": "caption_export/export_20260117_2345"
 }
