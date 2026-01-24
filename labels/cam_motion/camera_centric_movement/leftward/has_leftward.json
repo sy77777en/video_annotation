@@ -27,7 +27,7 @@
         "Does the camera track from right to left?"
     ],
     "def_prompt": [
-        "The camera moves physically leftward (or trucks left).",
+        "The camera moves physically leftward (or truck left).",
         "The camera moves leftward.",
         "The camera moves left.",
         "A shot where the camera moves left.",

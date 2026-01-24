@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Extract CameraBench Pro labels into processed_label_mapping.json.
+Extract CameraBench Pro labels into classifier_label_mapping.json.
 
 This script extracts labels from benchmark_config.py for the camerabench_pro version,
 separating them into atomic (single label with pos/neg type) and composite (multiple labels) categories.
@@ -8,8 +8,8 @@ separating them into atomic (single label with pos/neg type) and composite (mult
 It also compares atomic labels against a previous label_mapping.json to verify coverage.
 
 Usage:
-    python extract_processed_labels.py --output processed_label_mapping.json
-    python extract_processed_labels.py --output processed_label_mapping.json --compare label_mapping.json
+    python extract_classifier_labels.py --output classifier_label_mapping.json
+    python extract_classifier_labels.py --output classifier_label_mapping.json --compare label_mapping.json
 """
 
 import argparse
@@ -90,24 +90,31 @@ def classify_task(task):
 
 def extract_full_info(task, source="pos"):
     """
-    Extract full_info from task, excluding 'folder', 'neg_question', 'neg_prompt'.
+    Extract full_info from task, excluding only 'folder'.
     
-    If source="neg", swap the question/prompt fields to use neg_question/neg_prompt as pos.
+    If source="neg" (for atomic_dual), swap:
+    - pos_question <-> neg_question
+    - pos_prompt <-> neg_prompt
+    - pos <-> neg
     """
-    excluded_keys = {"folder", "neg_question", "neg_prompt"}
+    excluded_keys = {"folder"}
     
     if source == "pos":
         return {k: v for k, v in task.items() if k not in excluded_keys}
     else:
-        # For neg-sourced atomic labels, we need to swap the fields
+        # For neg-sourced atomic labels (atomic_dual), swap the fields
         result = {}
         for k, v in task.items():
-            if k in excluded_keys or k == "folder":
+            if k in excluded_keys:
                 continue
             elif k == "pos_question":
                 result["pos_question"] = task.get("neg_question")
+            elif k == "neg_question":
+                result["neg_question"] = task.get("pos_question")
             elif k == "pos_prompt":
                 result["pos_prompt"] = task.get("neg_prompt")
+            elif k == "neg_prompt":
+                result["neg_prompt"] = task.get("pos_prompt")
             elif k == "pos":
                 result["pos"] = task.get("neg")
             elif k == "neg":
@@ -168,6 +175,8 @@ def extract_labels_for_folder(folder_name):
                 full_info = extract_full_info(task, source="pos")
                 result["composite"][task_name] = {
                     "classifier_name": classifier_name,
+                    "pos_question": full_info.get("pos_question"),
+                    "pos_prompt": full_info.get("pos_prompt"),
                     "full_info": full_info
                 }
             else:
@@ -179,7 +188,7 @@ def extract_labels_for_folder(folder_name):
                     # For dual atomic, create unique task names
                     if task_type == "atomic_dual" and source == "neg":
                         # Use a modified task name to indicate this came from neg
-                        actual_task_name = f"{task_name}__neg_as_pos"
+                        actual_task_name = f"{task_name}_negated"
                         classifier_name = f"{category_name}.{actual_task_name}"
                     else:
                         actual_task_name = task_name
@@ -190,6 +199,8 @@ def extract_labels_for_folder(folder_name):
                     result["atomic"][actual_task_name] = {
                         "raw_name": raw_name,
                         "classifier_name": classifier_name,
+                        "pos_question": full_info.get("pos_question"),
+                        "pos_prompt": full_info.get("pos_prompt"),
                         "full_info": full_info
                     }
     
@@ -293,7 +304,7 @@ def compare_with_label_mapping(result, label_mapping_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Extract CameraBench Pro labels into processed_label_mapping.json"
+        description="Extract CameraBench Pro labels into classifier_label_mapping.json"
     )
     parser.add_argument(
         "--folder",
@@ -305,7 +316,7 @@ def main():
     parser.add_argument(
         "--output",
         type=str,
-        default="processed_label_mapping.json",
+        default="classifier_label_mapping.json",
         help="Output JSON file path"
     )
     parser.add_argument(
@@ -361,7 +372,19 @@ def main():
         json.dump(result, f, indent=2)
     
     print(f"\nSaved to {args.output}")
-    print(f"Total: {len(result['atomic']) + len(result['composite'])} labels")
+    
+    # Print final statistics
+    print("\n" + "="*60)
+    print("FINAL STATISTICS:")
+    print("="*60)
+    print(f"  atomic_simple:           {len(special_cases['atomic_simple']):4d}")
+    print(f"  atomic_with_complex_neg: {len(special_cases['atomic_with_complex_neg']):4d}")
+    print(f"  atomic_dual:             {len(special_cases['atomic_dual']):4d} (x2 = {len(special_cases['atomic_dual']) * 2} labels)")
+    print(f"  composite:               {len(special_cases['composite']):4d}")
+    print("-" * 40)
+    print(f"  Total atomic labels:     {len(result['atomic']):4d}")
+    print(f"  Total composite labels:  {len(result['composite']):4d}")
+    print(f"  TOTAL LABELS:            {len(result['atomic']) + len(result['composite']):4d}")
     
     return result, special_cases, comparison
 

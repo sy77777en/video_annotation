@@ -1,0 +1,8 @@
+{
+    "video_id": "QMlfVwN3iTw.7.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, scenic shot of a row of modern, multi-story houses built directly on the edge of a canal. Several small boats are moored in the water in front of the unique waterfront homes. The scene captures what the narrator describes as one of the most unique-looking streets in Amsterdam.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-23T08:59:07.399473"
+}

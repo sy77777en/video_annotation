@@ -1,0 +1,8 @@
+{
+    "video_id": "0CGA_2HFWnU_0018_0022.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static, wide-angle shot of a cityscape with no camera movement. The scene captures a sprawling urban area with a dense downtown core of skyscrapers in the distance. In the foreground, there are lower-rise residential buildings and abundant green trees, with a large mountain range visible in the background under a partly cloudy sky.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-23T11:54:32.128615"
+}

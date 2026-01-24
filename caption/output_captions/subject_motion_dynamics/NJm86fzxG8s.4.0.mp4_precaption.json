@@ -1,0 +1,8 @@
+{
+    "video_id": "NJm86fzxG8s.4.0.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static shot of a serene, snow-covered landscape shrouded in fog. A small, glowing figure sits atop a snowy peak, casting a warm light that illuminates its immediate surroundings. A faint, golden path appears to lead up the slope towards the figure as snow gently falls.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-23T06:27:09.150629"
+}

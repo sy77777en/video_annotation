@@ -217,7 +217,7 @@ def get_movement_and_steadiness_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLD
         {
             "folder": ground_folder,
             "name": "is_the_camera_fixed_or_moving",
-            "pos_question": "Is the camera completely still without any visible movement or shaking?",
+            "pos_question": "Is the camera completely still without any motion or shaking?",
             "neg_question": "Is the camera not completely still and shows visible movement or shaking?",
             "pos_prompt": "The video shows a completely still camera with no motion or shaking.",
             "neg_prompt": "The camera is not completely still and shows visible movement or shaking.",
@@ -356,10 +356,10 @@ def get_translation_direction_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER
         {
             "folder": ground_and_setup_folder,
             "name": "has_forward_vs_backward_ground",
-            "pos_question": "Is the camera moving physically forward (or dollies in) in the scene?",
-            "neg_question": "Is the camera moving physically backward (or dollies out) in the scene?",
-            "pos_prompt": "The camera moves physically forward (or dollies in) in the scene.",
-            "neg_prompt": "The camera moves physically backward (or dollies out) in the scene.",
+            "pos_question": "Is the camera moving physically forward (or dolly in) in the scene?",
+            "neg_question": "Is the camera moving physically backward (or dolly out) in the scene?",
+            "pos_prompt": "The camera moves physically forward (or dolly in) in the scene.",
+            "neg_prompt": "The camera moves physically backward (or dolly out) in the scene.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.forward.has_forward_wrt_ground",
                 "type": "pos",
@@ -388,10 +388,10 @@ def get_translation_direction_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER
         {
             "folder": ground_folder,
             "name": "has_leftward_vs_rightward",
-            "pos_question": "Does the camera move leftward (or trucks left)?",
-            "neg_question": "Does the camera move rightward (or trucks right)?",
-            "pos_prompt": "The camera moves leftward (or trucks left).",
-            "neg_prompt": "The camera moves rightward (or trucks right).",
+            "pos_question": "Does the camera move physically leftward (or truck left)?",
+            "neg_question": "Does the camera move physically rightward (or truck right)?",
+            "pos_prompt": "The camera moves physically leftward (or truck left).",
+            "neg_prompt": "The camera moves physically rightward (or truck right).",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.leftward.has_leftward",
                 "type": "pos",
@@ -511,7 +511,7 @@ def get_object_centric_direction_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOL
             "folder": ground_folder,
             "name": "crane_up_vs_crane_down",
             "pos_question": "Is the camera craning upward in an arc relative to its own frame?",
-            "neg_question": "Does the camera move downward in a crane shot relative to its own frame?",
+            "neg_question": "Is the camera craning downward in an arc relative to its own frame?",
             "pos_prompt": "The camera cranes upward in an arc relative to its own frame.",
             "neg_prompt": "The camera cranes downward in an arc relative to its own frame.",
             "pos": {
@@ -720,10 +720,10 @@ def get_rotation_vs_translation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLD
         {
             "folder": ground_folder,
             "name": "only_pan_right_vs_only_truck_right",
-            "pos_question": "Does the camera only pan rightward without any other camera movements?",
-            "neg_question": "Does the camera only move laterally rightward with no other movement?",
-            "pos_prompt": "The camera only pans rightward without any other camera movements.",
-            "neg_prompt": "The camera only moves laterally rightward with no other movement.",
+            "pos_question": "Does the camera only pan rightward without any other camera movement?",
+            "neg_question": "Does the camera only move laterally rightward without any other camera movement?",
+            "pos_prompt": "The camera only pans rightward without any other camera movement.",
+            "neg_prompt": "The camera only moves laterally rightward without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.pan_right.only_pan_right",
                 "type": "pos",
@@ -736,10 +736,10 @@ def get_rotation_vs_translation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLD
         {
             "folder": ground_folder,
             "name": "only_pan_left_vs_only_truck_left",
-            "pos_question": "Does the camera only pan leftward without any other camera movements?",
-            "neg_question": "Does the camera only move laterally leftward with no other movement?",
-            "pos_prompt": "The camera only pans leftward without any other camera movements.",
-            "neg_prompt": "The camera only moves laterally leftward with no other movement.",
+            "pos_question": "Does the camera only pan leftward without any other camera movement?",
+            "neg_question": "Does the camera only move laterally leftward without any other camera movement?",
+            "pos_prompt": "The camera only pans leftward without any other camera movement.",
+            "neg_prompt": "The camera only moves laterally leftward without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.pan_left.only_pan_left",
                 "type": "pos",
@@ -824,10 +824,10 @@ def get_rotation_vs_translation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLD
         {
             "folder": ground_and_camera_folder,
             "name": "only_tilt_up_vs_only_pedestal_up",
-            "pos_question": "Does the camera only tilt upward without any other camera movements?",
-            "neg_question": "Does the camera only move physically upward (or pedestals up) with no other movement?",
-            "pos_prompt": "The camera only tilts upward without any other camera movements.",
-            "neg_prompt": "The camera only moves physically upward (or pedestals up) with no other movement.",
+            "pos_question": "Does the camera only tilt upward without any other camera movement?",
+            "neg_question": "Does the camera only move physically upward (or pedestal up) without any other camera movement?",
+            "pos_prompt": "The camera only tilts upward without any other camera movement.",
+            "neg_prompt": "The camera only moves physically upward (or pedestal up) without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.tilt_up.only_tilt_up",
                 "type": "pos",
@@ -840,10 +840,10 @@ def get_rotation_vs_translation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLD
         {
             "folder": ground_and_camera_folder,
             "name": "only_tilt_down_vs_only_pedestal_down",
-            "pos_question": "Does the camera only tilt downward without any other camera movements?",
-            "neg_question": "Does the camera only move physically downward (or pedestals down) with no other movement?",
-            "pos_prompt": "The camera only tilts downward without any other camera movements.",
-            "neg_prompt": "The camera only moves physically downward (or pedestals down) with no other movement.",
+            "pos_question": "Does the camera only tilt downward without any other camera movement?",
+            "neg_question": "Does the camera only move physically downward (or pedestal down) without any other camera movement?",
+            "pos_prompt": "The camera only tilts downward without any other camera movement.",
+            "neg_prompt": "The camera only moves physically downward (or pedestal down) without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.tilt_down.only_tilt_down",
                 "type": "pos",
@@ -918,10 +918,10 @@ def get_rotation_vs_translation_without_camera_centric_motion_tasks(ground_folde
         {
             "folder": ground_folder,
             "name": "only_pan_right_vs_only_truck_right",
-            "pos_question": "Does the camera only pan rightward without any other camera movements?",
-            "neg_question": "Does the camera only move laterally rightward with no other movement?",
-            "pos_prompt": "The camera only pans rightward without any other camera movements.",
-            "neg_prompt": "The camera only moves laterally rightward with no other movement.",
+            "pos_question": "Does the camera only pan rightward without any other camera movement?",
+            "neg_question": "Does the camera only move laterally rightward without any other camera movement?",
+            "pos_prompt": "The camera only pans rightward without any other camera movement.",
+            "neg_prompt": "The camera only moves laterally rightward without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.pan_right.only_pan_right",
                 "type": "pos",
@@ -934,10 +934,10 @@ def get_rotation_vs_translation_without_camera_centric_motion_tasks(ground_folde
         {
             "folder": ground_folder,
             "name": "only_pan_left_vs_only_truck_left",
-            "pos_question": "Does the camera only pan leftward without any other camera movements?",
-            "neg_question": "Does the camera only move laterally leftward with no other movement?",
-            "pos_prompt": "The camera only pans leftward without any other camera movements.",
-            "neg_prompt": "The camera only moves laterally leftward with no other movement.",
+            "pos_question": "Does the camera only pan leftward without any other camera movement?",
+            "neg_question": "Does the camera only move laterally leftward without any other camera movement?",
+            "pos_prompt": "The camera only pans leftward without any other camera movement.",
+            "neg_prompt": "The camera only moves laterally leftward without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.pan_left.only_pan_left",
                 "type": "pos",
@@ -1006,10 +1006,10 @@ def get_rotation_vs_translation_without_camera_centric_motion_tasks(ground_folde
         {
             "folder": ground_and_setup_folder,
             "name": "only_tilt_up_vs_only_pedestal_up",
-            "pos_question": "Does the camera only tilt upward without any other camera movements?",
-            "neg_question": "Does the camera only move physically upward (or pedestals up) with no other movement?",
-            "pos_prompt": "The camera only tilts upward without any other camera movements.",
-            "neg_prompt": "The camera only moves physically upward (or pedestals up) with no other movement.",
+            "pos_question": "Does the camera only tilt upward without any other camera movement?",
+            "neg_question": "Does the camera only move physically upward (not tilt up) relative to the ground without any other camera movement?",
+            "pos_prompt": "The camera only tilts upward without any other camera movement.",
+            "neg_prompt": "The camera only moves physically upward (not tilt up) relative to the ground without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.tilt_up.only_tilt_up",
                 "type": "pos",
@@ -1022,10 +1022,10 @@ def get_rotation_vs_translation_without_camera_centric_motion_tasks(ground_folde
         {
             "folder": ground_and_setup_folder,
             "name": "only_tilt_down_vs_only_pedestal_down",
-            "pos_question": "Does the camera only tilt downward without any other camera movements?",
-            "neg_question": "Does the camera only move physically downward (or pedestals down) with no other movement?",
-            "pos_prompt": "The camera only tilts downward without any other camera movements.",
-            "neg_prompt": "The camera only moves physically downward (or pedestals down) with no other movement.",
+            "pos_question": "Does the camera only tilt downward without any other camera movement?",
+            "neg_question": "Does the camera only move physically downward (not tilt down) relative to the ground without any other camera movement?",
+            "pos_prompt": "The camera only tilts downward without any other camera movement.",
+            "neg_prompt": "The camera only moves physically downward (not tilt down) relative to the ground without any other camera movement.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.tilt_down.only_tilt_down",
                 "type": "pos",
@@ -1079,10 +1079,10 @@ def get_has_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SET
         {
             "folder": ground_and_setup_folder,
             "name": "has_forward_motion",
-            "pos_question": "Is the camera moving physically forward (or dollies in) in the scene?",
-            "neg_question": "Is the camera not moving physically forward (or dollies in) in the scene?",
-            "pos_prompt": "The camera moves physically forward (or dollies in) in the scene.",
-            "neg_prompt": "The camera does not move physically forward (or dollies in) in the scene.",
+            "pos_question": "Is the camera moving physically forward (or dolly in) in the scene?",
+            "neg_question": "Is the camera not moving physically forward (or dolly in) in the scene?",
+            "pos_prompt": "The camera moves physically forward (or dolly in) in the scene.",
+            "neg_prompt": "The camera does not move physically forward (or dolly in) in the scene.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.forward.has_forward_wrt_ground",
                 "type": "pos",
@@ -1095,10 +1095,10 @@ def get_has_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SET
         {
             "folder": ground_and_setup_folder,
             "name": "has_backward_motion",
-            "pos_question": "Is the camera moving physically backward (or dollies out) in the scene?",
-            "neg_question": "Is the camera not moving physically backward (or dollies out) in the scene?",
-            "pos_prompt": "The camera moves physically backward (or dollies out) in the scene.",
-            "neg_prompt": "The camera does not move physically backward (or dollies out) in the scene.",
+            "pos_question": "Is the camera moving physically backward (or dolly out) in the scene?",
+            "neg_question": "Is the camera not moving physically backward (or dolly out) in the scene?",
+            "pos_prompt": "The camera moves physically backward (or dolly out) in the scene.",
+            "neg_prompt": "The camera does not move physically backward (or dolly out) in the scene.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.backward.has_backward_wrt_ground",
                 "type": "pos",
@@ -1111,10 +1111,10 @@ def get_has_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SET
         {
             "folder": ground_folder,
             "name": "has_truck_left",
-            "pos_question": "Does the camera move physically leftward (or trucks left)?",
-            "neg_question": "Does the camera not move physically leftward (or trucks left)?",
-            "pos_prompt": "The camera moves physically leftward (or trucks left).",
-            "neg_prompt": "The camera does not move physically leftward (or trucks left).",
+            "pos_question": "Does the camera move physically leftward (or truck left)?",
+            "neg_question": "Does the camera not move physically leftward (or truck left)?",
+            "pos_prompt": "The camera moves physically leftward (or truck left).",
+            "neg_prompt": "The camera does not move physically leftward (or truck left).",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.leftward.has_leftward",
                 "type": "pos",
@@ -1127,10 +1127,10 @@ def get_has_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SET
         {
             "folder": ground_folder,
             "name": "has_truck_right",
-            "pos_question": "Does the camera move physically rightward (or trucks right)?",
-            "neg_question": "Does the camera not move physically rightward (or trucks right)?",
-            "pos_prompt": "The camera moves physically rightward (or trucks right).",
-            "neg_prompt": "The camera does not move physically rightward (or trucks right).",
+            "pos_question": "Does the camera move physically rightward (or truck right)?",
+            "neg_question": "Does the camera not move physically rightward (or truck right)?",
+            "pos_prompt": "The camera moves physically rightward (or truck right).",
+            "neg_prompt": "The camera does not move physically rightward (or truck right).",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.rightward.has_rightward",
                 "type": "pos",
@@ -1311,7 +1311,7 @@ def get_has_arc_crane_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER):
         {
             "folder": ground_folder,
             "name": "has_crane_up",
-            "pos_question": "Does the camera crane upward in an arc relative to its own frame?",
+            "pos_question": "Is the camera craning upward in an arc relative to its own frame?",
             "neg_question": "Is the camera not craning upward in an arc relative to its own frame?",
             "pos_prompt": "The camera cranes upward in an arc relative to its own frame.",
             "neg_prompt": "The camera is not craning upward in an arc relative to its own frame.",
@@ -1327,7 +1327,7 @@ def get_has_arc_crane_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER):
         {
             "folder": ground_folder,
             "name": "has_crane_down",
-            "pos_question": "Does the camera crane downward in an arc relative to its own frame?",
+            "pos_question": "Is the camera craning downward in an arc relative to its own frame?",
             "neg_question": "Is the camera not craning downward in an arc relative to its own frame?",
             "pos_prompt": "The camera cranes downward in an arc relative to its own frame.",
             "neg_prompt": "The camera is not craning downward in an arc relative to its own frame.",
@@ -1596,9 +1596,9 @@ def get_only_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SE
         {
             "folder": ground_and_setup_folder,
             "name": "only_forward_vs_has_forward_and_not_only",
-            "pos_question": "Does the camera only move physically forward (not zooming in) relative to the ground?",
+            "pos_question": "Does the camera only move physically forward (not zoom in) relative to the ground?",
             "neg_question": "Does the camera not just move physically forward relative to the ground?",
-            "pos_prompt": "The camera only moves physically forward (not zooming in) relative to the ground.",
+            "pos_prompt": "The camera only moves physically forward (not zoom in) relative to the ground.",
             "neg_prompt": "The camera not just moves physically forward relative to the ground.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.forward.only_forward_wrt_ground",
@@ -1618,9 +1618,9 @@ def get_only_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SE
         {
             "folder": ground_and_setup_folder,
             "name": "only_backward_vs_has_backward_and_not_only",
-            "pos_question": "Does the camera only move physically backward (not zooming out) relative to the ground?",
+            "pos_question": "Does the camera only move physically backward (not zoom out) relative to the ground?",
             "neg_question": "Does the camera not just move physically backward relative to the ground?",
-            "pos_prompt": "The camera only moves physically backward (not zooming out) relative to the ground.",
+            "pos_prompt": "The camera only moves physically backward (not zoom out) relative to the ground.",
             "neg_prompt": "The camera not just moves physically backward relative to the ground.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.backward.only_backward_wrt_ground",
@@ -1640,9 +1640,9 @@ def get_only_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SE
         {
             "folder": ground_folder,
             "name": "only_truck_left_vs_has_truck_left_and_not_only",
-            "pos_question": "Does the camera only move laterally leftward without any other camera movements?",
+            "pos_question": "Does the camera only move laterally leftward without any other camera movement?",
             "neg_question": "Does the camera not just move laterally to the left?",
-            "pos_prompt": "The camera only moves laterally leftward without any other camera movements.",
+            "pos_prompt": "The camera only pans leftward without any other camera movement.",
             "neg_prompt": "The camera not just moves laterally to the left.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.leftward.only_leftward",
@@ -1662,9 +1662,9 @@ def get_only_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SE
         {
             "folder": ground_folder,
             "name": "only_truck_right_vs_has_truck_right_and_not_only",
-            "pos_question": "Does the camera only move laterally rightward without any other camera movements?",
+            "pos_question": "Does the camera only move laterally rightward without any other camera movement?",
             "neg_question": "Does the camera not just move laterally to the right?",
-            "pos_prompt": "The camera only moves laterally rightward without any other camera movements.",
+            "pos_prompt": "The camera only moves laterally rightward without any other camera movement.",
             "neg_prompt": "The camera not just moves laterally to the right.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.rightward.only_rightward",
@@ -1684,9 +1684,9 @@ def get_only_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SE
         {
             "folder": ground_and_setup_folder,
             "name": "only_pedestal_up_vs_has_pedestal_up_and_not_only",
-            "pos_question": "Does the camera only move physically upward (not tilting up) relative to the ground?",
+            "pos_question": "Does the camera only move physically upward (not tilt up) relative to the ground without any other camera movement?",
             "neg_question": "Does the camera not just move physically upward?",
-            "pos_prompt": "The camera only moves physically upward (not tilting up) relative to the ground.",
+            "pos_prompt": "The camera only moves physically upward (not tilt up) relative to the ground without any other camera movement.",
             "neg_prompt": "The camera not just moves physically upward.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.upward.only_upward_wrt_ground",
@@ -1706,9 +1706,9 @@ def get_only_translation_tasks(ground_and_setup_folder=CAMERABENCH_GROUND_AND_SE
         {
             "folder": ground_and_setup_folder,
             "name": "only_pedestal_down_vs_has_pedestal_down_and_not_only",
-            "pos_question": "Does the camera only move physically downward (not tilting down) relative to the ground?",
+            "pos_question": "Does the camera only move physically downward (not tilt down) relative to the ground without any other camera movement?",
             "neg_question": "Does the camera not just move physically downward?",
-            "pos_prompt": "The camera only moves physically downward (not tilting down) relative to the ground.",
+            "pos_prompt": "The camera only moves physically downward (not tilt down) relative to the ground without any other camera movement.",
             "neg_prompt": "The camera not just moves physically downward.",
             "pos": {
                 "label": "cam_motion.ground_centric_movement.downward.only_downward_wrt_ground",
@@ -1732,9 +1732,9 @@ def get_only_rotation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER):
         {
             "folder": ground_folder,
             "name": "only_pan_left_vs_has_pan_left_and_not_only",
-            "pos_question": "Does the camera only pan leftward without any other camera movements?",
+            "pos_question": "Does the camera only pan leftward without any other camera movement?",
             "neg_question": "Does the camera not just pan left?",
-            "pos_prompt": "The camera only pans leftward without any other camera movements.",
+            "pos_prompt": "The camera only pans leftward without any other camera movement.",
             "neg_prompt": "The camera not just pans left.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.pan_left.only_pan_left",
@@ -1754,9 +1754,9 @@ def get_only_rotation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER):
         {
             "folder": ground_folder,
             "name": "only_pan_right_vs_has_pan_right_and_not_only",
-            "pos_question": "Does the camera only pan rightward without any other camera movements?",
+            "pos_question": "Does the camera only pan rightward without any other camera movement?",
             "neg_question": "Does the camera not just pan right?",
-            "pos_prompt": "The camera only pans rightward without any other camera movements.",
+            "pos_prompt": "The camera only pans rightward without any other camera movement.",
             "neg_prompt": "The camera not just pans right.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.pan_right.only_pan_right",
@@ -1776,9 +1776,9 @@ def get_only_rotation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER):
         {
             "folder": ground_folder,
             "name": "only_tilt_up_vs_has_tilt_up_and_not_only",
-            "pos_question": "Does the camera only tilt upward without any other camera movements?",
+            "pos_question": "Does the camera only tilt upward without any other camera movement?",
             "neg_question": "Does the camera not just tilt up?",
-            "pos_prompt": "The camera only tilts upward without any other camera movements.",
+            "pos_prompt": "The camera only tilts upward without any other camera movement.",
             "neg_prompt": "The camera not just tilts up.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.tilt_up.only_tilt_up",
@@ -1798,9 +1798,9 @@ def get_only_rotation_tasks(ground_folder=CAMERABENCH_GROUND_ONLY_FOLDER):
         {
             "folder": ground_folder,
             "name": "only_tilt_down_vs_has_tilt_down_and_not_only",
-            "pos_question": "Does the camera only tilt downward without any other camera movements?",
+            "pos_question": "Does the camera only tilt downward without any other camera movement?",
             "neg_question": "Does the camera not just tilt down?",
-            "pos_prompt": "The camera only tilts downward without any other camera movements.",
+            "pos_prompt": "The camera only tilts downward without any other camera movement.",
             "neg_prompt": "The camera not just tilts down.",
             "pos": {
                 "label": "cam_motion.camera_centric_movement.tilt_down.only_tilt_down",
