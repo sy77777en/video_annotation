@@ -1,0 +1,8 @@
+{
+    "video_id": "b9-cHk-7N8k.1.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video consists of a single, static shot of a breathtaking night landscape. The view looks out over a vast canyon under a sky filled with stars and a faint band of the Milky Way. The warm glow of a distant city is visible on the horizon, contrasting with the dark, silhouetted mountains.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-25T21:29:54.186825"
+}

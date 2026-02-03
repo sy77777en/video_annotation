@@ -1,0 +1,8 @@
+{
+    "video_id": "M0jmSsQ5ptw.3.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video presents a first-person perspective from a ramp situated in a vast, open field. The scene is dominated by a bright blue sky with numerous white clouds, stretching over a dry, grassy landscape with distant mountains on the horizon. The camera briefly launches into the air, providing a sweeping view of the scenery.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-27T20:10:26.783358"
+}

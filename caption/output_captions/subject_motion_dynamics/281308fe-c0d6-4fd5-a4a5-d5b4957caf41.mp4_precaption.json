@@ -1,0 +1,8 @@
+{
+    "video_id": "281308fe-c0d6-4fd5-a4a5-d5b4957caf41.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a low-angle, upward-looking shot of a tree canopy against a bright sky. The silhouetted branches are filled with massive clusters of what appear to be hundreds of roosting bats. The camera has a slight, gentle sway, suggesting it is handheld.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-25T21:44:08.082188"
+}

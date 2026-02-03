@@ -1,0 +1,8 @@
+{
+    "video_id": "qL6YzAtK-24_0001_0006.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenery shot of a school courtyard with a basketball court. The camera slowly pans upward, revealing the large, red brick building that surrounds the area. Students in uniform are present throughout the courtyard.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-26T23:02:13.774829"
+}

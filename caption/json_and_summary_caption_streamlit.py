@@ -84,13 +84,21 @@ Instructions:
 2. Merge MOTION and CAMERA captions into the spatial description to create a temporally coherent narrative that describes how things change over time
 3. Add information from SUBJECT and SCENE captions ONLY if they contain unique details not already covered in the Spatial caption
 4. Eliminate ALL redundant information - if the same detail appears in multiple captions, mention it only ONCE
-5. Preserve the EXACT wording from the original captions - do NOT paraphrase
-6. When describing temporal changes, integrate motion and camera movements in chronological order to show how the scene evolves
-7. CRITICAL: Every unique detail from all five captions must appear in the final merged caption - nothing should be omitted
+5. Preserve the EXACT wording from the original captions whenever possible. You may remove duplicated phrases or clauses if they repeat the same information verbatim across captions, but you must not introduce new wording or paraphrase existing content
+6. When describing temporal changes, integrate information from all five captions in chronological order. First describe the subject appearance, then narrate events as they occur over time, including subject motion and camera movement, to clearly show how the scene evolves
+7. CRITICAL: Every unique non-redundant detail from all five captions must appear in the final merged caption exactly once - nothing should be omitted or repeated
 8. Do NOT add any information not present in the original captions
 9. Return only the merged caption without any additional text or formatting
+10. Generate the output strictly based on the content provided in the five tasks, and do not add any information that is not explicitly mentioned
+11. Since events across the five tasks may overlap or be repeated, consolidate them into a single coherent description without redundantly repeating the same event, while ensuring that no relevant information is omitted and the language remains fluent
+12. Base subject identification strictly on the subject caption. Explicitly identify the exact number of distinct subjects and determine the corresponding appearance for each subject. Do not split descriptions that refer to the same subject into multiple subjects. Information in the spatial caption only provides spatial details for these already-identified subjects and must not be treated as introducing new subjects
+13. The final caption should describe each distinct action, object, and camera movement at most once. Repetition for emphasis or rephrasing is strictly disallowed
+14. The scene caption, subject caption, and spatial information may contain overlapping content. When similar descriptions appear, explicitly determine whether they refer to the same element, and do not repeat equivalent descriptions multiple times
+15. Explicitly analyze the sequence of events and motions described in the spatial caption and motion caption, clearly determining the order of camera movement and subject motion. If camera movement information appears in multiple captions, prioritize and rely on the camera caption as the authoritative source. Analyze the temporal order of camera changes in relation to changes in on-screen elements, and integrate them into a single, coherent chronological description
+16. Use concise language and simple sentences. Keep the description brief without losing any essential information
+17. Enforce minimum expression. Before returning the caption, delete any word, phrase, or clause that can be removed without changing the viewer’s mental image of the scene. Do not repeat the same attribute, perspective, action, or UI concept in different words. If multiple descriptors refer to the same element, keep only the shortest one. Limit each sentence to a single primary visual idea; split sentences if needed to improve readability
 
-Goal: A single, temporally coherent caption based on the Spatial description, with Motion and Camera information merged chronologically, and Subject/Scene details added only when they provide new information. Keep as many details as possible but limit to at most 320 words."""
+Goal: A single, clear, and temporally coherent caption grounded in the Spatial description, with Motion and Camera information merged in chronological order. Describe each visually salient event only once, using concise, readable sentences. Add Subject and Scene details only when they introduce new, non-redundant information that affects scene understanding, and present all details in a fluent, human-readable narrative."""
         },
         "json_generation": {
             "name": "Multi-Caption JSON Generation",
@@ -516,7 +524,7 @@ Instructions:
             selected_llm = st.selectbox(
                 "Select LLM:",
                 available_llms,
-                index=available_llms.index("gpt-4o-2024-08-06") if "gpt-4o-2024-08-06" in available_llms else 0,
+                index=available_llms.index("gpt-5.2") if "gpt-5.2" in available_llms else 0,
                 key=f"llm_{selected_video_id}"
             )
         

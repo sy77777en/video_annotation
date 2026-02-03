@@ -1,0 +1,8 @@
+{
+    "video_id": "O9Hngn4Zcbk_5460_5850.0.1.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot pans across a fantastical, industrial-style building that resembles a stone castle. The structure is adorned with a complex network of brightly colored pipes in red, yellow, purple, and green, running along its walls beneath a large, arched glass roof. A prominent, tall tower with red and white candy-cane stripes completes the whimsical and imaginative setting.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-27T00:37:22.633120"
+}

@@ -1,0 +1,8 @@
+{
+    "video_id": "wG49Htk6D7s_0001_0012.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video features a series of panning and tilting shots across a futuristic, cyberpunk cityscape at night. There are no moving subjects, only camera movement revealing the scenery.\n\nThe scene is a low-angle view looking up at towering, dark skyscrapers shrouded in a thick, hazy atmosphere. The city is illuminated by massive, vibrant advertisements, including a giant blue holographic ad for Sony projected onto a building and a smaller, floating pink neon sign that reads \"EVERYTHING YOU WANT TO SEE\" and \"EVERYTHING YOU WANT TO HEAR.\" As the camera pans down, it reveals more of the dense, urban environment, including the lit windows of an apartment building and various smaller neon signs at street level, such as a green sign and a yellow one depicting a steaming bowl.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-26T22:05:42.311997"
+}

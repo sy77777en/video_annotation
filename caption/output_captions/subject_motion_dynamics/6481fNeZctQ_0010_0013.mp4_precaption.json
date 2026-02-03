@@ -1,0 +1,8 @@
+{
+    "video_id": "6481fNeZctQ_0010_0013.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a scenic aerial shot of a vast field of sunflowers under a clear, pale blue sky. The bright yellow flowers are planted in neat rows, creating lines that stretch toward a cluster of dark green trees in the middle distance. The shot is largely static, with only a very slow, steady forward drift of the camera over the field.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-01-27T05:13:40.230767"
+}
