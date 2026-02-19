@@ -1,0 +1,8 @@
+{
+    "video_id": "mIiPt1YVkP8.8.6.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a static shot of an airport runway from a low, first-person perspective. The camera is positioned at the beginning of the runway, looking down its length toward a hazy, reddish-orange sky where the sun is low on the horizon. The image has a motion blur effect, creating the illusion of rapid forward movement, although the scene itself is not moving.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-07T22:41:27.245109"
+}

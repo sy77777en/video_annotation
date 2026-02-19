@@ -1,0 +1,8 @@
+{
+    "video_id": "a0f627c0-22b8-4669-b4ed-841a3b4f82f4.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video features a rack focus shot, beginning with a completely blurred image that gradually sharpens to reveal the scene.\n\nThe setting is a dense bamboo forest. Tall, dark green bamboo stalks create strong vertical lines throughout the frame. Light filters down from a bright, unseen canopy, creating soft, circular bokeh effects against the lush, green foliage in the background.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-13T03:06:27.535997"
+}

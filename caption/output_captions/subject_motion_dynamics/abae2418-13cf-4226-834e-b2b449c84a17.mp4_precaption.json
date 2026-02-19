@@ -1,0 +1,8 @@
+{
+    "video_id": "abae2418-13cf-4226-834e-b2b449c84a17.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a low-angle scenery shot looking up through a canopy of trees toward the sky. The camera spins rapidly, creating a dizzying radial blur. This motion transforms the trees and sky into an abstract vortex.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-10T20:53:40.133812"
+}

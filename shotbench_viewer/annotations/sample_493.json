@@ -1,0 +1,13 @@
+{
+  "shotbench_correct": null,
+  "shotbench_mistake": true,
+  "shotbench_mistake_type": "other",
+  "refineshot_correct": null,
+  "refineshot_mistake": true,
+  "refineshot_mistake_type": "other",
+  "notes": "",
+  "timestamp": "2026-02-18T05:44:05.485Z",
+  "shotbench_ambiguous": true,
+  "refineshot_ambiguous": true,
+  "sample_index": 493
+}

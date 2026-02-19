@@ -198,11 +198,13 @@ class LabelViewerHandler(http.server.SimpleHTTPRequestHandler):
 
     def send_json_response(self, data):
         """Send a JSON response."""
+        response_bytes = json.dumps(data).encode()
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
-        self.send_header('Cache-Control', 'no-cache')  # Don't cache API responses
+        self.send_header('Content-Length', str(len(response_bytes)))
+        self.send_header('Cache-Control', 'no-cache')
         self.end_headers()
-        self.wfile.write(json.dumps(data).encode())
+        self.wfile.write(response_bytes)
 
     def log_message(self, format, *args):
         """Override to customize logging."""

@@ -1,0 +1,8 @@
+{
+    "video_id": "7fc7e5a7-0b55-4236-a160-fee3b77a175c.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This is a low-angle, upward-looking shot of tall, leafy trees against a clear, bright blue sky. The leaves are a yellowish-green, and the trees frame the sky from all sides. The camera appears to be moving forward, creating a dynamic perspective as the trees pass by.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-13T02:52:27.944361"
+}

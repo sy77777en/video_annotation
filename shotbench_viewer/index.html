@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShotBench × RefineShot — Annotation Viewer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-0: #09090b;
+            --bg-1: #111113;
+            --bg-2: #18181b;
+            --bg-3: #1f1f23;
+            --text-0: #fafafa;
+            --text-1: #a1a1aa;
+            --text-2: #71717a;
+            --border: #27272a;
+            --accent: #818cf8;
+            --accent-dim: rgba(129, 140, 248, 0.12);
+            --green: #34d399;
+            --green-dim: rgba(52, 211, 153, 0.12);
+            --red: #f87171;
+            --red-dim: rgba(248, 113, 113, 0.12);
+            --amber: #fbbf24;
+            --amber-dim: rgba(251, 191, 36, 0.12);
+            --cyan: #22d3ee;
+            --cyan-dim: rgba(34, 211, 238, 0.12);
+            --radius: 0.5rem;
+            --mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg-0);
+            color: var(--text-0);
+            line-height: 1.5;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* ── Header ── */
+        .header {
+            background: var(--bg-1);
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .header h1 span {
+            color: var(--accent);
+        }
+
+        .header-badges {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 99px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .badge-green {
+            background: var(--green-dim);
+            color: var(--green);
+        }
+
+        .badge-amber {
+            background: var(--amber-dim);
+            color: var(--amber);
+        }
+
+        .badge-red {
+            background: var(--red-dim);
+            color: var(--red);
+        }
+
+        .badge-accent {
+            background: var(--accent-dim);
+            color: var(--accent);
+        }
+
+        .header-right {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .btn {
+            background: var(--bg-3);
+            border: 1px solid var(--border);
+            color: var(--text-0);
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .btn:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+            font-weight: 600;
+        }
+
+        .btn-accent:hover {
+            background: #6366f1;
+        }
+
+        /* ── Layout ── */
+        .layout {
+            display: flex;
+            height: calc(100vh - 49px);
+            overflow: hidden;
+        }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 300px;
+            min-width: 300px;
+            background: var(--bg-1);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-section {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Filters */
+        .filter-row {
+            display: flex;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 99px;
+            border: 1px solid var(--border);
+            background: var(--bg-2);
+            color: var(--text-1);
+            cursor: pointer;
+            transition: all 0.15s;
+            font-family: inherit;
+        }
+
+        .filter-chip:hover {
+            border-color: var(--accent);
+            color: var(--text-0);
+        }
+
+        .filter-chip.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Sample list */
+        .sample-list-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem;
+        }
+
+        .sample-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 0.6rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.12s;
+            margin-bottom: 0.2rem;
+            border: 1px solid transparent;
+        }
+
+        .sample-item:hover {
+            background: var(--bg-3);
+        }
+
+        .sample-item.active {
+            background: var(--accent-dim);
+            border-color: var(--accent);
+        }
+
+        .sample-item.reviewed {
+            border-left: 2px solid var(--green);
+        }
+
+        .sample-item.has-mistake {
+            border-left: 2px solid var(--red);
+        }
+
+        .sample-idx {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            min-width: 3rem;
+        }
+
+        .sample-cat {
+            font-size: 0.65rem;
+            color: var(--text-2);
+            flex: 1;
+            margin: 0 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sample-type-icon {
+            font-size: 0.7rem;
+            opacity: 0.6;
+        }
+
+        .diff-badge {
+            display: inline-block;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: var(--amber, #f59e0b);
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 3px;
+            padding: 0 3px;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        .count-badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            color: var(--text-2);
+            background: var(--bg-3);
+            border-radius: 8px;
+            padding: 0 5px;
+            margin-left: 3px;
+            min-width: 1.2em;
+            text-align: center;
+        }
+
+
+        /* ── Main Content ── */
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem 2rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-2);
+        }
+
+        .empty-state h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-1);
+        }
+
+        /* Media section */
+        .media-section {
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 1.25rem;
+        }
+
+        .media-header {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .media-header-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .media-container {
+            display: flex;
+            justify-content: center;
+            background: #000;
+            max-height: 450px;
+            overflow: hidden;
+        }
+
+        .media-container img {
+            max-width: 100%;
+            max-height: 450px;
+            object-fit: contain;
+        }
+
+        .media-container video {
+            max-width: 100%;
+            max-height: 450px;
+        }
+
+        .media-meta {
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.75rem;
+            color: var(--text-2);
+            border-top: 1px solid var(--border);
+        }
+
+        .media-meta strong {
+            color: var(--text-1);
+        }
+
+        /* Side-by-side comparison */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        @media (max-width: 1200px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .question-card {
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .question-card-header {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .question-card-header h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .question-card-header .shotbench-tag {
+            color: var(--cyan);
+        }
+
+        .question-card-header .refineshot-tag {
+            color: var(--amber);
+        }
+
+        .question-body {
+            padding: 1rem;
+        }
+
+        .question-text {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--text-0);
+            font-weight: 500;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 0.75rem;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            transition: all 0.15s;
+        }
+
+        .option-item.correct-answer {
+            background: var(--green-dim);
+            border-color: var(--green);
+        }
+
+        .option-letter {
+            font-family: var(--mono);
+            font-weight: 600;
+            font-size: 0.75rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--bg-3);
+            flex-shrink: 0;
+        }
+
+        .option-item.correct-answer .option-letter {
+            background: var(--green);
+            color: #000;
+        }
+
+        .option-value {
+            flex: 1;
+        }
+
+        /* Annotation panel */
+        .annotation-panel {
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .annotation-header {
+            padding: 0.6rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .annotation-body {
+            padding: 1rem;
+        }
+
+        .annotation-row {
+            margin-bottom: 1.25rem;
+        }
+
+        .annotation-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .mistake-toggle {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .mistake-btn {
+            flex: 1;
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--bg-2);
+            color: var(--text-1);
+            font-size: 0.8rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .mistake-btn:hover {
+            border-color: var(--text-2);
+        }
+
+        .mistake-btn.active-correct {
+            background: var(--green-dim);
+            border-color: var(--green);
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .mistake-btn.active-wrong {
+            background: var(--red-dim);
+            border-color: var(--red);
+            color: var(--red);
+            font-weight: 600;
+        }
+
+        .mistake-btn.active-ambiguous {
+            background: var(--amber-dim);
+            border-color: var(--amber);
+            color: var(--amber);
+            font-weight: 600;
+        }
+
+        .mistake-type-select {
+            width: 100%;
+            padding: 0.5rem;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            color: var(--text-0);
+            font-family: inherit;
+            font-size: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        textarea.note-input {
+            width: 100%;
+            min-height: 70px;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.6rem;
+            font-family: inherit;
+            font-size: 0.8rem;
+            color: var(--text-0);
+            resize: vertical;
+        }
+
+        textarea.note-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .save-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Stats Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal {
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            max-width: 700px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .modal h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .stat-card {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.75rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: var(--mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.2rem;
+        }
+
+        .stat-value.green {
+            color: var(--green);
+        }
+
+        .stat-value.red {
+            color: var(--red);
+        }
+
+        .stat-value.amber {
+            color: var(--amber);
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-table th {
+            text-align: left;
+            padding: 0.4rem 0.6rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-2);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-table td {
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-table tr:hover {
+            background: var(--bg-3);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 0.6rem 1rem;
+            font-size: 0.8rem;
+            display: none;
+            z-index: 2000;
+            animation: toastSlide 0.2s ease-out;
+        }
+
+        .toast.show {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toast.success {
+            border-color: var(--green);
+        }
+
+        .toast.error {
+            border-color: var(--red);
+        }
+
+        @keyframes toastSlide {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-0);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-2);
+        }
+
+        /* Keyboard hint */
+        .kbd {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            padding: 0.1rem 0.35rem;
+            background: var(--bg-3);
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text-2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <h1>🎬 <span>ShotBench</span> × RefineShot</h1>
+            <div class="header-badges">
+                <span class="badge badge-accent" id="badgeTotal">0 total</span>
+                <span class="badge badge-green" id="badgeReviewed">0 reviewed</span>
+                <span class="badge badge-red" id="badgeMistakes">0 mistakes</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span style="font-size:0.7rem; color:var(--text-2);">
+                <span class="kbd">←</span> <span class="kbd">→</span> navigate
+            </span>
+            <button class="btn" onclick="showStats()">📊 Stats</button>
+            <button class="btn" onclick="exportAnnotations()">💾 Export</button>
+        </div>
+    </div>
+
+    <!-- Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Modality Filter -->
+            <div class="sidebar-section">
+                <div class="sidebar-label">Modality</div>
+                <div class="filter-row" id="modalityFilters">
+                    <button class="filter-chip active" data-value="all"
+                        onclick="setFilter('modality','all')">All</button>
+                    <button class="filter-chip" data-value="image" onclick="setFilter('modality','image')">🖼
+                        Image</button>
+                    <button class="filter-chip" data-value="video" onclick="setFilter('modality','video')">🎬
+                        Video</button>
+                </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="sidebar-section">
+                <div class="sidebar-label">Dimension</div>
+                <div class="filter-row" id="categoryFilters">
+                    <button class="filter-chip active" data-value="all"
+                        onclick="setFilter('category','all')">All</button>
+                </div>
+            </div>
+
+            <!-- Status Filter -->
+            <div class="sidebar-section">
+                <div class="sidebar-label">Status</div>
+                <div class="filter-row" id="statusFilters">
+                    <button class="filter-chip active" data-value="all" onclick="setFilter('status','all')">All</button>
+                    <button class="filter-chip" data-value="pending"
+                        onclick="setFilter('status','pending')">Pending</button>
+                    <button class="filter-chip" data-value="reviewed"
+                        onclick="setFilter('status','reviewed')">Reviewed</button>
+                    <button class="filter-chip" data-value="mistakes"
+                        onclick="setFilter('status','mistakes')">Mistakes</button>
+                </div>
+            </div>
+
+            <!-- Comparison Filter -->
+            <div class="sidebar-section">
+                <div class="sidebar-label">ShotBench vs RefineShot</div>
+                <div class="filter-row" id="comparisonFilters">
+                    <button class="filter-chip active" data-value="all"
+                        onclick="setFilter('comparison','all')">All</button>
+                    <button class="filter-chip" data-value="different" onclick="setFilter('comparison','different')">⚡
+                        Different</button>
+                    <button class="filter-chip" data-value="identical"
+                        onclick="setFilter('comparison','identical')">Identical</button>
+                </div>
+            </div>
+
+            <!-- Sample List -->
+            <div class="sample-list-container" id="sampleList">
+                <div class="empty-state" style="padding:2rem 1rem;">Loading...</div>
+            </div>
+
+            <!-- Sample count -->
+            <div id="sampleCount"
+                style="padding:0.4rem 0.75rem; font-size:0.7rem; color:var(--text-2); text-align:center;"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content" id="contentArea">
+            <div class="empty-state">
+                <h2>👈 Select a sample to begin</h2>
+                <p>Use the sidebar filters to browse by modality or cinematography dimension</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"><span id="toastMsg"></span></div>
+
+    <script>
+        // ── State ──
+        let state = {
+            info: null,
+            samples: [],
+            currentSample: null,
+            currentIndex: null,
+            filters: { modality: 'all', category: 'all', status: 'all', comparison: 'all' },
+            page: 0,
+            perPage: 10000,
+            totalPages: 1,
+            annotation: {}
+        };
+
+        // ── Init ──
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadInfo();
+            await loadSamples();
+            setupKeyboardNav();
+        });
+
+        // ── API ──
+        async function loadInfo() {
+            try {
+                const r = await fetch('/api/info');
+                state.info = await r.json();
+                renderCategoryFilters();
+                updateBadges();
+            } catch (e) { console.error('loadInfo:', e); }
+        }
+
+        async function loadSamples() {
+            const params = new URLSearchParams();
+            if (state.filters.modality !== 'all') params.set('modality', state.filters.modality);
+            if (state.filters.category !== 'all') params.set('category', state.filters.category);
+            params.set('page', state.page);
+            params.set('per_page', state.perPage);
+
+            try {
+                const r = await fetch(`/api/samples?${params}`);
+                const data = await r.json();
+                state.samples = data.samples;
+                state.totalPages = data.total_pages;
+
+                // Apply client-side filters (status + comparison)
+                const filtered = getFilteredSamples();
+
+                renderSamples(filtered);
+                updateSampleCount(filtered.length);
+                updateComparisonCounts();
+            } catch (e) { console.error('loadSamples:', e); }
+        }
+
+        function updateComparisonCounts() {
+            // Update comparison filter buttons with counts from current page
+            const all = state.samples || [];
+            const diffCount = all.filter(s => s.same_as_shotbench === false).length;
+            const sameCount = all.length - diffCount;
+
+            const container = document.getElementById('comparisonFilters');
+            if (!container) return;
+            const buttons = container.querySelectorAll('.filter-chip');
+            buttons.forEach(btn => {
+                if (btn.dataset.value === 'different') {
+                    btn.innerHTML = `⚡ Different <span class="count-badge">${diffCount}</span>`;
+                } else if (btn.dataset.value === 'identical') {
+                    btn.innerHTML = `Identical <span class="count-badge">${sameCount}</span>`;
+                } else if (btn.dataset.value === 'all') {
+                    btn.innerHTML = `All <span class="count-badge">${all.length}</span>`;
+                }
+            });
+        }
+
+        async function loadSample(index) {
+            try {
+                const r = await fetch(`/api/sample/${index}`);
+                const data = await r.json();
+                state.currentSample = data;
+                state.currentIndex = index;
+
+                // Load annotation
+                state.annotation = data.annotation || {
+                    shotbench_correct: null,
+                    shotbench_mistake: false,
+                    shotbench_mistake_type: '',
+                    refineshot_correct: null,
+                    refineshot_mistake: false,
+                    refineshot_mistake_type: '',
+                    notes: '',
+                    timestamp: null
+                };
+
+                renderSample();
+                updateSampleSelection();
+            } catch (e) { console.error('loadSample:', e); }
+        }
+
+        async function saveAnnotation() {
+            if (!state.currentIndex) return;
+
+            state.annotation.timestamp = new Date().toISOString();
+
+            // Read notes from textarea
+            const notesEl = document.getElementById('annotationNotes');
+            if (notesEl) state.annotation.notes = notesEl.value;
+
+            try {
+                const r = await fetch(`/api/annotation/${state.currentIndex}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(state.annotation)
+                });
+
+                if (r.ok) {
+                    showToast('Annotation saved ✓', 'success');
+
+                    // Update sample status in list
+                    const sample = state.samples.find(s => s.index === state.currentIndex);
+                    if (sample) {
+                        sample.has_annotation = true;
+                        sample.annotation_status = 'reviewed';
+                        sample.has_mistake = state.annotation.shotbench_mistake || state.annotation.refineshot_mistake;
+                    }
+                    renderSamples(getFilteredSamples());
+                    updateBadges();
+                } else {
+                    showToast('Failed to save', 'error');
+                }
+            } catch (e) {
+                console.error('saveAnnotation:', e);
+                showToast('Error saving annotation', 'error');
+            }
+        }
+
+        // ── Filters ──
+        function setFilter(type, value) {
+            state.filters[type] = value;
+            state.page = 0;
+
+            // Update chip active states
+            const container = document.getElementById(
+                type === 'modality' ? 'modalityFilters' :
+                    type === 'category' ? 'categoryFilters' :
+                        type === 'comparison' ? 'comparisonFilters' : 'statusFilters'
+            );
+            container.querySelectorAll('.filter-chip').forEach(chip => {
+                chip.classList.toggle('active', chip.dataset.value === value);
+            });
+
+            loadSamples();
+        }
+
+        function renderCategoryFilters() {
+            if (!state.info) return;
+            const container = document.getElementById('categoryFilters');
+            const cats = state.info.categories || [];
+
+            // Use server-provided display names, fallback to title case
+            const nameMap = state.info.category_display_names || {};
+            const displayName = (c) => nameMap[c] || c.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+            container.innerHTML = `<button class="filter-chip active" data-value="all" onclick="setFilter('category','all')">All</button>` +
+                cats.map(c => `<button class="filter-chip" data-value="${c}" onclick="setFilter('category','${c}')">${displayName(c)}</button>`).join('');
+        }
+
+        // ── Rendering ──
+        function getFilteredSamples() {
+            let filtered = state.samples;
+            if (state.filters.status === 'pending') filtered = filtered.filter(s => !s.has_annotation);
+            else if (state.filters.status === 'reviewed') filtered = filtered.filter(s => s.has_annotation);
+            else if (state.filters.status === 'mistakes') filtered = filtered.filter(s => s.has_mistake);
+
+            if (state.filters.comparison === 'different') filtered = filtered.filter(s => s.same_as_shotbench === false);
+            else if (state.filters.comparison === 'identical') filtered = filtered.filter(s => s.same_as_shotbench !== false);
+            return filtered;
+        }
+
+        function renderSamples(samples) {
+            const list = document.getElementById('sampleList');
+            if (!samples || samples.length === 0) {
+                list.innerHTML = '<div style="padding:1.5rem; text-align:center; color:var(--text-2); font-size:0.8rem;">No samples match filters</div>';
+                return;
+            }
+
+            // Use server-provided display names, fallback to title case
+            const nameMap = state.info.category_display_names || {};
+            const displayName = (c) => c ? (nameMap[c] || c.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ')) : '';
+
+            list.innerHTML = samples.map(s => {
+                const catName = displayName(s.category);
+                const icon = s.type === 'video' ? '🎬' : '🖼';
+                const diffBadge = s.same_as_shotbench === false
+                    ? '<span class="diff-badge" title="ShotBench ≠ RefineShot">⚡DIFF</span>'
+                    : '';
+                let cls = '';
+                if (s.index === state.currentIndex) cls += ' active';
+                if (s.has_mistake) cls += ' has-mistake';
+                else if (s.has_annotation) cls += ' reviewed';
+
+                return `<div class="sample-item${cls}" onclick="loadSample(${s.index})" data-index="${s.index}">
+            <span class="sample-idx">#${s.index}</span>
+            <span class="sample-cat">${catName} ${diffBadge}</span>
+            <span class="sample-type-icon">${icon}</span>
+        </div>`;
+            }).join('');
+        }
+
+        function updateSampleSelection() {
+            document.querySelectorAll('.sample-item').forEach(el => {
+                el.classList.toggle('active', parseInt(el.dataset.index) === state.currentIndex);
+            });
+        }
+
+        function updateSampleCount(count) {
+            const el = document.getElementById('sampleCount');
+            if (el) el.textContent = `${count} sample${count !== 1 ? 's' : ''}`;
+        }
+
+        function updateBadges() {
+            if (state.info) {
+                document.getElementById('badgeTotal').textContent = `${state.info.shotbench.total} total`;
+                document.getElementById('badgeReviewed').textContent = `${state.info.annotations.total} reviewed`;
+                document.getElementById('badgeMistakes').textContent = `${state.info.annotations.with_mistakes} mistakes`;
+            }
+        }
+
+        function renderSample() {
+            const area = document.getElementById('contentArea');
+            const data = state.currentSample;
+            if (!data) { area.innerHTML = '<div class="empty-state"><h2>No sample selected</h2></div>'; return; }
+
+            const sb = data.shotbench;
+            const rs = data.refineshot;
+            const media = data.media;
+            const ann = state.annotation;
+            const isSame = data.same_as_shotbench;
+
+            // Determine media source - prefer local, fallback to HF
+            const mediaUrl = media.has_local ? media.local_url : media.hf_url;
+            const isVideo = media.modality === 'video';
+
+            // Use server-provided display name, fallback to title case
+            const nameMap = state.info.category_display_names || {};
+            const catDisplay = nameMap[sb.category] || sb.category.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+
+            // Build comparison section depending on whether options differ
+            let comparisonHtml;
+            if (isSame || !rs) {
+                // MERGED VIEW: identical options or no RefineShot data
+                comparisonHtml = `
+            <div class="question-card" style="margin-bottom:1.25rem;">
+                <div class="question-card-header">
+                    <h3 style="color:var(--text-0);">${isSame && rs ? '📘📙 ShotBench & RefineShot (identical)' : '📘 ShotBench'}</h3>
+                    ${isSame && rs ? '<span class="badge" style="background:var(--green-dim); color:var(--green);">Identical</span>' : ''}
+                </div>
+                <div class="question-body">
+                    <div class="question-text">${escapeHtml(sb.question)}</div>
+                    <div class="options-list">
+                        ${renderOptions(sb.options, sb.answer)}
+                    </div>
+                </div>
+            </div>
+        `;
+            } else {
+                // SPLIT VIEW: side-by-side when options differ
+                comparisonHtml = `
+            <div style="margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+                <span style="font-size:0.75rem; color:var(--amber);">⚡ Options differ between ShotBench and RefineShot</span>
+            </div>
+            <div class="comparison-grid">
+                <div class="question-card">
+                    <div class="question-card-header">
+                        <h3 class="shotbench-tag">📘 ShotBench</h3>
+                        <span class="badge" style="background:var(--cyan-dim); color:var(--cyan);">Original</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-text">${escapeHtml(sb.question)}</div>
+                        <div class="options-list">
+                            ${renderOptions(sb.options, sb.answer)}
+                        </div>
+                    </div>
+                </div>
+                <div class="question-card">
+                    <div class="question-card-header">
+                        <h3 class="refineshot-tag">📙 RefineShot</h3>
+                        <span class="badge" style="background:var(--amber-dim); color:var(--amber);">Refined</span>
+                    </div>
+                    <div class="question-body">
+                        <div class="question-text">${escapeHtml(rs.question)}</div>
+                        <div class="options-list">
+                            ${renderOptions(rs.options, rs.answer)}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+            }
+
+            // Build annotation panel — unified when identical, split when different
+            let annotationHtml;
+            if (isSame || !rs) {
+                // UNIFIED annotation: one set of buttons
+                annotationHtml = `
+            <div class="annotation-row">
+                <div class="annotation-label">${isSame && rs ? 'Both Datasets' : 'ShotBench'} — Is the answer correct?</div>
+                <div class="mistake-toggle">
+                    <button class="mistake-btn ${ann.shotbench_correct === true ? 'active-correct' : ''}" 
+                            onclick="setMistakeUnified(true)">✓ Correct</button>
+                    <button class="mistake-btn ${ann.shotbench_correct === false && !ann.shotbench_ambiguous ? 'active-wrong' : ''}" 
+                            onclick="setMistakeUnified(false)">✗ Wrong</button>
+                    <button class="mistake-btn ${ann.shotbench_ambiguous ? 'active-ambiguous' : ''}" 
+                            onclick="setMistakeUnified('ambiguous')">⚠ Ambiguous</button>
+                </div>
+                ${ann.shotbench_correct === false || ann.shotbench_ambiguous ? `
+                    <select class="mistake-type-select" id="sbMistakeType" onchange="setMistakeTypeUnified(this.value)">
+                        <option value="">Select issue type...</option>
+                        <option value="wrong_answer" ${ann.shotbench_mistake_type === 'wrong_answer' ? 'selected' : ''}>Wrong ground truth answer</option>
+                        <option value="bad_options" ${ann.shotbench_mistake_type === 'bad_options' ? 'selected' : ''}>Poorly designed options</option>
+                        <option value="multiple_valid" ${ann.shotbench_mistake_type === 'multiple_valid' ? 'selected' : ''}>Multiple valid answers</option>
+                        <option value="no_valid" ${ann.shotbench_mistake_type === 'no_valid' ? 'selected' : ''}>No valid answer</option>
+                        <option value="unclear_image" ${ann.shotbench_mistake_type === 'unclear_image' ? 'selected' : ''}>Image/video unclear</option>
+                        <option value="other" ${ann.shotbench_mistake_type === 'other' ? 'selected' : ''}>Other</option>
+                    </select>
+                ` : ''}
+            </div>
+        `;
+            } else {
+                // SPLIT annotation: separate buttons for each dataset
+                annotationHtml = `
+            <div class="annotation-row">
+                <div class="annotation-label">📘 ShotBench — Is the answer correct?</div>
+                <div class="mistake-toggle">
+                    <button class="mistake-btn ${ann.shotbench_correct === true ? 'active-correct' : ''}" 
+                            onclick="setMistake('shotbench', true)">✓ Correct</button>
+                    <button class="mistake-btn ${ann.shotbench_correct === false && !ann.shotbench_ambiguous ? 'active-wrong' : ''}" 
+                            onclick="setMistake('shotbench', false)">✗ Wrong</button>
+                    <button class="mistake-btn ${ann.shotbench_ambiguous ? 'active-ambiguous' : ''}" 
+                            onclick="setMistake('shotbench', 'ambiguous')">⚠ Ambiguous</button>
+                </div>
+                ${ann.shotbench_correct === false || ann.shotbench_ambiguous ? `
+                    <select class="mistake-type-select" id="sbMistakeType" onchange="state.annotation.shotbench_mistake_type = this.value">
+                        <option value="">Select issue type...</option>
+                        <option value="wrong_answer" ${ann.shotbench_mistake_type === 'wrong_answer' ? 'selected' : ''}>Wrong ground truth answer</option>
+                        <option value="bad_options" ${ann.shotbench_mistake_type === 'bad_options' ? 'selected' : ''}>Poorly designed options</option>
+                        <option value="multiple_valid" ${ann.shotbench_mistake_type === 'multiple_valid' ? 'selected' : ''}>Multiple valid answers</option>
+                        <option value="no_valid" ${ann.shotbench_mistake_type === 'no_valid' ? 'selected' : ''}>No valid answer</option>
+                        <option value="unclear_image" ${ann.shotbench_mistake_type === 'unclear_image' ? 'selected' : ''}>Image/video unclear</option>
+                        <option value="dimension_mismatch" ${ann.shotbench_mistake_type === 'dimension_mismatch' ? 'selected' : ''}>Options from different dimensions</option>
+                        <option value="other" ${ann.shotbench_mistake_type === 'other' ? 'selected' : ''}>Other</option>
+                    </select>
+                ` : ''}
+            </div>
+            <div class="annotation-row">
+                <div class="annotation-label">📙 RefineShot — Is the answer correct?</div>
+                <div class="mistake-toggle">
+                    <button class="mistake-btn ${ann.refineshot_correct === true ? 'active-correct' : ''}" 
+                            onclick="setMistake('refineshot', true)">✓ Correct</button>
+                    <button class="mistake-btn ${ann.refineshot_correct === false && !ann.refineshot_ambiguous ? 'active-wrong' : ''}" 
+                            onclick="setMistake('refineshot', false)">✗ Wrong</button>
+                    <button class="mistake-btn ${ann.refineshot_ambiguous ? 'active-ambiguous' : ''}" 
+                            onclick="setMistake('refineshot', 'ambiguous')">⚠ Ambiguous</button>
+                </div>
+                ${ann.refineshot_correct === false || ann.refineshot_ambiguous ? `
+                    <select class="mistake-type-select" id="rsMistakeType" onchange="state.annotation.refineshot_mistake_type = this.value">
+                        <option value="">Select issue type...</option>
+                        <option value="wrong_answer" ${ann.refineshot_mistake_type === 'wrong_answer' ? 'selected' : ''}>Wrong ground truth answer</option>
+                        <option value="bad_options" ${ann.refineshot_mistake_type === 'bad_options' ? 'selected' : ''}>Poorly designed options</option>
+                        <option value="multiple_valid" ${ann.refineshot_mistake_type === 'multiple_valid' ? 'selected' : ''}>Multiple valid answers</option>
+                        <option value="no_valid" ${ann.refineshot_mistake_type === 'no_valid' ? 'selected' : ''}>No valid answer</option>
+                        <option value="refinement_issue" ${ann.refineshot_mistake_type === 'refinement_issue' ? 'selected' : ''}>Refinement introduced new issues</option>
+                        <option value="other" ${ann.refineshot_mistake_type === 'other' ? 'selected' : ''}>Other</option>
+                    </select>
+                ` : ''}
+            </div>
+        `;
+            }
+
+            area.innerHTML = `
+        <!-- Media -->
+        <div class="media-section">
+            <div class="media-header">
+                <div class="media-header-title">
+                    ${isVideo ? '🎬' : '🖼'} Sample #${sb.index}
+                    <span class="badge badge-accent">${catDisplay}</span>
+                    <span class="badge" style="background:var(--bg-3); color:var(--text-2);">${sb.type}</span>
+                </div>
+                <a href="${mediaUrl}" target="_blank" style="font-size:0.75rem; color:var(--accent); text-decoration:none;">Open original ↗</a>
+            </div>
+            <div class="media-container">
+                ${isVideo ? `
+                    <video controls preload="metadata" id="videoPlayer">
+                        <source src="${mediaUrl}" type="video/mp4">
+                        Video not supported
+                    </video>
+                ` : `
+                    <img src="${mediaUrl}" alt="Sample ${sb.index}" 
+                         onerror="this.onerror=null; this.src='${media.hf_url}'; this.parentElement.insertAdjacentHTML('afterend', '<div style=\\'padding:0.5rem 1rem; font-size:0.75rem; color:var(--amber);\\'>⚠ Loading from HuggingFace (may be slow)</div>');" />
+                `}
+            </div>
+            <div class="media-meta">
+                <span><strong>Path:</strong> ${media.path}</span>
+                <span><strong>Category:</strong> ${catDisplay}</span>
+                <span><strong>Answer:</strong> ${sb.answer}</span>
+            </div>
+        </div>
+
+        <!-- Questions -->
+        ${comparisonHtml}
+
+        <!-- Annotation Panel -->
+        <div class="annotation-panel">
+            <div class="annotation-header">✏️ Annotation</div>
+            <div class="annotation-body">
+                ${annotationHtml}
+
+                <!-- Notes -->
+                <div class="annotation-row">
+                    <div class="annotation-label">Notes</div>
+                    <textarea class="note-input" id="annotationNotes" 
+                              placeholder="Optional notes about this sample...">${ann.notes || ''}</textarea>
+                </div>
+
+                <!-- Save -->
+                <div class="save-row">
+                    <button class="btn btn-accent" onclick="saveAnnotation()" style="flex:1;">
+                        💾 Save Annotation
+                    </button>
+                    <button class="btn" onclick="saveAndNext()" style="flex:1;">
+                        Save & Next →
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+            // Setup video player
+            const video = document.getElementById('videoPlayer');
+            if (video) {
+                video.load();
+                video.addEventListener('error', () => {
+                    const container = video.parentElement;
+                    container.insertAdjacentHTML('afterend', `
+                <div style="padding:0.75rem 1rem; font-size:0.75rem; color:var(--amber); background:var(--amber-dim); border-top:1px solid var(--border);">
+                    ⚠ Video playback issue. Try <a href="${mediaUrl}" download style="color:var(--accent);">downloading</a> or open in another browser.
+                </div>
+            `);
+                });
+            }
+        }
+
+        function renderOptions(options, correctAnswer) {
+            if (!options) return '<div style="color:var(--text-2);">No options</div>';
+
+            return Object.entries(options).map(([letter, value]) => {
+                const isCorrect = letter === correctAnswer;
+                return `<div class="option-item ${isCorrect ? 'correct-answer' : ''}">
+            <span class="option-letter">${letter}</span>
+            <span class="option-value">${escapeHtml(value)}</span>
+            ${isCorrect ? '<span style="font-size:0.7rem; color:var(--green); font-weight:600;">✓ Answer</span>' : ''}
+        </div>`;
+            }).join('');
+        }
+
+        // ── Annotation Helpers ──
+        function setMistake(dataset, value) {
+            const ann = state.annotation;
+
+            if (value === true) {
+                ann[`${dataset}_correct`] = true;
+                ann[`${dataset}_mistake`] = false;
+                ann[`${dataset}_ambiguous`] = false;
+                ann[`${dataset}_mistake_type`] = '';
+            } else if (value === false) {
+                ann[`${dataset}_correct`] = false;
+                ann[`${dataset}_mistake`] = true;
+                ann[`${dataset}_ambiguous`] = false;
+            } else if (value === 'ambiguous') {
+                ann[`${dataset}_correct`] = null;
+                ann[`${dataset}_mistake`] = true;
+                ann[`${dataset}_ambiguous`] = true;
+            }
+
+            // Re-render to show/hide mistake type dropdown
+            renderSample();
+        }
+
+        // Unified handler: sets BOTH shotbench and refineshot in sync (for identical samples)
+        function setMistakeUnified(value) {
+            setMistake('shotbench', value);
+            // Also sync refineshot state before re-render
+            const ann = state.annotation;
+            ann.refineshot_correct = ann.shotbench_correct;
+            ann.refineshot_mistake = ann.shotbench_mistake;
+            ann.refineshot_ambiguous = ann.shotbench_ambiguous;
+            ann.refineshot_mistake_type = ann.shotbench_mistake_type;
+            renderSample();
+        }
+
+        function setMistakeTypeUnified(value) {
+            state.annotation.shotbench_mistake_type = value;
+            state.annotation.refineshot_mistake_type = value;
+        }
+
+        async function saveAndNext() {
+            await saveAnnotation();
+
+            // Find next sample in list
+            const filtered = getFilteredSamples();
+            const currentListIdx = filtered.findIndex(s => s.index === state.currentIndex);
+            if (currentListIdx >= 0 && currentListIdx < filtered.length - 1) {
+                loadSample(filtered[currentListIdx + 1].index);
+            }
+        }
+
+        // ── Keyboard Navigation ──
+        function setupKeyboardNav() {
+            document.addEventListener('keydown', (e) => {
+                // Don't capture when typing in inputs
+                if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+
+                const filtered = getFilteredSamples();
+                const currentListIdx = filtered.findIndex(s => s.index === state.currentIndex);
+
+                if (e.key === 'ArrowRight' || e.key === 'j') {
+                    if (currentListIdx >= 0 && currentListIdx < filtered.length - 1) {
+                        loadSample(filtered[currentListIdx + 1].index);
+                    }
+                } else if (e.key === 'ArrowLeft' || e.key === 'k') {
+                    if (currentListIdx > 0) {
+                        loadSample(filtered[currentListIdx - 1].index);
+                    }
+                } else if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                    e.preventDefault();
+                    saveAnnotation();
+                }
+            });
+        }
+
+        // ── Stats Modal ──
+        async function showStats() {
+            try {
+                const r = await fetch('/api/stats');
+                const stats = await r.json();
+
+                const overlay = document.createElement('div');
+                overlay.className = 'modal-overlay';
+                overlay.onclick = (e) => { if (e.target === overlay) overlay.remove(); };
+
+                const overall = stats.overall;
+                const byCat = stats.by_category;
+                const byMod = stats.by_modality;
+
+                overlay.innerHTML = `
+            <div class="modal">
+                <h2>📊 Annotation Statistics</h2>
+                
+                <!-- Overall -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">${overall.total_samples}</div>
+                        <div class="stat-label">Total Samples</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value green">${overall.total_reviewed}</div>
+                        <div class="stat-label">Reviewed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value amber">${overall.pending}</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value red">${overall.sb_mistakes}</div>
+                        <div class="stat-label">SB Mistakes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value red">${overall.rs_mistakes}</div>
+                        <div class="stat-label">RS Mistakes</div>
+                    </div>
+                </div>
+
+                <!-- By Modality -->
+                <h3 style="font-size:0.85rem; margin-bottom:0.5rem; color:var(--text-1);">By Modality</h3>
+                <table class="stats-table">
+                    <tr><th>Modality</th><th>Total</th><th>Reviewed</th><th>SB Mistakes</th><th>RS Mistakes</th></tr>
+                    ${Object.entries(byMod).map(([mod, s]) => `
+                        <tr>
+                            <td>${mod === 'image' ? '🖼' : '🎬'} ${mod}</td>
+                            <td>${s.total}</td>
+                            <td>${s.reviewed}</td>
+                            <td style="color:var(--red);">${s.sb_mistakes}</td>
+                            <td style="color:var(--red);">${s.rs_mistakes}</td>
+                        </tr>
+                    `).join('')}
+                </table>
+
+                <!-- By Category -->
+                <h3 style="font-size:0.85rem; margin-bottom:0.5rem; color:var(--text-1);">By Dimension</h3>
+                <table class="stats-table">
+                    <tr><th>Dimension</th><th>Total</th><th>Reviewed</th><th>SB Mistakes</th><th>RS Mistakes</th></tr>
+                    ${Object.entries(byCat).map(([cat, s]) => {
+                    const catName = cat.split(' ').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+                    return `<tr>
+                            <td>${catName}</td>
+                            <td>${s.total}</td>
+                            <td>${s.reviewed}</td>
+                            <td style="color:var(--red);">${s.sb_mistakes}</td>
+                            <td style="color:var(--red);">${s.rs_mistakes}</td>
+                        </tr>`;
+                }).join('')}
+                </table>
+
+                <!-- Mistake Type Breakdown -->
+                ${Object.keys(stats.sb_mistake_types).length > 0 ? `
+                <h3 style="font-size:0.85rem; margin-bottom:0.5rem; color:var(--text-1);">ShotBench Mistake Types</h3>
+                <table class="stats-table">
+                    <tr><th>Type</th><th>Count</th></tr>
+                    ${Object.entries(stats.sb_mistake_types).map(([type, count]) => `
+                        <tr><td>${type}</td><td>${count}</td></tr>
+                    `).join('')}
+                </table>
+                ` : ''}
+
+                <button class="btn" onclick="this.closest('.modal-overlay').remove()" style="width:100%; margin-top:0.5rem;">Close</button>
+            </div>
+        `;
+
+                document.body.appendChild(overlay);
+            } catch (e) {
+                console.error('showStats:', e);
+                showToast('Failed to load stats', 'error');
+            }
+        }
+
+        // ── Export ──
+        async function exportAnnotations() {
+            try {
+                const r = await fetch('/api/stats');
+                const stats = await r.json();
+
+                // Create downloadable JSON
+                const blob = new Blob([JSON.stringify(stats, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `shotbench_annotations_${new Date().toISOString().slice(0, 10)}.json`;
+                a.click();
+                URL.revokeObjectURL(url);
+
+                showToast('Stats exported', 'success');
+            } catch (e) {
+                showToast('Export failed', 'error');
+            }
+        }
+
+        // ── Utils ──
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = String(text);
+            return div.innerHTML;
+        }
+
+        function showToast(msg, type = 'success') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.className = `toast show ${type}`;
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+{
+    "video_id": "cini7qY3YKw_0525_0530.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This video is a scenic, point-of-view shot capturing the experience of entering clear, shallow water. The camera starts at the surface, offering a split view of the sky and the water, before submerging completely. The underwater view reveals a sandy seabed illuminated by shimmering patterns of sunlight.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-13T12:47:06.032345"
+}

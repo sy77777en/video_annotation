@@ -1,0 +1,8 @@
+{
+    "video_id": "Tb03_fw4VmI_1457.5_1503.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery video captures a dramatic view from the surface of dark, choppy water. In the distance, a majestic range of snow-covered mountains stands against a clear twilight sky. The camera bobs in the waves, dipping below the surface to reveal the dark, teal-colored sea before rising again.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-10T20:08:22.136316"
+}

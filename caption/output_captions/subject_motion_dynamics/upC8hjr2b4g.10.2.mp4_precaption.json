@@ -1,0 +1,8 @@
+{
+    "video_id": "upC8hjr2b4g.10.2.mp4",
+    "pre_caption_prompt": "The video is a scenery shot. You do not need to describe the subject motion. Just note that briefly in one to three sentences. ",
+    "pre_caption": "This scenery shot features a slow camera pan that reveals a large, two-story brick building at dusk. The institutional-looking structure sits on a grassy lawn against a solid blue sky. The low-light setting creates a somber and slightly mysterious atmosphere.",
+    "pre_caption_llm": "gemini-2.5-pro",
+    "pre_caption_mode": "Video",
+    "timestamp": "2026-02-10T22:32:40.535978"
+}

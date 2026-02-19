@@ -1713,8 +1713,8 @@ class GoogleSheetExporter:
                         })
                     row_num += 1
             
-            # Execute batch in chunks to avoid rate limits (max ~50 per batch)
-            BATCH_SIZE = 50
+            # Execute batch in chunks to avoid rate limits (max ~10 per batch)
+            BATCH_SIZE = 10
             for i in range(0, len(smart_chip_requests), BATCH_SIZE):
                 batch_chunk = smart_chip_requests[i:i + BATCH_SIZE]
                 try:
@@ -1781,8 +1781,8 @@ class GoogleSheetExporter:
                         })
                     row_num += 1
             
-            # Execute batch in chunks to avoid rate limits (max ~50 per batch)
-            BATCH_SIZE = 50
+            # Execute batch in chunks to avoid rate limits (max ~10 per batch)
+            BATCH_SIZE = 10
             for i in range(0, len(smart_chip_requests), BATCH_SIZE):
                 batch_chunk = smart_chip_requests[i:i + BATCH_SIZE]
                 try:
@@ -2398,11 +2398,23 @@ class GoogleSheetExporter:
             print(f"      Creating new {tab_name} tab...")
             worksheet = self._api_call_with_retry(sheet.add_worksheet, title=tab_name, rows=100, cols=50, 
                                                 operation_name=f"creating {tab_name} worksheet")
+
         except Exception as e:
-            print(f"      Error accessing {tab_name} tab: {e}")
-            print(f"      Creating new {tab_name} tab...")
-            worksheet = self._api_call_with_retry(sheet.add_worksheet, title=tab_name, rows=100, cols=50, 
-                                                operation_name=f"creating {tab_name} worksheet")
+            error_str = str(e).lower()
+            if '429' in str(e) or 'quota' in error_str or 'rate' in error_str:
+                print(f"      ⏳ Rate limit accessing {tab_name} tab, retrying after 10s...")
+                time.sleep(10)
+                worksheet = sheet.worksheet(tab_name)  # retry lookup
+            else:
+                print(f"      Error accessing {tab_name} tab: {e}")
+                print(f"      Creating new {tab_name} tab...")
+                worksheet = self._api_call_with_retry(sheet.add_worksheet, title=tab_name, rows=100, cols=50, 
+                                                    operation_name=f"creating {tab_name} worksheet")
+        # except Exception as e:
+        #     print(f"      Error accessing {tab_name} tab: {e}")
+        #     print(f"      Creating new {tab_name} tab...")
+        #     worksheet = self._api_call_with_retry(sheet.add_worksheet, title=tab_name, rows=100, cols=50, 
+        #                                         operation_name=f"creating {tab_name} worksheet")
         
         # Step 1: Read existing data to preserve manual columns
         existing_data = self._read_existing_manual_data(worksheet, role, include_payment, task_names)
